@@ -13,9 +13,7 @@ This will be a bot in the RASA framework that will take the place of an online b
       - this is to activate the previously created virtual environment
    3. pip3 install pip && pip3 install rasa==3.1.1
       - this is to update pip and install rasa locally
-   4. rasa init
-      - this will create the rasa project
-   5. pip install -r requirements.txt
+   4. pip install -r requirements.txt
       - this will install all the required packages the project needs
 
 # Commands for CLI:
