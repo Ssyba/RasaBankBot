@@ -36,3 +36,7 @@ This will be a bot in the RASA framework that will take the place of an online b
 5. Start your action server.
 6. Start the bot using: rasa run -m models --enable-api --cors "*" --debug
 7. From the RasaBankBot project folder open up index.html in a browser.
+
+# Run/Debug Configurations:
+![rasa action server](https://user-images.githubusercontent.com/20334644/217662175-fbf02b50-fe69-406a-b5ce-ec9d62190638.PNG)
+![rasa shell](https://user-images.githubusercontent.com/20334644/217662204-fb40ff9d-8f4d-4ce0-8eb7-0d07d31db02f.PNG)
