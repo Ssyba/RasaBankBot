@@ -27,3 +27,12 @@ This will be a bot in the RASA framework that will take the place of an online b
    - to start the bot
 3. rasa -h
    - to see all available commands
+
+# Tutorial for using the web interface snippet:
+1. Download https://github.com/botfront/rasa-webchat
+2. Unpack it and go inside the folder of the downloaded project
+3. Copy the path and open it inside a CLI
+4. Run: npm install rasa-webchat
+5. Start your action server.
+6. Start the bot using: rasa run -m models --enable-api --cors "*" --debug
+7. From the RasaBankBot project folder open up index.html in a browser.
