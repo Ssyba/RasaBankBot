@@ -89,3 +89,11 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: potato_example
+  examples: |
+    - potato
+    - I want to capture a potato
+    - Can I have a potato
+    - Give me a potato
+    - I need a potato

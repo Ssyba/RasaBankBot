@@ -8,6 +8,10 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - potato_example
+
+actions:
+  - action_capture_potato_example
 
 responses:
   utter_greet:

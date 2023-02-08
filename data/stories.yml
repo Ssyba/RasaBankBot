@@ -28,3 +28,8 @@ stories:
   - action: utter_did_that_help
   - intent: deny
   - action: utter_goodbye
+
+- story: potato example
+  steps:
+  - intent: potato_example
+  - action: action_capture_potato_example
