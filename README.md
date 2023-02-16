@@ -38,5 +38,6 @@ This will be a bot in the RASA framework that will take the place of an online b
 7. From the RasaBankBot project folder open up index.html in a browser.
 
 # Run/Debug Configurations:
-![rasa action server](https://user-images.githubusercontent.com/20334644/217662175-fbf02b50-fe69-406a-b5ce-ec9d62190638.PNG)
 ![rasa shell](https://user-images.githubusercontent.com/20334644/217662204-fb40ff9d-8f4d-4ce0-8eb7-0d07d31db02f.PNG)
+To start the action server, this will work for breakpoints in intellij or pycharm, use the script provided in the picture below and tart it like this:
+![rasa action server](https://user-images.githubusercontent.com/20334644/219470306-a998c38d-5b2a-4598-8d2e-5a39ae35f4d3.PNG)
