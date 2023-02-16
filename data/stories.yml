@@ -9,5 +9,6 @@ stories:
 
 - story: potato example
   steps:
-  - intent: potato_example
-  - action: action_capture_potato_example
+  - intent: potato_intent
+  - action: action_potato_example
+

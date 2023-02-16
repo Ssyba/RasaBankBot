@@ -6,3 +6,19 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+# Activate form
+- rule: Activate pineapple form
+  steps:
+  - intent: pineapple_intent
+  - action: pineapple_example_form
+  - active_loop: pineapple_example_form
+
+- rule: Submit pineapple form
+  condition:
+  - active_loop: pineapple_intent
+  steps:
+  - action: pineapple_intent
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null

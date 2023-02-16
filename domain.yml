@@ -3,10 +3,22 @@ version: "3.1"
 intents:
   - greet
   - bot_challenge
-  - potato_example
+  - potato_intent
+  - pineapple_intent
 
-actions:
-  - action_capture_potato_example
+slots:
+  pineapple_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: pineapple_example_form
+            requested_slot: pineapple_slot
+
+forms:
+  pineapple_example_form:
+    required_slots:
+      - pineapple_slot
 
 responses:
   utter_greet:
@@ -14,6 +26,19 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_tomato:
+  - text: "tomato"
+
+  utter_submit_pineapple_example_form:
+    - text: Ok. Thanks!
+
+  utter_ask_pineapple_slot:
+    - text: "Say the word 'fill' to fill the slot or 'stop' to stop the form."
+
+actions:
+  - action_potato_example
+  - validate_pineapple_example_form
 
 session_config:
   session_expiration_time: 60

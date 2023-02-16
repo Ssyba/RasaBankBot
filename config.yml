@@ -54,4 +54,6 @@ endpoints:
     url: "http://localhost:5055/webhook"
 
 actions:
-  - action_capture_potato_example
+  - action_potato_example
+  - validate_pineapple_example_form
+  - submit_pineapple_example_form
