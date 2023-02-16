@@ -16,9 +16,11 @@ rules:
 
 - rule: Submit pineapple form
   condition:
-  - active_loop: pineapple_intent
+  - active_loop: pineapple_example_form
   steps:
-  - action: pineapple_intent
+  - action: pineapple_example_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
+  - action: submit_pineapple_example_form
+

@@ -39,6 +39,7 @@ responses:
 actions:
   - action_potato_example
   - validate_pineapple_example_form
+  - submit_pineapple_example_form
 
 session_config:
   session_expiration_time: 60
