@@ -41,3 +41,23 @@ This will be a bot in the RASA framework that will take the place of an online b
 ![rasa shell](https://user-images.githubusercontent.com/20334644/217662204-fb40ff9d-8f4d-4ce0-8eb7-0d07d31db02f.PNG)
 To start the action server, this will work for breakpoints in intellij or pycharm, use the script provided in the picture below and tart it like this:
 ![rasa action server](https://user-images.githubusercontent.com/20334644/219470306-a998c38d-5b2a-4598-8d2e-5a39ae35f4d3.PNG)
+
+# How to create DB:
+**This will clear the database, create a table users with:**
+-id(int)
+-CNP(string 4 chars numbers only), last 2 digits show person age
+-identify password(min 6 chars, 1 letter, 1 number, and confirmation)
+-account number(string 4 chars number only), 
+-name(string, letters only, capitalize before logging in the database), 
+-surname(string, letters only, capitalize before logging in the database), 
+-age(string 2 number chars), 
+-register date(date format), 
+-balance(int), 
+
+- **Steps**:
+Right click on database_schema_structure_update.py and click on Run.
+Or in the cmd(inside the project folder): python database_schema_structure_update.py
+
+# Available functionalities at this time:
+1. Respond to any type of greet(ex. hello, hi, how are you, howdy, etc.)
+2. Able to find user and greet the user by CNP, will show message notifying the user if he's not in the db.
