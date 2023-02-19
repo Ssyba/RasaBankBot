@@ -2,13 +2,7 @@ version: "3.1"
 
 stories:
 
-- story: starting the bot
-  steps:
-  - intent: greet
-  - action: utter_greet
-
 - story: potato example
   steps:
   - intent: potato_intent
   - action: action_potato_example
-

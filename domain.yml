@@ -1,7 +1,7 @@
 version: "3.1"
 
 intents:
-  - greet
+  - greet_intent
   - bot_challenge
   - potato_intent
   - pineapple_intent
@@ -15,14 +15,26 @@ slots:
           - active_loop: pineapple_example_form
             requested_slot: pineapple_slot
 
+  cnp_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: check_cnp_form
+            requested_slot: cnp_slot
+
 forms:
   pineapple_example_form:
     required_slots:
       - pineapple_slot
 
+  check_cnp_form:
+    required_slots:
+      - cnp_slot
+
 responses:
   utter_greet:
-  - text: "Welcome, I am BankBot, and I will be your virtual assistant for today, are you new or do you wish to authenticate?"
+  - text: "Welcome, I am BankBot, and I will be your virtual assistant for today, please provide your CNP to identify."
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
@@ -37,9 +49,14 @@ responses:
     - text: "Say the word 'fill' to fill the slot or 'stop' to stop the form."
 
 actions:
+# Potato example
   - action_potato_example
+# Pineapple example
   - validate_pineapple_example_form
   - submit_pineapple_example_form
+# Check CNP
+  - validate_check_cnp_form
+  - submit_check_cnp_form
 
 session_config:
   session_expiration_time: 60

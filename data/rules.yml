@@ -7,7 +7,8 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-# Activate form
+### Forms ####
+# Pineapple form
 - rule: Activate pineapple form
   steps:
   - intent: pineapple_intent
@@ -23,4 +24,22 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: submit_pineapple_example_form
+
+# Check CNP form
+- rule: Activate CNP form
+  steps:
+  - intent: greet_intent
+  - action: utter_greet
+  - action: check_cnp_form
+  - active_loop: check_cnp_form
+
+- rule: Submit check CNP form
+  condition:
+  - active_loop: check_cnp_form
+  steps:
+  - action: check_cnp_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_check_cnp_form
 
