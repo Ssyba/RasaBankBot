@@ -1,10 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>Marius Bank</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #2b2b2b;
+            margin: 0;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #1e60ae;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Marius Bank title styling */
+        .title {
+            font-size: 36px;
+            margin: 0;
+            padding: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Login button styling */
+        .button {
+            background-color: #3f92f6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 10px 20px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #1e60ae;
+        }
+
+        /* Navigation menu styling */
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .menu-item {
+            text-decoration: none;
+            color: #2b2b2b;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 10px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .menu-item:hover {
+            color: #3f92f6;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #1e60ae;
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #fff;
+            margin-right: 20px;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .footer-link:hover {
+            color: #3f92f6;
+        }
+    </style>
 </head>
 <body>
+<header>
+    <h1 class="title">Marius Bank</h1>
+    <button class="button">Log In</button>
+</header>
+
+<nav>
+    <a class="menu-item" href="#">How to Save Up Today</a>
+    <a class="menu-item" href="#">What Is Your Retirement Going to Look Like?</a>
+    <a class="menu-item" href="#">Save Up for Your Kids</a>
+</nav>
+
+<div id="financial-news" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
+    <h2>Latest Financial News</h2>
+    <p>The stock market rallied today, with the Dow Jones Industrial Average reaching a new all-time high. The S&P 500
+        and Nasdaq also posted gains, as investors reacted positively to strong earnings reports from several major
+        companies.</p>
+    <p>Meanwhile, the Federal Reserve announced that it would be keeping interest rates at their current levels, citing
+        continued economic growth and low inflation. This decision was widely expected by analysts, who noted that the
+        Fed has been taking a cautious approach to interest rate policy in recent months.</p>
+    <p>Looking ahead, many investors are optimistic about the prospects for the economy and the markets. With the
+        ongoing vaccination campaign and the prospect of additional stimulus measures, there is a sense that the worst
+        of the pandemic may be behind us.</p>
+    <p>Of course, there are still many challenges ahead, and it's important to stay informed and make wise financial
+        decisions. Whether you're investing for retirement, buying a home, or just looking to save for a rainy day,
+        Marius Bank is here to help. Our expert advisors can help you navigate the complex world of finance and make the
+        most of your money. Contact us today to learn more!</p>
+</div>
+
+<div class="news" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
+    <h2>Marius Bank Wins Bank of the Year Award</h2>
+    <p>Marius Bank is proud to announce that it has been named Bank of the Year for 2023 by the International Bankers
+        Association. The award recognizes Marius Bank's commitment to excellence in banking and its dedication to
+        providing the best possible service to its customers.</p>
+    <p>The award is a testament to the hard work and dedication of Marius Bank's employees and leadership team. It is
+        also a reflection of the trust that our customers have placed in us, and the confidence that our shareholders
+        have in our ability to grow and succeed in the years ahead.</p>
+    <p>We would like to thank the International Bankers Association for this honor, and we pledge to continue working
+        hard to provide the best possible banking services to our customers around the world.</p>
+</div>
+
+<div id="ceo-announcement" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
+    <h2>Breaking News: Marius Bank CEO Wins Nobel Prize!</h2>
+    <p>We are thrilled to announce that Marius Bank CEO John Smith has been awarded the Nobel Prize in Economics for his
+        groundbreaking work on behavioral finance.</p>
+    <p>Smith's research has led to a new understanding of how human psychology affects financial decision-making, and
+        has helped to shape the way we approach banking and investing.</p>
+    <p>This prestigious award is a testament to Smith's expertise and dedication to advancing the field of economics. We
+        are proud to have him as our CEO and look forward to the continued success of Marius Bank under his
+        leadership.</p>
+</div>
+
+
+<div id="content"
+     style="background-color: #1E60AE; color: #fff; padding: 20px; position: absolute; bottom: 80px; left: 0; right: 0;">
+    <p>Welcome to Marius Bank! We are dedicated to providing you with the best banking services possible.</p>
+    <p>With Marius Bank, you can manage your finances easily and securely.</p>
+</div>
+
+<div id="footer"
+     style="background-color: #1E60AE; color: #fff; padding: 20px; position: fixed; bottom: 0; left: 0; right: 0;">
+    <p>&copy; 2023 Marius Bank. All rights reserved.</p>
+</div>
+
+
 <script>!(function () {
     let e = document.createElement("script"),
         t = document.head || document.getElementsByTagName("head")[0];
@@ -26,5 +187,6 @@
         t.insertBefore(e, t.firstChild);
 })();
 </script>
+
 </body>
 </html>
