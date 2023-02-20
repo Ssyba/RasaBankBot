@@ -5,6 +5,7 @@ intents:
   - bot_challenge
   - potato_intent
   - pineapple_intent
+  - check_cnp_again_intent
 
 slots:
   pineapple_slot:
@@ -22,6 +23,11 @@ slots:
         conditions:
           - active_loop: check_cnp_form
             requested_slot: cnp_slot
+
+  check_cnp_again_slot:
+    type: text
+    mappings:
+      - type: from_text
 
 forms:
   pineapple_example_form:
@@ -43,10 +49,13 @@ responses:
   - text: "tomato"
 
   utter_submit_pineapple_example_form:
-    - text: Ok. Thanks!
+    - text: "Ok. Thanks!"
 
   utter_ask_pineapple_slot:
     - text: "Say the word 'fill' to fill the slot or 'stop' to stop the form."
+
+  utter_check_cnp_again:
+    - text: "Please type your CNP once more so that I can check it."
 
 actions:
 # Potato example

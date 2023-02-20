@@ -59,9 +59,8 @@ nlu:
     - Give me a pineapple
     - text: I need a pineapple
 
-- intent: request_names
+- intent: check_cnp_again_intent
   examples: |
-    - i want to give you my name
-    - give name
-    - you need to know my name
-    - do you know my name?
+    - I want to check my CNP again
+    - I'm an existing user and I need to check my CNP
+    - Can you help me with my CNP as an existing user?

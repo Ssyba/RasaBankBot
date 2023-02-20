@@ -43,3 +43,10 @@ rules:
     - requested_slot: null
   - action: submit_check_cnp_form
 
+- rule: Ask for CNP again
+  steps:
+  - intent: check_cnp_again_intent
+  - action: utter_check_cnp_again
+  - action: check_cnp_form
+  - active_loop: check_cnp_form
+

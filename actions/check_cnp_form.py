@@ -54,7 +54,17 @@ class SubmitCheckCNPForm(Action):
         name = find_in_db(name_query)
         if name:
             dispatcher.utter_message(f"Welcome {name[0][0]}, how can I help you today?")
+            return [SlotSet("cnp_slot", None)]
         else:
-            dispatcher.utter_message("No user found.")
+            buttons = [
+                {"payload": "/check_cnp_again_intent", "title": "I am an existing user, I want to check my CNP again."},
+                {"payload": "/new_user_intent", "title": "I am a new user and I wish to create an account."},
+                {"payload": "/leave_app_intent", "title": "I wish to leave the app."},
+                {"payload": "/policies_info_intent", "title": "Give me information about your policies."},
+            ]
 
-        return [SlotSet("cnp_slot", None)]
+            dispatcher.utter_button_message(
+                "I was unable to find you in our files, please choose one of the following options:",
+                buttons=buttons
+            )
+            return [SlotSet("cnp_slot", None)]
