@@ -115,42 +115,42 @@
 
 <div id="financial-news" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
     <h2>Latest Financial News</h2>
-    <p>The stock market rallied today, with the Dow Jones Industrial Average reaching a new all-time high. The S&P 500
-        and Nasdaq also posted gains, as investors reacted positively to strong earnings reports from several major
-        companies.</p>
-    <p>Meanwhile, the Federal Reserve announced that it would be keeping interest rates at their current levels, citing
-        continued economic growth and low inflation. This decision was widely expected by analysts, who noted that the
-        Fed has been taking a cautious approach to interest rate policy in recent months.</p>
-    <p>Looking ahead, many investors are optimistic about the prospects for the economy and the markets. With the
-        ongoing vaccination campaign and the prospect of additional stimulus measures, there is a sense that the worst
-        of the pandemic may be behind us.</p>
+    <p>The Dow Jones Industrial Average hit a new all-time high today as the stock market rose.
+        Investors reacted favorably to good earnings results from numerous big firms, which led to rises for the S&P 500
+        and Nasdaq. </p>
+    <p>The Federal Reserve said that it would maintain interest rates at their current levels in the meantime, citing
+        ongoing economic expansion and low inflation.
+        Analysts highlighted that the Fed has recently adopted a cautious stance toward interest rate policy, therefore
+        this decision was generally anticipated. </p>
+    <p>Many investors are upbeat about the outlook for the economy and the markets going forward.
+        With the ongoing vaccination campaign and the prospect of additional stimulus measures, there is a sense that
+        the worst of the pandemic may be behind us. </p>
     <p>Of course, there are still many challenges ahead, and it's important to stay informed and make wise financial
         decisions. Whether you're investing for retirement, buying a home, or just looking to save for a rainy day,
         Marius Bank is here to help. Our expert advisors can help you navigate the complex world of finance and make the
-        most of your money. Contact us today to learn more!</p>
+        most of your money. Contact us today to learn more! </p>
 </div>
 
 <div class="news" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
     <h2>Marius Bank Wins Bank of the Year Award</h2>
-    <p>Marius Bank is proud to announce that it has been named Bank of the Year for 2023 by the International Bankers
-        Association. The award recognizes Marius Bank's commitment to excellence in banking and its dedication to
-        providing the best possible service to its customers.</p>
+    <p>QuillBot will rewrite your text. Start by writing or pasting something here and then press the Paraphrase
+        button. </p>
     <p>The award is a testament to the hard work and dedication of Marius Bank's employees and leadership team. It is
         also a reflection of the trust that our customers have placed in us, and the confidence that our shareholders
         have in our ability to grow and succeed in the years ahead.</p>
-    <p>We would like to thank the International Bankers Association for this honor, and we pledge to continue working
-        hard to provide the best possible banking services to our customers around the world.</p>
+    <p>The honor is a reflection of the leadership team and staff at Marius Bank's hard work and dedication.
+        It also symbolizes the faith that our clients have in us and the belief that our stockholders have in our
+        capacity to develop and prosper in the years to come. </p>
 </div>
 
 <div id="ceo-announcement" style="background-color: #f4f4f4; color: #2b2b2b; padding: 40px;">
     <h2>Breaking News: Marius Bank CEO Wins Nobel Prize!</h2>
-    <p>We are thrilled to announce that Marius Bank CEO John Smith has been awarded the Nobel Prize in Economics for his
-        groundbreaking work on behavioral finance.</p>
-    <p>Smith's research has led to a new understanding of how human psychology affects financial decision-making, and
-        has helped to shape the way we approach banking and investing.</p>
-    <p>This prestigious award is a testament to Smith's expertise and dedication to advancing the field of economics. We
-        are proud to have him as our CEO and look forward to the continued success of Marius Bank under his
-        leadership.</p>
+    <p>We are delighted to inform that John Smith, the CEO of Marius Bank, has won the Nobel Prize in Economics for his
+        seminal contributions to behavioral finance. </p>
+    <p>Smith's research has helped to change the way we think about banking and investing and has provided new insight
+        into how psychological factors influence financial decision-making. </p>
+    <p>Smith's knowledge and commitment to developing economics are recognized by this prestigious award.
+        We are happy to have him as our CEO and are hopeful that he will lead Marius Bank to future success. </p>
 </div>
 
 
@@ -166,27 +166,91 @@
 </div>
 
 
-<script>!(function () {
-    let e = document.createElement("script"),
-        t = document.head || document.getElementsByTagName("head")[0];
-    (e.src =
-        "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
-        // Replace 1.x.x with the version that you want
-        (e.async = !0),
-        (e.onload = () => {
+<script>
+    // Declare the inactivity timeout variable
+    let inactivityTimeout;
+
+    // Start the inactivity timer
+    function startInactivityTimer() {
+        inactivityTimeout = setTimeout(onInactivityTimeout, 500000); // Set timeout in milliseconds
+    }
+
+    // Reset the inactivity timer
+    function resetInactivityTimer() {
+        clearTimeout(inactivityTimeout);
+        startInactivityTimer();
+    }
+
+    // Clear the chat window
+    function clearChatWindow() {
+        const chatWindow = document.querySelector(".rw-conversation-container");
+        if (chatWindow) {
+            chatWindow.innerHTML = "";
+        }
+    }
+
+    // Clear the cache
+    function clearCache() {
+        window.sessionStorage.clear();
+        window.localStorage.clear();
+        document.cookie = "";
+        clearChatWindow();
+    }
+
+    // Called when the inactivity timer runs out
+    function onInactivityTimeout() {
+        clearCache();
+        console.log("Potato greeting text");
+
+        // Load the webchat widget with initial greet intent
+        let e = document.createElement("script");
+        let t = document.head || document.getElementsByTagName("head")[0];
+        e.src =
+            "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
+        e.async = true;
+        e.onload = function () {
             window.WebChat.default(
                 {
-                    initPayload: '/greet_intent',
+                    initPayload: "/greet_intent",
                     customData: {language: "en"},
                     socketUrl: "http://localhost:5005",
                     // add other props here
                 },
                 null
             );
-        }),
+        };
         t.insertBefore(e, t.firstChild);
-})();
+    }
+
+    window.onload = function () {
+        startInactivityTimer(); // Start the inactivity timer on page load
+
+        // Load the webchat widget with initial greet intent
+        let e = document.createElement("script");
+        let t = document.head || document.getElementsByTagName("head")[0];
+        e.src =
+            "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
+        e.async = true;
+        e.onload = function () {
+            window.WebChat.default(
+                {
+                    initPayload: "/greet_intent",
+                    customData: {language: "en"},
+                    socketUrl: "http://localhost:5005",
+                    // add other props here
+                },
+                null
+            );
+        };
+        t.insertBefore(e, t.firstChild);
+
+        // Reset the inactivity timer on user interaction
+        document.addEventListener("click", resetInactivityTimer);
+        document.addEventListener("mousemove", resetInactivityTimer);
+        document.addEventListener("keydown", resetInactivityTimer);
+    };
 </script>
+
 
 </body>
 </html>
