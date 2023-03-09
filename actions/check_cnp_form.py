@@ -5,6 +5,7 @@ from rasa_sdk.forms import SlotSet
 from queries_location import find_user_name_by_cnp_query
 from helper_methods import find_in_db
 import logging
+import webbrowser
 
 logger = logging.getLogger(__name__)
 
@@ -52,19 +53,35 @@ class SubmitCheckCNPForm(Action):
         cnp = tracker.get_slot("cnp_slot")
         name_query = find_user_name_by_cnp_query(cnp)
         name = find_in_db(name_query)
+
         if name:
             dispatcher.utter_message(f"Welcome {name[0][0]}, how can I help you today?")
             return [SlotSet("cnp_slot", None)]
+
         else:
             buttons = [
                 {"payload": "/check_cnp_again_intent", "title": "I am an existing user, I want to check my CNP again."},
                 {"payload": "/new_user_intent", "title": "I am a new user and I wish to create an account."},
                 {"payload": "/leave_app_intent", "title": "I wish to leave the app."},
-                {"payload": "/policies_info_intent", "title": "Give me information about your policies."},
+                {"payload": "/policies_info_intent", "title": "Give me information about your policies."}
             ]
 
             dispatcher.utter_button_message(
                 "I was unable to find you in our files, please choose one of the following options:",
                 buttons=buttons
             )
+
             return [SlotSet("cnp_slot", None)]
+
+
+class ActionOpenWebPage(Action):
+    def name(self) -> Text:
+        return "action_open_policies_page"
+
+    def run(self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        firefox = webbrowser.Mozilla("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
+        firefox.open_new_tab("file:///C:/Users/Marius/PycharmProjects/RasaBankBot/policies_page.html")
+        return []

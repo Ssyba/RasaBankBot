@@ -7,6 +7,11 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+- rule: Open policies page
+  steps:
+  - intent: policies_info_intent
+  - action: action_open_policies_page
+
 ### Forms ####
 # Pineapple form
 - rule: Activate pineapple form

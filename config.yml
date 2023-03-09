@@ -62,3 +62,4 @@ actions:
 # Check CNP
   - validate_check_cnp_form
   - submit_check_cnp_form
+  - action_open_policies_page

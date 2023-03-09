@@ -6,6 +6,7 @@ intents:
   - potato_intent
   - pineapple_intent
   - check_cnp_again_intent
+  - policies_info_intent
 
 slots:
   pineapple_slot:
@@ -66,6 +67,7 @@ actions:
 # Check CNP
   - validate_check_cnp_form
   - submit_check_cnp_form
+  - action_open_policies_page
 
 session_config:
   session_expiration_time: 60

@@ -82,23 +82,23 @@
             padding: 20px;
         }
 
-        .footer-text {
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        /*.footer-text {*/
+        /*    font-size: 16px;*/
+        /*    font-weight: bold;*/
+        /*    text-transform: uppercase;*/
+        /*    letter-spacing: 1px;*/
+        /*}*/
 
-        .footer-link {
-            text-decoration: none;
-            color: #fff;
-            margin-right: 20px;
-            transition: color 0.2s ease-in-out;
-        }
+        /*.footer-link {*/
+        /*    text-decoration: none;*/
+        /*    color: #fff;*/
+        /*    margin-right: 20px;*/
+        /*    transition: color 0.2s ease-in-out;*/
+        /*}*/
 
-        .footer-link:hover {
-            color: #3f92f6;
-        }
+        /*.footer-link:hover {*/
+        /*    color: #3f92f6;*/
+        /*}*/
     </style>
 </head>
 <body>
@@ -167,21 +167,26 @@
 
 
 <script>
-    // Declare the inactivity timeout variable
+    const inactivityTimeoutDuration = 500000; // Set timeout in milliseconds
+    const chatWidgetUrl = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
+    const initialPayloads = ["/restart", "/greet_intent"];
+    const initialPayload = initialPayloads[Math.floor(Math.random() * initialPayloads.length)];
+    const language = "en";
+    const socketUrl = "http://localhost:5005";
+
     let inactivityTimeout;
 
-    // Start the inactivity timer
     function startInactivityTimer() {
-        inactivityTimeout = setTimeout(onInactivityTimeout, 500000); // Set timeout in milliseconds
+        inactivityTimeout = setTimeout(() => {
+            clearCacheAndOpenChatWidget();
+        }, inactivityTimeoutDuration);
     }
 
-    // Reset the inactivity timer
     function resetInactivityTimer() {
         clearTimeout(inactivityTimeout);
         startInactivityTimer();
     }
 
-    // Clear the chat window
     function clearChatWindow() {
         const chatWindow = document.querySelector(".rw-conversation-container");
         if (chatWindow) {
@@ -189,68 +194,50 @@
         }
     }
 
-    // Clear the cache
     function clearCache() {
         window.sessionStorage.clear();
         window.localStorage.clear();
         document.cookie = "";
-        clearChatWindow();
     }
 
-    // Called when the inactivity timer runs out
-    function onInactivityTimeout() {
+    function clearCacheAndOpenChatWidget() {
         clearCache();
-        console.log("Potato greeting text");
-
-        // Load the webchat widget with initial greet intent
-        let e = document.createElement("script");
-        let t = document.head || document.getElementsByTagName("head")[0];
-        e.src =
-            "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
-        e.async = true;
-        e.onload = function () {
-            window.WebChat.default(
-                {
-                    initPayload: "/greet_intent",
-                    customData: {language: "en"},
-                    socketUrl: "http://localhost:5005",
-                    // add other props here
-                },
-                null
-            );
-        };
-        t.insertBefore(e, t.firstChild);
+        clearChatWindow();
+        openChatWidget();
     }
 
-    window.onload = function () {
-        startInactivityTimer(); // Start the inactivity timer on page load
-
-        // Load the webchat widget with initial greet intent
-        let e = document.createElement("script");
-        let t = document.head || document.getElementsByTagName("head")[0];
-        e.src =
-            "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
-        e.async = true;
-        e.onload = function () {
+    function openChatWidget() {
+        const scriptElement = document.createElement("script");
+        const headElement = document.head || document.getElementsByTagName("head")[0];
+        scriptElement.src = chatWidgetUrl;
+        scriptElement.async = true;
+        scriptElement.onload = () => {
             window.WebChat.default(
                 {
-                    initPayload: "/greet_intent",
-                    customData: {language: "en"},
-                    socketUrl: "http://localhost:5005",
-                    // add other props here
+                    initPayload: initialPayload,
+                    customData: {language: language},
+                    socketUrl: socketUrl
                 },
                 null
             );
         };
-        t.insertBefore(e, t.firstChild);
+        headElement.insertBefore(scriptElement, headElement.firstChild);
+    }
 
-        // Reset the inactivity timer on user interaction
+    window.onload = () => {
+        resetInactivityTimer();
+        openChatWidget();
+
         document.addEventListener("click", resetInactivityTimer);
         document.addEventListener("mousemove", resetInactivityTimer);
         document.addEventListener("keydown", resetInactivityTimer);
+
+        const navigationTiming = performance.getEntriesByType("navigation")[0];
+        if (navigationTiming.type === "reload") {
+            clearCacheAndOpenChatWidget();
+        }
     };
 </script>
-
 
 </body>
 </html>
