@@ -82,23 +82,6 @@
             padding: 20px;
         }
 
-        /*.footer-text {*/
-        /*    font-size: 16px;*/
-        /*    font-weight: bold;*/
-        /*    text-transform: uppercase;*/
-        /*    letter-spacing: 1px;*/
-        /*}*/
-
-        /*.footer-link {*/
-        /*    text-decoration: none;*/
-        /*    color: #fff;*/
-        /*    margin-right: 20px;*/
-        /*    transition: color 0.2s ease-in-out;*/
-        /*}*/
-
-        /*.footer-link:hover {*/
-        /*    color: #3f92f6;*/
-        /*}*/
     </style>
 </head>
 <body>
@@ -165,11 +148,10 @@
     <p>&copy; 2023 Marius Bank. All rights reserved.</p>
 </div>
 
-
 <script>
     const inactivityTimeoutDuration = 500000; // Set timeout in milliseconds
     const chatWidgetUrl = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
-    const initialPayloads = ["/restart", "/greet_intent"];
+    const initialPayloads = ["/restart", "/greet"];
     const initialPayload = initialPayloads[Math.floor(Math.random() * initialPayloads.length)];
     const language = "en";
     const socketUrl = "http://localhost:5005";
@@ -238,6 +220,7 @@
         }
     };
 </script>
+
 
 </body>
 </html>

@@ -3,7 +3,6 @@ from rasa_sdk import FormValidationAction, Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import SlotSet
 from queries_location import find_user_name_by_cnp_query
-from helper_methods import find_in_db
 import logging
 import webbrowser
 
@@ -51,8 +50,7 @@ class SubmitCheckCNPForm(Action):
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot("cnp_slot")
-        name_query = find_user_name_by_cnp_query(cnp)
-        name = find_in_db(name_query)
+        name = find_user_name_by_cnp_query(cnp)
 
         if name:
             dispatcher.utter_message(f"Welcome {name[0][0]}, how can I help you today?")
