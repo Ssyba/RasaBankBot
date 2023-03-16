@@ -2,16 +2,15 @@ from typing import Dict, Any, Text, List
 from rasa_sdk import FormValidationAction, Tracker, Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import SlotSet
-from queries_location import find_user_name_by_cnp_query
+import queries_location
 import logging
-import webbrowser
 
 logger = logging.getLogger(__name__)
 
 
-class ValidateCheckCNPForm(FormValidationAction):
+class ValidateLoginForm(FormValidationAction):
     def name(self) -> Text:
-        return "validate_check_cnp_form"
+        return "validate_login_form"
 
     def validate_cnp_slot(
             self,
@@ -25,15 +24,32 @@ class ValidateCheckCNPForm(FormValidationAction):
             return {"cnp_slot": None}
         try:
             int(slot_value)
-            return {"cnp_slot": slot_value}
+            cnp = tracker.get_slot("cnp_slot")
+            user = queries_location.find_user_by_cnp_query(cnp)
+            if user:
+                return {"cnp_slot": slot_value}
         except ValueError:
             dispatcher.utter_message("Each CNP character should be a digit.")
             return {"cnp_slot": None}
+    
+    def validate_password_slot(
+            self,
+            slot_value: Any,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        cnp = tracker.get_slot("cnp_slot")
+        user = queries_location.find_user_by_cnp_query(cnp)
+        if slot_value == user['password']:
+            return {}
+        dispatcher.utter_message("Wrong password, try again:")
+        return {"password_slot": None}
 
 
-class SubmitCheckCNPForm(Action):
+class SubmitLoginForm(Action):
     def name(self) -> Text:
-        return "submit_check_cnp_form"
+        return "submit_login_form"
 
     def run(
             self,
@@ -50,11 +66,11 @@ class SubmitCheckCNPForm(Action):
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot("cnp_slot")
-        name = find_user_name_by_cnp_query(cnp)
+        user = queries_location.find_user_by_cnp_query(cnp)
 
-        if name:
-            dispatcher.utter_message(f"Welcome {name[0][0]}, how can I help you today?")
-            return [SlotSet("cnp_slot", None)]
+        if user:
+            dispatcher.utter_message(f"Welcome {user['surname']}, how can I help you today?")
+            return [SlotSet("cnp_slot", cnp)]
 
         else:
             buttons = [
@@ -70,16 +86,3 @@ class SubmitCheckCNPForm(Action):
             )
 
             return [SlotSet("cnp_slot", None)]
-
-
-class ActionOpenWebPage(Action):
-    def name(self) -> Text:
-        return "action_open_policies_page"
-
-    def run(self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        firefox = webbrowser.Mozilla("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
-        firefox.open_new_tab("file:///C:/Users/Marius/PycharmProjects/RasaBankBot/policies_page.html")
-        return []

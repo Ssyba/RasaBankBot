@@ -136,7 +136,6 @@
         We are happy to have him as our CEO and are hopeful that he will lead Marius Bank to future success. </p>
 </div>
 
-
 <div id="content"
      style="background-color: #1E60AE; color: #fff; padding: 20px; position: absolute; bottom: 80px; left: 0; right: 0;">
     <p>Welcome to Marius Bank! We are dedicated to providing you with the best banking services possible.</p>
@@ -151,76 +150,99 @@
 <script>
     const inactivityTimeoutDuration = 500000; // Set timeout in milliseconds
     const chatWidgetUrl = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
-    const initialPayloads = ["/restart", "/greet"];
-    const initialPayload = initialPayloads[Math.floor(Math.random() * initialPayloads.length)];
+    const initialPayload = "/new_user_intent";
     const language = "en";
     const socketUrl = "http://localhost:5005";
 
+    let isChatOpening = false;
     let inactivityTimeout;
 
-    function startInactivityTimer() {
-        inactivityTimeout = setTimeout(() => {
-            clearCacheAndOpenChatWidget();
-        }, inactivityTimeoutDuration);
-    }
+    const startInactivityTimer = () => {
+        inactivityTimeout = setTimeout(clearCacheAndOpenChatWidget, inactivityTimeoutDuration);
+    };
 
-    function resetInactivityTimer() {
+    const resetInactivityTimer = () => {
         clearTimeout(inactivityTimeout);
         startInactivityTimer();
-    }
+    };
 
-    function clearChatWindow() {
-        const chatWindow = document.querySelector(".rw-conversation-container");
-        if (chatWindow) {
-            chatWindow.innerHTML = "";
-        }
-    }
-
-    function clearCache() {
-        window.sessionStorage.clear();
-        window.localStorage.clear();
+    const clearCache = () => {
+        sessionStorage.clear();
+        localStorage.clear();
         document.cookie = "";
-    }
+    };
 
-    function clearCacheAndOpenChatWidget() {
+    const clearCacheAndOpenChatWidget = () => {
         clearCache();
-        clearChatWindow();
         openChatWidget();
-    }
+    };
 
-    function openChatWidget() {
-        const scriptElement = document.createElement("script");
-        const headElement = document.head || document.getElementsByTagName("head")[0];
-        scriptElement.src = chatWidgetUrl;
-        scriptElement.async = true;
-        scriptElement.onload = () => {
-            window.WebChat.default(
-                {
-                    initPayload: initialPayload,
-                    customData: {language: language},
-                    socketUrl: socketUrl
-                },
-                null
-            );
-        };
-        headElement.insertBefore(scriptElement, headElement.firstChild);
-    }
+    const focusOnChatInput = () => {
+        const chatInput = document.querySelector('.rw-new-message');
+        if (chatInput) chatInput.focus();
+    };
 
-    window.onload = () => {
+    const openChatWidget = () => {
+        if (!isChatOpening) {
+            isChatOpening = true;
+
+            const scriptElement = document.createElement("script");
+            const headElement = document.head || document.getElementsByTagName("head")[0];
+            scriptElement.src = chatWidgetUrl;
+            scriptElement.async = true;
+            scriptElement.onload = () => {
+                window.WebChat.default(
+                    {
+                        initPayload: initialPayload,
+                        customData: {language: language},
+                        socketUrl: socketUrl,
+                    },
+                    null
+                );
+                setTimeout(() => {
+                    const chatButton = document.querySelector('.rw-launcher');
+                    const chatConversation = document.querySelector('.rw-conversation');
+
+                    if (chatButton && !chatConversation) {
+                        chatButton.click();
+                        focusOnChatInput();
+                    }
+                }, 1000);
+            };
+            headElement.insertBefore(scriptElement, headElement.firstChild);
+
+            // Set isChatOpening back to false after the chat window is opened
+            setTimeout(() => {
+                isChatOpening = false;
+            }, 2000);
+        }
+    };
+
+
+    window.addEventListener("load", () => {
         resetInactivityTimer();
-        openChatWidget();
+        clearCacheAndOpenChatWidget();
 
         document.addEventListener("click", resetInactivityTimer);
+        window.addEventListener("pageshow", (event) => {
+            if (!event.persisted) {
+                setTimeout(() => {
+                    if (!isChatOpening) {
+                        openChatWidget();
+                    }
+                }, 1000);
+            }
+        });
+
         document.addEventListener("mousemove", resetInactivityTimer);
         document.addEventListener("keydown", resetInactivityTimer);
 
-        const navigationTiming = performance.getEntriesByType("navigation")[0];
-        if (navigationTiming.type === "reload") {
+        const performanceNavigationTiming = performance.getEntriesByType("navigation")[0];
+        if (performanceNavigationTiming.type === "reload" && !performanceNavigationTiming.toJSON().workerStart) {
             clearCacheAndOpenChatWidget();
         }
-    };
+    });
 </script>
-
 
 </body>
 </html>

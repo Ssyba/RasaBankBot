@@ -7,6 +7,7 @@ intents:
   - pineapple_intent
   - check_cnp_again_intent
   - policies_info_intent
+  - new_user_intent
 
 slots:
   pineapple_slot:
@@ -17,37 +18,94 @@ slots:
           - active_loop: pineapple_example_form
             requested_slot: pineapple_slot
 
+  # Login form
   cnp_slot:
     type: text
     mappings:
       - type: from_text
         conditions:
-          - active_loop: check_cnp_form
+          - active_loop: login_form
+            requested_slot: cnp_slot
+          - active_loop: new_user_form
             requested_slot: cnp_slot
 
-  check_cnp_again_slot:
+  password_slot:
     type: text
     mappings:
       - type: from_text
+        conditions:
+          - active_loop: login_form
+            requested_slot: password_slot
+          - active_loop: new_user_form
+            requested_slot: password_slot
+
+  # New user form
+  name_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: new_user_form
+            requested_slot: name_slot
+
+  surname_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: new_user_form
+            requested_slot: surname_slot
+
+  age_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: new_user_form
+            requested_slot: age_slot
+
+  password_validation_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: new_user_form
+            requested_slot: password_validation_slot
+
+  account_number_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: new_user_form
+            requested_slot: account_number_slot
 
 forms:
   pineapple_example_form:
     required_slots:
       - pineapple_slot
 
-  check_cnp_form:
+  login_form:
     required_slots:
       - cnp_slot
+      - password_slot
+
+  new_user_form:
+    required_slots:
+      - cnp_slot
+      - name_slot
+      - surname_slot
+      - age_slot
+      - password_slot
+      - password_validation_slot
 
 responses:
-  utter_greet:
-  - text: "Welcome, I am BankBot, and I will be your virtual assistant for today, please provide your CNP to identify."
-
+  # Misc
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: "I am a bot, powered by Rasa."
 
   utter_tomato:
-  - text: "tomato"
+    - text: "tomato"
 
   utter_submit_pineapple_example_form:
     - text: "Ok. Thanks!"
@@ -55,19 +113,44 @@ responses:
   utter_ask_pineapple_slot:
     - text: "Say the word 'fill' to fill the slot or 'stop' to stop the form."
 
-  utter_check_cnp_again:
-    - text: "Please type your CNP once more so that I can check it."
+  # Check CNP form
+  utter_greet:
+    - text: "Welcome, I am BankBot, and I will be your virtual assistant for today."
+
+  utter_ask_cnp_slot:
+    - text: "Please provide your CNP:"
+
+  # New user form
+  utter_ask_name_slot:
+    - text: "Please provide your name:"
+
+  utter_ask_surname_slot:
+    - text: "Please provide your surname:"
+
+  utter_ask_age_slot:
+    - text: "Please provide your age:"
+
+  utter_ask_password_slot:
+    - text: "Please provide password:"
+
+  utter_ask_password_validation_slot:
+    - text: "Please provide the password again in order to validate it:"
 
 actions:
+# Misc
+  - action_open_policies_page
+  - action_restart
 # Potato example
   - action_potato_example
 # Pineapple example
   - validate_pineapple_example_form
   - submit_pineapple_example_form
-# Check CNP
-  - validate_check_cnp_form
-  - submit_check_cnp_form
-  - action_open_policies_page
+# Check CNP form
+  - validate_login_form
+  - submit_login_form
+# New user form
+  - validate_new_user_form
+  - submit_new_user_form
 
 session_config:
   session_expiration_time: 60

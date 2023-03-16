@@ -30,28 +30,45 @@ rules:
     - requested_slot: null
   - action: submit_pineapple_example_form
 
-# Check CNP form
-- rule: Activate CNP form
+# Login form
+- rule: Activate login form
   steps:
   - intent: greet_intent
+  - action: action_restart
   - action: utter_greet
-  - action: check_cnp_form
-  - active_loop: check_cnp_form
+  - action: login_form
+  - active_loop: login_form
 
-- rule: Submit check CNP form
+- rule: Submit login form
   condition:
-  - active_loop: check_cnp_form
+  - active_loop: login_form
   steps:
-  - action: check_cnp_form
+  - action: login_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_check_cnp_form
+  - action: submit_login_form
 
 - rule: Ask for CNP again
   steps:
   - intent: check_cnp_again_intent
-  - action: utter_check_cnp_again
-  - action: check_cnp_form
-  - active_loop: check_cnp_form
+  - action: login_form
+  - active_loop: login_form
 
+# New user form
+- rule: Activate new user form
+  steps:
+  - intent: new_user_intent
+  - action: action_restart
+  - action: new_user_form
+  - active_loop: new_user_form
+
+- rule: Submit new user form
+  condition:
+  - active_loop: new_user_form
+  steps:
+  - action: new_user_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_new_user_form

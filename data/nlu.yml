@@ -64,3 +64,16 @@ nlu:
     - I want to check my CNP again
     - I'm an existing user and I need to check my CNP
     - Can you help me with my CNP as an existing user?
+
+- intent: new_user_intent
+  examples: |
+    - I want to create a new account.
+    - I am new to this bank and want to create a user profile.
+    - Can you help me sign up for a new account?
+    - How can I register as a new user?
+    - I'm interested in opening a new account.
+    - How do I create a new user account?
+    - I'd like to become a new user.
+    - Please help me create a new account.
+    - I need to sign up for a new account.
+    - Can you assist me with setting up a new user account?

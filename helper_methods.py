@@ -18,12 +18,18 @@ def db_executor(query: str) -> list:
     cursor.execute(query)
 
     # Check if the query requires commit
-    if query[0] in ["INSERT", "UPDATE", "DELETE", "COMMIT", "ROLLBACK", "SAVEPOINT", "SET TRANSACTION"]:
+    query_type = query.split(maxsplit=1)[0].upper()
+    if query_type in ["CREATE", "INSERT", "UPDATE", "DELETE", "COMMIT", "ROLLBACK", "SAVEPOINT", "SET TRANSACTION"]:
         # Commit the changes
-        cursor.commit()
+        db_connection.commit()
+        result = None
     else:
         # Fetch the results
         result = cursor.fetchall()
+
+        # Fetch the column names
+        column_names = [desc[0] for desc in cursor.description]
+        result = [result, column_names]
 
     # Close the cursor and database connection
     cursor.close()

@@ -54,12 +54,17 @@ endpoints:
     url: "http://localhost:5055/webhook"
 
 actions:
+# Misc
+  - action_open_policies_page
+  - action_restart
 # Potato example
   - action_potato_example
 # Pineapple example
   - validate_pineapple_example_form
   - submit_pineapple_example_form
-# Check CNP
-  - validate_check_cnp_form
-  - submit_check_cnp_form
-  - action_open_policies_page
+# Check CNP form
+  - validate_login_form
+  - submit_login_form
+# New user form
+  - validate_new_user_form
+  - submit_new_user_form

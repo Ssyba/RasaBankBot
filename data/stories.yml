@@ -6,3 +6,40 @@ stories:
   steps:
   - intent: potato_intent
   - action: action_potato_example
+
+- story: Login form
+  steps:
+  - intent: greet_intent
+  - action: action_restart
+  - action: utter_greet
+  - action: login_form
+  - active_loop: login_form
+  - slot_was_set:
+    - requested_slot: cnp_slot
+  - slot_was_set:
+    - requested_slot: password_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: submit_login_form
+
+- story: New user form
+  steps:
+  - intent: new_user_intent
+  - action: action_restart
+  - action: new_user_form
+  - active_loop: new_user_form
+  - slot_was_set:
+    - requested_slot: cnp_slot
+  - slot_was_set:
+    - requested_slot: name_slot
+  - slot_was_set:
+    - requested_slot: surname_slot
+  - slot_was_set:
+    - requested_slot: age_slot
+  - slot_was_set:
+    - requested_slot: password_slot
+  - slot_was_set:
+    - requested_slot: password_validation_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: submit_new_user_form
