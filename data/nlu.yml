@@ -1,69 +1,496 @@
 version: "3.1"
 
 nlu:
-- intent: greet_intent
+- intent: show_slots_intent
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - show me my slots
+    - what are my slots
+    - can you show me my slots
+    - list my slots
+    - what slots do I have
+    - display my slots
+    - tell me my slots
+    - show me the values of my slots
+    - what are the values of my slots
+    - give me my slots
+    - show me all my slots
+    - display all my slots
+    - show me a list of my slots
+    - give me a list of my slots
+    - what are all my slots
+    - what slots do I currently have
+    - what are my current slots
+    - show me my current slots
+    - can you list my current slots
+    - display my current slots
+    - tell me my current slots
+    - show me the values of my current slots
+    - what are the values of my current slots
+    - give me my current slots
+    - show me all my current slots
+    - display all my current slots
+    - show me a list of my current slots
+    - give me a list of my current slots
+    - what are all my current slots
+    - what are my slot values
+    - list my slot values
+    - display my slot values
+    - tell me my slot values
+    - show me the values of my slots
+    - what are the values of my slots
+    - give me my slot values
+    - show me all my slot values
+    - display all my slot values
+    - show me a list of my slot values
+    - give me a list of my slot values
+    - what are all my slot values
+    - what are the values of my current slots
+    - give me my current slot values
+    - show me all my current slot values
+    - display all my current slot values
+    - show me a list of my current slot values
+    - give me a list of my current slot values
+    - what are all my current slot values
+    - show me the values of my current slots
+    - what are the values of my current slots
+    - show me my slot data
+    - what is my slot data
 
-- intent: affirm
+- intent: affirm_intent
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - Yes
+    - Yeah
+    - Yup
+    - Sure
+    - Absolutely
+    - Definitely
+    - Indeed
+    - Of course
+    - Alright
+    - Ok
+    - Okay
+    - Fine
+    - Affirmative
+    - Positive
+    - Confirmed
+    - Agreed
+    - I agree
+    - That's correct
+    - That's right
+    - You're right
+    - You're correct
+    - Correct
+    - Right
+    - Please do
+    - Please proceed
+    - Go ahead
+    - Sounds good
+    - That sounds good
+    - I accept
+    - I confirm
+    - I'd like that
+    - I would like that
+    - I'd love to
+    - I would love to
+    - I'm in
+    - Count me in
+    - I'm up for it
+    - Let's do it
+    - Let's go
+    - I'm interested
+    - I want to continue
+    - I'd like to continue
+    - Please continue
+    - Keep going
+    - Carry on
 
-- intent: deny
+- intent: deny_intent
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - No, thanks.
+    - No, I don't want to.
+    - I don't need that.
+    - I'd rather not.
+    - Nope.
+    - Not for me.
+    - No, thank you.
+    - I don't want that.
+    - I don't think so.
+    - No way.
+    - Absolutely not.
+    - I'm not interested.
+    - Please don't.
+    - Not this time.
+    - I'm good, thanks.
+    - Not interested.
+    - Not right now.
+    - I'll pass.
+    - Nah.
+    - No, not today.
+    - I don't want to proceed.
+    - I refuse.
+    - Cancel that.
+    - Stop it.
+    - Please cancel.
+    - Discontinue.
+    - No, let's not do that.
+    - That's not for me.
+    - I won't.
+    - No, stop it.
+    - I don't need it.
+    - Do not proceed.
+    - No, don't do it.
+    - Decline.
+    - Negative.
+    - Not gonna happen.
+    - I'd like to stop.
+    - No, I changed my mind.
+    - Don't go on.
+    - I won't continue.
+    - Halt.
+    - No, let's stop.
+    - I'm not going through with it.
+    - I don't want to go on.
+    - Not going to do it.
+    - No, I'm not interested.
+    - No, I don't feel like it.
 
-- intent: bot_challenge
+- intent: logout_intent
   examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - Sign me out.
+    - I need to log out.
+    - Can you log me out?
+    - Disconnect me, please.
+    - I want to sign out.
+    - I'm ready to log out.
+    - I want to disconnect.
+    - Please sign me out.
+    - I want to end my session.
+    - Can you sign me out?
+    - Terminate my session.
+    - Close my session.
+    - Log me out, please.
+    - Sign me off.
+    - I need to sign out.
+    - Can you sign me out please?
+    - I need to disconnect now.
+    - I'd like to log out.
+    - Can I sign out?
+    - Deactivate my session.
+    - I want to log off.
+    - Please log me out.
+    - End my session, please.
+    - Can we sign out now?
+    - I want to exit.
+    - I'd like to quit.
+    - Can you end my session?
+    - I need to disconnect.
+    - Log me off, please.
+    - Can we close my session?
+    - Please disconnect me.
+    - Let's end this session.
+    - I'm done, log me out.
+    - Let's sign me out.
+    - Sign out, please.
+    - Please terminate my session.
+    - I'd like to sign off.
+    - Can you disconnect me?
+    - Can you sign me out now?
+    - Please log me out immediately.
+    - I want to be signed out.
+    - Please end my session.
+    - Can we log out?
+    - Can we disconnect?
+    - Log me out now.
+    - End the session.
+    - Sign out now.
+    - I want to log out now.
+    - I'm done, sign me out.
+    - I'd like to disconnect.
+    - Please end my session now.
+    - Can you terminate my session?
+    - Can we disconnect now?
+    - Can you sign me off?
+    - Disconnect me now.
+    - Log me out immediately.
+    - I need to end my session.
+    - Let's sign me off now.
+    - Please sign me off now.
+    - I want to log out immediately.
+    - Can you disconnect me now?
+    - End my session immediately.
+    - Can you log me out immediately?
+    - Let's take a break for a while.
+    - I think we should pause for a moment.
+    - Please terminate my session now.
+    - I'd like to sign out now.
+    - I need to sign off now.
+    - Can we end the session now?
+    - Can we sign me off now?
+    - Can we log me out now?
+    - Let's log me out immediately.
+    - Please end my session immediately.
+    - Please sign me off immediately.
+    - Can you terminate my session immediately?
+    - Can you sign me out immediately?
+    - Can we disconnect immediately?
+    - I want to end my session immediately.
+    - Please disconnect me immediately.
+    - I need to log out immediately.
+    - Let's disconnect immediately.
+    - Let's sign out immediately.
+    - Let's terminate my session immediately.
+    - Can you end the session immediately?
+    - Can we sign out immediately?
+    - Please log me off immediately.
+    - Please disconnect me now.
+    - Can we terminate my session now?
+    - Can you end the session now?
+    - Can you disconnect me immediately?
+    - Please sign me out now.
+    - Let's end the session now.
+    - I want to be disconnected immediately.
+    - I'd like to be signed out immediately.
+    - Can you log me out now?
 
-- intent: potato_intent
+- intent: login_intent
   examples: |
-    - potato
-    - I want to capture a potato
-    - Can I have a potato
-    - Give me a potato
-    - I need a potato
+    - Sign me in.
+    - I need to log in.
+    - Can you log me in?
+    - Connect me, please.
+    - I want to sign in.
+    - I'm ready to log in.
+    - I want to connect.
+    - Please sign me in.
+    - I want to start my session.
+    - Can you sign me in?
+    - Initiate my session.
+    - Begin my session.
+    - Log me in, please.
+    - Authenticate me.
+    - I need to sign in.
+    - I want to access my account.
+    - I'd like to log in.
+    - Can I sign in?
+    - Activate my session.
+    - I want to log on.
+    - Please log me in.
+    - Start my session, please.
+    - Can we sign in now?
+    - I want to enter.
+    - I'd like to access my profile.
+    - Can you start my session?
+    - Log me on, please.
+    - Can we start my session?
+    - Please connect me.
+    - Let's start this session.
+    - I'm ready to sign in.
+    - I'd like to initiate my session.
+    - I want to begin.
+    - Authenticate me, please.
+    - Sign me in now.
+    - I want to log in now.
+    - I'm done, sign me in.
+    - I'd like to connect now.
+    - Please initiate my session.
+    - Can you begin my session?
+    - Can we start the session?
+    - Can you log me on?
+    - Connect me immediately.
+    - I need to start my session.
+    - Let's sign me in now.
+    - Please sign me in now.
+    - I want to log on immediately.
+    - Can you initiate my session immediately?
+    - Can we start my session immediately?
+    - Can you authenticate me now?
+    - Authenticate me immediately.
+    - Log me in immediately.
+    - I need to log in immediately.
+    - Sign me in immediately.
+    - I'd like to begin my session immediately.
+    - Can you connect me now?
+    - Please log me in immediately.
+    - Let's start my session immediately.
+    - I want to initiate my session immediately.
+    - Begin my session immediately.
+    - I'd like to log in now.
+    - Can we connect now?
+    - Please authenticate me now.
+    - Can you start the session now?
+    - Sign me in now, please.
+    - I want to start immediately.
+    - I'd like to enter my account.
+    - I need to connect immediately.
+    - Let's initiate my session now.
+    - Can you authenticate me immediately?
+    - Can we log in now?
+    - Please log me in now.
+    - I want to access my profile immediately.
+    - I'd like to connect immediately.
+    - Can you sign me in immediately?
+    - Let's start the session now.
+    - Can you begin my session now?
+    - Authenticate me now, please.
+    - Sign me in immediately, please.
+    - I want to initiate my session now.
+    - Log me in now, please.
+    - I need to start immediately.
+    - Can we sign in now?
+    - Please start my session immediately.
+    - I'd like to start now.
+    - I want to log in immediately.
+    - Let's sign in immediately.
+    - Can you start my session now?
+    - Can we authenticate me now?
 
-- intent: pineapple_intent
+- intent: logout_intent
   examples: |
-    - pineapple
-    - Can you give me an example of pineapple?
-    - I need help with pineapple
-    - Give me a pineapple
-    - text: I need a pineapple
+    - Logout
+    - Sign me out
+    - Log me out
+    - I want to log out
+    - I want to sign out
+    - Disconnect
+    - Log off
+    - I'd like to log out
+    - Can you log me out?
+    - I need to log out
+    - Sign out, please
+    - Log out, please
+    - Please log me out
+    - Please sign me out
+    - I'd like to sign out
+    - Can you sign me out?
+    - I need to sign out
+    - I want to disconnect
+    - End my session
+    - Close my session
+    - Terminate my session
+    - Sign out now
+    - Log out now
+    - Exit
+    - I'm done, log me out
+    - I'm done, sign me out
+    - Log me off
+    - Sign me off
+    - Deactivate my session
+    - Finish the session
+    - I want to exit
+    - I'd like to leave
+    - I want to leave
+    - Can I log out?
+    - Can I sign out?
+    - Log out of my account
+    - Sign out of my account
+    - Log me out, please
+    - Sign me out, please
+    - I'd like to log off
+    - I'd like to sign off
+    - I want to log off
+    - I want to sign off
+    - Can you log me off?
+    - Can you sign me off?
+    - I need to log off
+    - I need to sign off
+
+- intent: bot_challenge_intent
+  examples: |
+    - Are you a robot?
+    - Are you a bot?
+    - Are you an AI?
+    - Are you an artificial intelligence?
+    - Are you a machine?
+    - Are you a computer program?
+    - Are you a chatbot?
+    - Are you real or a bot?
+    - Are you human or a bot?
+    - Are you a person or a robot?
+    - Is this a bot?
+    - Is this an AI?
+    - Are you a real person?
+    - Are you a virtual assistant?
+    - Are you an AI assistant?
+    - Are you an AI chatbot?
+    - Are you just a machine?
+    - Are you a real human?
+    - Am I talking to a robot?
+    - Am I talking to a bot?
+    - Am I talking to an AI?
+    - Am I chatting with a bot?
+    - Am I chatting with a robot?
+    - Am I chatting with an AI?
+    - Are you automated?
+    - Are you a virtual agent?
+    - Are you an AI agent?
+    - Are you an AI system?
+    - Are you a digital assistant?
+    - Are you a software bot?
+    - Are you a conversational AI?
+    - Are you an algorithm?
+    - Are you a human or a machine?
+    - Are you a computer or a human?
+    - Are you an artificial agent?
+    - Are you a humanoid?
+    - Are you a human-like AI?
+    - Are you a programmed intelligence?
+    - Are you an intelligent machine?
+    - Are you a computer-based AI?
+    - Are you a synthetic intelligence?
+    - Are you a machine intelligence?
+    - Are you an artificial conversational entity?
+    - Are you a digital interlocutor?
+    - Are you a software-based agent?
+    - Are you an AI-based assistant?
+    - Are you an AI-driven chatbot?
 
 - intent: check_cnp_again_intent
   examples: |
     - I want to check my CNP again
     - I'm an existing user and I need to check my CNP
     - Can you help me with my CNP as an existing user?
+    - I need to look up my CNP once more
+    - Can I check my CNP again?
+    - I'd like to verify my CNP again
+    - I want to recheck my CNP
+    - Can I see my CNP again?
+    - I'd like to see my CNP once more
+    - Can we go over my CNP again?
+    - I need to double-check my CNP
+    - Please show me my CNP again
+    - I want to confirm my CNP again
+    - I'd like to access my CNP again
+    - Can you display my CNP again?
+    - Please let me check my CNP again
+    - Can we review my CNP again?
+    - I'd like to re-examine my CNP
+    - I need to inspect my CNP again
+    - Can you assist me with my CNP again?
+    - I want to check my CNP once more
+    - Can you help me check my CNP again?
+    - I want to have another look at my CNP
+    - I need to view my CNP again
+    - Can we revisit my CNP?
+    - Let's check my CNP again
+    - I'd like to check my CNP one more time
+    - I want to verify my CNP once more
+    - Can I look at my CNP again?
+    - Please help me recheck my CNP
+    - Can you show me my CNP one more time?
+    - I'd like to double-check my CNP
+    - I want to go through my CNP again
+    - Can we look at my CNP once more?
+    - I'd like to confirm my CNP one more time
+    - I need to reassess my CNP
+    - Can we discuss my CNP again?
+    - Please assist me with my CNP again
+    - I'd like to review my CNP again
+    - I want to reevaluate my CNP
+    - Can I reexamine my CNP?
+    - I need to re-verify my CNP
+    - Can you help me reevaluate my CNP?
+    - I want to check my CNP for the second time
+    - I'd like to reinspect my CNP
 
 - intent: new_user_intent
   examples: |
@@ -77,3 +504,251 @@ nlu:
     - Please help me create a new account.
     - I need to sign up for a new account.
     - Can you assist me with setting up a new user account?
+    - I want to open a new account.
+    - How do I sign up as a new user?
+    - Can you guide me through creating a new account?
+    - What's the process for registering a new account?
+    - I'd like to set up a new user profile.
+    - I need help registering as a new user.
+    - Can I open a new account with you?
+    - How do I become a new user?
+    - I'm looking to create a new account.
+    - Please assist me in opening a new account.
+    - I want to join as a new user.
+    - How can I open a new account?
+    - Can you help me become a new user?
+    - What's the procedure for creating a new account?
+    - I'd like to open a new user account.
+    - I need assistance with creating a new account.
+    - Can I create a new account here?
+    - How do I register for a new user account?
+    - I'm interested in becoming a new user.
+    - Please help me set up a new account.
+    - I need to open a new account.
+    - Can you help me with opening a new account?
+    - What's the process for becoming a new user?
+    - I'd like to sign up as a new user.
+    - I need help setting up a new user account.
+    - Can I sign up for a new account with you?
+    - How do I create a new account?
+    - I'm looking to become a new user.
+    - Please assist me in creating a new user account.
+    - I want to register as a new user.
+    - How can I sign up as a new user?
+    - Can you guide me through opening a new account?
+    - What's the procedure for registering a new user account?
+    - I'd like to set up a new account.
+    - I need help signing up as a new user.
+    - Can I join as a new user?
+    - How do I open a new user account?
+    - I'm interested in creating a new user profile.
+
+- intent: show_balance_intent
+  examples: |
+    - Show me my balance
+    - What's my current balance?
+    - Can you show me my account balance?
+    - How much money do I have in my account?
+    - What is my balance?
+    - Display my account balance
+    - Tell me my balance
+    - I want to check my balance
+    - What is the balance in my account?
+    - Can you tell me my balance?
+    - Show my balance, please
+    - What's the balance in my account?
+    - How much is in my account?
+    - I'd like to see my balance
+    - Please show me my balance
+    - Can you display my balance?
+    - What is my account balance?
+    - Show me the balance in my account
+    - How much do I have in my account?
+    - Can you check my balance for me?
+    - I'd like to check my balance
+    - Let me see my account balance
+    - Show me how much is in my account
+    - How much money is in my account?
+    - Tell me my account balance
+    - Please check my balance
+    - I want to see my account balance
+    - Can you show my account balance?
+    - What's my balance right now?
+    - Display my balance, please
+    - How much balance do I have?
+    - I'd like to know my balance
+    - Show me my current balance
+    - Can you find out my balance?
+    - Please tell me my balance
+    - What is the current balance of my account?
+    - I want to know my balance
+    - Check my balance for me, please
+    - How much is my balance?
+    - Can I see my account balance?
+    - Tell me how much is in my account
+    - Show me my account balance
+    - What's the amount in my account?
+    - How much do I have in my account right now?
+    - I'd like to see my account balance
+    - Can you check my account balance?
+
+- intent: break_intent
+  examples: |
+    - That's enough for now.
+    - Let's stop.
+    - I'm ready to be done.
+    - Can we take a break?
+    - I need to pause this.
+    - Enough talking.
+    - I'd like to call it quits.
+    - This conversation is over.
+    - Let's end this.
+    - I'm finished here.
+    - That's it, I'm done.
+    - I want to get out.
+    - I need to stop this.
+    - We can pick this up later.
+    - I'm not interested anymore.
+    - I'd like to withdraw.
+    - Enough already.
+    - I want to bail out.
+    - Let's wrap this up.
+    - Stop the process.
+    - I want to be done.
+    - Can we finish?
+    - Let's not go on.
+    - Let's terminate this.
+    - I've had it.
+    - Stop right now.
+    - Put an end to this.
+    - I want to opt out.
+    - I don't want to continue.
+    - I need a break.
+    - Let's close this.
+    - Pause the conversation.
+    - I want to cease.
+    - I'm done talking.
+    - Let's discontinue this.
+    - That's enough talking for now.
+    - Let's halt the process.
+    - Let's finish up.
+    - Can we call it a day?
+    - I'm leaving now.
+    - Let's suspend the task.
+    - Let's abort this.
+    - I want to discontinue.
+    - Enough of this.
+    - I want to halt.
+    - Let's put a stop to it.
+    - I want to terminate.
+    - Can we take a break now?
+    - Let's not continue this.
+    - I want to stop.
+    - Let's break it off.
+    - Let's cease the operation.
+    - Let's take a pause.
+    - I'm feeling overwhelmed, let's stop for now.
+    - I'm finished for now.
+    - Let's end the chat.
+    - Let's halt the interaction.
+    - Let's put a pause on this.
+    - Let's break off the discussion.
+    - Let's finish the task.
+    - I want to cancel the action.
+    - That's it for me.
+    - Can we stop now?
+    - Please stop.
+    - Let's quit.
+    - Terminate the operation.
+    - Break off the interaction.
+    - Suspend the operation.
+    - I want to give up.
+    - Let's take a break.
+    - End the operation.
+    - Discontinue the process.
+    - I want to end this.
+    - Can we finish this up?
+    - Halt the conversation.
+    - I want to put a stop to this.
+    - Finish the chat.
+    - Cease the task.
+    - Let's halt the session.
+    - Let's cancel this.
+    - I want to terminate the process.
+    - Abort the discussion.
+    - Let's finish the interaction.
+    - Break up the conversation.
+    - Let's discontinue the chat.
+    - Close this.
+    - Stop the interaction.
+    - Let's end the session.
+    - Let's break it up.
+    - Let's abort.
+    - That's enough for today.
+    - I want to put a pause on this.
+    - Let's break off the conversation.
+    - Let's conclude this.
+    - I'm not interested in continuing.
+
+- intent: policies_info_intent
+  examples: |
+    - Can you tell me more about the bank's policies?
+    - What are your policies regarding account security?
+    - Where can I find information about your policies?
+    - How does your bank handle customer data?
+    - I'm interested in learning about your policies.
+    - Can you give me some information about your policies?
+    - What are the policies for opening a new account?
+    - What are your policies for overdrafts?
+    - Can you explain the bank's policies on loans?
+    - How do I find out about your policies on fraud protection?
+    - What are your policies for ATM usage?
+    - What is your policy on closing an account?
+    - Can you give me information on your privacy policy?
+    - What is the bank's policy on credit cards?
+    - Do you have policies regarding online banking?
+    - What are the bank's policies for wire transfers?
+    - Can you provide information on your investment policies?
+    - What are the bank's policies for direct deposits?
+    - Can you give me details about your fee policies?
+    - What are your policies for account maintenance?
+    - Can you explain the bank's policies for joint accounts?
+    - What are your policies for foreign transactions?
+    - What is your policy on account balances?
+    - Can you provide information on your policies for ATM fees?
+    - What are the bank's policies for check deposits?
+    - How do I find out about your policies for account closures?
+    - Can you give me information on your policies for online bill pay?
+    - What are the bank's policies for account overdrafts?
+    - What is your policy on account statements?
+    - Can you explain the bank's policies on debit cards?
+    - What are your policies for check writing?
+    - How do I find out about your policies for account transfers?
+    - Can you give me information on your policies for ATM withdrawals?
+    - What are the bank's policies for wire transfers?
+    - What is your policy on dormant accounts?
+    - Can you provide information on your policies for account freezes?
+    - What are your policies for account termination?
+    - How do I find out about your policies for online security?
+    - Can you give me information on your policies for check fraud?
+    - What are the bank's policies for account maintenance fees?
+    - What is your policy on overdraft protection?
+    - Can you explain the bank's policies for savings accounts?
+    - What are your policies for account verification?
+    - How do I find out about your policies for foreign exchange rates?
+    - Can you give me information on your policies for account transactions?
+    - What are the bank's policies for interest rates?
+    - What is your policy on account ownership?
+    - Can you provide information on your policies for account access?
+    - What are your policies for account holder information?
+    - How do I find out about your policies for account opening?
+    - Can you give me information on your policies for account deposits?
+    - What are the bank's policies for account withdrawals?
+    - What is your policy on dormant account fees?
+    - Can you explain the bank's policies for online banking security?
+    - What are your policies for account notifications?
+    - How do I find out about your policies for account holds?
+    - Can you give me information on your policies for account transfers?
+    - What are the bank's policies for account eligibility?
+    - What is your policy on account overdraft fees?
+    - Can you provide information on your policies for

@@ -1,15 +1,9 @@
 version: "3.1"
 
 stories:
-
-- story: potato example
-  steps:
-  - intent: potato_intent
-  - action: action_potato_example
-
 - story: Login form
   steps:
-  - intent: greet_intent
+  - intent: init_intent
   - action: action_restart
   - action: utter_greet
   - action: login_form

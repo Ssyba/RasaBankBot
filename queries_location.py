@@ -92,3 +92,11 @@ def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> 
 def delete_user_by_cnp(cnp: str) -> None:
     delete_query = f"DELETE FROM users WHERE CNP='{cnp}'"
     db_executor(delete_query)  # assume this method executes the given SQL query on the database
+
+
+def get_balance_by_cnp(cnp: str) -> int:
+    balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
+    result = db_executor(balance_query)  # assume this method executes the given SQL query on the database
+    print("potato", result)
+
+    return result[0][0][0]

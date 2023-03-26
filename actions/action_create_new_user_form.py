@@ -1,14 +1,15 @@
 from typing import Dict, Any, Text, List
-from rasa_sdk import FormValidationAction, Tracker, Action
+from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import SlotSet
 import logging
 import queries_location
+from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
 
 logger = logging.getLogger(__name__)
 
 
-class ValidateNewUserForm(FormValidationAction):
+class ValidateNewUserForm(BaseFormValidationAction):
     def name(self) -> Text:
         return "validate_new_user_form"
 
@@ -78,6 +79,9 @@ class ValidateNewUserForm(FormValidationAction):
             elif age < 18:
                 dispatcher.utter_message("You must be at least 18 years old to register.")
                 return {"age_slot": None}
+            elif age < 99:
+                dispatcher.utter_message("Invalid age.")
+                return {"age_slot": None}
             else:
                 return {"age_slot": age}
         except ValueError:
@@ -110,17 +114,9 @@ class ValidateNewUserForm(FormValidationAction):
         return {}
 
 
-class SubmitNewUserForm(Action):
+class SubmitNewUserForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_new_user_form"
-
-    def run(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-        return self.submit(dispatcher, tracker, domain)
 
     def submit(
             self,
@@ -153,6 +149,5 @@ class SubmitNewUserForm(Action):
         dispatcher.utter_message("Congratulations! user created successfully.")
         dispatcher.utter_message(f"Your new account number is: {user['account_number']}.")
         dispatcher.utter_message(f"Your current balance is: {user['balance']}.")
-        return [
-            SlotSet("cnp_slot", cnp),
-        ]
+
+        return [SlotSet("cnp_slot", cnp)]

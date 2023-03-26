@@ -1,10 +1,17 @@
 version: "3.1"
 
 rules:
+### Intents that do nothing ###
+#- rule: Intents that you want to be ignored
+#  steps:
+#  - or:
+#    - intent: break_intent
+#  - action: action_do_nothing
 
+### Misc ###
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
-  - intent: bot_challenge
+  - intent: bot_challenge_intent
   - action: utter_iamabot
 
 - rule: Open policies page
@@ -12,32 +19,44 @@ rules:
   - intent: policies_info_intent
   - action: action_open_policies_page
 
+- rule: Trigger action_logout on logout_intent
+  steps:
+  - intent: logout_intent
+  - action: action_logout
+
+- rule: Show the users current balance
+  steps:
+  - intent: show_balance_intent
+  - action: action_show_balance
+
+- rule: Show current slots
+  steps:
+  - intent: show_slots_intent
+  - action: action_print_slots
+
 ### Forms ####
-# Pineapple form
-- rule: Activate pineapple form
-  steps:
-  - intent: pineapple_intent
-  - action: pineapple_example_form
-  - active_loop: pineapple_example_form
-
-- rule: Submit pineapple form
-  condition:
-  - active_loop: pineapple_example_form
-  steps:
-  - action: pineapple_example_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: submit_pineapple_example_form
-
 # Login form
 - rule: Activate login form
   steps:
-  - intent: greet_intent
+  - intent: init_intent
   - action: action_restart
   - action: utter_greet
   - action: login_form
   - active_loop: login_form
+
+- rule: Activate login form for login_intent
+  steps:
+  - intent: login_intent
+  - action: login_form
+  - active_loop: login_form
+
+- rule: Check if user is already logged in
+  condition:
+  - active_loop: login_form
+  steps:
+  - action: check_login_status
+  - slot_was_set:
+    - requested_slot: null
 
 - rule: Submit login form
   condition:

@@ -19,6 +19,9 @@ class ValidateLoginForm(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
+        if tracker.get_slot("cnp_slot"):
+            dispatcher.utter_message("You are already logged in.")
+            return {}
         if len(slot_value) != 4:
             dispatcher.utter_message("CNP should be 4 digits long.")
             return {"cnp_slot": None}
@@ -31,7 +34,7 @@ class ValidateLoginForm(FormValidationAction):
         except ValueError:
             dispatcher.utter_message("Each CNP character should be a digit.")
             return {"cnp_slot": None}
-    
+
     def validate_password_slot(
             self,
             slot_value: Any,
@@ -67,10 +70,11 @@ class SubmitLoginForm(Action):
     ) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot("cnp_slot")
         user = queries_location.find_user_by_cnp_query(cnp)
-
+        if cnp:
+            []
         if user:
             dispatcher.utter_message(f"Welcome {user['surname']}, how can I help you today?")
-            return [SlotSet("cnp_slot", cnp)]
+            return [SlotSet("cnp_slot", cnp), SlotSet("password_slot", None)]
 
         else:
             buttons = [
@@ -85,4 +89,23 @@ class SubmitLoginForm(Action):
                 buttons=buttons
             )
 
-            return [SlotSet("cnp_slot", None)]
+            return [SlotSet("cnp_slot", None), SlotSet("password_slot", None)]
+
+
+class CheckLoginStatus(Action):
+    def name(self) -> Text:
+        return "action_check_login_status"
+
+    def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        cnp = tracker.get_slot("cnp_slot")
+        if cnp:
+            dispatcher.utter_message("You are already logged in.")
+            return [SlotSet("requested_slot", None)]
+        else:
+            return []

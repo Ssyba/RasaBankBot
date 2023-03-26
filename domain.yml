@@ -1,23 +1,21 @@
 version: "3.1"
 
 intents:
-  - greet_intent
-  - bot_challenge
-  - potato_intent
-  - pineapple_intent
+  - init_intent:
+      use_entities: false
+  - bot_challenge_intent
   - check_cnp_again_intent
   - policies_info_intent
   - new_user_intent
+  - login_intent
+  - logout_intent
+  - show_balance_intent
+  - show_slots_intent
+  - break_intent
+  - deny_intent
+  - affirm_intent
 
 slots:
-  pineapple_slot:
-    type: text
-    mappings:
-      - type: from_text
-        conditions:
-          - active_loop: pineapple_example_form
-            requested_slot: pineapple_slot
-
   # Login form
   cnp_slot:
     type: text
@@ -81,10 +79,6 @@ slots:
             requested_slot: account_number_slot
 
 forms:
-  pineapple_example_form:
-    required_slots:
-      - pineapple_slot
-
   login_form:
     required_slots:
       - cnp_slot
@@ -98,20 +92,12 @@ forms:
       - age_slot
       - password_slot
       - password_validation_slot
+      - account_number_slot
 
 responses:
   # Misc
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
-
-  utter_tomato:
-    - text: "tomato"
-
-  utter_submit_pineapple_example_form:
-    - text: "Ok. Thanks!"
-
-  utter_ask_pineapple_slot:
-    - text: "Say the word 'fill' to fill the slot or 'stop' to stop the form."
 
   # Check CNP form
   utter_greet:
@@ -140,13 +126,13 @@ actions:
 # Misc
   - action_open_policies_page
   - action_restart
-# Potato example
-  - action_potato_example
-# Pineapple example
-  - validate_pineapple_example_form
-  - submit_pineapple_example_form
+  - action_logout
+  - action_show_balance
+  - action_do_nothing
+  - action_print_slots
 # Check CNP form
   - validate_login_form
+  - action_check_login_status
   - submit_login_form
 # New user form
   - validate_new_user_form
