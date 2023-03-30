@@ -61,6 +61,7 @@ actions:
   - action_logout
   - action_show_balance
   - action_do_nothing
+  - action_show_account_number
   - action_print_slots
 # Check CNP form
   - validate_login_form
@@ -69,4 +70,3 @@ actions:
 # New user form
   - validate_new_user_form
   - submit_new_user_form
-

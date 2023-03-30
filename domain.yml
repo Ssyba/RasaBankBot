@@ -14,6 +14,7 @@ intents:
   - break_intent
   - deny_intent
   - affirm_intent
+  - show_account_number_intent
 
 slots:
   # Login form
@@ -36,6 +37,13 @@ slots:
             requested_slot: password_slot
           - active_loop: new_user_form
             requested_slot: password_slot
+
+  logged_in_status_slot:
+    type: bool
+    initial_value: false
+    mappings:
+      - type: from_entity
+        entity: logged_in_status_slot
 
   # New user form
   name_slot:
@@ -122,6 +130,9 @@ responses:
   utter_ask_password_validation_slot:
     - text: "Please provide the password again in order to validate it:"
 
+  utter_already_logged_in:
+    - text: "You are already logged in."
+
 actions:
 # Misc
   - action_open_policies_page
@@ -129,6 +140,7 @@ actions:
   - action_logout
   - action_show_balance
   - action_do_nothing
+  - action_show_account_number
   - action_print_slots
 # Check CNP form
   - validate_login_form

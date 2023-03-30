@@ -4,11 +4,12 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import SlotSet
 import queries_location
 import logging
+from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
 
 logger = logging.getLogger(__name__)
 
 
-class ValidateLoginForm(FormValidationAction):
+class ValidateLoginForm(BaseFormValidationAction):
     def name(self) -> Text:
         return "validate_login_form"
 
@@ -19,18 +20,17 @@ class ValidateLoginForm(FormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        if tracker.get_slot("cnp_slot"):
-            dispatcher.utter_message("You are already logged in.")
-            return {}
         if len(slot_value) != 4:
             dispatcher.utter_message("CNP should be 4 digits long.")
             return {"cnp_slot": None}
         try:
             int(slot_value)
-            cnp = tracker.get_slot("cnp_slot")
+            cnp = slot_value
             user = queries_location.find_user_by_cnp_query(cnp)
             if user:
                 return {"cnp_slot": slot_value}
+            else:
+                return {"password_slot": "skipped"}
         except ValueError:
             dispatcher.utter_message("Each CNP character should be a digit.")
             return {"cnp_slot": None}
@@ -50,17 +50,9 @@ class ValidateLoginForm(FormValidationAction):
         return {"password_slot": None}
 
 
-class SubmitLoginForm(Action):
+class SubmitLoginForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_login_form"
-
-    def run(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-        return self.submit(dispatcher, tracker, domain)
 
     def submit(
             self,
@@ -70,13 +62,11 @@ class SubmitLoginForm(Action):
     ) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot("cnp_slot")
         user = queries_location.find_user_by_cnp_query(cnp)
-        if cnp:
-            []
         if user:
             dispatcher.utter_message(f"Welcome {user['surname']}, how can I help you today?")
-            return [SlotSet("cnp_slot", cnp), SlotSet("password_slot", None)]
-
+            return [SlotSet("cnp_slot", cnp), SlotSet("password_slot", None), SlotSet("logged_in_status_slot", True)]
         else:
+            dispatcher.utter_message("We were unable to find your CNP in our database.")
             buttons = [
                 {"payload": "/check_cnp_again_intent", "title": "I am an existing user, I want to check my CNP again."},
                 {"payload": "/new_user_intent", "title": "I am a new user and I wish to create an account."},
@@ -88,24 +78,4 @@ class SubmitLoginForm(Action):
                 "I was unable to find you in our files, please choose one of the following options:",
                 buttons=buttons
             )
-
             return [SlotSet("cnp_slot", None), SlotSet("password_slot", None)]
-
-
-class CheckLoginStatus(Action):
-    def name(self) -> Text:
-        return "action_check_login_status"
-
-    def run(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-
-        cnp = tracker.get_slot("cnp_slot")
-        if cnp:
-            dispatcher.utter_message("You are already logged in.")
-            return [SlotSet("requested_slot", None)]
-        else:
-            return []

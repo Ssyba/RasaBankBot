@@ -6,10 +6,11 @@ import queries_location
 # 1 - create the users table
 # 2 - delete the users table
 # 3 - delete a user by CNP
-run_scenarios = [3]
+# 4 - add to random users to the user table
+run_scenarios = [2, 1, 4]
 
 # The CNP of the user you want to delete
-cnp = "0002"
+cnp = "0001"
 
 if __name__ == "__main__":
     try:
@@ -23,6 +24,9 @@ if __name__ == "__main__":
             elif run_scenario == 3:
                 # Delete a user by CNP
                 queries_location.delete_user_by_cnp(cnp)
+            elif run_scenario == 4:
+                # Delete a user by CNP
+                queries_location.insert_random_user(cnp)
             else:
                 print(f"Invalid value for run_scenario: {run_scenario}, look at the valid options above.")
         print("All scenarios have been executed.")

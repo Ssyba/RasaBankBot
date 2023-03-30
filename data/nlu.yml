@@ -752,3 +752,78 @@ nlu:
     - What are the bank's policies for account eligibility?
     - What is your policy on account overdraft fees?
     - Can you provide information on your policies for
+
+- intent: show_account_number_intent
+  examples: |
+    - What's my account number?
+    - Can you show me my account number?
+    - I need to see my account number
+    - What is the number of my account?
+    - Please display my account number
+    - Show me my account number
+    - I want to know my account number
+    - Can you tell me my account number?
+    - What is my account number?
+    - Can I see my account number?
+    - Tell me my account number
+    - Account number please
+    - I need to know my account number
+    - What's the account number for my account?
+    - Please show me my account number
+    - Can you show me the account number?
+    - What is my bank account number?
+    - What's the number of my account?
+    - What's my account number?
+    - Can you give me my account number?
+    - Can you tell me what my account number is?
+    - Show me the account number
+    - Display my account number
+    - Can you display my account number?
+    - I want to see my account number
+    - I need my account number
+    - What's my bank account number?
+    - Can you show me my bank account number?
+    - What is my account number for my bank account?
+    - What is my bank account number?
+    - What's the account number for my bank account?
+    - Please tell me my account number
+    - Could you show me my account number?
+    - How can I see my account number?
+    - What's the number of my bank account?
+    - Can you display the account number?
+    - I would like to see my account number
+    - Can you show me my bank account number please?
+    - Can you tell me my bank account number?
+    - Show me my bank account number
+    - Could you tell me my account number please?
+    - Can you display the bank account number?
+    - What's my account number for this account?
+    - How do I find out my account number?
+    - Can you tell me the account number?
+    - What is the account number for my account?
+    - Can you show the account number?
+    - I want to see the account number
+    - Please tell me the account number
+    - Display the account number please
+    - What's my bank account number for this account?
+    - Could you show me my bank account number?
+    - What is my bank account number for this account?
+    - Can you tell me the bank account number?
+    - What's the account number for this account?
+    - Can you show me the bank account number?
+    - Please display the account number
+    - What's the number of the bank account?
+    - Can you show the bank account number?
+    - Show the account number please
+    - What's the bank account number?
+    - What's my account number for the bank account?
+    - Please tell me the bank account number
+    - Can you display the bank account number please?
+    - What is the bank account number?
+    - Could you tell me the bank account number please?
+    - What's the account number for the bank account?
+    - Can you show me the bank account number for this account?
+    - Can you tell me the account number for this account?
+    - What is the account number for the bank account?
+    - What's the bank account number for my account?
+    - Show me the bank account number for my account

@@ -12,6 +12,7 @@ rules:
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
   - intent: bot_challenge_intent
+  - action: action_restart
   - action: utter_iamabot
 
 - rule: Open policies page
@@ -29,6 +30,11 @@ rules:
   - intent: show_balance_intent
   - action: action_show_balance
 
+- rule: Show the user's account number
+  steps:
+  - intent: show_account_number_intent
+  - action: action_show_account_number
+
 - rule: Show current slots
   steps:
   - intent: show_slots_intent
@@ -36,27 +42,22 @@ rules:
 
 ### Forms ####
 # Login form
-- rule: Activate login form
+- rule: Check login status
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
-  - intent: init_intent
-  - action: action_restart
-  - action: utter_greet
-  - action: login_form
-  - active_loop: login_form
+  - intent: login_intent
+  - action: utter_already_logged_in
 
-- rule: Activate login form for login_intent
+- rule: Activate login form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
   steps:
   - intent: login_intent
   - action: login_form
   - active_loop: login_form
-
-- rule: Check if user is already logged in
-  condition:
-  - active_loop: login_form
-  steps:
-  - action: check_login_status
-  - slot_was_set:
-    - requested_slot: null
 
 - rule: Submit login form
   condition:
@@ -68,7 +69,11 @@ rules:
     - requested_slot: null
   - action: submit_login_form
 
+# Rule for asking CNP again
 - rule: Ask for CNP again
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
   steps:
   - intent: check_cnp_again_intent
   - action: login_form
@@ -78,7 +83,6 @@ rules:
 - rule: Activate new user form
   steps:
   - intent: new_user_intent
-  - action: action_restart
   - action: new_user_form
   - active_loop: new_user_form
 

@@ -3,9 +3,7 @@ version: "3.1"
 stories:
 - story: Login form
   steps:
-  - intent: init_intent
-  - action: action_restart
-  - action: utter_greet
+  - intent: login_intent
   - action: login_form
   - active_loop: login_form
   - slot_was_set:
@@ -14,12 +12,12 @@ stories:
     - requested_slot: password_slot
   - slot_was_set:
     - requested_slot: null
-  - active_loop: submit_login_form
+  - active_loop: null
+  - action: submit_login_form
 
 - story: New user form
   steps:
   - intent: new_user_intent
-  - action: action_restart
   - action: new_user_form
   - active_loop: new_user_form
   - slot_was_set:
@@ -36,4 +34,5 @@ stories:
     - requested_slot: password_validation_slot
   - slot_was_set:
     - requested_slot: null
+  - active_loop: null
   - active_loop: submit_new_user_form

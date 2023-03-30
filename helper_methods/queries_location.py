@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from helper_methods import db_executor
+from general_methods import db_executor, generate_random_user
 
 
 def create_users_table_query():
@@ -100,3 +100,26 @@ def get_balance_by_cnp(cnp: str) -> int:
     print("potato", result)
 
     return result[0][0][0]
+
+
+def update_login_status(cnp: str, login_status: bool) -> None:
+    update_query = f"UPDATE users SET login_status={int(login_status)} WHERE CNP='{cnp}'"
+    db_executor(update_query)
+
+
+def insert_random_user(cnp):
+    user = generate_random_user(cnp)
+    insert_query = f"""
+        INSERT INTO users (CNP, name, surname, age, password, account_number, register_date, balance)
+        VALUES (
+            '{user['cnp']}',
+            '{user['name']}',
+            '{user['surname']}',
+            '{user['age']}',
+            '{user['password']}',
+            '{user['account_number']}',
+            '{user['register_date']}',
+            '{user['balance']}'
+        )
+    """
+    db_executor(insert_query)
