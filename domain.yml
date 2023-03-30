@@ -1,20 +1,38 @@
 version: "3.1"
 
 intents:
+  ### General Intents ###
   - init_intent:
       use_entities: false
   - bot_challenge_intent
-  - check_cnp_again_intent
-  - policies_info_intent
-  - new_user_intent
+
+  ### Login and Logout Intents ###
   - login_intent
   - logout_intent
+  - check_cnp_again_intent
+
+  ### New User Intents ###
+  - new_user_intent
+
+  ### User Information Intents ###
+  - show_my_cnp_intent
+  - show_name_intent
+  - show_surname_intent
+  - show_age_intent
+  - show_account_number_intent
+  - show_register_date_intent
   - show_balance_intent
   - show_slots_intent
-  - break_intent
-  - deny_intent
+
+  ### Policy Information Intents ###
+  - policies_info_intent
+
+  ### Confirmation Intents ###
   - affirm_intent
-  - show_account_number_intent
+  - deny_intent
+
+  ### Miscellaneous Intents ###
+  - break_intent
 
 slots:
   # Login form
@@ -134,21 +152,31 @@ responses:
     - text: "You are already logged in."
 
 actions:
-# Misc
-  - action_open_policies_page
+# General actions
   - action_restart
-  - action_logout
-  - action_show_balance
-  - action_do_nothing
-  - action_show_account_number
-  - action_print_slots
-# Check CNP form
+
+# Login and logout actions
   - validate_login_form
   - action_check_login_status
   - submit_login_form
+  - action_logout
+
 # New user form
   - validate_new_user_form
   - submit_new_user_form
+
+# Information display actions
+  - action_show_my_cnp
+  - action_show_name
+  - action_show_surname
+  - action_show_age
+  - action_show_account_number
+  - action_show_register_date
+  - action_show_balance
+  - action_show_slots
+
+# Other actions
+  - action_open_policies_page
 
 session_config:
   session_expiration_time: 60

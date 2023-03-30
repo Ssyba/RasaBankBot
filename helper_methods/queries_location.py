@@ -10,7 +10,7 @@ def create_users_table_query():
         "CNP VARCHAR(4), "
         "name VARCHAR(255), "
         "surname VARCHAR(255), "
-        "age VARCHAR(2), "
+        "age INT(2), "
         "password VARCHAR(255), "
         "account_number VARCHAR(6), "
         "register_date DATE, "

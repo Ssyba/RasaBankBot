@@ -1,158 +1,148 @@
 version: "3.1"
 
 nlu:
-- intent: show_slots_intent
+### General Intents ###
+- intent: bot_challenge_intent
   examples: |
-    - show me my slots
-    - what are my slots
-    - can you show me my slots
-    - list my slots
-    - what slots do I have
-    - display my slots
-    - tell me my slots
-    - show me the values of my slots
-    - what are the values of my slots
-    - give me my slots
-    - show me all my slots
-    - display all my slots
-    - show me a list of my slots
-    - give me a list of my slots
-    - what are all my slots
-    - what slots do I currently have
-    - what are my current slots
-    - show me my current slots
-    - can you list my current slots
-    - display my current slots
-    - tell me my current slots
-    - show me the values of my current slots
-    - what are the values of my current slots
-    - give me my current slots
-    - show me all my current slots
-    - display all my current slots
-    - show me a list of my current slots
-    - give me a list of my current slots
-    - what are all my current slots
-    - what are my slot values
-    - list my slot values
-    - display my slot values
-    - tell me my slot values
-    - show me the values of my slots
-    - what are the values of my slots
-    - give me my slot values
-    - show me all my slot values
-    - display all my slot values
-    - show me a list of my slot values
-    - give me a list of my slot values
-    - what are all my slot values
-    - what are the values of my current slots
-    - give me my current slot values
-    - show me all my current slot values
-    - display all my current slot values
-    - show me a list of my current slot values
-    - give me a list of my current slot values
-    - what are all my current slot values
-    - show me the values of my current slots
-    - what are the values of my current slots
-    - show me my slot data
-    - what is my slot data
-
-- intent: affirm_intent
+    - Are you a robot?
+    - Are you a bot?
+    - Are you an AI?
+    - Are you an artificial intelligence?
+    - Are you a machine?
+    - Are you a computer program?
+    - Are you a chatbot?
+    - Are you real or a bot?
+    - Are you human or a bot?
+    - Are you a person or a robot?
+    - Is this a bot?
+    - Is this an AI?
+    - Are you a real person?
+    - Are you a virtual assistant?
+    - Are you an AI assistant?
+    - Are you an AI chatbot?
+    - Are you just a machine?
+    - Are you a real human?
+    - Am I talking to a robot?
+    - Am I talking to a bot?
+    - Am I talking to an AI?
+    - Am I chatting with a bot?
+    - Am I chatting with a robot?
+    - Am I chatting with an AI?
+    - Are you automated?
+    - Are you a virtual agent?
+    - Are you an AI agent?
+    - Are you an AI system?
+    - Are you a digital assistant?
+    - Are you a software bot?
+    - Are you a conversational AI?
+    - Are you an algorithm?
+    - Are you a human or a machine?
+    - Are you a computer or a human?
+    - Are you an artificial agent?
+    - Are you a humanoid?
+    - Are you a human-like AI?
+    - Are you a programmed intelligence?
+    - Are you an intelligent machine?
+    - Are you a computer-based AI?
+    - Are you a synthetic intelligence?
+    - Are you a machine intelligence?
+    - Are you an artificial conversational entity?
+    - Are you a digital interlocutor?
+    - Are you a software-based agent?
+    - Are you an AI-based assistant?
+    - Are you an AI-driven chatbot?
+### Login and Logout Intents ###
+- intent: login_intent
   examples: |
-    - Yes
-    - Yeah
-    - Yup
-    - Sure
-    - Absolutely
-    - Definitely
-    - Indeed
-    - Of course
-    - Alright
-    - Ok
-    - Okay
-    - Fine
-    - Affirmative
-    - Positive
-    - Confirmed
-    - Agreed
-    - I agree
-    - That's correct
-    - That's right
-    - You're right
-    - You're correct
-    - Correct
-    - Right
-    - Please do
-    - Please proceed
-    - Go ahead
-    - Sounds good
-    - That sounds good
-    - I accept
-    - I confirm
-    - I'd like that
-    - I would like that
-    - I'd love to
-    - I would love to
-    - I'm in
-    - Count me in
-    - I'm up for it
-    - Let's do it
-    - Let's go
-    - I'm interested
-    - I want to continue
-    - I'd like to continue
-    - Please continue
-    - Keep going
-    - Carry on
-
-- intent: deny_intent
-  examples: |
-    - No, thanks.
-    - No, I don't want to.
-    - I don't need that.
-    - I'd rather not.
-    - Nope.
-    - Not for me.
-    - No, thank you.
-    - I don't want that.
-    - I don't think so.
-    - No way.
-    - Absolutely not.
-    - I'm not interested.
-    - Please don't.
-    - Not this time.
-    - I'm good, thanks.
-    - Not interested.
-    - Not right now.
-    - I'll pass.
-    - Nah.
-    - No, not today.
-    - I don't want to proceed.
-    - I refuse.
-    - Cancel that.
-    - Stop it.
-    - Please cancel.
-    - Discontinue.
-    - No, let's not do that.
-    - That's not for me.
-    - I won't.
-    - No, stop it.
-    - I don't need it.
-    - Do not proceed.
-    - No, don't do it.
-    - Decline.
-    - Negative.
-    - Not gonna happen.
-    - I'd like to stop.
-    - No, I changed my mind.
-    - Don't go on.
-    - I won't continue.
-    - Halt.
-    - No, let's stop.
-    - I'm not going through with it.
-    - I don't want to go on.
-    - Not going to do it.
-    - No, I'm not interested.
-    - No, I don't feel like it.
+    - Sign me in.
+    - I need to log in.
+    - Can you log me in?
+    - Connect me, please.
+    - I want to sign in.
+    - I'm ready to log in.
+    - I want to connect.
+    - Please sign me in.
+    - I want to start my session.
+    - Can you sign me in?
+    - Initiate my session.
+    - Begin my session.
+    - Log me in, please.
+    - Authenticate me.
+    - I need to sign in.
+    - I want to access my account.
+    - I'd like to log in.
+    - Can I sign in?
+    - Activate my session.
+    - I want to log on.
+    - Please log me in.
+    - Start my session, please.
+    - Can we sign in now?
+    - I want to enter.
+    - I'd like to access my profile.
+    - Can you start my session?
+    - Log me on, please.
+    - Can we start my session?
+    - Please connect me.
+    - Let's start this session.
+    - I'm ready to sign in.
+    - I'd like to initiate my session.
+    - I want to begin.
+    - Authenticate me, please.
+    - Sign me in now.
+    - I want to log in now.
+    - I'm done, sign me in.
+    - I'd like to connect now.
+    - Please initiate my session.
+    - Can you begin my session?
+    - Can we start the session?
+    - Can you log me on?
+    - Connect me immediately.
+    - I need to start my session.
+    - Let's sign me in now.
+    - Please sign me in now.
+    - I want to log on immediately.
+    - Can you initiate my session immediately?
+    - Can we start my session immediately?
+    - Can you authenticate me now?
+    - Authenticate me immediately.
+    - Log me in immediately.
+    - I need to log in immediately.
+    - Sign me in immediately.
+    - I'd like to begin my session immediately.
+    - Can you connect me now?
+    - Please log me in immediately.
+    - Let's start my session immediately.
+    - I want to initiate my session immediately.
+    - Begin my session immediately.
+    - I'd like to log in now.
+    - Can we connect now?
+    - Please authenticate me now.
+    - Can you start the session now?
+    - Sign me in now, please.
+    - I want to start immediately.
+    - I'd like to enter my account.
+    - I need to connect immediately.
+    - Let's initiate my session now.
+    - Can you authenticate me immediately?
+    - Can we log in now?
+    - Please log me in now.
+    - I want to access my profile immediately.
+    - I'd like to connect immediately.
+    - Can you sign me in immediately?
+    - Let's start the session now.
+    - Can you begin my session now?
+    - Authenticate me now, please.
+    - Sign me in immediately, please.
+    - I want to initiate my session now.
+    - Log me in now, please.
+    - I need to start immediately.
+    - Can we sign in now?
+    - Please start my session immediately.
+    - I'd like to start now.
+    - I want to log in immediately.
+    - Let's sign in immediately.
+    - Can you start my session now?
+    - Can we authenticate me now?
 
 - intent: logout_intent
   examples: |
@@ -252,197 +242,6 @@ nlu:
     - I'd like to be signed out immediately.
     - Can you log me out now?
 
-- intent: login_intent
-  examples: |
-    - Sign me in.
-    - I need to log in.
-    - Can you log me in?
-    - Connect me, please.
-    - I want to sign in.
-    - I'm ready to log in.
-    - I want to connect.
-    - Please sign me in.
-    - I want to start my session.
-    - Can you sign me in?
-    - Initiate my session.
-    - Begin my session.
-    - Log me in, please.
-    - Authenticate me.
-    - I need to sign in.
-    - I want to access my account.
-    - I'd like to log in.
-    - Can I sign in?
-    - Activate my session.
-    - I want to log on.
-    - Please log me in.
-    - Start my session, please.
-    - Can we sign in now?
-    - I want to enter.
-    - I'd like to access my profile.
-    - Can you start my session?
-    - Log me on, please.
-    - Can we start my session?
-    - Please connect me.
-    - Let's start this session.
-    - I'm ready to sign in.
-    - I'd like to initiate my session.
-    - I want to begin.
-    - Authenticate me, please.
-    - Sign me in now.
-    - I want to log in now.
-    - I'm done, sign me in.
-    - I'd like to connect now.
-    - Please initiate my session.
-    - Can you begin my session?
-    - Can we start the session?
-    - Can you log me on?
-    - Connect me immediately.
-    - I need to start my session.
-    - Let's sign me in now.
-    - Please sign me in now.
-    - I want to log on immediately.
-    - Can you initiate my session immediately?
-    - Can we start my session immediately?
-    - Can you authenticate me now?
-    - Authenticate me immediately.
-    - Log me in immediately.
-    - I need to log in immediately.
-    - Sign me in immediately.
-    - I'd like to begin my session immediately.
-    - Can you connect me now?
-    - Please log me in immediately.
-    - Let's start my session immediately.
-    - I want to initiate my session immediately.
-    - Begin my session immediately.
-    - I'd like to log in now.
-    - Can we connect now?
-    - Please authenticate me now.
-    - Can you start the session now?
-    - Sign me in now, please.
-    - I want to start immediately.
-    - I'd like to enter my account.
-    - I need to connect immediately.
-    - Let's initiate my session now.
-    - Can you authenticate me immediately?
-    - Can we log in now?
-    - Please log me in now.
-    - I want to access my profile immediately.
-    - I'd like to connect immediately.
-    - Can you sign me in immediately?
-    - Let's start the session now.
-    - Can you begin my session now?
-    - Authenticate me now, please.
-    - Sign me in immediately, please.
-    - I want to initiate my session now.
-    - Log me in now, please.
-    - I need to start immediately.
-    - Can we sign in now?
-    - Please start my session immediately.
-    - I'd like to start now.
-    - I want to log in immediately.
-    - Let's sign in immediately.
-    - Can you start my session now?
-    - Can we authenticate me now?
-
-- intent: logout_intent
-  examples: |
-    - Logout
-    - Sign me out
-    - Log me out
-    - I want to log out
-    - I want to sign out
-    - Disconnect
-    - Log off
-    - I'd like to log out
-    - Can you log me out?
-    - I need to log out
-    - Sign out, please
-    - Log out, please
-    - Please log me out
-    - Please sign me out
-    - I'd like to sign out
-    - Can you sign me out?
-    - I need to sign out
-    - I want to disconnect
-    - End my session
-    - Close my session
-    - Terminate my session
-    - Sign out now
-    - Log out now
-    - Exit
-    - I'm done, log me out
-    - I'm done, sign me out
-    - Log me off
-    - Sign me off
-    - Deactivate my session
-    - Finish the session
-    - I want to exit
-    - I'd like to leave
-    - I want to leave
-    - Can I log out?
-    - Can I sign out?
-    - Log out of my account
-    - Sign out of my account
-    - Log me out, please
-    - Sign me out, please
-    - I'd like to log off
-    - I'd like to sign off
-    - I want to log off
-    - I want to sign off
-    - Can you log me off?
-    - Can you sign me off?
-    - I need to log off
-    - I need to sign off
-
-- intent: bot_challenge_intent
-  examples: |
-    - Are you a robot?
-    - Are you a bot?
-    - Are you an AI?
-    - Are you an artificial intelligence?
-    - Are you a machine?
-    - Are you a computer program?
-    - Are you a chatbot?
-    - Are you real or a bot?
-    - Are you human or a bot?
-    - Are you a person or a robot?
-    - Is this a bot?
-    - Is this an AI?
-    - Are you a real person?
-    - Are you a virtual assistant?
-    - Are you an AI assistant?
-    - Are you an AI chatbot?
-    - Are you just a machine?
-    - Are you a real human?
-    - Am I talking to a robot?
-    - Am I talking to a bot?
-    - Am I talking to an AI?
-    - Am I chatting with a bot?
-    - Am I chatting with a robot?
-    - Am I chatting with an AI?
-    - Are you automated?
-    - Are you a virtual agent?
-    - Are you an AI agent?
-    - Are you an AI system?
-    - Are you a digital assistant?
-    - Are you a software bot?
-    - Are you a conversational AI?
-    - Are you an algorithm?
-    - Are you a human or a machine?
-    - Are you a computer or a human?
-    - Are you an artificial agent?
-    - Are you a humanoid?
-    - Are you a human-like AI?
-    - Are you a programmed intelligence?
-    - Are you an intelligent machine?
-    - Are you a computer-based AI?
-    - Are you a synthetic intelligence?
-    - Are you a machine intelligence?
-    - Are you an artificial conversational entity?
-    - Are you a digital interlocutor?
-    - Are you a software-based agent?
-    - Are you an AI-based assistant?
-    - Are you an AI-driven chatbot?
 
 - intent: check_cnp_again_intent
   examples: |
@@ -492,6 +291,8 @@ nlu:
     - I want to check my CNP for the second time
     - I'd like to reinspect my CNP
 
+
+### New User Intents ###
 - intent: new_user_intent
   examples: |
     - I want to create a new account.
@@ -543,6 +344,556 @@ nlu:
     - How do I open a new user account?
     - I'm interested in creating a new user profile.
 
+### User Information Intents ###
+- intent: show_my_cnp_intent
+  examples: |
+    - show me my CNP
+    - what's my CNP
+    - can you tell me my CNP
+    - display my CNP
+    - my CNP, please
+    - I want to see my CNP
+    - let me know my CNP
+    - what is my CNP
+    - tell me my CNP
+    - I'd like to know my CNP
+    - reveal my CNP
+    - give me my CNP
+    - CNP, please
+    - can I see my CNP
+    - show my CNP now
+    - please tell me my CNP
+    - what is the CNP for my account
+    - provide my CNP
+    - could you show me my CNP
+    - how can I find my CNP
+    - my CNP number, please
+    - I need my CNP
+    - can you display my CNP
+    - I'd like to see my CNP
+    - get my CNP for me
+    - CNP info
+    - can you show my CNP
+    - I want to know my CNP
+    - show me the CNP for my account
+    - present my CNP
+    - what's the CNP on my account
+    - let me see my CNP
+    - CNP, show me
+    - my CNP information
+    - my CNP details
+    - give me the CNP for my account
+    - I want my CNP
+    - show my CNP information
+    - show my CNP details
+    - tell me the CNP for my account
+    - CNP of my account
+    - can you provide my CNP
+    - may I know my CNP
+    - I'd like my CNP
+    - please show my CNP
+    - what is my account's CNP
+    - display my CNP number
+    - could you tell me my CNP
+    - can you reveal my CNP
+    - show me my account's CNP
+    - let me know my account CNP
+    - I need to know my CNP
+    - what's my account CNP
+    - give me the CNP of my account
+    - I want to check my CNP
+    - tell me my account CNP
+    - show my account CNP
+    - please provide my CNP
+    - can you give me my CNP
+    - my CNP, show it to me
+    - my account's CNP, please
+    - I'd like to check my CNP
+    - show me the CNP of my account
+    - I need to see my CNP
+    - find my CNP
+    - show me my CNP number
+    - what is the CNP of my account
+    - CNP for my account
+    - I want the CNP of my account
+    - show the CNP for my account
+    - please display my CNP
+    - can you find my CNP
+    - my account CNP, please
+    - CNP of my account, please
+    - I'd like to see my account CNP
+    - please tell my CNP
+    - what's the CNP for my account
+    - show my CNP, please
+    - could you give me my CNP
+    - I want to view my CNP
+    - I'd like my account CNP
+    - what is my CNP number
+    - please show me my CNP
+    - can I know my CNP
+    - can you tell my CNP
+    - show the CNP of my account
+    - let me check my CNP
+    - my CNP is what
+    - reveal my account CNP
+    - I need my account CNP
+    - provide my account CNP
+    - what's my CNP
+    - I need my CNP details
+    - can you show me my CNP
+    - I'd like to know my CNP
+    - can you find my account CNP
+    - reveal my CNP, please
+    - please tell me my CNP
+    - I want to know my CNP
+    - what is my account's CNP
+    - let me know my CNP
+    - my CNP, I need it
+    - I need the CNP of my account
+    - provide my CNP, please
+    - can you get my CNP
+    - show me my CNP, please
+    - my CNP info, please
+    - give me my CNP details
+    - can I see my CNP
+    - tell me the CNP of my account
+    - I'd like my CNP
+    - can you display my CNP
+    - find my account CNP
+    - my CNP, can you show it
+    - what's the CNP of my account
+    - I want my account's CNP
+    - I want to see my CNP
+    - please find my CNP
+    - can you check my CNP
+    - show my CNP details
+    - provide the CNP of my account
+    - my CNP, what is it
+    - I need to view my CNP
+    - give me my account CNP
+    - can you show my CNP
+    - show my CNP now
+    - can I check my CNP
+    - CNP of my account
+    - I'd like to see my CNP
+    - show me the CNP for my account
+    - CNP, please
+    - display my account CNP
+    - I want to know my account CNP
+    - tell me my CNP number
+    - can I get my CNP
+    - what is the CNP for my account
+    - can you give me my CNP
+    - please display my CNP
+    - find my CNP, please
+    - what's my account CNP
+    - I need my CNP number
+    - CNP info, please
+    - provide my account CNP
+    - show me my account CNP
+    - tell me my account's CNP
+    - I want my CNP details
+    - I'd like to view my CNP
+    - show the CNP of my account
+    - CNP for my account, please
+    - let me see my CNP
+    - can you tell me my CNP
+    - I want my CNP number
+    - reveal my account CNP
+    - get my CNP, please
+    - I need to know my CNP
+    - CNP of my account, please
+    - can you find my CNP
+    - show me the CNP of my account
+    - what is my CNP
+    - display the CNP for my account
+    - my CNP, please
+    - can you give my account CNP
+    - I'd like my account CNP
+    - I want to check my CNP
+    - my account's CNP
+    - can you reveal my CNP
+    - show my account CNP
+    - give me the CNP of my account
+    - I'd like to get my CNP
+    - please check my CNP
+    - CNP details, please
+    - what's the CNP of my account
+    - provide my CNP info
+    - show my CNP information
+    - can you show me my account CNP
+    - I need my account CNP
+    - can I view my CNP
+    - tell me the CNP for my account
+    - CNP, I need it
+    - can I have my CNP
+
+- intent: show_name_intent
+  examples: |
+    - Show me my name
+    - What's my name?
+    - Can you display my name?
+    - Tell me my name please
+    - Show my full name
+    - Display my name
+    - I want to see my name
+    - Can you tell me my full name?
+    - My name, can you show it?
+    - Please show my name
+    - I need to know my name
+    - What name do you have for me?
+    - How do you spell my name?
+    - Could you show me my full name?
+    - What is the name you have on file for me?
+    - Can you tell me what name you have for me?
+    - What name did I provide you?
+    - I forgot my name
+    - Could you display my full name?
+    - Can you show me what name you have for me?
+    - Can you tell me the name you have on file?
+    - What is my name again?
+    - Please remind me of my name
+    - Show my name please
+    - I would like to see my name
+    - Can you display my full name please?
+    - Can you tell me what name you have saved for me?
+    - Please show me the name you have on file
+    - Can you remind me of my name?
+    - What is the name associated with this account?
+    - Could you show me the name you have saved for me?
+    - Can you tell me the name I gave you?
+    - Can you display the name on file for me?
+    - Show my name again
+    - Can you tell me my name again?
+    - Can you show me the name on record?
+    - What name did I register with?
+    - What name did I provide to you?
+    - Please display my name
+    - Can you show me my name again?
+    - Can you tell me what name I gave you?
+    - I want to see the name associated with this account
+    - Please show me my full name again
+    - What name did I enter when I signed up?
+    - What name do you have registered for me?
+    - Please tell me my full name
+    - Show my name once more
+    - Could you display the name associated with this account?
+    - Can you tell me the name on my account?
+    - Show my full name once more
+    - Can you tell me what name is associated with my account?
+    - Can you remind me what name I provided you?
+    - Please show me the name on file for this account
+    - Can you show me the name on my account?
+    - Can you tell me what name I used to sign up?
+    - What name do you have saved for me?
+    - Please remind me what name I gave you
+    - Can you display my full name one more time?
+    - Show my full name again please
+    - Can you show me my name one more time?
+    - Can you tell me the name I registered with?
+    - Please display my full name again
+    - What name is linked to my account?
+    - What is the name associated with my account?
+    - Can you remind me of the name I provided you?
+    - Please show me my full name one more time
+    - Can you tell me my name one more time?
+    - What name did I use when I signed up?
+    - Can you display the name on file for this user?
+
+- intent: show_surname_intent
+  examples: |
+    - What is my surname?
+    - Can you tell me my surname?
+    - Please show my surname.
+    - My last name please.
+    - I need my surname.
+    - What's my family name?
+    - Could you show me my surname?
+    - I want to see my surname.
+    - My surname, please.
+    - Display my surname.
+    - How do you spell my surname?
+    - What's my last name?
+    - Can you show me my family name?
+    - I forgot my surname.
+    - What do you have as my last name?
+    - Surname please.
+    - Can you tell me my last name?
+    - Can you display my last name?
+    - Can you show me my last name?
+    - My surname, what is it?
+    - Can you remind me my surname?
+    - My last name, what is it?
+    - Can you tell me what's my last name?
+    - Could you remind me my family name?
+    - Can you tell me what's my surname?
+    - Can you display my family name?
+    - What do you have as my family name?
+    - What do you have as my surname?
+    - Can you show me what's my last name?
+    - Show me my last name, please.
+    - Please display my last name.
+    - My family name, what is it?
+    - Please remind me my surname.
+    - What's the last name on my account?
+    - My last name is?
+    - Please tell me my family name.
+    - Can you tell me what my last name is?
+    - I can't remember my surname.
+    - Show me what you have as my last name.
+    - My surname, can you show me it?
+    - My family name, can you show me it?
+    - Can you remind me what's my last name?
+    - What's the surname on my account?
+    - Please display my surname.
+    - Please show me my family name.
+    - What do you have as my family name?
+    - What do you have as my surname?
+    - Show my family name, please.
+    - Can you remind me what my last name is?
+    - Could you display my family name?
+    - Please show my last name.
+    - What is my last name again?
+    - What is my surname on your system?
+    - Can you display what's my surname?
+    - Can you display what's my family name?
+    - My last name is, what?
+    - Can you remind me what's my family name?
+    - Show my surname, please.
+    - Can you show me my last name on your system?
+    - What's the surname on my account again?
+    - Show my family name, what is it?
+    - What is my family name on your system?
+    - What do you have as my last name?
+    - Can you tell me what's the family name on my account?
+    - My family name is?
+    - My surname is?
+    - What is the family name on my account again?
+    - What's the surname on my account on your system?
+    - Can you remind me what is my last name?
+    - What do you have as my family name on your system?
+    - Can you show me my last name on your system?
+    - Can you remind me what's the family name on my account?
+    - What is my last name on your system?
+
+
+- intent: show_age_intent
+  examples: |
+    - Can you tell me my age?
+    - How old am I?
+    - I want to know my age.
+    - Can you show me my age?
+    - Could you tell me my current age?
+    - What is my age?
+    - Tell me my age please.
+    - Age check.
+    - Show my current age.
+    - What's my age?
+    - Show me my age.
+    - What is my current age?
+    - Can you tell me how old I am?
+    - How many years old am I?
+    - How many years have passed since my birth?
+    - What is the number of years that I have been alive?
+    - Am I still in my twenties?
+    - Am I over the hill?
+    - When is my birthday?
+    - When was I born?
+    - What is my birth date?
+    - Please provide my birthdate.
+    - What's my date of birth?
+    - Can you tell me when I was born?
+    - Tell me my birthdate.
+    - Give me my date of birth.
+    - Can you tell me what year I was born?
+    - What's the year I was born?
+    - What's the date I was born?
+    - Can you tell me the day I was born?
+    - What's my birth day?
+    - When is my birthday?
+    - What day was I born?
+    - Can you tell me my birth year?
+    - What year was I born in?
+    - How old was I when I started college?
+    - When will I be 30 years old?
+    - How many years until I turn 30?
+    - When will I turn 30?
+    - How many years until I'm 40?
+    - When will I be 40?
+    - What's my life expectancy?
+    - How many years until retirement?
+    - What is the retirement age?
+    - What age can I retire?
+    - What's the average life expectancy?
+    - When can I retire?
+    - How long until retirement?
+    - How long do I have to work until retirement?
+    - What is the retirement age in my country?
+    - What is the retirement age for women?
+    - What is the retirement age for men?
+    - How long do I have left to work?
+    - How many years until I retire?
+    - How much longer do I have to work?
+    - When can I stop working?
+    - What age can I stop working?
+    - When is retirement age?
+    - How many years do I have left to work?
+    - How many years until I reach retirement age?
+    - How many years until I reach the retirement age?
+    - How many years until I reach the retirement age in my country?
+    - What is the average retirement age?
+    - When will I be able to retire?
+    - When will I be able to retire in my country?
+    - What is the age to retire?
+    - What is the age limit for retirement?
+
+- intent: show_account_number_intent
+  examples: |
+    - What's my account number?
+    - Can you show me my account number?
+    - I need to see my account number
+    - What is the number of my account?
+    - Please display my account number
+    - Show me my account number
+    - I want to know my account number
+    - Can you tell me my account number?
+    - What is my account number?
+    - Can I see my account number?
+    - Tell me my account number
+    - Account number please
+    - I need to know my account number
+    - What's the account number for my account?
+    - Please show me my account number
+    - Can you show me the account number?
+    - What is my bank account number?
+    - What's the number of my account?
+    - What's my account number?
+    - Can you give me my account number?
+    - Can you tell me what my account number is?
+    - Show me the account number
+    - Display my account number
+    - Can you display my account number?
+    - I want to see my account number
+    - I need my account number
+    - What's my bank account number?
+    - Can you show me my bank account number?
+    - What is my account number for my bank account?
+    - What is my bank account number?
+    - What's the account number for my bank account?
+    - Please tell me my account number
+    - Could you show me my account number?
+    - How can I see my account number?
+    - What's the number of my bank account?
+    - Can you display the account number?
+    - I would like to see my account number
+    - Can you show me my bank account number please?
+    - Can you tell me my bank account number?
+    - Show me my bank account number
+    - Could you tell me my account number please?
+    - Can you display the bank account number?
+    - What's my account number for this account?
+    - How do I find out my account number?
+    - Can you tell me the account number?
+    - What is the account number for my account?
+    - Can you show the account number?
+    - I want to see the account number
+    - Please tell me the account number
+    - Display the account number please
+    - What's my bank account number for this account?
+    - Could you show me my bank account number?
+    - What is my bank account number for this account?
+    - Can you tell me the bank account number?
+    - What's the account number for this account?
+    - Can you show me the bank account number?
+    - Please display the account number
+    - What's the number of the bank account?
+    - Can you show the bank account number?
+    - Show the account number please
+    - What's the bank account number?
+    - What's my account number for the bank account?
+    - Please tell me the bank account number
+    - Can you display the bank account number please?
+    - What is the bank account number?
+    - Could you tell me the bank account number please?
+    - What's the account number for the bank account?
+    - Can you show me the bank account number for this account?
+    - Can you tell me the account number for this account?
+    - What is the account number for the bank account?
+    - What's the bank account number for my account?
+    - Show me the bank account number for my account
+
+
+- intent: show_register_date_intent
+  examples: |
+    - when did I register for this account?
+    - what is the date of my account registration?
+    - when was my account created?
+    - can you tell me the date when I signed up for this account?
+    - show me the date of registration for this account
+    - what date did I open my account?
+    - what's the registration date of this account?
+    - when did I create my account?
+    - when did I start using this service?
+    - what is the date of my account's creation?
+    - show me the date when I registered for this service
+    - can you tell me when I started using this service?
+    - show me the date of account opening
+    - on which date was this account registered?
+    - when did I enroll in this service?
+    - when was this account opened?
+    - when did I become a member of this service?
+    - when did I sign up for this account?
+    - when did I join this service?
+    - show me the date when I registered for this account
+    - what is the date of my account opening?
+    - show me the date of my account's establishment
+    - what is the date of my account's commencement?
+    - when did I become a user of this service?
+    - when did I create this account?
+    - when was my account set up?
+    - can you show me the date of registration?
+    - when did I start using this product?
+    - when did I start using this website?
+    - when did I begin using this service?
+    - on what date did I sign up?
+    - when did I open my account with you?
+    - when did I start my account with this company?
+    - what was the date of account registration?
+    - when did I create an account?
+    - when did I sign up for your website?
+    - when did I open an account with your company?
+    - when was my account created with this service?
+    - when was I registered with your website?
+    - when did I start using your website?
+    - when did I start using your service?
+    - when did I enroll in this program?
+    - when did I become a member?
+    - when did I become a customer?
+    - when was my account created with you?
+    - can you show me when I signed up?
+    - can you tell me the date when I became a member?
+    - when did I become a subscriber?
+    - when did I start using this app?
+    - when was I registered for this service?
+    - when was I enrolled in this program?
+    - when did I become a member of your website?
+    - when did I become a part of your service?
+    - when did I become a part of this program?
+    - when was my account created with this website?
+    - when was my account created with this app?
+    - when was my account created with your company?
+    - when did I become a member of this community?
+    - when did I become a member of your community?
+    - when did I start using this platform?
+    - when was I registered for this app?
+    - when did I join your program?
+    - when did I start using your platform?
+    - when was I registered with this company?
+    - when was I registered with this service?
+    - when did I become a part of your community?
+    - when did I become a part of this community?
+    - when was my account set up with this service?
+
 - intent: show_balance_intent
   examples: |
     - Show me my balance
@@ -592,6 +943,226 @@ nlu:
     - I'd like to see my account balance
     - Can you check my account balance?
 
+- intent: show_slots_intent
+  examples: |
+    - show me my slots
+    - what are my slots
+    - can you show me my slots
+    - list my slots
+    - what slots do I have
+    - display my slots
+    - tell me my slots
+    - show me the values of my slots
+    - what are the values of my slots
+    - give me my slots
+    - show me all my slots
+    - display all my slots
+    - show me a list of my slots
+    - give me a list of my slots
+    - what are all my slots
+    - what slots do I currently have
+    - what are my current slots
+    - show me my current slots
+    - can you list my current slots
+    - display my current slots
+    - tell me my current slots
+    - show me the values of my current slots
+    - what are the values of my current slots
+    - give me my current slots
+    - show me all my current slots
+    - display all my current slots
+    - show me a list of my current slots
+    - give me a list of my current slots
+    - what are all my current slots
+    - what are my slot values
+    - list my slot values
+    - display my slot values
+    - tell me my slot values
+    - show me the values of my slots
+    - what are the values of my slots
+    - give me my slot values
+    - show me all my slot values
+    - display all my slot values
+    - show me a list of my slot values
+    - give me a list of my slot values
+    - what are all my slot values
+    - what are the values of my current slots
+    - give me my current slot values
+    - show me all my current slot values
+    - display all my current slot values
+    - show me a list of my current slot values
+    - give me a list of my current slot values
+    - what are all my current slot values
+    - show me the values of my current slots
+    - what are the values of my current slots
+    - show me my slot data
+    - what is my slot data
+
+
+### Policy Information Intents ###
+- intent: policies_info_intent
+  examples: |
+    - Can you tell me more about the bank's policies?
+    - What are your policies regarding account security?
+    - Where can I find information about your policies?
+    - How does your bank handle customer data?
+    - I'm interested in learning about your policies.
+    - Can you give me some information about your policies?
+    - What are the policies for opening a new account?
+    - What are your policies for overdrafts?
+    - Can you explain the bank's policies on loans?
+    - How do I find out about your policies on fraud protection?
+    - What are your policies for ATM usage?
+    - What is your policy on closing an account?
+    - Can you give me information on your privacy policy?
+    - What is the bank's policy on credit cards?
+    - Do you have policies regarding online banking?
+    - What are the bank's policies for wire transfers?
+    - Can you provide information on your investment policies?
+    - What are the bank's policies for direct deposits?
+    - Can you give me details about your fee policies?
+    - What are your policies for account maintenance?
+    - Can you explain the bank's policies for joint accounts?
+    - What are your policies for foreign transactions?
+    - What is your policy on account balances?
+    - Can you provide information on your policies for ATM fees?
+    - What are the bank's policies for check deposits?
+    - How do I find out about your policies for account closures?
+    - Can you give me information on your policies for online bill pay?
+    - What are the bank's policies for account overdrafts?
+    - What is your policy on account statements?
+    - Can you explain the bank's policies on debit cards?
+    - What are your policies for check writing?
+    - How do I find out about your policies for account transfers?
+    - Can you give me information on your policies for ATM withdrawals?
+    - What are the bank's policies for wire transfers?
+    - What is your policy on dormant accounts?
+    - Can you provide information on your policies for account freezes?
+    - What are your policies for account termination?
+    - How do I find out about your policies for online security?
+    - Can you give me information on your policies for check fraud?
+    - What are the bank's policies for account maintenance fees?
+    - What is your policy on overdraft protection?
+    - Can you explain the bank's policies for savings accounts?
+    - What are your policies for account verification?
+    - How do I find out about your policies for foreign exchange rates?
+    - Can you give me information on your policies for account transactions?
+    - What are the bank's policies for interest rates?
+    - What is your policy on account ownership?
+    - Can you provide information on your policies for account access?
+    - What are your policies for account holder information?
+    - How do I find out about your policies for account opening?
+    - Can you give me information on your policies for account deposits?
+    - What are the bank's policies for account withdrawals?
+    - What is your policy on dormant account fees?
+    - Can you explain the bank's policies for online banking security?
+    - What are your policies for account notifications?
+    - How do I find out about your policies for account holds?
+    - Can you give me information on your policies for account transfers?
+    - What are the bank's policies for account eligibility?
+    - What is your policy on account overdraft fees?
+    - Can you provide information on your policies for
+
+### Confirmation Intents ###
+- intent: affirm_intent
+  examples: |
+    - Yes
+    - Yeah
+    - Yup
+    - Sure
+    - Absolutely
+    - Definitely
+    - Indeed
+    - Of course
+    - Alright
+    - Ok
+    - Okay
+    - Fine
+    - Affirmative
+    - Positive
+    - Confirmed
+    - Agreed
+    - I agree
+    - That's correct
+    - That's right
+    - You're right
+    - You're correct
+    - Correct
+    - Right
+    - Please do
+    - Please proceed
+    - Go ahead
+    - Sounds good
+    - That sounds good
+    - I accept
+    - I confirm
+    - I'd like that
+    - I would like that
+    - I'd love to
+    - I would love to
+    - I'm in
+    - Count me in
+    - I'm up for it
+    - Let's do it
+    - Let's go
+    - I'm interested
+    - I want to continue
+    - I'd like to continue
+    - Please continue
+    - Keep going
+    - Carry on
+
+- intent: deny_intent
+  examples: |
+    - No, thanks.
+    - No, I don't want to.
+    - I don't need that.
+    - I'd rather not.
+    - Nope.
+    - Not for me.
+    - No, thank you.
+    - I don't want that.
+    - I don't think so.
+    - No way.
+    - Absolutely not.
+    - I'm not interested.
+    - Please don't.
+    - Not this time.
+    - I'm good, thanks.
+    - Not interested.
+    - Not right now.
+    - I'll pass.
+    - Nah.
+    - No, not today.
+    - I don't want to proceed.
+    - I refuse.
+    - Cancel that.
+    - Stop it.
+    - Please cancel.
+    - Discontinue.
+    - No, let's not do that.
+    - That's not for me.
+    - I won't.
+    - No, stop it.
+    - I don't need it.
+    - Do not proceed.
+    - No, don't do it.
+    - Decline.
+    - Negative.
+    - Not gonna happen.
+    - I'd like to stop.
+    - No, I changed my mind.
+    - Don't go on.
+    - I won't continue.
+    - Halt.
+    - No, let's stop.
+    - I'm not going through with it.
+    - I don't want to go on.
+    - Not going to do it.
+    - No, I'm not interested.
+    - No, I don't feel like it.
+
+### Miscellaneous Intents ###
 - intent: break_intent
   examples: |
     - That's enough for now.
@@ -689,141 +1260,3 @@ nlu:
     - Let's break off the conversation.
     - Let's conclude this.
     - I'm not interested in continuing.
-
-- intent: policies_info_intent
-  examples: |
-    - Can you tell me more about the bank's policies?
-    - What are your policies regarding account security?
-    - Where can I find information about your policies?
-    - How does your bank handle customer data?
-    - I'm interested in learning about your policies.
-    - Can you give me some information about your policies?
-    - What are the policies for opening a new account?
-    - What are your policies for overdrafts?
-    - Can you explain the bank's policies on loans?
-    - How do I find out about your policies on fraud protection?
-    - What are your policies for ATM usage?
-    - What is your policy on closing an account?
-    - Can you give me information on your privacy policy?
-    - What is the bank's policy on credit cards?
-    - Do you have policies regarding online banking?
-    - What are the bank's policies for wire transfers?
-    - Can you provide information on your investment policies?
-    - What are the bank's policies for direct deposits?
-    - Can you give me details about your fee policies?
-    - What are your policies for account maintenance?
-    - Can you explain the bank's policies for joint accounts?
-    - What are your policies for foreign transactions?
-    - What is your policy on account balances?
-    - Can you provide information on your policies for ATM fees?
-    - What are the bank's policies for check deposits?
-    - How do I find out about your policies for account closures?
-    - Can you give me information on your policies for online bill pay?
-    - What are the bank's policies for account overdrafts?
-    - What is your policy on account statements?
-    - Can you explain the bank's policies on debit cards?
-    - What are your policies for check writing?
-    - How do I find out about your policies for account transfers?
-    - Can you give me information on your policies for ATM withdrawals?
-    - What are the bank's policies for wire transfers?
-    - What is your policy on dormant accounts?
-    - Can you provide information on your policies for account freezes?
-    - What are your policies for account termination?
-    - How do I find out about your policies for online security?
-    - Can you give me information on your policies for check fraud?
-    - What are the bank's policies for account maintenance fees?
-    - What is your policy on overdraft protection?
-    - Can you explain the bank's policies for savings accounts?
-    - What are your policies for account verification?
-    - How do I find out about your policies for foreign exchange rates?
-    - Can you give me information on your policies for account transactions?
-    - What are the bank's policies for interest rates?
-    - What is your policy on account ownership?
-    - Can you provide information on your policies for account access?
-    - What are your policies for account holder information?
-    - How do I find out about your policies for account opening?
-    - Can you give me information on your policies for account deposits?
-    - What are the bank's policies for account withdrawals?
-    - What is your policy on dormant account fees?
-    - Can you explain the bank's policies for online banking security?
-    - What are your policies for account notifications?
-    - How do I find out about your policies for account holds?
-    - Can you give me information on your policies for account transfers?
-    - What are the bank's policies for account eligibility?
-    - What is your policy on account overdraft fees?
-    - Can you provide information on your policies for
-
-- intent: show_account_number_intent
-  examples: |
-    - What's my account number?
-    - Can you show me my account number?
-    - I need to see my account number
-    - What is the number of my account?
-    - Please display my account number
-    - Show me my account number
-    - I want to know my account number
-    - Can you tell me my account number?
-    - What is my account number?
-    - Can I see my account number?
-    - Tell me my account number
-    - Account number please
-    - I need to know my account number
-    - What's the account number for my account?
-    - Please show me my account number
-    - Can you show me the account number?
-    - What is my bank account number?
-    - What's the number of my account?
-    - What's my account number?
-    - Can you give me my account number?
-    - Can you tell me what my account number is?
-    - Show me the account number
-    - Display my account number
-    - Can you display my account number?
-    - I want to see my account number
-    - I need my account number
-    - What's my bank account number?
-    - Can you show me my bank account number?
-    - What is my account number for my bank account?
-    - What is my bank account number?
-    - What's the account number for my bank account?
-    - Please tell me my account number
-    - Could you show me my account number?
-    - How can I see my account number?
-    - What's the number of my bank account?
-    - Can you display the account number?
-    - I would like to see my account number
-    - Can you show me my bank account number please?
-    - Can you tell me my bank account number?
-    - Show me my bank account number
-    - Could you tell me my account number please?
-    - Can you display the bank account number?
-    - What's my account number for this account?
-    - How do I find out my account number?
-    - Can you tell me the account number?
-    - What is the account number for my account?
-    - Can you show the account number?
-    - I want to see the account number
-    - Please tell me the account number
-    - Display the account number please
-    - What's my bank account number for this account?
-    - Could you show me my bank account number?
-    - What is my bank account number for this account?
-    - Can you tell me the bank account number?
-    - What's the account number for this account?
-    - Can you show me the bank account number?
-    - Please display the account number
-    - What's the number of the bank account?
-    - Can you show the bank account number?
-    - Show the account number please
-    - What's the bank account number?
-    - What's my account number for the bank account?
-    - Please tell me the bank account number
-    - Can you display the bank account number please?
-    - What is the bank account number?
-    - Could you tell me the bank account number please?
-    - What's the account number for the bank account?
-    - Can you show me the bank account number for this account?
-    - Can you tell me the account number for this account?
-    - What is the account number for the bank account?
-    - What's the bank account number for my account?
-    - Show me the bank account number for my account

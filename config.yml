@@ -55,18 +55,28 @@ endpoints:
     url: "http://localhost:5055/webhook"
 
 actions:
-# Misc
-  - action_open_policies_page
+# General actions
   - action_restart
-  - action_logout
-  - action_show_balance
-  - action_do_nothing
-  - action_show_account_number
-  - action_print_slots
-# Check CNP form
+
+# Login and logout actions
   - validate_login_form
   - action_check_login_status
   - submit_login_form
+  - action_logout
+
 # New user form
   - validate_new_user_form
   - submit_new_user_form
+
+# Information display actions
+  - action_show_my_cnp
+  - action_show_name
+  - action_show_surname
+  - action_show_age
+  - action_show_account_number
+  - action_show_register_date
+  - action_show_balance
+  - action_show_slots
+
+# Other actions
+  - action_open_policies_page
