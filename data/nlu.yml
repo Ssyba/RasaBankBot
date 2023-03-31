@@ -298,7 +298,7 @@ nlu:
     - I want to create a new account.
     - I am new to this bank and want to create a user profile.
     - Can you help me sign up for a new account?
-    - How can I register as a new user?
+    - How can I registration as a new user?
     - I'm interested in opening a new account.
     - How do I create a new user account?
     - I'd like to become a new user.
@@ -308,9 +308,9 @@ nlu:
     - I want to open a new account.
     - How do I sign up as a new user?
     - Can you guide me through creating a new account?
-    - What's the process for registering a new account?
+    - What's the process for registrationing a new account?
     - I'd like to set up a new user profile.
-    - I need help registering as a new user.
+    - I need help registrationing as a new user.
     - Can I open a new account with you?
     - How do I become a new user?
     - I'm looking to create a new account.
@@ -322,7 +322,7 @@ nlu:
     - I'd like to open a new user account.
     - I need assistance with creating a new account.
     - Can I create a new account here?
-    - How do I register for a new user account?
+    - How do I registration for a new user account?
     - I'm interested in becoming a new user.
     - Please help me set up a new account.
     - I need to open a new account.
@@ -334,10 +334,10 @@ nlu:
     - How do I create a new account?
     - I'm looking to become a new user.
     - Please assist me in creating a new user account.
-    - I want to register as a new user.
+    - I want to registration as a new user.
     - How can I sign up as a new user?
     - Can you guide me through opening a new account?
-    - What's the procedure for registering a new user account?
+    - What's the procedure for registrationing a new user account?
     - I'd like to set up a new account.
     - I need help signing up as a new user.
     - Can I join as a new user?
@@ -345,6 +345,233 @@ nlu:
     - I'm interested in creating a new user profile.
 
 ### User Information Intents ###
+- intent: show_my_user_info_intent
+  examples: |
+    - what is my information
+    - tell me my information
+    - can you show me my information
+    - i need to know my information
+    - what is my user info
+    - can you tell me about myself
+    - can you show me my user info
+    - give me my user information
+    - what's my user information
+    - can you give me my information
+    - give me my personal details
+    - show my user information
+    - what's my user info
+    - can you tell me my user information
+    - show me my personal information
+    - what are my user details
+    - can you give me my user info
+    - show me my user details
+    - what is my personal information
+    - can you give me my personal information
+    - can you show my details
+    - what are my personal details
+    - can you tell me my personal details
+    - what are my details
+    - show me my details please
+    - can you display my personal details
+    - display my personal details please
+    - what is my info
+    - tell me about myself
+    - what is my personal data
+    - show me my data
+    - can you display my data
+    - give me my data
+    - tell me my details
+    - display my information
+    - show me my user data
+    - what are my details please
+    - can you give me my personal details please
+    - what's my personal data
+    - can you show my user data
+    - can you display my user info please
+    - give me my details
+    - what are my user details please
+    - what are my personal details please
+    - what is my user data
+    - can you give me my user data
+    - what is my personal info
+    - what's my user data
+    - can you tell me my user data
+    - can you display my personal info
+    - display my personal data
+    - show me my personal data
+    - Can you show me my user information?
+    - I want to see my user info
+    - Please show me my user details
+    - What is my user info?
+    - Can you display my user details?
+    - Show my user info
+    - Show my user details
+    - I want to know my user details
+    - What is my user information?
+    - Please display my user info
+    - Can you give me my user information?
+    - I want to view my user information
+    - Please show me my user info
+    - Can you show me my user details again?
+    - What is my user data?
+    - Please display my user details
+    - Can you show my user data?
+    - Show my user data
+    - What is my account information?
+    - Can you display my account info?
+    - Can you give me my user details?
+    - Can you show me my account details?
+    - What are my user details?
+    - Please display my account information
+    - Can you show me my personal information?
+    - What are my account details?
+    - I want to see my personal info
+    - Please give me my account details
+    - Can you show me my account information?
+    - What is my personal information?
+    - I want to see my account info
+    - Can you give me my personal details?
+    - Please show me my personal info
+    - Can you show me my personal details again?
+    - Please show me my personal information
+    - What is my account data?
+    - Can you give me my account data?
+    - Can you show me my account data?
+    - Can you display my account data?
+    - What are my personal details?
+    - Please display my personal information
+    - Can you give me my personal information?
+    - I want to see my user data
+    - Can you display my user data again?
+    - Can you show me my user data again?
+    - What are my user details?
+    - Please display my user data
+    - I want to know my account info
+    - Please show me my account data
+    - Can you give me my account info?
+    - What is my personal info?
+    - Can you show me my personal data?
+    - Can you display my personal data?
+    - Please show me my account details again
+    - What is my user account information?
+    - Can you display my user account information?
+    - I want to view my user account information
+    - What are my user account details?
+    - Please show me my user account info
+    - Can you show me my user account details
+    - Can you give me my user account information
+    - Please display my user account info
+    - What is my user account data?
+    - Can you give me my user account data?
+    - Can you show me my user account data?
+    - Please show me my user account data
+    - I want to know my user account info
+    - Please show me my user account details again
+    - What is my account user information?
+    - Can you display my account user information?
+    - Can you show me my account user info?
+    - I want to view my account user information
+    - What are my account user details?
+    - Please show me my account user details
+    - Can you show me my account user data?
+    - Can you give me my account user information?
+    - Please display my account user info
+    - What is my account user data?
+    - Can you give me my account user
+    - I want to see my account information
+    - What information do you have on my account?
+    - Can you show me my user information?
+    - Can I see my user info?
+    - Can you tell me my user information?
+    - Show my account details
+    - Show my user details
+    - Show my user info
+    - Can I see my account details?
+    - Can you display my account information?
+    - Show my account information
+    - What's my account information?
+    - What's my user information?
+    - Display my user information
+    - Can you provide my account information?
+    - Can I see my personal information?
+    - What's my personal information?
+    - What is my user information?
+    - What is my account information?
+    - Can you display my user details?
+    - Display my account details
+    - Show me my personal information
+    - Show my personal details
+    - Show my personal info
+    - Display my personal information
+    - Can you display my personal info?
+    - Show my details
+    - Show my info
+    - Can you display my details?
+    - Display my info
+    - What's my personal info?
+    - What's my info?
+    - Can you provide me with my account details?
+    - What are my user details?
+    - What are my personal details?
+    - What are my account details?
+    - What information do you have on me?
+    - Can you display my information?
+    - Can you display my account details?
+    - Can you show my user details?
+    - Can you provide my user information?
+    - Can you show me my personal details?
+    - Can you show me my personal info?
+    - Can you provide me with my personal information?
+    - Can you show me my account information?
+    - Can you provide me with my account information?
+    - Can you display my user information?
+    - Can you show my personal information?
+    - Can you display my personal details?
+    - What are my user info?
+    - What are my personal info?
+    - What are my account info?
+    - What information do you have on my user account?
+    - What information do you have on my personal account?
+    - What information do you have on my account?
+    - Can you provide me with my user info?
+    - Can you show me my user info?
+    - Can you provide me with my personal info?
+    - Can you show me my personal info?
+    - Can you provide me with my account info?
+    - Can you show me my account info?
+    - Can you display my user info?
+    - Can you display my personal info?
+    - Can you display my account info?
+    - Can you provide me with my user details?
+    - Can you show me my user details?
+    - Can you provide me with my personal details?
+    - Can you show me my personal details?
+    - Can you provide me with my account details?
+    - Can you show me my account details?
+    - Can you display my user details?
+    - Can you display my personal details?
+    - Can you display my account details?
+    - Show me my personal account information
+    - Show me my user account information
+    - Show me my account user information
+    - Show me my personal and user information
+    - Show me my personal and account information
+    - Show me my user and account information
+    - Show me all my information
+    - Can you display all my information?
+    - Can you show me all my account information?
+    - Can you provide me with all my user information?
+    - Can you display all my personal information?
+    - Show me all my user information
+    - Show me all my personal information
+    - Show me all my account information
+    - Display all my information
+    - Display all my user information
+    - Display all my personal information
+    - Display all my account information
+    - Can you show me my personal and user details?
+    - Can you show me my user and account details
+
 - intent: show_my_cnp_intent
   examples: |
     - show me my CNP
@@ -528,420 +755,928 @@ nlu:
     - CNP, I need it
     - can I have my CNP
 
-- intent: show_name_intent
+- intent: show_my_name_intent
   examples: |
-    - Show me my name
-    - What's my name?
-    - Can you display my name?
-    - Tell me my name please
-    - Show my full name
-    - Display my name
-    - I want to see my name
-    - Can you tell me my full name?
-    - My name, can you show it?
-    - Please show my name
-    - I need to know my name
-    - What name do you have for me?
-    - How do you spell my name?
-    - Could you show me my full name?
-    - What is the name you have on file for me?
-    - Can you tell me what name you have for me?
-    - What name did I provide you?
-    - I forgot my name
-    - Could you display my full name?
-    - Can you show me what name you have for me?
-    - Can you tell me the name you have on file?
-    - What is my name again?
-    - Please remind me of my name
-    - Show my name please
-    - I would like to see my name
-    - Can you display my full name please?
-    - Can you tell me what name you have saved for me?
-    - Please show me the name you have on file
+    - What is my name?
     - Can you remind me of my name?
-    - What is the name associated with this account?
-    - Could you show me the name you have saved for me?
-    - Can you tell me the name I gave you?
-    - Can you display the name on file for me?
-    - Show my name again
+    - Please tell me my name
+    - What name do you have for me?
+    - Can you let me know my name?
+    - I forgot my name, can you help?
+    - Please inform me of my name
     - Can you tell me my name again?
-    - Can you show me the name on record?
-    - What name did I register with?
-    - What name did I provide to you?
-    - Please display my name
-    - Can you show me my name again?
-    - Can you tell me what name I gave you?
-    - I want to see the name associated with this account
-    - Please show me my full name again
-    - What name did I enter when I signed up?
-    - What name do you have registered for me?
-    - Please tell me my full name
-    - Show my name once more
-    - Could you display the name associated with this account?
-    - Can you tell me the name on my account?
-    - Show my full name once more
-    - Can you tell me what name is associated with my account?
-    - Can you remind me what name I provided you?
-    - Please show me the name on file for this account
-    - Can you show me the name on my account?
+    - What's my name again?
+    - What do you have on file as my name?
+    - Can you tell me the name associated with this account?
+    - What name did I use to sign up?
+    - Can you help me recall my name?
+    - Please provide me with my name
+    - What name did I give you earlier?
+    - Can you repeat my name for me?
+    - What name did I registration with?
+    - What name did I use to create my account?
+    - Can you tell me my registrationed name?
+    - Please give me my registrationed name
+    - What name is registrationed under my account?
+    - Can you please tell me my registrationed name?
+    - What is the name linked to my account?
     - Can you tell me what name I used to sign up?
+    - Please show me the name on file
+    - What's the name associated with my account?
+    - Can you inform me of my registrationed name?
+    - What name did I provide when I signed up?
+    - Can you remind me what name I used to registration?
+    - What name did I give when I created my account?
+    - Can you tell me what name is registrationed under this account?
+    - Please tell me the name I used to registration
+    - What name did I use to create my profile?
+    - Can you remind me what name I used to sign up?
+    - Please confirm the name on my account
+    - What name is associated with my user profile?
+    - Can you verify the name on my account?
+    - Please tell me the name associated with my profile
+    - What name did I use to create this account?
+    - Can you tell me what name I registrationed with?
+    - What name is linked to this account?
+    - Can you help me find the name on file?
+    - What name did I provide during registration?
+    - Please show me the name linked to my account
+    - Can you remind me of the name I used to sign up?
+    - What name did I specify when I created my account?
+    - Can you tell me the name associated with my account again?
+    - Please let me know what name I registrationed with
+    - What name did I use to create my user profile?
+    - Can you tell me what name I used when I registrationed?
+    - Please show me the name I provided when I created this account
+    - What name is associated with my login details?
+    - Can you remind me of the name on file?
+    - Please tell me the name I used to create my account
+    - What name did I use to create my profile?
+    - Can you confirm the name associated with my account?
+    - Please show me the name on my account
+    - What name did I provide when I signed up for this account?
+    - Can you verify the name on file?
+    - Please tell me the name associated with my user account
+    - What name did I give when I registrationed for this account?
+    - Can you tell me the name associated with this
+    - What's my name?
+    - Can you tell me my name?
+    - I forgot my name, can you help me?
+    - I need to see my name
+    - What do you know my name as?
+    - Can you show me my name?
+    - Tell me my name
+    - Could you display my name?
+    - What is the name you have for me?
+    - Can you remind me of my name?
+    - I want to see what name you have for me
+    - Please show me my name
+    - What is my name again?
+    - What name do you have on record for me?
+    - I'd like to confirm my name
+    - Can you display the name you have for me?
+    - What name do you have for me in your system?
+    - What do you know my name as?
+    - Can you please show me my name?
+    - I'd like to see my name
+    - What name do you have on file for me?
+    - Can you remind me of the name you have for me?
+    - Show me my name
+    - What name is associated with my account?
+    - What is the name I provided to you?
+    - Can you display my registrationed name?
+    - What is the name you have in your system for me?
+    - Can you show me the name you have on file for me?
+    - I want to check the name you have for me
+    - What name did I registration with?
+    - Can you confirm the name you have for me?
     - What name do you have saved for me?
-    - Please remind me what name I gave you
-    - Can you display my full name one more time?
-    - Show my full name again please
-    - Can you show me my name one more time?
-    - Can you tell me the name I registered with?
-    - Please display my full name again
-    - What name is linked to my account?
-    - What is the name associated with my account?
-    - Can you remind me of the name I provided you?
-    - Please show me my full name one more time
-    - Can you tell me my name one more time?
-    - What name did I use when I signed up?
-    - Can you display the name on file for this user?
+    - Can you please remind me of my name?
+    - Show me the name you have for me
+    - Can you tell me what name you have for me?
+    - Please show me the name you have on file
+    - What is the name you have associated with my account?
+    - Can you display the name I provided to you?
+    - What name do you have registrationed for me?
+    - Can you confirm my name?
+    - What name did I give you when I registrationed?
+    - I want to know the name you have on record for me
+    - What name do you have on file for me?
+    - Can you display my name in your system?
+    - Please show me the name I registrationed with
+    - What is the name you have stored for me?
+    - Can you remind me of the name I provided to you?
+    - What name do you have?
+    - Please show me your name
+    - Can you tell me your name?
+    - Could you tell me your name?
+    - What is your name?
+    - What do people call you?
+    - Tell me your name
+    - Can you tell me who you are?
+    - Who are you?
+    - What's your name?
+    - Please tell me your name
+    - Can you tell me your name again?
+    - Tell me your name again
+    - Please show your name again
+    - May I know your name?
+    - What are you called?
+    - What's your name again?
+    - Can you tell me the name you go by?
+    - Can you show your name?
+    - Can you please show your name?
+    - Can you tell me your name once more?
+    - Can you tell me your name another time?
+    - Please tell me your name once again
+    - I want to know your name
+    - Can you tell me your name please?
+    - Can you show me your name once more?
+    - Please tell me your name again
+    - What should I call you?
+    - Can you show me your name again?
+    - Can you repeat your name for me?
+    - Please repeat your name
+    - Please say your name
+    - I want to know the name of the bot
+    - Please let me know your name
+    - Can you tell me your name once again please?
+    - What do you want to be called?
+    - What should I address you by?
+    - Please show me your name again
+    - Can you please tell me your name?
+    - Can you please repeat your name?
+    - I need to know your name
+    - I don't know your name, can you tell me?
+    - Can you tell me who you are again?
+    - Can you tell me your name one more time?
+    - Can you please show me your name once again?
+    - Can you show me your name another time?
+    - Please tell me what you are called
+    - What name should I call you by?
+    - Can you please show your name again?
 
-- intent: show_surname_intent
+- intent: show_my_surname_intent
   examples: |
     - What is my surname?
     - Can you tell me my surname?
-    - Please show my surname.
-    - My last name please.
-    - I need my surname.
-    - What's my family name?
-    - Could you show me my surname?
-    - I want to see my surname.
-    - My surname, please.
-    - Display my surname.
-    - How do you spell my surname?
+    - Show my surname
     - What's my last name?
-    - Can you show me my family name?
-    - I forgot my surname.
-    - What do you have as my last name?
-    - Surname please.
-    - Can you tell me my last name?
-    - Can you display my last name?
-    - Can you show me my last name?
-    - My surname, what is it?
-    - Can you remind me my surname?
-    - My last name, what is it?
-    - Can you tell me what's my last name?
-    - Could you remind me my family name?
-    - Can you tell me what's my surname?
-    - Can you display my family name?
-    - What do you have as my family name?
-    - What do you have as my surname?
-    - Can you show me what's my last name?
-    - Show me my last name, please.
-    - Please display my last name.
-    - My family name, what is it?
-    - Please remind me my surname.
-    - What's the last name on my account?
-    - My last name is?
-    - Please tell me my family name.
-    - Can you tell me what my last name is?
-    - I can't remember my surname.
-    - Show me what you have as my last name.
-    - My surname, can you show me it?
-    - My family name, can you show me it?
-    - Can you remind me what's my last name?
-    - What's the surname on my account?
-    - Please display my surname.
-    - Please show me my family name.
-    - What do you have as my family name?
-    - What do you have as my surname?
-    - Show my family name, please.
-    - Can you remind me what my last name is?
-    - Could you display my family name?
-    - Please show my last name.
+    - Please show my last name
+    - Tell me my last name
+    - My surname please
+    - What's my surname again?
+    - Can you remind me of my last name?
+    - Can you show me my surname again?
+    - What surname do I have?
+    - Can you display my surname?
+    - I want to see my last name
+    - What is my family name?
+    - Can you show my family name?
+    - What's my family name?
+    - Show me my family name
     - What is my last name again?
-    - What is my surname on your system?
-    - Can you display what's my surname?
-    - Can you display what's my family name?
-    - My last name is, what?
-    - Can you remind me what's my family name?
-    - Show my surname, please.
-    - Can you show me my last name on your system?
-    - What's the surname on my account again?
-    - Show my family name, what is it?
-    - What is my family name on your system?
-    - What do you have as my last name?
-    - Can you tell me what's the family name on my account?
-    - My family name is?
-    - My surname is?
-    - What is the family name on my account again?
-    - What's the surname on my account on your system?
-    - Can you remind me what is my last name?
-    - What do you have as my family name on your system?
-    - Can you show me my last name on your system?
-    - Can you remind me what's the family name on my account?
-    - What is my last name on your system?
+    - What is my surname one more time?
+    - Tell me my surname again
+    - What was my surname?
+    - Can you remind me of my surname?
+    - Can you tell me my family name?
+    - What was my last name again?
+    - Can you show me my family name again?
+    - What was my last name?
+    - Show my family name please
+    - What's my last name one more time?
+    - Can you display my last name?
+    - What's my family name again?
+    - Can you remind me of my family name?
+    - I want to see my surname once more
+    - What's my surname this time?
+    - Can you show me my last name one more time?
+    - What's my last name once more?
+    - Can you remind me of my family name one more time?
+    - Show me my last name once more
+    - Can you show my last name again please?
+    - What was my family name again?
+    - Can you tell me my last name again please?
+    - I need to know my surname
+    - What's my family name one more time?
+    - What surname did I use to registration?
+    - Can you tell me my surname one more time?
+    - Can you display my last name one more time please?
+    - Can you show my family name once more?
+    - What is my surname exactly?
+    - Can you show my surname one more time?
+    - Can you tell me my last name one more time please?
+    - Please display my surname
+    - What surname is registrationed to me?
+    - Can you show me my surname one more time please?
+    - I need to see my last name again
+    - What's my family name exactly?
+    - What was the surname I used when I signed up?
+    - Can you tell me my last name again?
+    - What's my last name exactly?
+    - What was my last name when I registrationed?
+    - What's my surname at the moment?
+    - What's my family name currently?
+    - What surname did I provide during registration?
+    - Can you display my family name?
+    - I need to know my family name
+    - What's my last name registrationed as?
+    - What surname do you have for me?
+    - Can you show me my surname currently?
+    - What is the surname on my account?
+    - Can you tell me what my last name is?
+    - What's the surname I used when I signed up?
+    - Can you show my family name currently?
+    - What's my last name registrationed under?
+    - Can you display my surname right now?
+    - I want to check what surname I used to registration
+    - My surname please
+    - Could you show me my surname?
+    - What is my surname?
+    - Can you tell me my surname?
+    - Please display my surname
+    - I need to know my surname
+    - What's my last name?
+    - Could you show me my last name?
+    - Tell me my last name
+    - Can you display my last name?
+    - What is my family name?
+    - Show my family name
+    - Can you tell me my family name?
+    - What's my last name again?
+    - Can you display my last name once more?
+    - Please show me my last name again
+    - Can you remind me of my last name?
+    - What was my last name again?
+    - I need to know my last name once more
+    - Can you tell me my last name again?
+    - Show me my last name one more time
+    - Please remind me of my last name
+    - What was my family name again?
+    - Can you display my family name again?
+    - I'd like to know my last name again
+    - What's my surname once more?
+    - Can you remind me of my family name?
+    - Please show me my family name again
+    - Can you display my last name one more time?
+    - What was my surname again?
+    - I'd like to see my family name again
+    - Can you remind me of my surname?
+    - Please show me my surname again
+    - What's my surname one more time?
+    - Can you tell me my surname once more?
+    - Show me my last name once more
+    - Please remind me of my family name again
+    - Can you show me my last name again?
+    - What was my family name one more time?
+    - Can you tell me my family name one more time?
+    - Please display my family name once more
+    - What's my family name once more?
+    - Can you remind me of my last name again?
+    - Show my last name again
+    - What is my last name once more?
+    - Please show my last name one more time
+    - I'd like to know my family name once more
+    - Can you remind me of my surname again?
+    - What's my surname?
+    - Can you tell me my surname?
+    - What surname do you have for me?
+    - I'd like to see my surname, please.
+    - Could you show me my surname?
+    - I need to know my surname.
+    - Can you display my surname?
+    - Please tell me my surname.
+    - Can you show my surname again?
+    - I don't remember my surname, can you help me?
+    - Please show my surname one more time.
+    - What is my last name?
+    - I'd like to check my surname again.
+    - Could you provide my surname, please?
+    - Can you show me my last name?
+    - What surname is associated with my account?
+    - Could you remind me of my surname?
+    - Please display my surname one more time.
+    - I forgot my surname, can you help me out?
+    - What is the surname on my account?
+    - Can you tell me the surname associated with my account?
+    - Could you let me know what surname is listed for me?
+    - What is my surname, again?
+    - Can you show me the surname on my account?
+    - I'd like to know my surname again.
+    - Can you display my surname again?
+    - Could you please remind me of my surname?
+    - Can you tell me my last name?
+    - What is my family name?
+    - Could you show me my surname one more time?
+    - Can you remind me of my surname, please?
+    - Can you display my last name?
+    - What surname do you have associated with my name?
+    - What is the surname on my account?
+    - Could you let me know what surname is listed for me, again?
+    - Please show me my surname one last time.
+    - What is the last name on my account?
+    - Can you please show me my surname?
+    - Could you remind me of the surname on my account?
+    - What is my surname, one more time?
+    - Can you display my last name again?
+    - Can you tell me my family name again?
+    - I need to confirm my surname.
+    - Can you show me my surname, one more time?
+    - Please remind me of my surname again.
+    - Could you display the surname on my account?
+    - What is the surname associated with my account, again?
+    - Can you provide my surname again?
+    - I'd like to verify my surname, please.
+    - What surname is registrationed under my name?
+    - Can you tell me my last name, again?
+    - What surname is listed for my account, again?
+    - Could you remind me of my last name?
+    - Can you display my surname one last time, please?
+    - What's the last name on my account?
+    - Can you show me the surname associated with my account again?
+    - Please show me my surname one more time.
+    - I need to double-check my surname.
+    - What surname do you have on record for me?
+    - Could you please display my surname one more time?
+    - Can you remind me of my surname on file?
+    - What surname is registrationed to my name?
+    - Can you please show me my surname again?
+    - What's the surname associated with my account?
+    - Could you remind me of the surname associated with my name?
+    - What surname do you have listed for my account, once more?
+    - Can you display my surname once more?
+    - I'd like to confirm my surname again.
+    - What's my last name?
+    - Can you show me my last name again?
+    - What surname is registrationed to my account, once more?
+    - Could you please remind me of my last name?
+    - Can you display my surname, one more time?
+    - What surname is on my account?
+    - Can you remind me of my surname, again?
 
-
-- intent: show_age_intent
+- intent: show_my_age_intent
   examples: |
-    - Can you tell me my age?
-    - How old am I?
-    - I want to know my age.
+    - I want to see my age
     - Can you show me my age?
-    - Could you tell me my current age?
+    - Display my age please
+    - I'd like to know my age
     - What is my age?
-    - Tell me my age please.
-    - Age check.
-    - Show my current age.
-    - What's my age?
-    - Show me my age.
-    - What is my current age?
+    - Can you tell me my age?
+    - Show my age
+    - What's my age again?
+    - Can you display my age?
+    - Please show me my age
+    - I need to see my age
     - Can you tell me how old I am?
-    - How many years old am I?
-    - How many years have passed since my birth?
-    - What is the number of years that I have been alive?
-    - Am I still in my twenties?
-    - Am I over the hill?
-    - When is my birthday?
-    - When was I born?
-    - What is my birth date?
-    - Please provide my birthdate.
-    - What's my date of birth?
-    - Can you tell me when I was born?
-    - Tell me my birthdate.
-    - Give me my date of birth.
-    - Can you tell me what year I was born?
-    - What's the year I was born?
-    - What's the date I was born?
-    - Can you tell me the day I was born?
-    - What's my birth day?
-    - When is my birthday?
-    - What day was I born?
-    - Can you tell me my birth year?
-    - What year was I born in?
-    - How old was I when I started college?
-    - When will I be 30 years old?
-    - How many years until I turn 30?
-    - When will I turn 30?
-    - How many years until I'm 40?
-    - When will I be 40?
-    - What's my life expectancy?
-    - How many years until retirement?
-    - What is the retirement age?
-    - What age can I retire?
-    - What's the average life expectancy?
-    - When can I retire?
-    - How long until retirement?
-    - How long do I have to work until retirement?
-    - What is the retirement age in my country?
-    - What is the retirement age for women?
-    - What is the retirement age for men?
-    - How long do I have left to work?
-    - How many years until I retire?
-    - How much longer do I have to work?
-    - When can I stop working?
-    - What age can I stop working?
-    - When is retirement age?
-    - How many years do I have left to work?
-    - How many years until I reach retirement age?
-    - How many years until I reach the retirement age?
-    - How many years until I reach the retirement age in my country?
-    - What is the average retirement age?
-    - When will I be able to retire?
-    - When will I be able to retire in my country?
-    - What is the age to retire?
-    - What is the age limit for retirement?
+    - How old am I?
+    - Can you display my age for me?
+    - Show me my age
+    - Tell me my age
+    - What age do you have for me?
+    - Please display my age
+    - Can you show my age please?
+    - I'd like to see how old I am
+    - Can you tell me the age on file?
+    - Can you display my current age?
+    - Display my current age
+    - Can you show me the age on file?
+    - Can you tell me my current age?
+    - Can you show me how old I am right now?
+    - Display my age on file
+    - Can you show my current age?
+    - What age is registrationed to my name?
+    - What age do you have on file?
+    - What's the age that you have?
+    - Can you show me my registrationed age?
+    - Display the age registrationed to my name
+    - Show my registrationed age
+    - Can you display my registrationed age?
+    - What's the age you have for me?
+    - I need to see the age on file
+    - Can you tell me the age registrationed to my name?
+    - What age do you have on record?
+    - Can you display the age registrationed under my name?
+    - Can you show me the age that's registrationed under my name?
+    - Show me the age registrationed under my name
+    - What is the age registrationed to my name?
+    - What's the age registrationed under my name?
+    - Can you tell me the age that's on record?
+    - Please display the age registrationed to my name
+    - Show my age
+    - What is my age
+    - Can you display my age
+    - I want to know my age
+    - What's my age again?
+    - Can you tell me my age?
+    - My age please
+    - Age
+    - Display my age
+    - Could you show me my age
+    - Show me my age now
+    - How old am I
+    - Please show my age
+    - What age do you have on file for me
+    - Let me see my age
+    - Could you tell me my age please
+    - Tell me my age
+    - Can you show me the age you have for me
+    - Can you display my current age
+    - Please display my age
+    - I would like to see my age
+    - Age please
+    - Please show me my current age
+    - Can I know my age?
+    - I want to check my age
+    - Please tell me my current age
+    - Can you give me my age?
+    - Can you display my age on file?
+    - Age check
+    - How old did I tell you I was
+    - What is my current age
+    - Can you tell me the age you have on file for me
+    - I want to see the age you have for me
+    - Please show me the age I provided
+    - How old was I when I signed up
+    - My age information
+    - Age information check
+    - Can you display the age I provided?
+    - Show the age I have given
+    - Can you show the age I have provided
+    - What age did I give you
+    - Can I see the age I provided
+    - Can you display my age as per your records
+    - Show my age as per your records
+    - What is my age according to your records
+    - How old am I according to your records
 
-- intent: show_account_number_intent
+- intent: show_my_account_number_intent
   examples: |
     - What's my account number?
-    - Can you show me my account number?
-    - I need to see my account number
-    - What is the number of my account?
-    - Please display my account number
-    - Show me my account number
-    - I want to know my account number
-    - Can you tell me my account number?
-    - What is my account number?
-    - Can I see my account number?
-    - Tell me my account number
-    - Account number please
-    - I need to know my account number
-    - What's the account number for my account?
-    - Please show me my account number
-    - Can you show me the account number?
-    - What is my bank account number?
-    - What's the number of my account?
-    - What's my account number?
-    - Can you give me my account number?
-    - Can you tell me what my account number is?
-    - Show me the account number
-    - Display my account number
-    - Can you display my account number?
-    - I want to see my account number
-    - I need my account number
-    - What's my bank account number?
-    - Can you show me my bank account number?
-    - What is my account number for my bank account?
-    - What is my bank account number?
-    - What's the account number for my bank account?
-    - Please tell me my account number
     - Could you show me my account number?
-    - How can I see my account number?
-    - What's the number of my bank account?
-    - Can you display the account number?
-    - I would like to see my account number
-    - Can you show me my bank account number please?
-    - Can you tell me my bank account number?
-    - Show me my bank account number
-    - Could you tell me my account number please?
-    - Can you display the bank account number?
-    - What's my account number for this account?
+    - How can I find my account number?
+    - What is the account number linked to my account?
+    - Can you please display my account number?
+    - I need to see my account number
+    - Show me my account number
+    - Can you show me my account number please?
+    - What is my account number?
+    - Can you tell me my account number?
+    - Display my account number
+    - How do I access my account number?
+    - I want to know my account number
+    - Please display my account number
+    - What account number is associated with my account?
+    - Can you show me the account number?
+    - Can you display my account number for me?
+    - What's the account number for my account?
+    - Show my account number
+    - I need my account number
+    - Can you provide me with my account number?
+    - Can you tell me what my account number is?
+    - What is my bank account number?
+    - I want to see my account number
     - How do I find out my account number?
+    - Where can I find my account number?
+    - Can you give me my account number?
+    - What's the number of my account?
+    - Could you tell me my account number please?
+    - Show my account number please
+    - Can I see my account number?
+    - Can you give me the account number?
+    - What number is my account?
+    - Please show me my account number
+    - How can I access my account number?
+    - I need to find my account number
+    - Could you display my account number please?
+    - Please tell me my account number
+    - Can you reveal my account number?
+    - What is my checking account number?
+    - Can you help me find my account number?
+    - Please show me the account number
+    - Where do I find my account number?
+    - What is the account number?
+    - Can you display the account number?
+    - How do I get my account number?
+    - I want to check my account number
+    - Could you help me find my account number?
+    - What's my checking account number?
+    - What's my account's number?
     - Can you tell me the account number?
-    - What is the account number for my account?
     - Can you show the account number?
-    - I want to see the account number
-    - Please tell me the account number
-    - Display the account number please
-    - What's my bank account number for this account?
-    - Could you show me my bank account number?
-    - What is my bank account number for this account?
-    - Can you tell me the bank account number?
-    - What's the account number for this account?
-    - Can you show me the bank account number?
-    - Please display the account number
-    - What's the number of the bank account?
-    - Can you show the bank account number?
-    - Show the account number please
-    - What's the bank account number?
-    - What's my account number for the bank account?
-    - Please tell me the bank account number
-    - Can you display the bank account number please?
-    - What is the bank account number?
-    - Could you tell me the bank account number please?
-    - What's the account number for the bank account?
-    - Can you show me the bank account number for this account?
-    - Can you tell me the account number for this account?
-    - What is the account number for the bank account?
-    - What's the bank account number for my account?
-    - Show me the bank account number for my account
+    - Can you display my account number now?
+    - What is the account number of my account?
+    - I need to see the account number
+    - What is my bank account's number?
+    - Please give me my account number
+    - Show my account number now
+    - Can I have my account number?
+    - Can you provide me with the account number?
+    - What's the account number associated with my account?
+    - I want to view my account number
+    - Can you help me locate my account number?
+    - Please reveal my account number
+    - What is my account number for this account?
+    - How do I find my bank account number?
+    - I need to check my account number
+    - What's my account number again?
+    - Can you tell me my bank account number?
+    - Can you provide me the account number?
+    - Please show me my account number again
+    - What's the account number for my bank account?
+    - How do I display my account number?
+    - Can you let me know my account number?
+    - Can you please provide me with my account
+    - What is my account number?
+    - Could you please show me my account number?
+    - I want to know my account number
+    - Can you display my account number?
+    - Could you tell me my account number?
+    - I need my account number
+    - What's my account number?
+    - I want to see my account number
+    - Show me my account number
+    - Can you give me my account number?
+    - Let me see my account number
+    - Can I have my account number?
+    - Can I see my account number please?
+    - I want to view my account number
+    - Can you show me my account number please?
+    - Can you tell me what my account number is?
+    - Can you display my account number please?
+    - May I know my account number?
+    - Please show me my account number
+    - Please give me my account number
+    - I'd like to check my account number
+    - Can you let me know my account number?
+    - May I have my account number please?
+    - Please tell me my account number
+    - Please display my account number
+    - Can I see my account number?
+    - Can I check my account number?
+    - Could you show me my account number please?
+    - Can you tell me the account number?
+    - I want to access my account number
+    - What's my account number again?
+    - What is the account number associated with my account?
+    - Please give me my account number again
+    - Can you let me know my account number again?
+    - Please display my account number again
+    - Can I see my account number again?
+    - Could you show me the account number?
+    - Can you tell me the account number again?
+    - What's my account number once more?
+    - Please give me my account number once more
+    - Can you let me know my account number once more?
+    - Please display my account number once more
+    - Can I see my account number once more?
+    - Can you show me the account number again please?
+    - Can you tell me my account number again please?
+    - What's my account number one more time?
+    - show me my account number
+    - what is my account number
+    - what's my account number
+    - give me my account number
+    - show my account number
+    - my account number please
+    - my account number
+    - account number please
+    - can you display my account number
+    - display my account number
+    - please show my account number
+    - i need to see my account number
+    - let me see my account number
+    - i want to see my account number
+    - i want to know my account number
+    - i need to know my account number
+    - i'd like to know my account number
+    - can you tell me my account number
+    - tell me my account number
+    - what is my account number again
+    - my account number again please
+    - show me my account number again
+    - what's my account number again
+    - display my account number again
+    - please show my account number again
+    - my account number again
+    - my account number please again
+    - account number again please
+    - i need to see my account number again
+    - let me see my account number again
+    - i want to see my account number again
+    - can you display my account number again
+    - i need my account number again
+    - show me the account number again
+    - i'd like to see my account number one more time
+    - what's my account number one more time
+    - my account number one more time please
+    - display my account number one more time
+    - please show my account number one more time
+    - one more time my account number please
+    - show my account number one more time
+    - i want to see my account number one more time
+    - can you show me my account number again
+    - can you tell me my account number again
+    - i'd like to know my account number again
+    - what is my account number one more time
+    - can i see my account number
+    - show my account number to me
+    - let me see my account number once more
+    - show my account number once more
+    - please show me my account number once more
+    - i'd like to see my account number again
+    - i need my account number
+    - give me my account number again
+    - i want to see my account number one last time
+    - please show me my account number one last time
+    - show my account number one last time
+    - display my account number one last time
+    - tell me my account number one last time
+    - my account number one last time
+    - i want to know my account number one last time
+    - what is my account number one last time
+    - account number one last time please
+    - one last time my account number
+    - can you display my account number one last time
+    - show my account number to me again
+    - can you show me my account number one last time
+    - can you tell me my account number one last time
+    - what's my account number one last time
+    - i'd like to see my account number one more time please
+    - please show me my account number one more time
+    - show my account number one more time please
+    - display my account number to me one more time
+    - can i have my account number again
+    - what is my account number once more
+    - please display my account number
+    - show me my account number once more
+    - i'd like to see my account number one last time
+    - what's my account number once more please
+    - tell me my account number once more
+    - can you give me my account number one more time
+    - my account number one more time please
+    - i want to know my account number
 
 
-- intent: show_register_date_intent
+- intent: show_my_registration_date_intent
   examples: |
-    - when did I register for this account?
-    - what is the date of my account registration?
-    - when was my account created?
-    - can you tell me the date when I signed up for this account?
-    - show me the date of registration for this account
-    - what date did I open my account?
-    - what's the registration date of this account?
-    - when did I create my account?
-    - when did I start using this service?
-    - what is the date of my account's creation?
-    - show me the date when I registered for this service
-    - can you tell me when I started using this service?
-    - show me the date of account opening
-    - on which date was this account registered?
-    - when did I enroll in this service?
-    - when was this account opened?
-    - when did I become a member of this service?
-    - when did I sign up for this account?
-    - when did I join this service?
-    - show me the date when I registered for this account
-    - what is the date of my account opening?
-    - show me the date of my account's establishment
-    - what is the date of my account's commencement?
-    - when did I become a user of this service?
-    - when did I create this account?
-    - when was my account set up?
-    - can you show me the date of registration?
-    - when did I start using this product?
-    - when did I start using this website?
-    - when did I begin using this service?
-    - on what date did I sign up?
-    - when did I open my account with you?
-    - when did I start my account with this company?
-    - what was the date of account registration?
-    - when did I create an account?
-    - when did I sign up for your website?
-    - when did I open an account with your company?
-    - when was my account created with this service?
-    - when was I registered with your website?
-    - when did I start using your website?
-    - when did I start using your service?
-    - when did I enroll in this program?
-    - when did I become a member?
-    - when did I become a customer?
-    - when was my account created with you?
-    - can you show me when I signed up?
-    - can you tell me the date when I became a member?
-    - when did I become a subscriber?
-    - when did I start using this app?
-    - when was I registered for this service?
-    - when was I enrolled in this program?
-    - when did I become a member of your website?
-    - when did I become a part of your service?
-    - when did I become a part of this program?
-    - when was my account created with this website?
-    - when was my account created with this app?
-    - when was my account created with your company?
-    - when did I become a member of this community?
-    - when did I become a member of your community?
-    - when did I start using this platform?
-    - when was I registered for this app?
-    - when did I join your program?
-    - when did I start using your platform?
-    - when was I registered with this company?
-    - when was I registered with this service?
-    - when did I become a part of your community?
-    - when did I become a part of this community?
-    - when was my account set up with this service?
+    - When did I register?
+    - What's my registration date?
+    - Can you show me the date I registered?
+    - I want to know when I signed up
+    - What was the registration date?
+    - Could you display the date I registered?
+    - Show me my registration date
+    - When did I create my account?
+    - Can you tell me my registration date?
+    - What's the date of registration?
+    - When did I first create my account?
+    - Can you provide my registration date?
+    - What's the date I signed up?
+    - When was my account created?
+    - Can you display the date of registration?
+    - When did I set up my account?
+    - What was my registration date again?
+    - When did I open my account?
+    - When did I start using this service?
+    - Can you show the date I registered again?
+    - When did I first access my account?
+    - What's the date of my registration?
+    - When did I sign up for this?
+    - Can you display my registration date again?
+    - What's the date I created my account?
+    - When was my account first opened?
+    - Can you show me my registration date one more time?
+    - When did I first log in?
+    - What's the date I started using this?
+    - When did I first start using this service?
+    - Can you provide the date I registered again?
+    - What's the date I became a user?
+    - When did I register my account?
+    - Can you display the registration date again?
+    - When did I sign up for an account?
+    - When did I first use this service?
+    - What's the date of my account registration?
+    - Can you show me my registration date one more time?
+    - Can you tell me the date I created my account?
+    - When did I first register?
+    - What was the date I signed up?
+    - When was my account registered?
+    - Can you show me the date I first registered?
+    - What's my account creation date?
+    - When did I set up my account?
+    - Can you tell me when I registered?
+    - What's the date of my account creation?
+    - When did I become a member?
+    - Can you display my registration date once again?
+    - What's the date I opened my account?
+    - When did I join this service?
+    - When did I become a user of this service?
+    - Can you show me the date I first registered again?
+    - What's the date I became a member of this service?
+    - When did I first become a user?
+    - When did I first sign up?
+    - Can you provide the date of my account registration?
+    - What's the date I first joined this service?
+    - When did I first become a member?
+    - When did I first become a customer?
+    - Can you display my account registration date once again?
+    - What's the date of my membership registration?
+    - When did I create my membership account?
+    - When did I first enroll?
+    - Can you show me when I first registered?
+    - What's the date I first became a member?
+    - When did I create my user account?
+    - When did I first become a subscriber?
+    - Can you display my registration date once again?
+    - What's the date I started using the service?
+    - When did I become a subscriber?
+    - When did I first create my user account?
+    - Can you show me when I first signed up?
+    - What's the date I first started using this service?
+    - When did I first become a member of the service?
+    - When did I first register as a user?
+    - Can you provide the date of my membership signup?
+    - What's the date I first subscribed to this service?
+    - What's the date of my account creation?
+    - When was my account registered?
+    - Can you show me my account's registration date?
+    - When did I first join this service?
+    - When did I first sign up for this account?
+    - Can you provide the date I registered my account?
+    - What's the registration date for my account?
+    - When did I first create my user profile?
+    - Can you show me when I first registered?
+    - When did I first become a member?
+    - What's the date of my account setup?
+    - Can you tell me when I first joined?
+    - When was my user account created?
+    - What's the date of my initial registration?
+    - Can you show me the date I first registered again?
+    - When did I first enroll in this service?
+    - What's the date my account was opened?
+    - When did I first start using my account?
+    - Can you tell me when I first signed up?
+    - What's the date of my account activation?
+    - When was my user profile first created?
+    - Can you provide the date I registered again?
+    - When did I first start using this platform?
+    - What's the date of my user account creation?
+    - When was my account set up?
+    - Can you display the date I first signed up again?
+    - What's the date I registered my account?
+    - When did I first become a user of this service?
+    - Can you show me my account's setup date?
+    - What's the date my account was established?
+    - When did I create my account profile?
+    - Can you tell me when I first joined this platform?
+    - What's the date of my user account registration?
+    - When was my account activated?
+    - Can you provide the registration date for my account again?
+    - What's the date of my account sign-up?
+    - When did I first create my account with this service?
+    - Can you show me my account's activation date again?
+    - What's the date I became a member of this service?
 
-- intent: show_balance_intent
+- intent: show_my_balance_intent
   examples: |
-    - Show me my balance
-    - What's my current balance?
+    - I want to see my balance
+    - What's my balance?
     - Can you show me my account balance?
     - How much money do I have in my account?
-    - What is my balance?
-    - Display my account balance
-    - Tell me my balance
-    - I want to check my balance
-    - What is the balance in my account?
-    - Can you tell me my balance?
-    - Show my balance, please
-    - What's the balance in my account?
-    - How much is in my account?
-    - I'd like to see my balance
-    - Please show me my balance
+    - Can you display my current balance?
+    - What's my current balance?
+    - Show me my account balance
+    - How much money do I currently have?
+    - Can you tell me my account balance?
+    - What's the balance of my account?
+    - Display my balance
+    - How much money do I possess?
+    - Show me how much money I have
+    - Can you show me the balance of my account?
+    - What is the current balance of my account?
+    - Tell me my current account balance
+    - Can you display my balance?
+    - What is my current balance?
+    - How much money do I own?
+    - Can you show my balance again?
+    - What's the balance on my account?
+    - Display the balance of my account
+    - Show me the amount of money I have
+    - Can you tell me how much money I have?
+    - What is the balance of my account?
+    - Can you show me my current account balance again?
+    - What's the current balance of my account?
+    - How much money do I have available?
+    - Display my current account balance
+    - Can you show me my balance one more time?
+    - What is my current balance in my account?
+    - Can you tell me my balance again?
+    - What's my balance at the moment?
+    - Show me my available balance
+    - How much money is in my account?
+    - Can you display my available balance?
+    - What is my account balance?
+    - How much money do I have left?
+    - Can you show me the balance of my account once more?
+    - What is the balance on my account?
+    - Show me my balance once more
+    - Can you tell me my available funds?
+    - What's the amount of money in my account?
+    - Display the balance of my account again
+    - How much money is available in my account?
+    - My balance
+    - How much money do I have?
+    - Can you show me my balance?
+    - How much do I have?
+    - I want to know my balance
     - Can you display my balance?
     - What is my account balance?
-    - Show me the balance in my account
-    - How much do I have in my account?
-    - Can you check my balance for me?
-    - I'd like to check my balance
-    - Let me see my account balance
-    - Show me how much is in my account
+    - Show me my balance
     - How much money is in my account?
-    - Tell me my account balance
-    - Please check my balance
-    - I want to see my account balance
+    - Can you tell me my account balance?
+    - What's my current balance?
+    - How much do I have in my account?
+    - Could you display my account balance?
+    - I want to see my balance
+    - What's the current balance on my account?
+    - Can you provide my account balance?
+    - What's the balance of my account?
+    - Can you show me how much money I have?
+    - What's the total in my account?
+    - Can you tell me my current balance?
+    - What's my balance now?
+    - How much money do I possess?
+    - Could you display the account balance?
+    - I want to check my balance
+    - Can you tell me how much money is in my account?
+    - What's the balance in my account right now?
+    - Could you show me my account balance?
+    - What is my balance?
+    - Can you display how much money I have?
+    - Show me the account balance
+    - How much money do I own?
+    - What's my balance information?
     - Can you show my account balance?
-    - What's my balance right now?
-    - Display my balance, please
-    - How much balance do I have?
-    - I'd like to know my balance
-    - Show me my current balance
-    - Can you find out my balance?
-    - Please tell me my balance
+    - I want to see how much money I have
+    - What's my total balance?
+    - Can you tell me my balance info?
+    - What's my bank balance?
+    - How much money is there in my account?
+    - Could you display my balance?
+    - I want to know my account balance
+    - Can you show me how much money is in my account?
+    - What's my current bank balance?
+    - Could you tell me my account balance?
+    - Can you display the balance on my account?
+    - What is the balance of my bank account?
+    - Can you tell me my account balance once more?
+    - What is my account balance?
+    - Can you show me my balance?
+    - I want to check my account balance
+    - Can you tell me my balance?
+    - How much money is in my account?
+    - What is my current balance?
+    - Can you display my account balance?
+    - What's the balance in my account?
+    - How much do I have in my account?
+    - Can you show me my account balance again?
+    - What is the balance in my account?
+    - Can you tell me my account balance?
+    - How much money do I have in my account?
+    - Can you show me my balance once more?
+    - What's my current account balance?
+    - Can you display my balance again?
+    - What is my balance right now?
+    - Can you tell me the balance in my account?
+    - How much money is in my account right now?
+    - Can you show me my balance one more time?
+    - What is my balance at the moment?
+    - Can you display my account balance one more time?
+    - What's the current balance in my account?
+    - How much money do I have in my account currently?
+    - Can you show me the balance in my account?
     - What is the current balance of my account?
-    - I want to know my balance
-    - Check my balance for me, please
-    - How much is my balance?
-    - Can I see my account balance?
-    - Tell me how much is in my account
-    - Show me my account balance
-    - What's the amount in my account?
-    - How much do I have in my account right now?
-    - I'd like to see my account balance
-    - Can you check my account balance?
+    - Can you display my balance once again?
+    - What is my account balance at present?
+    - Can you tell me how much money I have in my account?
+    - How much money do I have currently in my account?
+    - Can you show my balance for my account?
+    - What is the balance on my account right now?
+    - Can you tell me my account balance right now?
+    - How much do I have in my account currently?
+    - Can you show me my account balance for the moment?
+    - What is the current balance on my account?
+    - Can you display my account balance right now?
+    - How much money do I have in my account at the moment?
+    - Can you show me my account balance at present?
+    - What is my balance in my account right now?
+    - Can you display my account balance one more time?
+    - What's the balance in my account at the moment?
+    - Can you tell me my balance currently?
+    - How much money is currently in my account?
+    - Can you show me my account balance at the moment?
+    - What is the current balance in my account?
 
 - intent: show_slots_intent
   examples: |
@@ -997,7 +1732,6 @@ nlu:
     - what are the values of my current slots
     - show me my slot data
     - what is my slot data
-
 
 ### Policy Information Intents ###
 - intent: policies_info_intent

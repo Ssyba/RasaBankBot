@@ -70,12 +70,12 @@ actions:
 
 # Information display actions
   - action_show_my_cnp
-  - action_show_name
-  - action_show_surname
-  - action_show_age
-  - action_show_account_number
-  - action_show_register_date
-  - action_show_balance
+  - action_show_my_name
+  - action_show_my_surname
+  - action_show_my_age
+  - action_show_my_account_number
+  - action_show_registration_date
+  - action_show_my_balance
   - action_show_slots
 
 # Other actions

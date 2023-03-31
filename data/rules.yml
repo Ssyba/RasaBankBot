@@ -1,7 +1,13 @@
 version: "3.1"
 
 rules:
-
+### Default intent that starts the app ###
+- rule: Init intent triggers greet and login form
+  steps:
+  - intent: init_intent
+  - action: utter_greet
+  - action: login_form
+  - active_loop: login_form
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -23,38 +29,43 @@ rules:
 ### User Information rules ###
 - rule: Show the user's CNP
   steps:
+  - intent: show_my_user_info_intent
+  - action: action_show_my_user_info
+
+- rule: Show the user's CNP
+  steps:
   - intent: show_my_cnp_intent
   - action: action_show_my_cnp
 
 - rule: Show the user's name
   steps:
-  - intent: show_name_intent
-  - action: action_show_name
+  - intent: show_my_name_intent
+  - action: action_show_my_name
 
 - rule: Show the user's surname
   steps:
-  - intent: show_surname_intent
-  - action: action_show_surname
+  - intent: show_my_surname_intent
+  - action: action_show_my_surname
 
 - rule: Show the user's age
   steps:
-  - intent: show_age_intent
-  - action: action_show_age
+  - intent: show_my_age_intent
+  - action: action_show_my_age
 
 - rule: Show the user's account number
   steps:
-  - intent: show_account_number_intent
-  - action: action_show_account_number
+  - intent: show_my_account_number_intent
+  - action: action_show_my_account_number
 
 - rule: Show the user's registration date
   steps:
-  - intent: show_register_date_intent
-  - action: action_show_register_date
+  - intent: show_my_registration_date_intent
+  - action: action_show_registration_date
 
 - rule: Show the user's current balance
   steps:
-  - intent: show_balance_intent
-  - action: action_show_balance
+  - intent: show_my_balance_intent
+  - action: action_show_my_balance
 
 - rule: Show the user's current slots
   steps:
@@ -91,7 +102,7 @@ rules:
   - action: submit_login_form
 
 # Rule for asking CNP again
-- rule: Ask for CNP again
+- rule: Ask for CNP again if not logged in
   condition:
   - slot_was_set:
     - logged_in_status_slot: false
@@ -99,6 +110,14 @@ rules:
   - intent: check_cnp_again_intent
   - action: login_form
   - active_loop: login_form
+
+- rule: Ask for CNP again if logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: check_cnp_again_intent
+  - action: utter_already_logged_in
 
 # New user form
 - rule: Activate new user form

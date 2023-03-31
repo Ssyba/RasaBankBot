@@ -13,7 +13,7 @@ def create_users_table_query():
         "age INT(2), "
         "password VARCHAR(255), "
         "account_number VARCHAR(6), "
-        "register_date DATE, "
+        "registration_date DATE, "
         "balance INT)"
     )
 
@@ -39,8 +39,8 @@ def find_user_name_by_cnp_query(cnp: str) -> str:
 
 
 def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> list:
-    # Generate the register date
-    register_date = datetime.now().strftime("%Y-%m-%d")
+    # Generate the registration date
+    registration_date = datetime.now().strftime("%Y-%m-%d")
 
     # Get the balance from the mock API
     balance = mock_api_get_balance()
@@ -55,9 +55,9 @@ def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> 
 
     # Execute the INSERT query to add the new user to the table
     insert_query = f"""INSERT INTO users (
-        id, CNP, name, surname, age, password, register_date, balance, account_number
+        id, CNP, name, surname, age, password, registration_date, balance, account_number
     ) VALUES (
-        {new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{register_date}', {balance}, '{account_number}'
+        {new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, '{account_number}'
     )"""
     db_executor(insert_query)  # Assume this method executes the given SQL query on the database
 
@@ -69,8 +69,8 @@ def mock_api_get_balance() -> int:
 
 
 def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> list:
-    # generate the register date
-    register_date = datetime.now().strftime("%Y-%m-%d")
+    # generate the registration date
+    registration_date = datetime.now().strftime("%Y-%m-%d")
 
     # get the balance from the mock API
     balance = mock_api_get_balance()
@@ -84,8 +84,8 @@ def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> 
     account_number = str(new_user_id).zfill(6)
 
     # execute the INSERT query to add the new user to the table
-    insert_query = f"INSERT INTO users (id, CNP, name, surname, age, password, register_date, balance, account_number) " \
-                   f"VALUES ({new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{register_date}', {balance}, '{account_number}')"
+    insert_query = f"INSERT INTO users (id, CNP, name, surname, age, password, registration_date, balance, account_number) " \
+                   f"VALUES ({new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, '{account_number}')"
     db_executor(insert_query)  # assume this method executes the given SQL query on the database
 
 
@@ -110,7 +110,7 @@ def update_login_status(cnp: str, login_status: bool) -> None:
 def insert_random_user(cnp):
     user = generate_random_user(cnp)
     insert_query = f"""
-        INSERT INTO users (CNP, name, surname, age, password, account_number, register_date, balance)
+        INSERT INTO users (CNP, name, surname, age, password, account_number, registration_date, balance)
         VALUES (
             '{user['cnp']}',
             '{user['name']}',
@@ -118,7 +118,7 @@ def insert_random_user(cnp):
             '{user['age']}',
             '{user['password']}',
             '{user['account_number']}',
-            '{user['register_date']}',
+            '{user['registration_date']}',
             '{user['balance']}'
         )
     """

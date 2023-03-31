@@ -2,8 +2,7 @@ version: "3.1"
 
 intents:
   ### General Intents ###
-  - init_intent:
-      use_entities: false
+  - init_intent
   - bot_challenge_intent
 
   ### Login and Logout Intents ###
@@ -15,13 +14,14 @@ intents:
   - new_user_intent
 
   ### User Information Intents ###
+  - show_my_user_info_intent
   - show_my_cnp_intent
-  - show_name_intent
-  - show_surname_intent
-  - show_age_intent
-  - show_account_number_intent
-  - show_register_date_intent
-  - show_balance_intent
+  - show_my_name_intent
+  - show_my_surname_intent
+  - show_my_age_intent
+  - show_my_account_number_intent
+  - show_my_registration_date_intent
+  - show_my_balance_intent
   - show_slots_intent
 
   ### Policy Information Intents ###
@@ -125,14 +125,14 @@ responses:
   utter_iamabot:
     - text: "I am a bot, powered by Rasa."
 
-  # Check CNP form
+  # Login and logout responses
   utter_greet:
     - text: "Welcome, I am BankBot, and I will be your virtual assistant for today."
 
-  utter_ask_cnp_slot:
-    - text: "Please provide your CNP:"
+  utter_already_logged_in:
+    - text: "You are already logged in."
 
-  # New user form
+  # New user form responses
   utter_ask_name_slot:
     - text: "Please provide your name:"
 
@@ -148,8 +148,9 @@ responses:
   utter_ask_password_validation_slot:
     - text: "Please provide the password again in order to validate it:"
 
-  utter_already_logged_in:
-    - text: "You are already logged in."
+  # Check CNP form response
+  utter_ask_cnp_slot:
+    - text: "Please provide your CNP:"
 
 actions:
 # General actions
@@ -166,13 +167,14 @@ actions:
   - submit_new_user_form
 
 # Information display actions
+  - action_show_my_user_info
   - action_show_my_cnp
-  - action_show_name
-  - action_show_surname
-  - action_show_age
-  - action_show_account_number
-  - action_show_register_date
-  - action_show_balance
+  - action_show_my_name
+  - action_show_my_surname
+  - action_show_my_age
+  - action_show_my_account_number
+  - action_show_registration_date
+  - action_show_my_balance
   - action_show_slots
 
 # Other actions

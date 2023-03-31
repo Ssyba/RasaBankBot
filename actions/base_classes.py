@@ -45,7 +45,7 @@ class BaseSubmitAction(Action, ABC):
             return [AllSlotsReset(), ActiveLoop(None)]
 
         elif tracker.latest_message['intent'].get('name') == 'break_intent':
-            dispatcher.utter_message("Action interrupted, how else can I be of service?.")
+            dispatcher.utter_message("Action interrupted, how else can I be of service?")
             if tracker.slots.get('cnp_slot'):
                 cnp_slot_value = tracker.slots['cnp_slot']
                 return [AllSlotsReset(), ActiveLoop(None), SlotSet('cnp_slot', cnp_slot_value)]

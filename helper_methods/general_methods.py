@@ -13,7 +13,7 @@ def generate_random_user(cnp):
     age = random.randint(18, 100)
     password = "12345678"
     account_number = f"{random.randint(100000, 999999)}"
-    register_date = fake.date_between(start_date='-5y', end_date='today')
+    registration_date = fake.date_between(start_date='-5y', end_date='today')
     balance = random.randint(0, 1000000)
 
     return {
@@ -23,7 +23,7 @@ def generate_random_user(cnp):
         'age': age,
         'password': password,
         'account_number': account_number,
-        'register_date': register_date,
+        'registration_date': registration_date,
         'balance': balance
     }
 

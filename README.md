@@ -51,7 +51,7 @@ To start the action server, this will work for breakpoints in intellij or pychar
 -name(string, letters only, capitalize before logging in the database), 
 -surname(string, letters only, capitalize before logging in the database), 
 -age(string 2 number chars), 
--register date(date format), 
+-registration date(date format), 
 -balance(int), 
 
 - **Steps**:

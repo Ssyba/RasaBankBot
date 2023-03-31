@@ -5,6 +5,45 @@ from rasa_sdk.executor import CollectingDispatcher
 import queries_location
 
 
+class ActionShowUserInfo(Action):
+    def name(self) -> Text:
+        return "action_show_my_user_info"
+
+    def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        cnp = tracker.get_slot("cnp_slot")
+        user = queries_location.find_user_by_cnp_query(cnp)
+
+        if user:
+            cnp = user["CNP"]
+            name = user["name"]
+            surname = user["surname"]
+            age = user["age"]
+            account_number = user["account_number"]
+            registration_date = user["registration_date"]
+            balance = user["balance"]
+
+            message = f"User Information:\n" \
+                      f"CNP: {cnp}\n" \
+                      f"Name: {name}\n" \
+                      f"Surname: {surname}\n" \
+                      f"Age: {age}\n" \
+                      f"Account Number: {account_number}\n" \
+                      f"registration Date: {registration_date}\n" \
+                      f"Balance: {balance}"
+
+            dispatcher.utter_message(message)
+        else:
+            dispatcher.utter_message("You are not logged in.")
+
+        return []
+
+
 class ActionShowMyCNP(Action):
     def name(self) -> Text:
         return "action_show_my_cnp"
@@ -28,48 +67,9 @@ class ActionShowMyCNP(Action):
         return []
 
 
-class ActionShowUserInfo(Action):
-    def name(self) -> Text:
-        return "action_show_user_info"
-
-    def run(
-            self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any],
-    ) -> List[Dict[Text, Any]]:
-
-        cnp = tracker.get_slot("cnp_slot")
-        user = queries_location.find_user_by_cnp_query(cnp)
-
-        if user:
-            cnp = user["CNP"]
-            name = user["name"]
-            surname = user["surname"]
-            age = user["age"]
-            account_number = user["account_number"]
-            register_date = user["register_date"]
-            balance = user["balance"]
-
-            message = f"User Information:\n" \
-                      f"CNP: {cnp}\n" \
-                      f"Name: {name}\n" \
-                      f"Surname: {surname}\n" \
-                      f"Age: {age}\n" \
-                      f"Account Number: {account_number}\n" \
-                      f"Register Date: {register_date}\n" \
-                      f"Balance: {balance}"
-
-            dispatcher.utter_message(message)
-        else:
-            dispatcher.utter_message("You are not logged in.")
-
-        return []
-
-
 class ActionShowName(Action):
     def name(self) -> Text:
-        return "action_show_name"
+        return "action_show_my_name"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
@@ -89,7 +89,7 @@ class ActionShowName(Action):
 
 class ActionShowSurname(Action):
     def name(self) -> Text:
-        return "action_show_surname"
+        return "action_show_my_surname"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
@@ -109,7 +109,7 @@ class ActionShowSurname(Action):
 
 class ActionShowAge(Action):
     def name(self) -> Text:
-        return "action_show_age"
+        return "action_show_my_age"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
@@ -129,7 +129,7 @@ class ActionShowAge(Action):
 
 class ActionShowAccountNumber(Action):
     def name(self) -> Text:
-        return "action_show_account_number"
+        return "action_show_my_account_number"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
@@ -147,9 +147,9 @@ class ActionShowAccountNumber(Action):
         return []
 
 
-class ActionShowRegisterDate(Action):
+class ActionShowRegistrationDate(Action):
     def name(self) -> Text:
-        return "action_show_register_date"
+        return "action_show_my_registration_date"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
@@ -158,8 +158,8 @@ class ActionShowRegisterDate(Action):
 
         if logged_in:
             user = queries_location.find_user_by_cnp_query(cnp)
-            register_date = user['register_date']
-            message = f"Your registration date is {register_date}."
+            registration_date = user['registration_date']
+            message = f"Your registration date is {registration_date}."
         else:
             message = "You are not logged in."
 
@@ -169,7 +169,7 @@ class ActionShowRegisterDate(Action):
 
 class ActionShowBalance(Action):
     def name(self) -> Text:
-        return "action_show_balance"
+        return "action_show_my_balance"
 
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
