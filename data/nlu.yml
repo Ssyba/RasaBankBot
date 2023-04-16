@@ -1896,6 +1896,163 @@ nlu:
     - No, I'm not interested.
     - No, I don't feel like it.
 
+### Payments/Transfers Intents ###
+- intent: transfer_funds_intent
+  examples: |
+    - transfer money
+    - wire funds
+    - transfer funds
+    - give money to
+    - share money
+    - Transfer $500 to John's account
+    - Send $100 to my brother's bank account
+    - Move $50 to my savings account
+    - I want to transfer $250 to my wife's account
+    - Transfer funds to another account
+    - I'd like to send $300 to my friend
+    - Make a $75 transfer to my parents
+    - Pay my roommate $60 for the rent
+    - Can I transfer $200 to my cousin's account?
+    - I need to send $150 to my son's account
+    - Transfer $400 from my checking account to my savings account
+    - Please move $350 to my business account
+    - I want to send $125 to my daughter
+    - Transfer $95 to my coworker's account
+    - Can I send $700 to my sister's account?
+    - I'd like to transfer $50 to my nephew's account
+    - Transfer $800 to my joint account with my spouse
+    - Please send $900 to my niece's account
+    - Move $1000 to my other bank account
+    - I need to transfer $1100 to my friend's account
+    - Please send $1200 to my mother's account
+    - I'd like to transfer $1300 to my father's account
+    - Can I send $1400 to my girlfriend's account?
+    - Transfer $1500 to my boyfriend's account
+    - Please send $1600 to my grandparent's account
+    - I want to transfer $1700 to my aunt's account
+    - Transfer $1800 to my uncle's account
+    - I'd like to send $1900 to my cousin's account
+    - Move $2000 to my brother-in-law's account
+    - Can I transfer $2100 to my sister-in-law's account?
+    - I need to send $2200 to my child's account
+    - Transfer $2300 from my checking account to my savings account
+    - Please move $2400 to my business account
+    - I want to send $2500 to my stepmother
+    - Transfer $2600 to my stepfather's account
+    - Can I send $2700 to my stepsister's account?
+    - I'd like to transfer $2800 to my stepbrother's account
+    - Transfer $2900 to my godmother's account
+    - Please send $3000 to my godfather's account
+    - Move $3100 to my godchild's account
+    - I need to transfer $3200 to my friend's account
+    - Please send $3300 to my mother's account
+    - I'd like to transfer $3400 to my father's account
+    - Can I send $3500 to my girlfriend's account?
+    - Transfer $3600 to my boyfriend's account
+    - Please send $3700 to my grandparent's account
+    - I want to transfer $3800 to my aunt's account
+    - Transfer $3900 to my uncle's account
+    - I'd like to send $4000 to my cousin's account
+    - Send $4100 to my nephew's account
+    - Transfer $4200 to my niece's account
+    - I want to transfer $4300 to my partner's account
+    - Can I send $4400 to my ex's account?
+    - Move $4500 to my classmate's account
+    - I'd like to send $4600 to my neighbor
+    - Transfer $4700 to my colleague's account
+    - Please pay my roommate $4800 for the bills
+    - Can I transfer $4900 to my best friend's account?
+    - I need to send $5000 to my mentor's account
+    - Transfer $5100 from my checking account to my investment account
+    - Please move $5200 to my emergency fund
+    - I want to send $5300 to my grandchild
+    - Transfer $5400 to my godparent's account
+    - Can I send $5500 to my in-law's account?
+    - I'd like to transfer $5600 to my fiancé's account
+    - Transfer $5700 to my fiancée's account
+    - Please send $5800 to my grandchild's account
+    - Move $5900 to my relative's account
+    - I need to transfer $6000 to my friend's account
+    - Please send $6100 to my mother's account
+    - I'd like to transfer $6200 to my father's account
+    - Can I send $6300 to my girlfriend's account?
+    - Transfer $6400 to my boyfriend's account
+    - Please send $6500 to my grandparent's account
+    - I want to transfer $6600 to my aunt's account
+    - Transfer $6700 to my uncle's account
+    - I'd like to send $6800 to my cousin's account
+    - Move $6900 to my brother-in-law's account
+    - Can I transfer $7000 to my sister-in-law's account?
+    - I need to send $7100 to my child's account
+    - Transfer $7200 from my checking account to my savings account
+    - Please move $7300 to my business account
+    - I want to send $7400 to my stepmother
+    - Transfer $7500 to my stepfather's account
+    - Can I send $7600 to my stepsister's account?
+    - I'd like to transfer $7700 to my stepbrother's account
+    - Transfer $7800 to my godmother's account
+    - Please send $7900 to my godfather's account
+    - Move $8000 to my godchild's account
+    - I need to transfer $8100 to my friend's account
+    - Please send $8200 to my mother's account
+    - I'd like to transfer $8300 to my father's account
+    - Can I send $8400 to my girlfriend's account?
+    - Transfer $8500 to my boyfriend's account
+    - Please send $8600 to my grandparent's account
+    - I want to transfer $8700 to my aunt's account
+    - Transfer $8800 to my uncle's account
+    - I'd like to send $8900 to my cousin's account
+    - Move $9000 to my brother-in-law's account
+    - Can I transfer $9100 to my sister-in-law's account?
+    - I need to send $9200 to my child's account
+    - Transfer $9300 from my checking account to my savings account
+    - Please move $9400 to my business account
+    - I want to send $9500 to my stepmother
+    - Transfer $9600 to my stepfather's account
+    - Can I send $9700 to my stepsister's account?
+    - I'd like to transfer $9800 to my stepbrother's account
+    - Transfer $9900 to my godmother's account
+    - Please send $10000 to my godfather's account
+    - Move $10100 to my godchild's account
+    - I need to transfer $10200 to my friend's account
+    - Please send $10300 to my mother's account
+    - I'd like to transfer $10400 to my father's account
+    - Can I send $10500 to my girlfriend's account?
+    - Transfer $10600 to my boyfriend's account
+    - Please send $10700 to my grandparent's account
+    - I want to transfer $10800 to my aunt's account
+    - Transfer $10900 to my uncle's account
+    - I'd like to send $11000 to my cousin's account
+    - Move $11100 to my brother-in-law's account
+    - Can I transfer $11200 to my sister-in-law's account?
+    - I need to send $11300 to my child's account
+    - Transfer $11400 from my checking account to my savings account
+    - Please move $11500 to my business account
+    - I want to send $11600 to my stepmother
+    - Transfer $11700 to my stepfather's account
+    - Can I send $11800 to my stepsister's account?
+    - I'd like to transfer $11900 to my stepbrother's account
+    - Transfer $12000 to my godmother's account
+    - Please send $12100 to my godfather's account
+    - Move $12200 to my godchild's account
+    - I need to transfer $12300 to my friend's account
+    - Please send $12400 to my mother's account
+    - I'd like to transfer $12500 to my father's account
+    - Can I send $12600 to my girlfriend's account?
+    - Transfer $12700 to my boyfriend's account
+    - Please send $12800 to my grandparent's account
+    - I want to transfer $12900 to my aunt's account
+    - Transfer $13000 to my uncle's account
+    - I'd like to send $13100 to my cousin's account
+    - Move $13200 to my brother-in-law's account
+    - Can I transfer $13300 to my sister-in-law's account?
+    - I need to send $13400 to my child's account
+    - Transfer $13500 from my checking account to my savings account
+    - Please move $13600 to my business account
+    - I want to send $13700 to my stepmother
+    - Transfer $13800 to my stepfather's account
+    - Can I send $13900 to my stepsister's account?
+
 ### Miscellaneous Intents ###
 - intent: break_intent
   examples: |

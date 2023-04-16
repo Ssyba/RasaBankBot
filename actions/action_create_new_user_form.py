@@ -5,6 +5,8 @@ from rasa_sdk.forms import SlotSet
 import logging
 import queries_location
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
+from general_methods import is_valid_cnp, is_valid_password, message_for_logged_in, skip_validate_if_logged_in, \
+    handle_break_and_logout_special_intents
 
 logger = logging.getLogger(__name__)
 
@@ -13,28 +15,30 @@ class ValidateNewUserForm(BaseFormValidationAction):
     def name(self) -> Text:
         return "validate_new_user_form"
 
-    def validate_cnp_slot(
+    @skip_validate_if_logged_in
+    @handle_break_and_logout_special_intents
+    async def validate_cnp_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-
-        cnp = slot_value
-
-        if not (len(cnp) == 4 and cnp.isdigit()):
-            dispatcher.utter_message("CNP should be 4 digits long, and each character should be a digit.")
+        if not is_valid_cnp(slot_value):
+            dispatcher.utter_message(template="utter_invalid_cnp")
             return {"cnp_slot": None}
 
+        cnp = slot_value
         user = queries_location.find_user_by_cnp_query(cnp)
 
         if user:
-            return {"cnp_slot": cnp, "requested_slot": None}
+            return {"cnp_slot": "exists",
+                    "requested_slot": None}  # "requested_slot": None - finishes to validate for all slots and moves
+            # to submit
         else:
             return {"cnp_slot": cnp}
 
-    def validate_name_slot(
+    async def validate_name_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
@@ -49,7 +53,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
         else:
             return {"name_slot": slot_value}
 
-    def validate_surname_slot(
+    async def validate_surname_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
@@ -64,7 +68,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
             return {"surname_slot": None}
         return {"surname_slot": slot_value}
 
-    def validate_age_slot(
+    async def validate_age_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
@@ -88,19 +92,19 @@ class ValidateNewUserForm(BaseFormValidationAction):
             dispatcher.utter_message("Age should be a number and under 99.")
             return {"age_slot": None}
 
-    def validate_password_slot(
+    async def validate_password_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        if len(slot_value) < 8:
+        if is_valid_password(slot_value):
             dispatcher.utter_message("Password should be at least 8 characters long.")
             return {"password_slot": None}
         return {"password_slot": slot_value}
 
-    def validate_password_validation_slot(
+    async def validate_password_validation_slot(
             self,
             slot_value: Any,
             dispatcher: CollectingDispatcher,
@@ -118,32 +122,33 @@ class SubmitNewUserForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_new_user_form"
 
-    def submit(
+    @message_for_logged_in
+    async def submit(
             self,
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        cnp = tracker.get_slot("cnp_slot")
-        name = tracker.get_slot("name_slot")
-        surname = tracker.get_slot("surname_slot")
-        age = tracker.get_slot("age_slot")
-        password = tracker.get_slot("password_slot")
-        user = queries_location.find_user_by_cnp_query(cnp)
-
-        if user:
+        if tracker.get_slot("cnp_slot") == "exists":
             buttons = [
                 {"payload": "/check_cnp_again_intent", "title": "I am an existing user, I want to check my CNP again."},
                 {"payload": "/leave_app_intent", "title": "I wish to leave the app."},
             ]
 
             dispatcher.utter_button_message(
-                "A user has already been found for this CNP, here are a few options:",
+                "A user has already been found for this CNP, here are a few suggested options to proceed:",
                 buttons=buttons
             )
             return [SlotSet("cnp_slot", None)]
 
-        queries_location.add_new_user(cnp, name, surname, age, password)
+        cnp = tracker.get_slot("cnp_slot")
+        name = tracker.get_slot("name_slot")
+        surname = tracker.get_slot("surname_slot")
+        age = tracker.get_slot("age_slot")
+        password = tracker.get_slot("password_slot")
+
+        queries_location.add_new_user_query(cnp, name, surname, age, password)
+
         user = queries_location.find_user_by_cnp_query(cnp)
 
         dispatcher.utter_message("Congratulations! user created successfully.")

@@ -8,6 +8,7 @@ rules:
   - action: utter_greet
   - action: login_form
   - active_loop: login_form
+
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges
   steps:
@@ -15,12 +16,19 @@ rules:
   - action: action_restart
   - action: utter_iamabot
 
-### Login and Logout rules ###
 - rule: Open policies page
   steps:
   - intent: policies_info_intent
   - action: action_open_policies_page
 
+- rule: Ignore break_intent outside forms
+  condition:
+  - active_loop: null
+  steps:
+  - intent: break_intent
+  - action: utter_nothing_to_break
+
+### Login and Logout rules ###
 - rule: Trigger action_logout on logout_intent
   steps:
   - intent: logout_intent
@@ -135,3 +143,20 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: submit_new_user_form
+
+# Transfer funds form
+- rule: Activate transfer funds form
+  steps:
+  - intent: transfer_funds_intent
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+
+- rule: Submit transfer funds form
+  condition:
+  - active_loop: transfer_funds_form
+  steps:
+  - action: transfer_funds_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_transfer_funds_form

@@ -11,10 +11,10 @@ class ActionOpenWebPage(Action):
     def name(self) -> Text:
         return "action_open_policies_page"
 
-    def run(self,
-            dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+    async def run(self,
+                  dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         firefox = webbrowser.Mozilla("C:\\Program Files\\Mozilla Firefox\\firefox.exe")
-        firefox.open_new_tab("file:///C:/Users/Marius/PycharmProjects/RasaBankBot/policies_page.html")
+        firefox.open_new_tab("file:///C:/Users/Marius/PycharmProjects/RasaBankBot/frontend/policies_page.html")
         return []

@@ -36,3 +36,20 @@ stories:
     - requested_slot: null
   - active_loop: null
   - active_loop: submit_new_user_form
+
+- story: Transfer funds story
+  steps:
+  - intent: transfer_funds_intent
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+  - slot_was_set:
+      - recipient_account_number_slot: null
+  - slot_was_set:
+      - transfer_amount_slot: null
+  - slot_was_set:
+      - confirm_transfer_slot: null
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_transfer_funds_form
+  - action: action_listen

@@ -31,6 +31,9 @@ intents:
   - affirm_intent
   - deny_intent
 
+  ### Payments/Transfers Intents ###
+  - transfer_funds_intent
+
   ### Miscellaneous Intents ###
   - break_intent
 
@@ -104,6 +107,39 @@ slots:
           - active_loop: new_user_form
             requested_slot: account_number_slot
 
+  # Transfer funds form
+  recipient_account_number_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: transfer_funds_form
+            requested_slot: recipient_account_number_slot
+
+  transfer_amount_slot:
+    type: float
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: transfer_funds_form
+            requested_slot: transfer_amount_slot
+
+  confirm_transfer_slot:
+    type: bool
+    mappings:
+      - type: from_intent
+        intent: affirm_intent
+        value: true
+        conditions:
+          - active_loop: transfer_funds_form
+            requested_slot: confirm_transfer_slot
+      - type: from_intent
+        intent: deny_intent
+        value: false
+        conditions:
+          - active_loop: transfer_funds_form
+            requested_slot: confirm_transfer_slot
+
 forms:
   login_form:
     required_slots:
@@ -120,37 +156,52 @@ forms:
       - password_validation_slot
       - account_number_slot
 
+  transfer_funds_form:
+    required_slots:
+      - recipient_account_number_slot
+      - transfer_amount_slot
+      - confirm_transfer_slot
+
 responses:
   # Misc
-  utter_iamabot:
-    - text: "I am a bot, powered by Rasa."
-
-  # Login and logout responses
   utter_greet:
     - text: "Welcome, I am BankBot, and I will be your virtual assistant for today."
+  utter_iamabot:
+    - text: "I am a bot, powered by Rasa, but programmed by MariusBank."
+  utter_invalid_cnp:
+    - text: "Invalid CNP, It should be 4 characters long, and each character should be a digit."
 
+  # Login and logout responses
+  utter_ask_cnp_slot:
+    - text: "Please provide your CNP:"
   utter_already_logged_in:
     - text: "You are already logged in."
+  utter_user_not_found:
+    - text: "We were unable to find your CNP in our database."
+  utter_wrong_password:
+    - text: "Wrong password, try again:"
+  utter_nothing_to_break:
+    - text: "There is no action to interrupt."
 
   # New user form responses
   utter_ask_name_slot:
     - text: "Please provide your name:"
-
   utter_ask_surname_slot:
     - text: "Please provide your surname:"
-
   utter_ask_age_slot:
     - text: "Please provide your age:"
-
   utter_ask_password_slot:
     - text: "Please provide password:"
-
   utter_ask_password_validation_slot:
     - text: "Please provide the password again in order to validate it:"
 
-  # Check CNP form response
-  utter_ask_cnp_slot:
-    - text: "Please provide your CNP:"
+  # Transfer funds form responses
+  utter_ask_recipient_account_number_slot:
+    - text: "Please provide the account number of the recipient party:"
+  utter_ask_transfer_amount_slot:
+    - text: "Please provide the amount you wish to transfer:"
+  utter_ask_confirm_transfer_slot:
+    - text: "Please affirm or deny to confirm:"
 
 actions:
 # General actions
@@ -179,6 +230,10 @@ actions:
 
 # Other actions
   - action_open_policies_page
+
+# Transfer funds actions
+  - validate_transfer_funds_form
+  - submit_transfer_funds_form
 
 session_config:
   session_expiration_time: 60

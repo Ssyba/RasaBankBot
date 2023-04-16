@@ -31,14 +31,14 @@ def find_user_by_cnp_query(cnp: str) -> dict:
         user = dict(zip(column_names, row_data[0]))
         return user
     else:
-        return None
+        return {}
 
 
-def find_user_name_by_cnp_query(cnp: str) -> str:
+def find_user_name_by_cnp_query(cnp: str) -> list:
     return db_executor("SELECT name FROM users WHERE cnp = '%s'" % cnp)
 
 
-def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> list:
+def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: str):
     # Generate the registration date
     registration_date = datetime.now().strftime("%Y-%m-%d")
 
@@ -57,7 +57,8 @@ def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> 
     insert_query = f"""INSERT INTO users (
         id, CNP, name, surname, age, password, registration_date, balance, account_number
     ) VALUES (
-        {new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, '{account_number}'
+        {new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, 
+        '{account_number}'
     )"""
     db_executor(insert_query)  # Assume this method executes the given SQL query on the database
 
@@ -68,46 +69,19 @@ def mock_api_get_balance() -> int:
     return balance
 
 
-def add_new_user(cnp: str, name: str, surname: str, age: str, password: str) -> list:
-    # generate the registration date
-    registration_date = datetime.now().strftime("%Y-%m-%d")
-
-    # get the balance from the mock API
-    balance = mock_api_get_balance()
-
-    # Get the last user ID
-    last_user_id_result = db_executor("SELECT id FROM users ORDER BY id DESC LIMIT 1")
-    last_user_id = last_user_id_result[0][0] if last_user_id_result else 0
-
-    # Increment the last user ID and generate the account number
-    new_user_id = int(last_user_id[0]) + 1
-    account_number = str(new_user_id).zfill(6)
-
-    # execute the INSERT query to add the new user to the table
-    insert_query = f"INSERT INTO users (id, CNP, name, surname, age, password, registration_date, balance, account_number) " \
-                   f"VALUES ({new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, '{account_number}')"
-    db_executor(insert_query)  # assume this method executes the given SQL query on the database
-
-
-def delete_user_by_cnp(cnp: str) -> None:
+def delete_user_by_cnp_query(cnp: str) -> None:
     delete_query = f"DELETE FROM users WHERE CNP='{cnp}'"
     db_executor(delete_query)  # assume this method executes the given SQL query on the database
 
 
-def get_balance_by_cnp(cnp: str) -> int:
+def get_balance_by_cnp_query(cnp: str) -> int:
     balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
     result = db_executor(balance_query)  # assume this method executes the given SQL query on the database
-    print("potato", result)
 
     return result[0][0][0]
 
 
-def update_login_status(cnp: str, login_status: bool) -> None:
-    update_query = f"UPDATE users SET login_status={int(login_status)} WHERE CNP='{cnp}'"
-    db_executor(update_query)
-
-
-def insert_random_user(cnp):
+def insert_random_user_query(cnp):
     user = generate_random_user(cnp)
     insert_query = f"""
         INSERT INTO users (CNP, name, surname, age, password, account_number, registration_date, balance)
@@ -123,3 +97,32 @@ def insert_random_user(cnp):
         )
     """
     db_executor(insert_query)
+
+
+def find_user_by_account_number_query(account_number: str) -> dict:
+    # Get the row data and column names
+    row_data, column_names = db_executor("SELECT * FROM users WHERE account_number = '%s'" % account_number)
+
+    # If there is a result, convert it to a dictionary
+    if row_data:
+        user = dict(zip(column_names, row_data[0]))
+        return user
+    else:
+        return {}
+
+
+def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
+    transfer_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {transfer_amount} WHERE CNP='{sender_cnp}';
+            UPDATE users SET balance = balance + {transfer_amount} WHERE account_number='{recipient_account_number}';
+        COMMIT;
+    """
+    db_executor(transfer_query)
+
+
+def get_account_number_by_cnp(cnp: str) -> str:
+    account_number_query = f"SELECT account_number FROM users WHERE CNP='{cnp}'"
+    result = db_executor(account_number_query)  # assume this method executes the given SQL query on the database
+
+    return result[0][0][0]
