@@ -1,23 +1,20 @@
 import asyncio
 import re
 from functools import wraps
-from typing import Callable, Text, Dict, Any
-
+from typing import Text, Dict, Any
 import mysql.connector
 from faker import Faker
 import random
-
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Tracker
 from rasa_sdk.executor import CollectingDispatcher
-
 import queries_location
-from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
 
 _fake = Faker()
 
 
-# This creates the data that will be used to populate the data with a mock user
-def generate_random_user(cnp):
+# For database use #
+def generate_random_user_data(cnp):
+    # This creates the data that will be used to populate the data with a mock user
     cnp = cnp
     name = _fake.first_name()
     surname = _fake.last_name()
@@ -39,8 +36,8 @@ def generate_random_user(cnp):
     }
 
 
-# This executes the passed query
 def db_executor(query: str) -> list:
+    # This executes the passed query
     # Create connection to the MySQL server
     db_connection = mysql.connector.connect(
         host="localhost",
@@ -77,6 +74,7 @@ def db_executor(query: str) -> list:
     return result
 
 
+# Validators #
 # This verifies if the user input is only digits and exactly 4 digits long
 def is_valid_cnp(cnp: str) -> bool:
     return bool(re.match(r"^\d{4}$", cnp))
@@ -97,6 +95,13 @@ def is_valid_transfer_amount(amount: float, cnp: str) -> bool:
     return 0 <= (balance - int(amount))
 
 
+def mock_api_get_balance() -> int:
+    # Simulate a random balance value from the mock API
+    balance = 10000
+    return balance
+
+
+# Wrappers #
 def skip_validate_if_logged_in(func):
     @wraps(func)
     async def wrapper(*args, **kwargs):

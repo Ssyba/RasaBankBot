@@ -51,6 +51,147 @@ nlu:
     - Are you a software-based agent?
     - Are you an AI-based assistant?
     - Are you an AI-driven chatbot?
+
+- intent: ask_interest_rate_intent
+  examples: |
+    - What is the current interest rate?
+    - Tell me the interest rate
+    - What's the annual interest rate?
+    - Current bank interest rate?
+    - Can you inform me about the bank interest rate?
+    - Show me the interest rate
+    - What is the yearly interest rate?
+    - What is the current rate of interest?
+    - I want to know the interest rate
+    - Please provide the interest rate
+    - What is the interest rate right now?
+    - Annual interest rate information
+    - Share the bank interest rate
+    - What is the present interest rate?
+    - What is the interest rate per year?
+    - Tell me the current interest rate
+    - Annual interest rate query
+    - Interest rate details
+    - Current interest rate, please
+    - Reveal the annual interest rate
+    - What is the interest rate today?
+    - Current interest rate information
+    - Give me the interest rate
+    - The interest rate for this year
+    - What's the interest rate now?
+    - Interest rate at the moment
+    - What's the current annual interest rate?
+    - I need to know the interest rate
+    - Bank interest rate details
+    - Inform me about the interest rate
+    - Annual bank interest rate
+    - What's the yearly interest rate?
+    - What is the interest rate at the moment?
+    - Provide the current interest rate
+    - I'd like to know the interest rate
+    - Share the current interest rate
+    - Tell me the annual interest rate
+    - Bank interest rate now
+    - What is the interest rate currently?
+    - What's the present interest rate?
+    - Can you tell me the interest rate?
+    - I'm looking for the interest rate
+    - Show me the current interest rate
+    - Interest rate at present
+    - Current interest rate query
+    - What is the ongoing interest rate?
+    - What is the bank's interest rate now?
+    - What's the interest rate at the bank?
+    - I'd like to know the current interest rate
+    - Give me the current interest rate
+    - What's the current rate of interest?
+    - Share the annual interest rate
+    - Interest rate update, please
+    - Can you show me the interest rate?
+    - I want to know the current interest rate
+    - What is the bank interest rate?
+    - Current yearly interest rate?
+    - Bank's interest rate information
+    - What's the interest rate today?
+    - Tell me the interest rate at the bank
+    - The present interest rate, please
+    - What is the interest rate for this year?
+    - What is the annual bank interest rate?
+    - Provide the yearly interest rate
+    - What is the ongoing annual interest rate?
+    - What is the interest rate now?
+    - Current interest rate details
+    - Share the yearly interest rate
+    - Inform me of the interest rate
+    - Annual interest rate at the bank
+    - What is the interest rate at this moment?
+    - Reveal the current interest rate
+    - I need the interest rate information
+    - What is the current yearly interest rate?
+    - Bank interest rate at present
+    - What's the current bank interest rate?
+    - Interest rate information, please
+    - Can you give me the interest rate?
+    - Tell me the current yearly interest rate
+    - What's the interest rate currently?
+    - Current interest rate at the bank
+    - I want the interest rate information
+    - Annual interest rate, please
+    - What is the interest rate these days?
+    - Show the annual interest rate
+    - Bank interest rate information
+    - What is the current interest rate at the bank?
+    - I need the current interest rate
+    - What's the bank's interest rate today?
+    - What is the present annual interest rate?
+    - Can you share the interest rate?
+    - What is the bank interest rate at the moment?
+    - What is the interest rate right now?
+    - Annual bank interest rate?
+    - Tell me the interest rate for this year
+    - What's the interest rate at present?
+    - Share the bank interest rate
+    - Bank interest rate, please
+    - Can you tell me the interest rate?
+    - I'd like the current interest rate
+    - What is the bank's current interest rate?
+    - Current interest rate, please
+    - Bank interest rate details
+    - What's the interest rate this year?
+    - Show me the bank interest rate
+    - The current interest rate, please
+    - What is the interest rate for the year?
+    - What is the current bank interest rate?
+    - Provide the current interest rate
+    - What is the annual interest rate now?
+    - What is the interest rate currently?
+    - Annual interest rate details
+    - Share the current interest rate
+    - Inform me of the annual interest rate
+    - Bank's yearly interest rate
+    - What is the interest rate at this time?
+    - Reveal the yearly interest rate
+    - I need the interest rate details
+    - What is the ongoing interest rate?
+    - Bank interest rate right now
+    - What's the annual bank interest rate?
+    - Interest rate update, please
+    - Can you provide the interest rate?
+    - Tell me the yearly interest rate
+    - What's the interest rate now?
+    - Current yearly interest rate at the bank
+    - I want the yearly interest rate information
+    - Annual interest rate update
+    - What is the interest rate this month?
+    - Show the current interest rate
+    - Bank's current interest rate
+    - What is the current interest rate for the bank?
+    - I need the yearly interest rate
+    - What's the bank's current interest rate?
+    - What is the present interest rate?
+    - Can you share the yearly interest rate?
+    - What is the bank interest rate right now?
+
 ### Login and Logout Intents ###
 - intent: login_intent
   examples: |

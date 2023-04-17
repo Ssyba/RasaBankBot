@@ -1,41 +1,75 @@
 from datetime import datetime
+import random
 
-from general_methods import db_executor, generate_random_user
+from general_methods import db_executor, generate_random_user_data, mock_api_get_balance
 
 
+# Create tables
 def create_users_table_query():
     return db_executor(
         "CREATE TABLE users ("
         "id INT AUTO_INCREMENT PRIMARY KEY, "
-        "CNP VARCHAR(4), "
+        "CNP VARCHAR(4) UNIQUE, "
         "name VARCHAR(255), "
         "surname VARCHAR(255), "
         "age INT(2), "
         "password VARCHAR(255), "
-        "account_number VARCHAR(6), "
+        "account_number VARCHAR(6) UNIQUE, "
         "registration_date DATE, "
         "balance INT)"
     )
 
 
+def create_taxes_table_query():
+    return db_executor(
+        "CREATE TABLE taxes ("
+        "id INT AUTO_INCREMENT PRIMARY KEY, "
+        "cnp VARCHAR(4) UNIQUE, "
+        "gas INT, "
+        "electricity INT, "
+        "water INT, "
+        "rent INT)"
+    )
+
+
+# Update tables
 def delete_users_table_query():
     return db_executor("DROP TABLE users")
 
 
-def find_user_by_cnp_query(cnp: str) -> dict:
-    # Get the row data and column names
-    row_data, column_names = db_executor("SELECT * FROM users WHERE CNP = '%s'" % cnp)
-
-    # If there is a result, convert it to a dictionary
-    if row_data:
-        user = dict(zip(column_names, row_data[0]))
-        return user
-    else:
-        return {}
+def delete_taxes_table_query():
+    return db_executor("DROP TABLE taxes")
 
 
-def find_user_name_by_cnp_query(cnp: str) -> list:
-    return db_executor("SELECT name FROM users WHERE cnp = '%s'" % cnp)
+def clear_data_users_table_query():
+    query = "TRUNCATE TABLE users"
+    db_executor(query)
+
+
+def clear_data_taxes_table_query():
+    query = "TRUNCATE TABLE taxes"
+    db_executor(query)
+
+
+def fill_taxes_table_query():
+    # Select CNPs from the users table
+    users_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM users")[0]]
+    taxes_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM taxes")[0]]
+
+    for cnp in users_table_cnps:
+        if cnp not in taxes_table_cnps:
+            gas = random.randint(50, 500)
+            electricity = random.randint(50, 500)
+            water = random.randint(50, 500)
+            rent = random.choice([200, 300, 500, 800])
+
+            query = (
+                f"INSERT INTO taxes (cnp, gas, electricity, water, rent) "
+                f"VALUES ('{cnp}', {gas}, {electricity}, {water}, {rent})"
+            )
+            db_executor(query)
+        else:
+            print(f"CNP '{cnp}' already exists in taxes table, skipping...")
 
 
 def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: str):
@@ -48,7 +82,7 @@ def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: st
     # Get the last user's ID and increment it
     last_user_id_result = db_executor("SELECT id FROM users ORDER BY id DESC LIMIT 1")
     last_user_id = last_user_id_result[0][0]  # Extract the last_user_id value
-    new_user_id = int(last_user_id[0]) + 1
+    new_user_id = int(last_user_id) + 1
 
     # Generate the account number using the new user ID
     account_number = str(new_user_id).zfill(6)
@@ -63,26 +97,13 @@ def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: st
     db_executor(insert_query)  # Assume this method executes the given SQL query on the database
 
 
-def mock_api_get_balance() -> int:
-    # Simulate a random balance value from the mock API
-    balance = 10000
-    return balance
-
-
 def delete_user_by_cnp_query(cnp: str) -> None:
     delete_query = f"DELETE FROM users WHERE CNP='{cnp}'"
     db_executor(delete_query)  # assume this method executes the given SQL query on the database
 
 
-def get_balance_by_cnp_query(cnp: str) -> int:
-    balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
-    result = db_executor(balance_query)  # assume this method executes the given SQL query on the database
-
-    return result[0][0][0]
-
-
 def insert_random_user_query(cnp):
-    user = generate_random_user(cnp)
+    user = generate_random_user_data(cnp)
     insert_query = f"""
         INSERT INTO users (CNP, name, surname, age, password, account_number, registration_date, balance)
         VALUES (
@@ -99,6 +120,33 @@ def insert_random_user_query(cnp):
     db_executor(insert_query)
 
 
+def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
+    transfer_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {transfer_amount} WHERE CNP='{sender_cnp}';
+            UPDATE users SET balance = balance + {transfer_amount} WHERE account_number='{recipient_account_number}';
+        COMMIT;
+    """
+    db_executor(transfer_query)
+
+
+# Find inside tables
+def find_user_by_cnp_query(cnp: str) -> dict:
+    # Get the row data and column names
+    row_data, column_names = db_executor("SELECT * FROM users WHERE CNP = '%s'" % cnp)
+
+    # If there is a result, convert it to a dictionary
+    if row_data:
+        user = dict(zip(column_names, row_data[0]))
+        return user
+    else:
+        return {}
+
+
+def find_user_name_by_cnp_query(cnp: str) -> list:
+    return db_executor("SELECT name FROM users WHERE cnp = '%s'" % cnp)
+
+
 def find_user_by_account_number_query(account_number: str) -> dict:
     # Get the row data and column names
     row_data, column_names = db_executor("SELECT * FROM users WHERE account_number = '%s'" % account_number)
@@ -111,18 +159,15 @@ def find_user_by_account_number_query(account_number: str) -> dict:
         return {}
 
 
-def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
-    transfer_query = f"""
-        BEGIN;
-            UPDATE users SET balance = balance - {transfer_amount} WHERE CNP='{sender_cnp}';
-            UPDATE users SET balance = balance + {transfer_amount} WHERE account_number='{recipient_account_number}';
-        COMMIT;
-    """
-    db_executor(transfer_query)
-
-
 def get_account_number_by_cnp(cnp: str) -> str:
     account_number_query = f"SELECT account_number FROM users WHERE CNP='{cnp}'"
     result = db_executor(account_number_query)  # assume this method executes the given SQL query on the database
+
+    return result[0][0][0]
+
+
+def get_balance_by_cnp_query(cnp: str) -> int:
+    balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
+    result = db_executor(balance_query)  # assume this method executes the given SQL query on the database
 
     return result[0][0][0]

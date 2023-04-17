@@ -4,6 +4,7 @@ intents:
   ### General Intents ###
   - init_intent
   - bot_challenge_intent
+  - ask_interest_rate_intent
 
   ### Login and Logout Intents ###
   - login_intent
@@ -170,6 +171,8 @@ responses:
     - text: "I am a bot, powered by Rasa, but programmed by MariusBank."
   utter_invalid_cnp:
     - text: "Invalid CNP, It should be 4 characters long, and each character should be a digit."
+  utter_show_interest_rate:
+    - text: "The current interest rate is 6.8% per year."
 
   # Login and logout responses
   utter_ask_cnp_slot:

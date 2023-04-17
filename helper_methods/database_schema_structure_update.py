@@ -3,33 +3,62 @@ import queries_location
 # This is done so that I can run each query from pycharm with a click of a button
 
 # Change the value of run_scenario depending on the query you want to run
+
+# Users table #
 # 1 - create the users table
 # 2 - delete the users table
-# 3 - delete a user by CNP
-# 4 - add to random users to the user table
-run_scenarios = [4]
+# 3 - clear data from users table
+# 4 - delete a user by CNP
+# 5 - add random users to the user table by cnp
+# Taxes table #
+# 6 - create taxes table
+# 7 - delete taxes table
+# 8 - clear data from taxes table
+# 9 - populate the taxes table with mock data for each user in the users table
+
+run_scenarios = [9]
 
 # The CNP of the user you want to delete
-cnp = "0002"
+cnp = "0012"
+
+
+class ScenarioRunner:
+    def __init__(self, cnp=None):
+        self.cnp = cnp
+
+    def run_scenario(self, scenario):
+        if scenario == 1:
+            queries_location.create_users_table_query()
+        elif scenario == 2:
+            queries_location.delete_users_table_query()
+        elif scenario == 3:
+            queries_location.clear_data_users_table_query()
+        elif scenario == 4:
+            queries_location.delete_user_by_cnp_query(self.cnp)
+        elif scenario == 5:
+            queries_location.insert_random_user_query(self.cnp)
+        elif scenario == 6:
+            queries_location.create_taxes_table_query()
+        elif scenario == 7:
+            queries_location.delete_taxes_table_query()
+        elif scenario == 8:
+            queries_location.clear_data_taxes_table_query()
+        elif scenario == 9:
+            queries_location.fill_taxes_table_query()
+        else:
+            raise ValueError(f"Invalid value for scenario: {scenario}, look at the valid options above.")
+
 
 if __name__ == "__main__":
-    try:
-        for run_scenario in run_scenarios:
-            if run_scenario == 1:
-                # Create the users table
-                queries_location.create_users_table_query()
-            elif run_scenario == 2:
-                # Delete the users table
-                queries_location.delete_users_table_query()
-            elif run_scenario == 3:
-                # Delete a user by CNP
-                queries_location.delete_user_by_cnp_query(cnp)
-            elif run_scenario == 4:
-                # Delete a user by CNP
-                queries_location.insert_random_user_query(cnp)
-            else:
-                print(f"Invalid value for run_scenario: {run_scenario}, look at the valid options above.")
-        print("All scenarios have been executed.")
-    except Exception as e:
-        print(f"An error occurred while executing the scenarios: {run_scenario}")
-        print("All other scenarios have been executed.")
+    scenario_runner = ScenarioRunner(cnp)
+
+    for run_scenario in run_scenarios:
+        try:
+            scenario_runner.run_scenario(run_scenario)
+            print(f"Scenario {run_scenario} has been executed.")
+        except ValueError as ve:
+            print(f"An error occurred: {ve}")
+        except Exception as e:
+            print(f"An unexpected error occurred while executing scenario {run_scenario}: {e}")
+
+    print("All scenarios have been executed.")

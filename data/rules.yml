@@ -28,6 +28,11 @@ rules:
   - intent: break_intent
   - action: utter_nothing_to_break
 
+- rule: Show interest rate
+  steps:
+  - intent: ask_interest_rate_intent
+  - action: utter_show_interest_rate
+
 ### Login and Logout rules ###
 - rule: Trigger action_logout on logout_intent
   steps:
