@@ -25,6 +25,12 @@ intents:
   - show_my_balance_intent
   - show_slots_intent
 
+  ### Bills Information Intents ###
+  - show_my_gas_bill_intent
+  - show_my_electricity_bill_intent
+  - show_my_water_bill_intent
+  - show_my_rent_bill_intent
+
   ### Policy Information Intents ###
   - policies_info_intent
 
@@ -169,8 +175,6 @@ responses:
     - text: "Welcome, I am BankBot, and I will be your virtual assistant for today."
   utter_iamabot:
     - text: "I am a bot, powered by Rasa, but programmed by MariusBank."
-  utter_invalid_cnp:
-    - text: "Invalid CNP, It should be 4 characters long, and each character should be a digit."
   utter_show_interest_rate:
     - text: "The current interest rate is 6.8% per year."
 
@@ -179,10 +183,6 @@ responses:
     - text: "Please provide your CNP:"
   utter_already_logged_in:
     - text: "You are already logged in."
-  utter_user_not_found:
-    - text: "We were unable to find your CNP in our database."
-  utter_wrong_password:
-    - text: "Wrong password, try again:"
   utter_nothing_to_break:
     - text: "There is no action to interrupt."
 
@@ -209,6 +209,7 @@ responses:
 actions:
 # General actions
   - action_restart
+  - action_open_policies_page
 
 # Login and logout actions
   - validate_login_form
@@ -220,7 +221,7 @@ actions:
   - validate_new_user_form
   - submit_new_user_form
 
-# Information display actions
+# Information display actions users table
   - action_show_my_user_info
   - action_show_my_cnp
   - action_show_my_name
@@ -229,10 +230,13 @@ actions:
   - action_show_my_account_number
   - action_show_registration_date
   - action_show_my_balance
-  - action_show_slots
+  - action_show_all_slots
 
-# Other actions
-  - action_open_policies_page
+# Information display actions bills table
+  - action_show_my_gas_bill
+  - action_show_my_electricity_bill
+  - action_show_my_water_bill
+  - action_show_my_rent_bill
 
 # Transfer funds actions
   - validate_transfer_funds_form

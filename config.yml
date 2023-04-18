@@ -53,30 +53,3 @@ action_server:
 endpoints:
   action_endpoint:
     url: "http://localhost:5055/webhook"
-
-actions:
-# General actions
-  - action_restart
-
-# Login and logout actions
-  - validate_login_form
-  - action_check_login_status
-  - submit_login_form
-  - action_logout
-
-# New user form
-  - validate_new_user_form
-  - submit_new_user_form
-
-# Information display actions
-  - action_show_my_cnp
-  - action_show_my_name
-  - action_show_my_surname
-  - action_show_my_age
-  - action_show_my_account_number
-  - action_show_registration_date
-  - action_show_my_balance
-  - action_show_slots
-
-# Other actions
-  - action_open_policies_page

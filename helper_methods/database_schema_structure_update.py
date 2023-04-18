@@ -10,11 +10,11 @@ import queries_location
 # 3 - clear data from users table
 # 4 - delete a user by CNP
 # 5 - add random users to the user table by cnp
-# Taxes table #
-# 6 - create taxes table
-# 7 - delete taxes table
-# 8 - clear data from taxes table
-# 9 - populate the taxes table with mock data for each user in the users table
+# Bills table #
+# 6 - create bills table
+# 7 - delete bills table
+# 8 - clear data from bills table
+# 9 - populate the bills table with mock data for each user in the users table
 
 run_scenarios = [9]
 
@@ -38,13 +38,13 @@ class ScenarioRunner:
         elif scenario == 5:
             queries_location.insert_random_user_query(self.cnp)
         elif scenario == 6:
-            queries_location.create_taxes_table_query()
+            queries_location.create_bills_table_query()
         elif scenario == 7:
-            queries_location.delete_taxes_table_query()
+            queries_location.delete_bills_table_query()
         elif scenario == 8:
-            queries_location.clear_data_taxes_table_query()
+            queries_location.clear_data_bills_table_query()
         elif scenario == 9:
-            queries_location.fill_taxes_table_query()
+            queries_location.fill_bills_table_query()
         else:
             raise ValueError(f"Invalid value for scenario: {scenario}, look at the valid options above.")
 

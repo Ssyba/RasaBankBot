@@ -5,7 +5,7 @@ from rasa_sdk.forms import SlotSet
 import queries_location
 import logging
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
-from general_methods import is_valid_cnp, is_valid_password, message_for_logged_in, skip_validate_if_logged_in, \
+from general_methods import is_valid_cnp, is_valid_password, only_works_if_logged_out, skip_validate_if_logged_in, \
     handle_break_and_logout_special_intents
 
 logger = logging.getLogger(__name__)
@@ -25,7 +25,8 @@ class ValidateLoginForm(BaseFormValidationAction):
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         if not is_valid_cnp(slot_value):
-            dispatcher.utter_message(template="utter_invalid_cnp")
+            dispatcher.utter_message(
+                text="Invalid CNP, It should be 4 characters long, and each character should be a digit.")
             return {"cnp_slot": None}
 
         cnp = slot_value
@@ -48,7 +49,7 @@ class ValidateLoginForm(BaseFormValidationAction):
         user = queries_location.find_user_by_cnp_query(cnp)
         if is_valid_password(slot_value) and slot_value == user['password']:
             return {"requested_slot": None}  # This finishes to validate for all slots and moves to submit
-        dispatcher.utter_message(template="utter_wrong_password")
+        dispatcher.utter_message(text="Wrong password, try again:")
         return {"password_slot": None}
 
 
@@ -56,7 +57,7 @@ class SubmitLoginForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_login_form"
 
-    @message_for_logged_in
+    @only_works_if_logged_out
     async def submit(
             self,
             dispatcher: CollectingDispatcher,
@@ -70,7 +71,7 @@ class SubmitLoginForm(BaseSubmitAction):
             return []
 
         if tracker.get_slot("password_slot") == "skipped":
-            dispatcher.utter_message(template="utter_user_not_found")
+            dispatcher.utter_message(text="We were unable to find your CNP in our database.")
             buttons = [
                 {"payload": "/check_cnp_again_intent", "title": "I am an existing user, I want to check my CNP again."},
                 {"payload": "/new_user_intent", "title": "I am a new user and I wish to create an account."},

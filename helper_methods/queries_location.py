@@ -1,7 +1,6 @@
 from datetime import datetime
-import random
-
 from general_methods import db_executor, generate_random_user_data, mock_api_get_balance
+import random
 
 
 # Create tables
@@ -20,9 +19,9 @@ def create_users_table_query():
     )
 
 
-def create_taxes_table_query():
+def create_bills_table_query():
     return db_executor(
-        "CREATE TABLE taxes ("
+        "CREATE TABLE bills ("
         "id INT AUTO_INCREMENT PRIMARY KEY, "
         "cnp VARCHAR(4) UNIQUE, "
         "gas INT, "
@@ -37,8 +36,8 @@ def delete_users_table_query():
     return db_executor("DROP TABLE users")
 
 
-def delete_taxes_table_query():
-    return db_executor("DROP TABLE taxes")
+def delete_bills_table_query():
+    return db_executor("DROP TABLE bills")
 
 
 def clear_data_users_table_query():
@@ -46,30 +45,30 @@ def clear_data_users_table_query():
     db_executor(query)
 
 
-def clear_data_taxes_table_query():
-    query = "TRUNCATE TABLE taxes"
+def clear_data_bills_table_query():
+    query = "TRUNCATE TABLE bills"
     db_executor(query)
 
 
-def fill_taxes_table_query():
+def fill_bills_table_query():
     # Select CNPs from the users table
     users_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM users")[0]]
-    taxes_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM taxes")[0]]
+    bills_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM bills")[0]]
 
     for cnp in users_table_cnps:
-        if cnp not in taxes_table_cnps:
+        if cnp not in bills_table_cnps:
             gas = random.randint(50, 500)
             electricity = random.randint(50, 500)
             water = random.randint(50, 500)
             rent = random.choice([200, 300, 500, 800])
 
             query = (
-                f"INSERT INTO taxes (cnp, gas, electricity, water, rent) "
+                f"INSERT INTO bills (cnp, gas, electricity, water, rent) "
                 f"VALUES ('{cnp}', {gas}, {electricity}, {water}, {rent})"
             )
             db_executor(query)
         else:
-            print(f"CNP '{cnp}' already exists in taxes table, skipping...")
+            print(f"CNP '{cnp}' already exists in bills table, skipping...")
 
 
 def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: str):
@@ -94,12 +93,12 @@ def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: st
         {new_user_id}, '{cnp}', '{name}', '{surname}', '{age}', '{password}', '{registration_date}', {balance}, 
         '{account_number}'
     )"""
-    db_executor(insert_query)  # Assume this method executes the given SQL query on the database
+    db_executor(insert_query)
 
 
 def delete_user_by_cnp_query(cnp: str) -> None:
     delete_query = f"DELETE FROM users WHERE CNP='{cnp}'"
-    db_executor(delete_query)  # assume this method executes the given SQL query on the database
+    db_executor(delete_query)
 
 
 def insert_random_user_query(cnp):
@@ -143,6 +142,18 @@ def find_user_by_cnp_query(cnp: str) -> dict:
         return {}
 
 
+def find_bills_by_cnp_query(cnp: str) -> dict:
+    # Get the row data and column names
+    row_data, column_names = db_executor("SELECT * FROM bills WHERE CNP = '%s'" % cnp)
+
+    # If there is a result, convert it to a dictionary
+    if row_data:
+        bills = dict(zip(column_names, row_data[0]))
+        return bills
+    else:
+        return {}
+
+
 def find_user_name_by_cnp_query(cnp: str) -> list:
     return db_executor("SELECT name FROM users WHERE cnp = '%s'" % cnp)
 
@@ -161,13 +172,13 @@ def find_user_by_account_number_query(account_number: str) -> dict:
 
 def get_account_number_by_cnp(cnp: str) -> str:
     account_number_query = f"SELECT account_number FROM users WHERE CNP='{cnp}'"
-    result = db_executor(account_number_query)  # assume this method executes the given SQL query on the database
+    result = db_executor(account_number_query)
 
     return result[0][0][0]
 
 
 def get_balance_by_cnp_query(cnp: str) -> int:
     balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
-    result = db_executor(balance_query)  # assume this method executes the given SQL query on the database
+    result = db_executor(balance_query)
 
     return result[0][0][0]

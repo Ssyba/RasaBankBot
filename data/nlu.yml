@@ -1874,6 +1874,553 @@ nlu:
     - show me my slot data
     - what is my slot data
 
+### Bills Information Intents ###
+- intent: show_my_gas_bill_intent
+  examples: |
+    - show me my gas bill
+    - can you display my gas bill?
+    - let me see my gas charges
+    - I'd like to view my gas bill
+    - I want to check my gas bill
+    - display my gas bill please
+    - reveal my gas bill
+    - gas bill, please show me
+    - please show me my gas invoice
+    - I need to see my gas bill
+    - can you show me my gas bill?
+    - what's my gas bill like?
+    - how much is my gas bill?
+    - show me my gas expenses
+    - let me check my gas bill
+    - I want to look at my gas bill
+    - show my gas bill, please
+    - pull up my gas bill
+    - could you show my gas bill?
+    - show my gas charges, please
+    - kindly show me my gas bill
+    - I'd like to see my gas invoice
+    - display my gas expenses
+    - please present my gas bill
+    - get me my gas bill
+    - can you pull up my gas bill?
+    - let's have a look at my gas bill
+    - can I see my gas bill?
+    - I'd like to check my gas bill
+    - how much do I owe for gas?
+    - show me the gas bill
+    - what are my gas charges?
+    - view my gas bill
+    - I need to view my gas charges
+    - could you display my gas bill?
+    - gas bill check, please
+    - I want to see my gas charges
+    - what is my gas bill?
+    - can I check my gas bill?
+    - show me the details of my gas bill
+    - I'd like to review my gas bill
+    - I want to inspect my gas bill
+    - let me see my gas expenses
+    - could you present my gas bill?
+    - can you help me see my gas bill?
+    - show me my current gas bill
+    - I want to see my gas invoice
+    - what does my gas bill look like?
+    - can you show my gas charges?
+    - display my current gas bill
+    - bring up my gas bill
+    - I want to examine my gas bill
+    - I'd like to look at my gas bill
+    - show me the amount of my gas bill
+    - how much is my gas invoice?
+    - show me the latest gas bill
+    - please show my gas bill
+    - can I look at my gas bill?
+    - reveal my gas charges
+    - display my gas invoice
+    - please help me see my gas bill
+    - show me my gas bill for this month
+    - let's see my gas bill
+    - I want to know my gas bill
+    - give me my gas bill details
+    - how much am I charged for gas?
+    - could you reveal my gas bill?
+    - I need to inspect my gas bill
+    - I want to review my gas bill
+    - show me the breakdown of my gas bill
+    - may I see my gas bill?
+    - please let me see my gas bill
+    - can you bring up my gas bill?
+    - I want to check my gas charges
+    - what's the total of my gas bill?
+    - can you reveal my gas bill?
+    - let's check my gas bill
+    - I want to see the gas bill breakdown
+    - show me my gas fees
+    - display my gas consumption bill
+    - could you show my gas expenses?
+    - can you please show my gas bill?
+    - I need to see my gas bill
+    - I'd like to know my gas bill
+    - I want to see the gas bill summary
+    - let me check my gas bill
+    - please display my gas bill
+    - show me my gas charges for this month
+    - can you display my gas bill?
+    - how much do I owe for gas?
+    - I'd like to check my gas bill
+    - display my gas bill details
+    - help me review my gas bill
+    - show me my gas bill information
+    - I want to view my gas bill
+    - reveal my gas bill details
+    - show me my gas usage bill
+    - can you help me check my gas bill?
+    - please present my gas bill
+    - what is the amount on my gas bill?
+    - can I see my gas bill breakdown?
+    - show me my gas bill summary
+    - I need to view my gas bill
+    - can you assist me in seeing my gas bill?
+    - how much is my gas bill?
+    - let me view my gas bill
+    - I'd like to see my gas bill
+    - I want to know my gas charges
+    - let me examine my gas bill
+    - display the details of my gas bill
+    - may I check my gas bill?
+    - can you show my gas bill breakdown?
+    - I want to look at my gas bill
+    - please help me check my gas bill
+    - how much do I owe on my gas bill?
+    - show me my gas bill breakdown
+    - display my gas bill please
+    - I want to check my gas bill
+    - show me my current gas bill
+    - show me my gas bill for this month
+    - help me see my gas bill
+    - I'd like to review my gas bill
+    - I want to inspect my gas bill
+    - can you reveal my gas bill?
+    - show me the gas bill for my account
+    - how much do I need to pay for gas?
+    - show me the gas bill amount
+    - I need to know my gas bill
+    - let me see my gas bill details
+    - I want to know my gas bill amount
+    - can you help me see my gas bill?
+    - show me the details of my gas bill
+    - let me know my gas bill
+    - I need to check my gas bill
+    - show me the gas bill charges
+    - can you display my gas bill details?
+    - I want to see my gas bill charges
+    - show me my gas consumption charges
+    - how much is my gas bill for this month?
+    - help me view my gas bill
+    - I'd like to see my gas bill details
+    - show me the gas bill for my house
+    - I want to find out my gas bill
+    - I need to review my gas bill
+    - can you show my gas bill details?
+    - show me my gas bill amount
+    - display my gas bill breakdown
+    - can you help me review my gas bill?
+    - I'd like to know my gas bill charges
+    - can I view my gas bill?
+    - show me the breakdown of my gas bill
+    - I want to see my gas usage charges
+    - I need to examine my gas bill
+    - let me know my gas bill amount
+    - please show my gas bill details
+
+- intent: show_my_electricity_bill_intent
+  examples: |
+    - show me my electricity bill
+    - can you display my electricity bill?
+    - I want to see my electricity bill
+    - help me check my electricity bill
+    - show me my current electricity bill
+    - let me review my electricity bill
+    - I want to look at my electricity bill
+    - please reveal my electricity bill
+    - I'd like to see my electricity bill
+    - show my electricity bill for this month
+    - how much is my electricity bill?
+    - show me the details of my electricity bill
+    - I need to know my electricity bill
+    - let me see my electricity bill breakdown
+    - I want to know my electricity bill amount
+    - can you help me see my electricity bill?
+    - show me the electricity bill for my account
+    - let me know my electricity bill
+    - I need to check my electricity bill
+    - show me the charges on my electricity bill
+    - can you display my electricity bill details?
+    - I want to see the charges on my electricity bill
+    - show me my electricity usage charges
+    - how much is my electricity bill this month?
+    - help me view my electricity bill
+    - I'd like to see the details of my electricity bill
+    - show me the electricity bill for my home
+    - I want to find my electricity bill
+    - I need to review my electricity bill
+    - can you show my electricity bill breakdown?
+    - show me my electricity bill total
+    - display my electricity bill details
+    - can you help me review my electricity bill?
+    - I'd like to know the charges on my electricity bill
+    - can I view my electricity bill?
+    - show me the breakdown of my electricity bill
+    - I want to see my electricity consumption charges
+    - I need to examine my electricity bill
+    - let me know the amount of my electricity bill
+    - please show my electricity bill breakdown
+    - can you present my electricity bill?
+    - I need to inspect my electricity bill
+    - show me my monthly electricity bill
+    - please reveal my current electricity bill
+    - help me examine my electricity bill
+    - show me the summary of my electricity bill
+    - I'd like to view my electricity bill
+    - could you show my electricity bill?
+    - display my electricity bill summary
+    - I want to verify my electricity bill
+    - show me the cost of my electricity bill
+    - can you help me with my electricity bill details?
+    - I'd like to check my electricity bill
+    - can you show me the charges on my electricity bill?
+    - I want to see my electricity usage details
+    - help me find my electricity bill
+    - I need to look at my electricity bill
+    - show me my latest electricity bill
+    - can you help me examine my electricity bill?
+    - I want to see my electricity bill summary
+    - display the details of my electricity bill
+    - can you show me my electricity bill total?
+    - I'd like to know my electricity bill amount
+    - I want to know the cost of my electricity bill
+    - help me check the details of my electricity bill
+    - show me the total of my electricity bill
+    - I'd like to see my electricity usage charges
+    - can you display my electricity bill summary?
+    - I need to verify my electricity bill
+    - show me my electricity charges breakdown
+    - help me look at my electricity bill
+    - I'd like to review my electricity bill
+    - can you reveal my electricity bill?
+    - display my electricity usage details
+    - I want to inspect my electricity bill
+    - show me the electricity bill for this month
+    - can you help me find my electricity bill?
+    - I'd like to see the summary of my electricity bill
+    - can I check my electricity bill?
+    - show me the electricity charges on my bill
+    - I want to know my electricity usage charges
+    - I need to review my electricity bill
+    - could you display my electricity bill?
+    - show me the breakdown of my electricity bill
+    - please show me my electricity bill details
+    - help me review my electricity bill
+    - show me my electricity consumption details
+    - I'd like to inspect my electricity bill
+    - could you help me with my electricity bill?
+    - display my electricity bill charges
+    - I want to check my electricity bill
+    - show me the details of my electricity bill
+    - can you assist me in checking my electricity bill?
+    - I'd like to find my electricity bill
+    - can you show me my electricity consumption details?
+    - I want to see my electricity bill breakdown
+    - help me see my electricity bill
+    - I need to check my electricity bill
+    - show me my current electricity charges
+    - can you help me review my electricity bill?
+    - I want to see my electricity consumption breakdown
+    - display the charges on my electricity bill
+    - can you show me my electricity bill charges?
+    - I'd like to know my electricity consumption details
+    - I want to know the details of my electricity bill
+    - help me check my electricity bill charges
+    - show me the total charges on my electricity bill
+    - I'd like to see my electricity bill breakdown
+    - can you display my electricity consumption details?
+    - I need to find my electricity bill
+    - show me my electricity usage breakdown
+    - help me find the details of my electricity bill
+    - I'd like to examine my electricity bill
+    - can you display my electricity bill charges?
+    - display my electricity bill breakdown
+    - I want to review my electricity bill
+    - show me this month's electricity bill
+    - can you help me locate my electricity bill?
+    - I'd like to see my electricity bill details
+    - can I see my electricity bill?
+    - show me the breakdown of my electricity charges
+    - I want to know my electricity consumption details
+
+- intent: show_my_water_bill_intent
+  examples: |
+    - can I see my water bill?
+    - I want to check my water bill
+    - show me the details of my water bill
+    - please display my water bill
+    - could you help me review my water bill?
+    - I'd like to view my water bill
+    - display my water bill, please
+    - I need to look at my water bill
+    - can you show me my water bill?
+    - let me see my water bill
+    - I'd like to inspect my water bill
+    - show me my water charges
+    - help me review my water bill
+    - I want to see my water bill
+    - can you display my water bill?
+    - show me my water bill breakdown
+    - I'd like to know my water bill details
+    - display the charges on my water bill
+    - please show me my water consumption details
+    - can you help me check my water bill?
+    - I need to know my water bill charges
+    - show me my water usage details
+    - I'd like to examine my water bill
+    - can you show me my water bill breakdown?
+    - display my water bill details
+    - I want to know the details of my water bill
+    - help me find my water bill
+    - show me the charges on my water bill
+    - I'd like to see my water consumption details
+    - can you help me locate my water bill?
+    - I want to review my water bill
+    - show me this month's water bill
+    - display my water consumption breakdown
+    - I need to find my water bill
+    - can you show me my water bill details?
+    - help me check my water bill charges
+    - show me my current water charges
+    - I'd like to see my water bill charges
+    - can I check my water bill?
+    - show me the breakdown of my water charges
+    - what's my water bill this month?
+    - I'd like to see my water bill information
+    - can you give me my water bill details?
+    - I need to check my water bill
+    - please help me find my water bill
+    - let me view my water bill details
+    - show me the details of my water charges
+    - can you assist me in viewing my water bill?
+    - help me see my water bill
+    - I want to inspect my water bill
+    - show me my water bill information
+    - display my water bill charges
+    - I'd like to know my water charges
+    - can you help me with my water bill?
+    - I need to see my water bill
+    - show me the water bill for this month
+    - I want to examine my water bill
+    - display the details of my water bill
+    - can you show me my water charges?
+    - help me look at my water bill
+    - I'd like to check my water bill
+    - show me the water charges for this month
+    - I want to know my water bill amount
+    - can I get my water bill details?
+    - help me with my water bill
+    - I need to know my water charges
+    - show me the total of my water bill
+    - can you help me review my water charges?
+    - I'd like to look at my water bill
+    - display my water usage charges
+    - I want to see my water bill total
+    - can you find my water bill?
+    - help me with the details of my water bill
+    - show me the water usage charges for this month
+    - I'd like to know the details of my water charges
+    - can you show me my water bill total?
+    - display my water bill summary
+    - I want to know my water usage charges
+    - help me check my water charges
+    - show me the amount of my water bill
+    - I'd like to see my water bill summary
+    - can you help me see my water bill?
+    - show me the details of my water consumption
+    - I want to view my water bill breakdown
+    - can you display my water bill?
+    - help me examine my water bill
+    - show me my water bill for the current month
+    - I'd like to see my water usage charges
+    - can you show me my water consumption charges?
+    - I want to check my water charges
+    - display my water bill for this billing period
+    - help me find the details of my water bill
+    - show me my water bill breakdown
+    - I'd like to know my water bill status
+    - can you help me check my water bill?
+    - I want to review my water charges
+    - display my water bill this month
+    - help me understand my water bill
+    - show me my water bill balance
+    - I'd like to view my water consumption details
+    - can you show me my water bill status?
+    - I want to know the breakdown of my water bill
+    - display the water bill for my account
+    - help me review my water charges
+    - show me the status of my water bill
+    - I'd like to check my water consumption charges
+    - can you help me understand my water bill?
+    - I want to see the breakdown of my water charges
+    - display my water charges for the current billing period
+    - help me analyze my water bill
+    - show me my water usage for this month
+    - I'd like to know my water bill balance
+    - can you show me my water consumption details?
+    - I want to view the details of my water charges
+    - display my water bill charges for this month
+    - help me check the status of my water bill
+    - show me the breakdown of my water consumption
+    - I'd like to see my water charges for this billing period
+    - can you help me analyze my water bill?
+    - I want to know my water bill details for this month
+    - display my water bill and its breakdown
+    - help me view the breakdown of my water charges
+    - show me the water consumption charges for this month
+    - I'd like to know my water bill for the current billing period
+    - can you show me the breakdown of my water bill?
+
+- intent: show_my_rent_bill_intent
+  examples: |
+    - show me my rent bill
+    - can you display my rent bill?
+    - I want to see my rent bill
+    - help me check my rent bill
+    - show me the details of my rent bill
+    - can you show me my rent charges?
+    - I'd like to view my rent bill
+    - display my rent bill for this month
+    - help me review my rent bill
+    - show me the breakdown of my rent bill
+    - can you help me see my rent charges?
+    - I want to know my rent bill status
+    - display my rent bill details
+    - help me understand my rent bill
+    - show me my rent bill for the current month
+    - can you show me the details of my rent bill?
+    - I'd like to check my rent bill
+    - display the breakdown of my rent bill
+    - help me analyze my rent bill
+    - show me the status of my rent bill
+    - can you help me review my rent charges?
+    - I want to see my rent bill breakdown
+    - display my rent charges for this month
+    - help me examine my rent bill
+    - show me my rent bill balance
+    - can you show me the status of my rent bill?
+    - I'd like to know my rent charges
+    - display my rent bill for the current billing period
+    - help me find the details of my rent bill
+    - show me the rent charges for this month
+    - can you help me understand my rent bill?
+    - I want to view the breakdown of my rent charges
+    - display the rent bill for my account
+    - help me check my rent charges
+    - show me the rent bill for my account
+    - can you show me my rent bill balance?
+    - I'd like to see my rent bill for this billing period
+    - display the status of my rent bill
+    - help me view my rent bill details
+    - show me the rent charges for the current billing period
+    - can you help me check my rent bill?
+    - I want to know the breakdown of my rent bill
+    - show me my current rent bill
+    - can you pull up my rent bill?
+    - I want to check my rent bill for this month
+    - help me access my rent bill
+    - show me the rent bill summary
+    - can you present my rent bill?
+    - I'd like to get my rent bill details
+    - display the rent charges for my account
+    - help me inspect my rent bill
+    - show me my rent bill for the latest billing period
+    - can you help me access my rent charges?
+    - I want to see the rent charges on my account
+    - display my rent bill summary
+    - help me figure out my rent bill
+    - show me the rent bill for the current month
+    - can you help me view my rent bill?
+    - I'd like to know the rent charges for this month
+    - display the rent bill details for my account
+    - help me read my rent bill
+    - show me my rent bill information
+    - can you help me examine my rent charges?
+    - I want to see the rent bill for my account
+    - display the latest rent charges on my account
+    - help me go through my rent bill
+    - show me the charges on my rent bill
+    - can you help me find my rent bill?
+    - I'd like to see the rent charges for my account
+    - display the rent bill for this billing period
+    - help me look at my rent bill
+    - show me my rent bill for the past month
+    - can you help me analyze my rent bill?
+    - I want to check the rent charges on my account
+    - display the rent charges for the latest billing period
+    - help me understand the charges on my rent bill
+    - show me the rent bill for the previous month
+    - can you help me with my rent bill details?
+    - I'd like to view the rent bill for my account
+    - display the rent bill information for my account
+    - help me learn about my rent bill
+    - show me the rent charges breakdown
+    - can you help me look at my rent charges?
+    - I want to know the rent bill for my account
+    - display the rent bill breakdown for my account
+    - help me get my rent bill information
+    - reveal my rent bill details
+    - help me with my rent bill inquiry
+    - show me my rent expenses
+    - can you display my rent bill summary?
+    - I want to review my rent bill
+    - display my rent bill breakdown
+    - help me see my rent charges
+    - show me my rent bill for this billing cycle
+    - can you show me my rent bill info?
+    - I'd like to examine my rent bill
+    - display the rent bill for my account
+    - help me check my rent bill details
+    - show me the rent bill information for this month
+    - can you provide my rent bill details?
+    - I want to know my rent charges this month
+    - display my rent bill for the last billing cycle
+    - help me find my rent bill information
+    - show me my rent bill breakdown for this month
+    - can you show me my rent bill breakdown?
+    - I'd like to see my rent bill summary
+    - display the rent bill summary for my account
+    - help me view my rent charges
+    - show me the rent bill details for this billing period
+    - can you help me check my rent bill?
+    - I want to understand my rent charges
+    - display the rent bill details for the last month
+    - help me know my rent bill details
+    - show me my rent bill for the current billing cycle
+    - can you help me review my rent charges?
+    - I'd like to access my rent bill
+    - display my rent bill for this month
+    - help me read the details of my rent bill
+    - show me the rent bill for my account
+    - can you help me see my rent bill details?
+    - I want to find out my rent charges
+    - display the rent bill for the previous billing period
+    - help me with my rent bill analysis
+    - show me my rent bill summary for this month
+    - can you help me understand my rent charges?
+    - I'd like to know my rent bill for this month
+    - display the rent charges for my account
+    - help me check my rent bill summary
+    - show me my rent bill details for the last month
+    - can you help me find my rent bill summary?
+    - I want to see the rent bill for this billing period
+    - display the rent bill for the current billing cycle
+
 ### Policy Information Intents ###
 - intent: policies_info_intent
   examples: |

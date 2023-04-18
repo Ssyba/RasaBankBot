@@ -134,12 +134,12 @@ def skip_validate_if_logged_out(func):
     return wrapper
 
 
-def message_for_logged_in(func):
+def only_works_if_logged_out(func):
     @wraps(func)
     async def wrapper(action, dispatcher, tracker, domain):
         logged_in_status = tracker.get_slot('logged_in_status_slot')
         if logged_in_status:
-            dispatcher.utter_message(text="Invalid operation because you are already logged in.")
+            dispatcher.utter_message(text="Invalid operation because you are logged in.")
             return []
 
         if asyncio.iscoroutinefunction(func):
@@ -150,7 +150,7 @@ def message_for_logged_in(func):
     return wrapper
 
 
-def message_for_logged_out(func):
+def only_works_if_logged_in(func):
     @wraps(func)
     async def wrapper(action, dispatcher, tracker, domain):
         logged_in_status = tracker.get_slot('logged_in_status_slot')

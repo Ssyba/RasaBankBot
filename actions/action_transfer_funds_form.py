@@ -6,7 +6,7 @@ from rasa_sdk.types import DomainDict
 import queries_location
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
 from general_methods import is_valid_account_number, is_valid_transfer_amount, skip_validate_if_logged_out, \
-    message_for_logged_out, handle_break_and_logout_special_intents
+    only_works_if_logged_in, handle_break_and_logout_special_intents
 import re
 
 
@@ -102,7 +102,7 @@ class ActionSubmitTransferFundsForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_transfer_funds_form"
 
-    @message_for_logged_out
+    @only_works_if_logged_in
     async def submit(
             self,
             dispatcher: CollectingDispatcher,

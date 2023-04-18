@@ -43,13 +43,13 @@ stories:
   - action: transfer_funds_form
   - active_loop: transfer_funds_form
   - slot_was_set:
-      - recipient_account_number_slot: null
+    - requested_slot: recipient_account_number_slot
   - slot_was_set:
-      - transfer_amount_slot: null
+    - requested_slot: transfer_amount_slot
   - slot_was_set:
-      - confirm_transfer_slot: null
-  - active_loop: null
+    - requested_slot: confirm_transfer_slot
   - slot_was_set:
     - requested_slot: null
+  - active_loop: null
   - action: submit_transfer_funds_form
   - action: action_listen

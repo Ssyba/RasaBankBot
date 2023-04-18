@@ -2,21 +2,35 @@ from typing import Any, Dict, List, Text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import queries_location
-from general_methods import message_for_logged_out
+from general_methods import only_works_if_logged_in
 
 
-class ActionShowUserInfo(Action):
+# General show #
+class ActionShowAllSlots(Action):
+
+    def name(self) -> Text:
+        return "action_show_all_slots"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        slots = tracker.slots
+        dispatcher.utter_message(str(slots))
+        return []
+
+
+# Show for users table #
+class ActionShowMyUserInfo(Action):
     def name(self) -> Text:
         return "action_show_my_user_info"
 
-    @message_for_logged_out
+    @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
         cnp = tracker.get_slot("cnp_slot")
         user = queries_location.find_user_by_cnp_query(cnp)
 
@@ -44,159 +58,165 @@ class ActionShowMyCNP(Action):
     def name(self) -> Text:
         return "action_show_my_cnp"
 
-    @message_for_logged_out
+    @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
-        logged_in = tracker.get_slot("logged_in_status_slot")
         cnp = tracker.get_slot("cnp_slot")
 
-        if logged_in:
-            message = f"Your CNP is {cnp}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your CNP is {cnp}.")
         return []
 
 
-class ActionShowName(Action):
+class ActionShowMyName(Action):
     def name(self) -> Text:
         return "action_show_my_name"
 
-    @message_for_logged_out
+    @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
         Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        name = user['name']
 
-        if logged_in:
-            user = queries_location.find_user_by_cnp_query(cnp)
-            name = user['name']
-            message = f"Your name is {name}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your name is {name}.")
         return []
 
 
-class ActionShowSurname(Action):
+class ActionShowMySurname(Action):
     def name(self) -> Text:
         return "action_show_my_surname"
 
-    @message_for_logged_out
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        surname = user['surname']
 
-        if logged_in:
-            user = queries_location.find_user_by_cnp_query(cnp)
-            surname = user['surname']
-            message = f"Your surname is {surname}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your name is {surname}.")
         return []
 
 
-class ActionShowAge(Action):
+class ActionShowMyAge(Action):
     def name(self) -> Text:
         return "action_show_my_age"
 
-    @message_for_logged_out
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        age = user['age']
 
-        if logged_in:
-            user = queries_location.find_user_by_cnp_query(cnp)
-            age = user['age']
-            message = f"Your age is {age}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your age is {age}.")
         return []
 
 
-class ActionShowAccountNumber(Action):
+class ActionShowMyAccountNumber(Action):
     def name(self) -> Text:
         return "action_show_my_account_number"
 
-    @message_for_logged_out
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        account_number = user['account_number']
 
-        if logged_in:
-            user = queries_location.find_user_by_cnp_query(cnp)
-            account_number = user['account_number']
-            message = f"Your account number is {account_number}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your account_number is {account_number}.")
         return []
 
 
-class ActionShowRegistrationDate(Action):
+class ActionShowMyRegistrationDate(Action):
     def name(self) -> Text:
         return "action_show_my_registration_date"
 
-    @message_for_logged_out
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        registration_date = user['registration_date']
 
-        if logged_in:
-            user = queries_location.find_user_by_cnp_query(cnp)
-            registration_date = user['registration_date']
-            message = f"Your registration date is {registration_date}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your account_number is {registration_date}.")
         return []
 
 
-class ActionShowBalance(Action):
+class ActionShowMyBalance(Action):
     def name(self) -> Text:
         return "action_show_my_balance"
 
-    @message_for_logged_out
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
-        logged_in = tracker.get_slot('logged_in_status_slot')
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
+        user = queries_location.find_user_by_cnp_query(cnp)
+        balance = user['balance']
 
-        if logged_in:
-            balance = queries_location.get_balance_by_cnp_query(cnp)
-            message = f"Your current balance is ${balance}."
-        else:
-            message = "You are not logged in."
-
-        dispatcher.utter_message(text=message)
+        dispatcher.utter_message(text=f"Your balance is {balance}$.")
         return []
 
 
-class ActionPrintSlots(Action):
-
+# Bills table show #
+class ActionShowMyGasBill(Action):
     def name(self) -> Text:
-        return "action_show_slots"
+        return "action_show_my_gas_bill"
 
-    async def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        slots = tracker.slots
-        dispatcher.utter_message(str(slots))
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
+        Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bills = queries_location.find_bills_by_cnp_query(cnp)
+        gas = user_bills['gas']
+
+        dispatcher.utter_message(text=f"Your gas bill is {gas}$.")
+        return []
+
+
+class ActionShowMyElectricityBill(Action):
+    def name(self) -> Text:
+        return "action_show_my_electricity_bill"
+
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bills = queries_location.find_bills_by_cnp_query(cnp)
+        electricity = user_bills['electricity']
+
+        dispatcher.utter_message(text=f"Your electricity bill is {electricity}$.")
+        return []
+
+
+class ActionShowMyWaterBill(Action):
+    def name(self) -> Text:
+        return "action_show_my_water_bill"
+
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bills = queries_location.find_bills_by_cnp_query(cnp)
+        water = user_bills['water']
+
+        dispatcher.utter_message(text=f"Your water bill is {water}$.")
+        return []
+
+
+class ActionShowMyRentBill(Action):
+    def name(self) -> Text:
+        return "action_show_my_rent_bill"
+
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bills = queries_location.find_bills_by_cnp_query(cnp)
+        rent = user_bills['rent']
+
+        dispatcher.utter_message(text=f"Your rent bill is {rent}$.")
         return []

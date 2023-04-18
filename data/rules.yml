@@ -39,7 +39,7 @@ rules:
   - intent: logout_intent
   - action: action_logout
 
-### User Information rules ###
+### User information rules ###
 - rule: Show the user's CNP
   steps:
   - intent: show_my_user_info_intent
@@ -83,7 +83,28 @@ rules:
 - rule: Show the user's current slots
   steps:
   - intent: show_slots_intent
-  - action: action_show_slots
+  - action: action_show_all_slots
+
+### Bills information rules ###
+- rule: Show the user's gas bill
+  steps:
+    - intent: show_my_gas_bill_intent
+    - action: action_show_my_gas_bill
+
+- rule: Show the user's electricity bill
+  steps:
+    - intent: show_my_electricity_bill_intent
+    - action: action_show_my_electricity_bill
+
+- rule: Show the user's water bill
+  steps:
+    - intent: show_my_water_bill_intent
+    - action: action_show_my_water_bill
+
+- rule: Show the user's rent bill
+  steps:
+    - intent: show_my_rent_bill_intent
+    - action: action_show_my_rent_bill
 
 ### Forms ###
 # Login form

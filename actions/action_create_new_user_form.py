@@ -5,7 +5,7 @@ from rasa_sdk.forms import SlotSet
 import logging
 import queries_location
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
-from general_methods import is_valid_cnp, is_valid_password, message_for_logged_in, skip_validate_if_logged_in, \
+from general_methods import is_valid_cnp, is_valid_password, only_works_if_logged_out, skip_validate_if_logged_in, \
     handle_break_and_logout_special_intents
 
 logger = logging.getLogger(__name__)
@@ -25,7 +25,8 @@ class ValidateNewUserForm(BaseFormValidationAction):
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
         if not is_valid_cnp(slot_value):
-            dispatcher.utter_message(template="utter_invalid_cnp")
+            dispatcher.utter_message(
+                text="Invalid CNP, It should be 4 characters long, and each character should be a digit.")
             return {"cnp_slot": None}
 
         cnp = slot_value
@@ -122,7 +123,7 @@ class SubmitNewUserForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_new_user_form"
 
-    @message_for_logged_in
+    @only_works_if_logged_out
     async def submit(
             self,
             dispatcher: CollectingDispatcher,
