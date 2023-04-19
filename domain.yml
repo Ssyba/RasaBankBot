@@ -26,6 +26,7 @@ intents:
   - show_slots_intent
 
   ### Bills Information Intents ###
+  - show_my_bills_intent
   - show_my_gas_bill_intent
   - show_my_electricity_bill_intent
   - show_my_water_bill_intent
@@ -233,6 +234,7 @@ actions:
   - action_show_all_slots
 
 # Information display actions bills table
+  - action_show_my_bills_intent
   - action_show_my_gas_bill
   - action_show_my_electricity_bill
   - action_show_my_water_bill

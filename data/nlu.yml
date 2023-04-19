@@ -1875,6 +1875,135 @@ nlu:
     - what is my slot data
 
 ### Bills Information Intents ###
+- intent: show_my_bills_intent
+  examples: |
+    - show me all my bills
+    - display my bills
+    - let me see my bills
+    - can I see my bills
+    - show me my bills, please
+    - please show me my bills
+    - show me all the bills I have
+    - let me check my bills
+    - I'd like to see my bills
+    - can you show me my bills
+    - reveal my bills
+    - I want to see my bills
+    - display all my bills
+    - show all my bills
+    - show my bills to me
+    - let me see all my bills
+    - show my bills, please
+    - can you display my bills
+    - may I see my bills
+    - show me my outstanding bills
+    - could you show me my bills
+    - I want to check my bills
+    - can you let me see my bills
+    - please display my bills
+    - help me see my bills
+    - show me the bills I owe
+    - I'd like to check my bills
+    - let me view my bills
+    - can you reveal my bills
+    - show me my pending bills
+    - display my outstanding bills
+    - I need to see my bills
+    - can I check my bills
+    - show me my current bills
+    - allow me to see my bills
+    - I'd like to view my bills
+    - show me the bills I have to pay
+    - please let me see my bills
+    - show me my bills list
+    - give me a list of my bills
+    - show me my due bills
+    - I want to view my bills
+    - could I see my bills
+    - I'd like to review my bills
+    - present my bills
+    - show me my unpaid bills
+    - display the bills I owe
+    - let me check out my bills
+    - show me my bill summary
+    - can I view my bills
+    - help me check my bills
+    - display my pending bills
+    - show me my bills overview
+    - provide a list of my bills
+    - I want to look at my bills
+    - let me inspect my bills
+    - show me my bills statement
+    - display a list of my bills
+    - can you present my bills
+    - show me my bills report
+    - let me examine my bills
+    - show me all my due bills
+    - I'd like to look at my bills
+    - show me the bills I need to pay
+    - I need to check my bills
+    - display my bills summary
+    - can you help me see my bills
+    - show me all my pending bills
+    - I would like to see my bills
+    - present a list of my bills
+    - show my bills overview
+    - can I have a look at my bills
+    - help me view my bills
+    - display all my due bills
+    - show me my bills breakdown
+    - allow me to view my bills
+    - show me a list of my due bills
+    - I want to inspect my bills
+    - can you show me all my bills
+    - let me look at my bills
+    - I'd like to see all my bills
+    - show me all my unpaid bills
+    - display the bills I have to pay
+    - present my outstanding bills
+    - could you display my bills
+    - let me see my bills list
+    - show me all my current bills
+    - reveal my bills to me
+    - display my bills please
+    - I'd like to check my bills
+    - show my due bills
+    - can you list my bills
+    - show me my bills information
+    - provide my bills overview
+    - show me a summary of my bills
+    - help me look at my bills
+    - I want to see all my bills
+    - can you show my bills
+    - display my bills breakdown
+    - show me my pending bill list
+    - give me an overview of my bills
+    - let me review my bills
+    - show me my outstanding bills
+    - can you display my bills
+    - I'd like to see my bill summary
+    - show me my bills details
+    - display my unpaid bills
+    - I want to view my bills
+    - let me check my bills
+    - provide me with my bills list
+    - display my bills statement
+    - help me with my bills
+    - show me my current bills
+    - show me the list of my bills
+    - allow me to see my bills
+    - can I check my bills
+    - I'd like to view my bills
+    - show me my bill list
+    - present my due bills
+    - display a summary of my bills
+    - can you help me check my bills
+    - show me all the bills I owe
+    - I need to see my bills
+    - let me see my outstanding bills
+    - show my bills to me
+    - I would like to check my bills
+
 - intent: show_my_gas_bill_intent
   examples: |
     - show me my gas bill

@@ -164,6 +164,27 @@ class ActionShowMyBalance(Action):
 # Bills table show #
 class ActionShowMyGasBill(Action):
     def name(self) -> Text:
+        return "action_show_my_bills_intent"
+
+    @only_works_if_logged_in
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bills = queries_location.find_bills_by_cnp_query(cnp)
+        gas = user_bills['gas']
+        electricity = user_bills['electricity']
+        water = user_bills['water']
+        rent = user_bills['rent']
+
+        dispatcher.utter_message(text=f"Your gas bill is {gas}$.")
+        dispatcher.utter_message(text=f"Your electricity bill is {electricity}$.")
+        dispatcher.utter_message(text=f"Your water bill is {water}$.")
+        dispatcher.utter_message(text=f"Your rent bill is {rent}$.")
+        return []
+
+
+class ActionShowMyGasBill(Action):
+    def name(self) -> Text:
         return "action_show_my_gas_bill"
 
     @only_works_if_logged_in

@@ -86,6 +86,11 @@ rules:
   - action: action_show_all_slots
 
 ### Bills information rules ###
+- rule: Show the user's bills
+  steps:
+    - intent: show_my_bills_intent
+    - action: action_show_my_bills_intent
+
 - rule: Show the user's gas bill
   steps:
     - intent: show_my_gas_bill_intent
