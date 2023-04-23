@@ -195,6 +195,7 @@ nlu:
 ### Login and Logout Intents ###
 - intent: login_intent
   examples: |
+    - login
     - Sign me in.
     - I need to log in.
     - Can you log me in?
@@ -287,6 +288,7 @@ nlu:
 
 - intent: logout_intent
   examples: |
+    - logout
     - Sign me out.
     - I need to log out.
     - Can you log me out?
@@ -386,52 +388,167 @@ nlu:
 
 - intent: check_cnp_again_intent
   examples: |
-    - I want to check my CNP again
-    - I'm an existing user and I need to check my CNP
-    - Can you help me with my CNP as an existing user?
-    - I need to look up my CNP once more
-    - Can I check my CNP again?
-    - I'd like to verify my CNP again
-    - I want to recheck my CNP
-    - Can I see my CNP again?
-    - I'd like to see my CNP once more
-    - Can we go over my CNP again?
-    - I need to double-check my CNP
-    - Please show me my CNP again
+    - check my CNP again
+    - verify my CNP once more
+    - I want to double-check my CNP
+    - recheck my CNP please
+    - confirm my CNP again
+    - please check my CNP one more time
+    - can you look at my CNP again?
+    - I need to validate my CNP again
+    - reassess my CNP
+    - inspect my CNP once more
+    - review my CNP again
+    - look at my CNP again, please
+    - can you verify my CNP again?
+    - I want to reconfirm my CNP
+    - double-check my CNP
+    - please reevaluate my CNP
+    - could you reassess my CNP?
+    - I need another CNP check
+    - examine my CNP again
+    - I'd like you to check my CNP again
+    - CNP, check it again
+    - re-examine my CNP
+    - can you reinspect my CNP?
+    - check my CNP once more
     - I want to confirm my CNP again
-    - I'd like to access my CNP again
-    - Can you display my CNP again?
-    - Please let me check my CNP again
-    - Can we review my CNP again?
-    - I'd like to re-examine my CNP
-    - I need to inspect my CNP again
-    - Can you assist me with my CNP again?
-    - I want to check my CNP once more
-    - Can you help me check my CNP again?
-    - I want to have another look at my CNP
-    - I need to view my CNP again
-    - Can we revisit my CNP?
-    - Let's check my CNP again
-    - I'd like to check my CNP one more time
-    - I want to verify my CNP once more
-    - Can I look at my CNP again?
-    - Please help me recheck my CNP
-    - Can you show me my CNP one more time?
-    - I'd like to double-check my CNP
-    - I want to go through my CNP again
-    - Can we look at my CNP once more?
-    - I'd like to confirm my CNP one more time
-    - I need to reassess my CNP
-    - Can we discuss my CNP again?
-    - Please assist me with my CNP again
-    - I'd like to review my CNP again
-    - I want to reevaluate my CNP
-    - Can I reexamine my CNP?
+    - another CNP check, please
+    - CNP verification again
+    - please recheck my CNP
+    - verify my CNP a second time
+    - CNP, verify it once more
+    - I need a CNP reevaluation
+    - can you reassess my CNP?
+    - I'd like to recheck my CNP
+    - redo CNP verification
+    - CNP, validate it again
+    - can you reverify my CNP?
+    - check my CNP for the second time
+    - I want to reassess my CNP
+    - check my CNP a second time
+    - please verify my CNP once again
+    - could you check my CNP again?
+    - look into my CNP again
+    - I'd like to confirm my CNP again
+    - do another CNP check
+    - can you reevaluate my CNP?
+    - I want to re-examine my CNP
+    - verify my CNP again, please
+    - reverify my CNP
+    - reinspect my CNP, please
+    - validate my CNP again
+    - please redo my CNP check
+    - check my CNP again, please
+    - could you recheck my CNP?
     - I need to re-verify my CNP
-    - Can you help me reevaluate my CNP?
-    - I want to check my CNP for the second time
-    - I'd like to reinspect my CNP
-
+    - CNP, check it one more time
+    - reassess my CNP, please
+    - I want to revalidate my CNP
+    - CNP, can you check it again?
+    - look over my CNP again
+    - double check my CNP please
+    - can you review my CNP again?
+    - I'd like you to verify my CNP again
+    - another check on my CNP
+    - re-evaluate my CNP
+    - please check my CNP again
+    - validate my CNP once more
+    - redo the CNP check
+    - could you verify my CNP again?
+    - I want another CNP verification
+    - CNP, can you verify it again?
+    - I need to check my CNP again
+    - can you re-examine my CNP?
+    - I'd like to validate my CNP again
+    - redo the CNP validation
+    - CNP, can you validate it again?
+    - can you re-validate my CNP?
+    - check my CNP for a third time
+    - I want to double check my CNP again
+    - check my CNP one more time
+    - confirm my CNP again
+    - once again, check my CNP
+    - please do a second CNP check
+    - I'd like another CNP check
+    - kindly recheck my CNP
+    - I want to reconfirm my CNP
+    - can you check my CNP once more?
+    - reassess my CNP again
+    - CNP, can you check it once more?
+    - I'd like to recheck my CNP
+    - CNP, check it again, please
+    - can you check my CNP yet again?
+    - double-check my CNP
+    - reconfirm my CNP, please
+    - please check my CNP one more time
+    - recheck my CNP, please
+    - CNP, verify it again
+    - I need another CNP check
+    - validate my CNP a second time
+    - please revalidate my CNP
+    - I'd like another CNP verification
+    - look at my CNP again
+    - review my CNP once more
+    - do another CNP validation
+    - CNP, can you recheck it?
+    - CNP, could you check it again?
+    - please confirm my CNP again
+    - I need a second CNP verification
+    - kindly verify my CNP again
+    - reevaluate my CNP
+    - check my CNP again, would you?
+    - can you check my CNP one more time?
+    - I'd like a second CNP check
+    - CNP, please check it again
+    - I need to confirm my CNP again
+    - CNP, validate it once more
+    - please recheck my CNP
+    - revalidate my CNP, please
+    - I want another CNP check
+    - CNP, would you check it again?
+    - assess my CNP once again
+    - CNP, can you verify it again?
+    - perform another CNP check
+    - inspect my CNP one more time
+    - please look into my CNP again
+    - CNP, I need another check
+    - do a second assessment of my CNP
+    - CNP, double-check it
+    - reexamine my CNP, please
+    - could you recheck my CNP?
+    - I'd like you to check my CNP again
+    - CNP, confirm it one more time
+    - verify my CNP again, please
+    - CNP, I'd like another check
+    - I want to verify my CNP again
+    - CNP, give it another look
+    - can you reassess my CNP?
+    - CNP, check it once again
+    - reverify my CNP, please
+    - I'd like to validate my CNP again
+    - another CNP verification, please
+    - CNP, could you verify it again?
+    - give my CNP a second look
+    - CNP, please reconfirm it
+    - I need to recheck my CNP
+    - CNP, confirm it again
+    - CNP, revalidate it
+    - one more CNP check, please
+    - I'd like to reverify my CNP
+    - CNP, I need another verification
+    - can you reevaluate my CNP?
+    - double-check my CNP, please
+    - CNP, can you assess it again?
+    - CNP, validate it again
+    - I'd like to confirm my CNP again
+    - CNP, please validate it again
+    - please do another CNP check
+    - kindly do another CNP verification
+    - can you do a second CNP check?
+    - CNP, I'd like a second verification
+    - check my CNP again, please
+    - CNP, I need a second check
 
 ### New User Intents ###
 - intent: new_user_intent
@@ -715,186 +832,142 @@ nlu:
 
 - intent: show_my_cnp_intent
   examples: |
-    - show me my CNP
-    - what's my CNP
-    - can you tell me my CNP
     - display my CNP
-    - my CNP, please
-    - I want to see my CNP
-    - let me know my CNP
-    - what is my CNP
-    - tell me my CNP
-    - I'd like to know my CNP
     - reveal my CNP
-    - give me my CNP
-    - CNP, please
-    - can I see my CNP
-    - show my CNP now
-    - please tell me my CNP
-    - what is the CNP for my account
-    - provide my CNP
-    - could you show me my CNP
-    - how can I find my CNP
-    - my CNP number, please
-    - I need my CNP
-    - can you display my CNP
-    - I'd like to see my CNP
-    - get my CNP for me
-    - CNP info
-    - can you show my CNP
-    - I want to know my CNP
-    - show me the CNP for my account
-    - present my CNP
-    - what's the CNP on my account
-    - let me see my CNP
-    - CNP, show me
-    - my CNP information
-    - my CNP details
-    - give me the CNP for my account
-    - I want my CNP
-    - show my CNP information
-    - show my CNP details
-    - tell me the CNP for my account
-    - CNP of my account
-    - can you provide my CNP
-    - may I know my CNP
-    - I'd like my CNP
-    - please show my CNP
-    - what is my account's CNP
-    - display my CNP number
-    - could you tell me my CNP
-    - can you reveal my CNP
-    - show me my account's CNP
-    - let me know my account CNP
-    - I need to know my CNP
-    - what's my account CNP
-    - give me the CNP of my account
-    - I want to check my CNP
-    - tell me my account CNP
-    - show my account CNP
-    - please provide my CNP
-    - can you give me my CNP
-    - my CNP, show it to me
-    - my account's CNP, please
-    - I'd like to check my CNP
-    - show me the CNP of my account
-    - I need to see my CNP
-    - find my CNP
-    - show me my CNP number
-    - what is the CNP of my account
-    - CNP for my account
-    - I want the CNP of my account
-    - show the CNP for my account
-    - please display my CNP
-    - can you find my CNP
-    - my account CNP, please
-    - CNP of my account, please
-    - I'd like to see my account CNP
-    - please tell my CNP
-    - what's the CNP for my account
     - show my CNP, please
-    - could you give me my CNP
-    - I want to view my CNP
-    - I'd like my account CNP
-    - what is my CNP number
-    - please show me my CNP
-    - can I know my CNP
-    - can you tell my CNP
-    - show the CNP of my account
-    - let me check my CNP
-    - my CNP is what
-    - reveal my account CNP
-    - I need my account CNP
-    - provide my account CNP
-    - what's my CNP
-    - I need my CNP details
-    - can you show me my CNP
-    - I'd like to know my CNP
-    - can you find my account CNP
-    - reveal my CNP, please
-    - please tell me my CNP
-    - I want to know my CNP
-    - what is my account's CNP
-    - let me know my CNP
-    - my CNP, I need it
-    - I need the CNP of my account
-    - provide my CNP, please
-    - can you get my CNP
-    - show me my CNP, please
-    - my CNP info, please
-    - give me my CNP details
-    - can I see my CNP
-    - tell me the CNP of my account
-    - I'd like my CNP
-    - can you display my CNP
-    - find my account CNP
-    - my CNP, can you show it
-    - what's the CNP of my account
-    - I want my account's CNP
-    - I want to see my CNP
-    - please find my CNP
-    - can you check my CNP
-    - show my CNP details
-    - provide the CNP of my account
-    - my CNP, what is it
-    - I need to view my CNP
-    - give me my account CNP
-    - can you show my CNP
-    - show my CNP now
-    - can I check my CNP
-    - CNP of my account
+    - can I see my CNP?
     - I'd like to see my CNP
-    - show me the CNP for my account
-    - CNP, please
-    - display my account CNP
-    - I want to know my account CNP
-    - tell me my CNP number
-    - can I get my CNP
-    - what is the CNP for my account
-    - can you give me my CNP
-    - please display my CNP
-    - find my CNP, please
-    - what's my account CNP
-    - I need my CNP number
-    - CNP info, please
-    - provide my account CNP
-    - show me my account CNP
-    - tell me my account's CNP
-    - I want my CNP details
-    - I'd like to view my CNP
-    - show the CNP of my account
-    - CNP for my account, please
     - let me see my CNP
-    - can you tell me my CNP
-    - I want my CNP number
-    - reveal my account CNP
-    - get my CNP, please
-    - I need to know my CNP
-    - CNP of my account, please
-    - can you find my CNP
-    - show me the CNP of my account
-    - what is my CNP
-    - display the CNP for my account
-    - my CNP, please
-    - can you give my account CNP
-    - I'd like my account CNP
-    - I want to check my CNP
-    - my account's CNP
-    - can you reveal my CNP
-    - show my account CNP
-    - give me the CNP of my account
-    - I'd like to get my CNP
-    - please check my CNP
-    - CNP details, please
-    - what's the CNP of my account
-    - provide my CNP info
+    - CNP, please show it
+    - please show my CNP
+    - I need to view my CNP
+    - can you show my CNP?
+    - show my CNP now
+    - display my CNP, please
+    - CNP, reveal it to me
+    - could you show my CNP?
+    - I want to see my CNP
+    - let's see my CNP
+    - show me my CNP now
+    - please display my CNP
+    - can you reveal my CNP?
+    - I'd like my CNP shown
+    - show me my CNP, please
+    - I need my CNP shown
+    - CNP, can you show it?
+    - kindly show my CNP
+    - CNP, I'd like to see it
+    - could I see my CNP, please?
+    - show me the CNP
+    - I want to view my CNP
+    - CNP, let me see it
+    - make my CNP appear
+    - may I see my CNP?
+    - present my CNP to me
+    - show my CNP details
     - show my CNP information
-    - can you show me my account CNP
-    - I need my account CNP
-    - can I view my CNP
-    - tell me the CNP for my account
-    - CNP, I need it
-    - can I have my CNP
+    - allow me to see my CNP
+    - I want my CNP displayed
+    - let me view my CNP
+    - CNP, I want to see it
+    - show my CNP data
+    - give me my CNP info
+    - can I check my CNP?
+    - display my CNP info
+    - may I view my CNP?
+    - CNP, I need to see it
+    - show me my CNP details
+    - I'd like to view my CNP
+    - give me my CNP details
+    - reveal my CNP details
+    - let me see my CNP data
+    - please present my CNP
+    - can you display my CNP?
+    - I want to look at my CNP
+    - CNP, please reveal it
+    - please reveal my CNP
+    - kindly display my CNP
+    - can you show my CNP info?
+    - I need to look at my CNP
+    - reveal my CNP to me
+    - CNP, show it to me
+    - make my CNP known
+    - show me my CNP info
+    - I want to inspect my CNP
+    - please show my CNP data
+    - can you show my CNP details?
+    - show me the CNP details
+    - may I check my CNP?
+    - provide my CNP to me
+    - show my CNP specifics
+    - show my CNP numbers
+    - I'd like to verify my CNP
+    - I want my CNP information
+    - let me look at my CNP
+    - can you present my CNP?
+    - show me my CNP, please
+    - give me the CNP details
+    - I'd like to see my CNP
+    - CNP, show it now
+    - provide me with my CNP
+    - show my CNP right now
+    - I want my CNP shown
+    - show me the CNP info
+    - display the CNP details
+    - allow me to see my CNP
+    - I want to verify my CNP
+    - show my CNP information
+    - I need to see my CNP data
+    - please give me my CNP
+    - reveal my CNP info
+    - can I see my CNP details?
+    - CNP, let me see it
+    - CNP, I want to see it
+    - let me verify my CNP
+    - provide my CNP details
+    - show me my CNP, now
+    - CNP, I'd like to see it
+    - let me inspect my CNP
+    - can you give me my CNP?
+    - I want to view my CNP
+    - reveal my CNP numbers
+    - I need my CNP information
+    - kindly show my CNP
+    - can I view my CNP info?
+    - show me my CNP number
+    - display my CNP details
+    - provide me my CNP info
+    - CNP, I need to view it
+    - I want to observe my CNP
+    - show me my CNP quickly
+    - show my CNP at once
+    - CNP details, please
+    - let me look at my CNP
+    - I'd like my CNP displayed
+    - reveal my CNP to me
+    - CNP, I need to see it now
+    - show me the CNP data
+    - display my CNP information
+    - I want to inspect my CNP
+    - show my CNP without delay
+    - I need to see my CNP now
+    - please present my CNP
+    - disclose my CNP info
+    - I'd like to view my CNP
+    - let me see my CNP info
+    - provide my CNP numbers
+    - I want to study my CNP
+    - show me my CNP, at once
+    - let me analyze my CNP
+    - can you display my CNP?
+    - I want to glance at my CNP
+    - reveal my CNP digits
+    - I need my CNP data
+    - kindly display my CNP
+    - CNP, I want to study it
+    - can I look at my CNP info?
+    - show me my CNP digits
+    - display my CNP numbers
 
 - intent: show_my_name_intent
   examples: |
@@ -2550,6 +2623,687 @@ nlu:
     - I want to see the rent bill for this billing period
     - display the rent bill for the current billing cycle
 
+### Pay Bills Intents ###
+- intent: pay_my_bills_intent
+  examples: |
+    - pay off all my bills
+    - settle my bills
+    - make a payment for all my bills
+    - I want to pay my bills
+    - pay my outstanding bills
+    - clear all my bills
+    - cover my bills
+    - I'd like to pay my bills
+    - pay my bills now
+    - pay all the bills I owe
+    - handle my bills
+    - pay my bills for me
+    - complete my bill payments
+    - make my bill payments
+    - I want to settle my bills
+    - pay all my due bills
+    - take care of my bills
+    - pay my pending bills
+    - pay all my unpaid bills
+    - I need to pay my bills
+    - pay my bills please
+    - can you pay my bills
+    - process my bill payments
+    - resolve my bills
+    - pay off my outstanding bills
+    - I'd like to clear my bills
+    - pay all my current bills
+    - pay my bills automatically
+    - pay my bills right away
+    - settle all my bills
+    - I want to pay off my bills
+    - pay my bills asap
+    - pay all my bills at once
+    - pay my bills immediately
+    - pay my bills today
+    - help me pay my bills
+    - I need to clear my bills
+    - pay all the bills I have
+    - pay my bills in full
+    - finalize my bill payments
+    - pay my bills without delay
+    - I want to handle my bills
+    - pay every bill I have
+    - pay my bills right now
+    - pay for all my bills
+    - I want to cover my bills
+    - take care of all my bills
+    - settle my outstanding bills
+    - pay all of my bills
+    - clear my pending bills
+    - pay my bills this instant
+    - pay the bills I owe
+    - I need to pay all my bills
+    - pay my due bills
+    - pay my bills without any delay
+    - pay my bills at this moment
+    - resolve all my bills
+    - pay my bills quickly
+    - handle all my bill payments
+    - pay my bills on time
+    - pay all my bills for me
+    - I want to resolve my bills
+    - pay off my bills
+    - pay all my bills promptly
+    - pay my bills in a timely manner
+    - process all my bill payments
+    - pay my bills straight away
+    - I want to pay my bills now
+    - pay my outstanding bills right now
+    - pay my bills as soon as possible
+    - pay my bills right this second
+    - pay all my bills immediately
+    - pay my bills in one go
+    - pay my bills with no delay
+    - I want to pay all my due bills
+    - pay my bills in a flash
+    - pay all the bills I need to
+    - pay all my bills swiftly
+    - I'd like to pay all my bills
+    - pay my bills without hesitation
+    - pay all my overdue bills
+    - pay every one of my bills
+    - pay my bills before it's too late
+    - pay my bills that are due
+    - pay my bills as quickly as possible
+    - manage my bill payments
+    - I need to pay my bills right away
+    - take care of all my bill payments
+    - make my bill payments
+    - settle my bills now
+    - complete my bill payments
+    - I want to clear my bills
+    - pay up my bills
+    - pay my bills in full
+    - pay my bills without further delay
+    - deal with all my bills
+    - pay every bill I have
+    - pay all my bills right now
+    - pay all my due bills immediately
+    - pay my bills before the deadline
+    - pay my bills at once
+    - I'd like to clear all my bills
+    - pay my bills ASAP
+    - pay all my bills without waiting
+    - I need to clear my bills
+    - pay my bills and clear my dues
+    - pay my bills that are pending
+    - pay all my bills in an instant
+    - pay my bills as fast as possible
+    - take care of my bill payments
+    - I want to pay off my bills
+    - pay my bills urgently
+    - pay all the bills I owe right now
+    - pay my bills without any further delay
+    - pay my bills right away
+    - handle my bill payments
+    - I'd like to pay my bills
+    - pay my bills as soon as I can
+    - pay all my bills in no time
+    - pay my bills that are overdue
+    - pay all my bills before they're late
+    - pay my bills immediately
+    - I want to pay all my bills at once
+    - pay my bills without waiting any longer
+    - pay my bills to avoid late fees
+    - pay my bills asap
+    - pay all my bills at the earliest
+    - pay all my bills without any more delay
+    - I need to pay off my bills
+    - pay my bills to clear my debts
+    - pay all my bills before penalties apply
+
+- intent: pay_my_gas_bill_intent
+  examples: |
+    - pay my gas bill
+    - settle my gas bill
+    - take care of my gas bill
+    - cover my gas bill
+    - pay off my gas bill
+    - handle my gas bill payment
+    - deal with my gas bill
+    - pay my gas charges
+    - clear my gas bill
+    - pay the gas bill
+    - pay my gas expenses
+    - pay my gas dues
+    - pay the gas charges
+    - make a payment for my gas bill
+    - pay up my gas bill
+    - pay my gas bill now
+    - pay for my gas bill
+    - pay my gas costs
+    - pay my gas service bill
+    - pay my outstanding gas bill
+    - pay my gas fees
+    - sort out my gas bill
+    - pay my due gas bill
+    - pay my gas bill online
+    - make a gas bill payment
+    - pay my gas invoice
+    - remit my gas bill
+    - pay for the gas bill
+    - pay my gas utility bill
+    - pay my gas provider bill
+    - pay my gas bill today
+    - complete my gas bill payment
+    - finalize my gas bill payment
+    - pay my gas bill right away
+    - pay my monthly gas bill
+    - pay my gas statement
+    - pay my gas bill this month
+    - pay my current gas bill
+    - pay my gas bill immediately
+    - pay my gas bill ASAP
+    - pay my gas consumption bill
+    - settle my gas bill now
+    - pay my gas bill for this month
+    - pay my pending gas bill
+    - pay my overdue gas bill
+    - pay my gas bill promptly
+    - process my gas bill payment
+    - pay my gas bill without delay
+    - pay my gas bill on time
+    - pay my gas charges quickly
+    - pay my gas bill straight away
+    - pay my gas bill without waiting
+    - pay my gas bill as soon as possible
+    - pay my gas bill at once
+    - pay my gas bill in a timely manner
+    - pay my gas bill with urgency
+    - pay my gas bill fast
+    - pay my gas bill instantly
+    - pay my gas bill right now
+    - pay my gas bill in no time
+    - pay my gas bill pronto
+    - pay my gas bill without hesitation
+    - pay my gas bill swiftly
+    - pay my gas bill rapidly
+    - pay my gas bill speedily
+    - pay my gas bill before the due date
+    - pay my gas bill before it's late
+    - pay my gas bill ahead of time
+    - pay my gas bill early
+    - pay my gas bill before the deadline
+    - pay my gas bill sooner than later
+    - pay my gas bill in advance
+    - pay my gas bill as early as possible
+    - pay my gas bill posthaste
+    - pay my gas bill expeditiously
+    - pay my gas bill without further delay
+    - pay my gas bill as fast as possible
+    - pay my gas bill with no delay
+    - pay my gas bill quickly and easily
+    - pay my gas bill without any delay
+    - pay my gas bill in a flash
+    - pay my gas bill with a sense of urgency
+    - pay my gas bill before it becomes overdue
+    - pay my gas bill before the last date
+    - pay my gas bill without procrastination
+    - pay my gas bill in the quickest way
+    - pay my gas bill without any wait
+    - pay my gas bill as soon as I can
+    - pay my gas bill in the shortest time
+    - pay my gas bill without wasting time
+    - pay my gas bill immediately
+    - pay my gas bill without a moment's delay
+    - pay my gas bill forthwith
+    - pay my gas bill right this instant
+    - pay my gas bill ASAP
+    - pay my gas bill as soon as I'm able
+    - pay my gas bill right away
+    - pay my gas bill without further ado
+    - pay my gas bill promptly and efficiently
+    - pay my gas bill in the fastest way possible
+    - pay my gas bill as quickly as you can
+    - pay my gas bill now
+    - pay my gas bill before it's past due
+    - pay my gas bill before it's too late
+    - pay my gas bill with no time to spare
+    - pay my gas bill before I forget
+    - pay my gas bill without further waiting
+    - pay my gas bill urgently
+    - pay my gas bill today
+    - pay my gas bill this instant
+    - pay my gas bill as soon as feasible
+    - pay my gas bill in the quickest manner
+    - pay my gas bill without any further delay
+    - pay my gas bill as soon as you can
+    - pay my gas bill without delay or hesitation
+    - pay my gas bill as quickly as possible
+    - pay my gas bill before I miss the deadline
+    - pay my gas bill before the due date passes
+    - pay my gas bill as fast as you can
+    - pay my gas bill without any holdup
+    - pay my gas bill with haste
+    - pay my gas bill efficiently
+    - pay my gas bill before it's overdue
+    - pay my gas bill in a jiffy
+    - pay my gas bill before I incur late fees
+    - pay my gas bill without wasting any more time
+    - pay my gas bill before I have to pay extra
+    - pay my gas bill before I get penalized
+    - pay my gas bill before any penalties apply
+    - pay my gas bill before it incurs late charges
+    - pay my gas bill before any late fees are applied
+    - pay my gas bill before I get charged extra
+    - pay my gas bill to avoid late fees
+    - pay my gas bill to prevent any late charges
+    - pay my gas bill to avert penalties
+
+- intent: pay_my_electricity_bill_intent
+  examples: |
+    - pay my electricity bill
+    - pay the electricity bill
+    - make an electricity bill payment
+    - pay my power bill
+    - cover my electricity bill
+    - pay for my electricity
+    - pay the electric bill
+    - take care of the electricity bill
+    - settle my electricity bill
+    - pay off my electricity bill
+    - I want to pay my electricity bill
+    - handle my electricity bill
+    - pay my electric bill please
+    - pay my electricity invoice
+    - can you pay my electricity bill
+    - pay my energy bill
+    - pay my electric bill now
+    - I'd like to pay my electricity bill
+    - pay my electricity charges
+    - deal with my electricity bill
+    - pay the bill for electricity
+    - pay my electricity expenses
+    - process my electricity bill payment
+    - pay for my electricity usage
+    - complete my electricity bill payment
+    - I need to pay my electricity bill
+    - pay my power bill please
+    - clear my electricity bill
+    - pay my electric service bill
+    - pay my monthly electricity bill
+    - pay the electrical bill
+    - pay for the electricity
+    - pay for the electric bill
+    - pay my electric bill this month
+    - I want to pay the electricity bill
+    - pay the electricity invoice
+    - pay for my power bill
+    - submit my electricity bill payment
+    - I need to pay my power bill
+    - pay my electrical bill
+    - pay my utility bill for electricity
+    - pay my electric bill for this month
+    - make a payment for my electricity bill
+    - pay my electricity dues
+    - pay up my electricity bill
+    - pay my energy invoice
+    - pay this month's electricity bill
+    - pay for my electric bill
+    - make a payment on my electricity bill
+    - cover my electric bill
+    - pay my electric costs
+    - I want to cover my electricity bill
+    - sort out my electricity bill
+    - pay my electric utility bill
+    - can you handle my electricity bill
+    - pay the bill for my electricity
+    - pay my outstanding electricity bill
+    - pay my current electricity bill
+    - I'd like to pay my electric bill
+    - can I pay my electricity bill
+    - pay my electricity fee
+    - pay my electric bill payment
+    - pay my electrical service bill
+    - pay my due electricity bill
+    - settle the electricity bill
+    - pay my electricity bill online
+    - pay my energy bill now
+    - pay the electricity bill for me
+    - pay my overdue electricity bill
+    - pay my power invoice
+    - pay the electricity bill right now
+    - I need to pay the electric bill
+    - pay my pending electricity bill
+    - pay my monthly electric bill
+    - take care of my electricity bill
+    - pay my bill for electric service
+    - pay the power bill
+    - pay my electric charges
+    - pay my electricity bill for the month
+    - pay my electric bill charges
+    - I have to pay my electricity bill
+    - can you pay the electricity bill
+    - pay the bill for electric service
+    - pay my due electric bill
+    - pay my electricity bill asap
+    - pay my power bill right away
+    - pay my electricity bill this month
+    - pay my electricity bill promptly
+    - pay my electricity expense
+    - pay the electric bill for this month
+    - pay my electric bill immediately
+    - pay the current electricity bill
+    - pay my electricity bill right away
+    - pay my power charges
+    - pay the electricity expense
+    - pay my energy fees
+    - settle my electric bill
+    - pay my due electricity charges
+    - pay my electricity bill without delay
+    - pay my electricity bill before the due date
+    - pay my energy costs
+    - pay the outstanding electricity bill
+    - pay my pending electric bill
+    - pay my overdue electric bill
+    - pay the electric bill on time
+    - pay my monthly electricity bill
+    - pay the electricity bill as soon as possible
+    - pay my electricity bill this instant
+    - pay my electric service bill
+    - pay the electricity invoice
+    - pay my power bill now
+    - pay my electricity charges immediately
+    - pay the electric service bill
+    - pay my electricity bill right this moment
+    - pay the electricity bill promptly
+    - pay my electric bill due
+    - pay my electricity bill on the spot
+    - pay my electricity bill before it's late
+    - pay the energy bill
+    - pay my electricity bill as quickly as possible
+    - pay my electricity bill without further delay
+    - pay the electricity bill without any delay
+    - pay my electric bill asap
+    - pay the electricity bill at once
+    - settle the electric bill
+    - pay my energy bill immediately
+    - pay the electricity bill for this month
+    - pay my electricity bill quickly
+    - pay my electric bill right now
+    - pay the bill for electricity
+    - pay the electric bill asap
+    - pay my electricity bill in a flash
+    - pay my electric bill before it's overdue
+
+- intent: pay_my_water_bill_intent
+  examples: |
+    - pay my water bill
+    - pay my water charges
+    - settle my water bill
+    - pay the water bill
+    - pay the water charges
+    - pay my water fees
+    - pay my water costs
+    - pay my water bill now
+    - pay my water invoice
+    - pay the water invoice
+    - pay my water bill immediately
+    - pay my water bill asap
+    - pay my water bill today
+    - pay the water bill right now
+    - pay my water bill at once
+    - pay the water bill without delay
+    - pay my water bill without further delay
+    - pay my water bill right away
+    - pay the water bill instantly
+    - pay my water bill before the due date
+    - pay my water bill before it's late
+    - pay my water bill before it's overdue
+    - pay my water bill promptly
+    - pay my water bill on time
+    - pay my water bill quickly
+    - pay my water bill this instant
+    - pay my water bill right this moment
+    - pay the water bill as soon as possible
+    - pay my water bill in a flash
+    - pay the water bill before it's too late
+    - pay my water bill without any delay
+    - pay the water bill as quickly as possible
+    - pay my water bill this month
+    - pay my water bill for this month
+    - pay my water bill on the spot
+    - pay my water bill right now
+    - pay my water bill as soon as I can
+    - pay the water bill for the month
+    - pay my water bill before the deadline
+    - pay my water bill in no time
+    - pay my water bill before the end of the day
+    - pay the water bill asap
+    - pay my water bill straight away
+    - pay the water bill immediately
+    - pay my water bill as quickly as I can
+    - pay the water bill right this second
+    - pay my water bill this very moment
+    - pay my water bill without waiting
+    - pay the water bill without hesitation
+    - pay my water bill with no delay
+    - pay my water bill swiftly
+    - pay the water bill with speed
+    - pay my water bill in a hurry
+    - pay my water bill expeditiously
+    - pay my water bill rapidly
+    - pay my water bill fast
+    - pay the water bill pronto
+    - pay my water bill at the earliest
+    - pay my water bill without any further ado
+    - pay my water bill before it's too late
+    - pay my water bill right off the bat
+    - pay the water bill before it's past due
+    - pay my water bill before the due day
+    - pay the water bill before it's past the deadline
+    - pay my water bill in a jiffy
+    - pay my water bill in a snap
+    - pay the water bill in a blink
+    - pay my water bill immediately if not sooner
+    - pay my water bill in the next moment
+    - pay my water bill at this very instant
+    - pay the water bill without any more delay
+    - pay my water bill with urgency
+    - pay my water bill at the speed of light
+    - pay the water bill in the next second
+    - pay my water bill right this very second
+    - pay my water bill at your earliest convenience
+    - pay the water bill before the last date
+    - pay my water bill without any further waiting
+    - pay my water bill in an instant
+    - pay the water bill momentarily
+    - pay my water bill as early as possible
+    - pay my water bill before time runs out
+    - pay the water bill before the clock strikes midnight
+    - pay my water bill within the next hour
+    - pay my water bill in the next few minutes
+    - pay the water bill before the month ends
+    - pay my water bill before the grace period is over
+    - pay my water bill immediately after reading this
+    - pay the water bill right after this
+    - I want to pay my water bill now
+    - I'd like to pay my water bill at this moment
+    - I need to pay my water bill right away
+    - I want to pay my water bill immediately
+    - I'd like to pay the water bill without delay
+    - I need to pay my water bill as soon as possible
+    - I want to pay my water bill asap
+    - I'd like to pay my water bill today
+    - I need to pay my water bill this instant
+    - I want to pay my water bill pronto
+    - I'd like to pay the water bill before it's overdue
+    - I need to pay my water bill before it's too late
+    - I want to pay my water bill quickly
+    - I'd like to pay my water bill at once
+    - I need to pay my water bill with no delay
+    - I want to pay the water bill right now
+    - I'd like to pay my water bill without wasting time
+    - I need to pay my water bill posthaste
+    - I want to pay my water bill as fast as I can
+    - I'd like to pay the water bill without waiting
+    - I need to pay my water bill urgently
+    - I want to pay my water bill without any more waiting
+    - I'd like to pay the water bill right this minute
+    - I need to pay my water bill in a flash
+    - I want to pay my water bill this very second
+    - I'd like to pay my water bill stat
+    - I need to pay the water bill before the deadline
+    - I want to pay my water bill in the nick of time
+    - I'd like to pay my water bill before it becomes overdue
+    - I need to pay my water bill as early as I can
+    - I want to pay the water bill straight away
+    - I'd like to pay my water bill in no time
+    - I need to pay my water bill without further delay
+    - I want to pay the water bill in the blink of an eye
+    - I'd like to pay my water bill in a heartbeat
+    - I need to pay my water bill right this moment
+    - I want to pay the water bill as quickly as possible
+    - I'd like to pay my water bill without a second to lose
+    - I need to pay my water bill before the final hour
+    - I want to pay my water bill before the due date
+    - I'd like to pay the water bill in a rush
+    - I need to pay my water bill before it's past the due date
+    - I want to pay my water bill as soon as I can
+    - I'd like to pay the water bill before it's considered late
+    - I need to pay my water bill before the end of the grace period
+
+- intent: pay_my_rent_bill_intent
+  examples: |
+    - I want to pay my rent bill
+    - I need to pay my rent bill
+    - I would like to pay my rent bill
+    - Please pay my rent bill
+    - Can you pay my rent bill?
+    - I'd like to pay my rent bill now
+    - I wish to pay my rent bill
+    - I'd like to pay my rent bill today
+    - I want to pay my rent bill this month
+    - Can I pay my rent bill now?
+    - Pay my rent bill, please
+    - I want to pay my rent bill immediately
+    - I'd like to pay my rent bill as soon as possible
+    - Pay my rent bill right away
+    - I want to pay the rent bill
+    - I have to pay my rent bill
+    - I must pay my rent bill
+    - I ought to pay my rent bill
+    - I should pay my rent bill
+    - Let me pay my rent bill
+    - I'd like to pay my rent bill quickly
+    - I desire to pay my rent bill
+    - I want to pay my rent bill without delay
+    - I'm ready to pay my rent bill
+    - I'd like to pay the rent bill now
+    - I am going to pay my rent bill
+    - I'll pay my rent bill
+    - I plan to pay my rent bill
+    - I want to pay my rent bill in a timely manner
+    - Let's pay my rent bill
+    - I'd like to pay my rent bill on time
+    - I want to pay the rent bill promptly
+    - I want to pay my rent bill before it's due
+    - I need to pay my rent bill before the deadline
+    - I'd like to pay my rent bill before it's late
+    - I want to pay my rent bill early
+    - I'd like to pay my rent bill ahead of time
+    - Pay my rent bill as soon as possible
+    - I want to pay my rent bill before it's overdue
+    - I'd like to pay my rent bill before the due date
+    - I need to pay my rent bill before it's past due
+    - I want to pay my rent bill without any delay
+    - Pay my rent bill as fast as possible
+    - I need to settle my rent bill
+    - Time to pay my rent bill
+    - I'd like to clear my rent bill
+    - I want to make a rent payment
+    - Let's make a payment for my rent
+    - I'd like to submit my rent payment
+    - Pay the rent bill now
+    - I want to take care of my rent bill
+    - I'd like to handle my rent bill payment
+    - I want to deal with my rent bill
+    - Please help me pay my rent bill
+    - Assist me in paying my rent bill
+    - Help me pay my rent bill
+    - I'd like to pay my rent bill this instant
+    - I want to pay my rent bill pronto
+    - Pay my rent bill in a jiffy
+    - I need to pay my rent bill straight away
+    - Pay my rent bill without further ado
+    - I want to pay my rent bill posthaste
+    - Pay my rent bill expeditiously
+    - I'd like to pay my rent bill rapidly
+    - I want to pay my rent bill swiftly
+    - I'd like to pay my rent bill without waiting
+    - I want to pay my rent bill speedily
+    - Pay the rent bill at once
+    - I'd like to pay my rent bill this very moment
+    - I want to pay my rent bill right this second
+    - Pay my rent bill immediately, please
+    - I'd like to pay my rent bill forthwith
+    - I want to pay my rent bill directly
+    - I'd like to pay my rent bill now, please
+    - Pay the rent bill this minute
+    - I want to pay my rent bill without hesitation
+    - I'd like to pay my rent bill as quickly as possible
+    - Pay the rent bill ASAP
+    - I want to pay my rent bill at the earliest
+    - I'd like to pay my rent bill without any further delay
+    - I want to pay my rent bill right now
+    - Please pay my rent bill at your earliest convenience
+    - I'd like to pay my rent bill as early as possible
+    - I want to pay my rent bill without procrastination
+    - I'd like to pay my rent bill in no time
+    - Pay the rent bill stat
+    - I want to pay my rent bill as fast as I can
+    - I need to pay my rent bill right away
+    - I want to pay my rent bill this instant
+    - Pay off my rent bill
+    - I'd like to pay my rent bill at this moment
+    - Pay my rent bill ASAP, please
+    - I want to pay my rent bill without delay
+    - I'd like to pay my rent bill promptly
+    - I want to pay my rent bill as soon as possible
+    - Pay my rent bill right now, please
+    - I'd like to pay my rent bill immediately
+    - I want to pay my rent bill straightaway
+    - I'd like to pay my rent bill without further waiting
+    - I want to pay my rent bill as quickly as I can
+    - I'd like to pay my rent bill without a second thought
+    - Pay the rent bill quickly
+    - I want to pay my rent bill right this moment
+    - I'd like to pay my rent bill in a flash
+    - Pay my rent bill without wasting any time
+    - I want to pay my rent bill at the earliest opportunity
+    - I'd like to pay my rent bill without any more waiting
+    - I want to pay my rent bill as soon as I can
+    - Pay the rent bill right away, please
+    - I'd like to pay my rent bill without any delays
+    - I want to pay my rent bill at the soonest possible time
+    - Pay my rent bill without any further ado
+    - I'd like to pay my rent bill with no more delays
+    - I want to pay my rent bill with no further waiting
+    - I'd like to pay my rent bill without wasting time
+    - Pay my rent bill as fast as possible
+    - I want to pay my rent bill without any more procrastination
+    - I'd like to pay my rent bill right off the bat
+    - I want to pay my rent bill with no hesitation
+    - I'd like to pay my rent bill without further postponement
+    - Pay the rent bill in an instant
+    - I want to pay my rent bill without any postponement
+    - I'd like to pay my rent bill on the spot
+    - I want to pay my rent bill in a heartbeat
+    - I'd like to pay my rent bill without any holdup
+    - Pay the rent bill in a snap
+    - I want to pay my rent bill with no delay
+    - I'd like to pay my rent bill in the blink of an eye
+    - I want to pay my rent bill without putting it off any longer
+    - I'd like to pay my rent bill in a hurry
+    - Pay the rent bill right this instant
+    - I want to pay my rent bill without any further waiting
+
 ### Policy Information Intents ###
 - intent: policies_info_intent
   examples: |
@@ -2617,101 +3371,346 @@ nlu:
 ### Confirmation Intents ###
 - intent: affirm_intent
   examples: |
-    - Yes
-    - Yeah
-    - Yup
-    - Sure
-    - Absolutely
-    - Definitely
-    - Indeed
-    - Of course
-    - Alright
-    - Ok
-    - Okay
-    - Fine
-    - Affirmative
-    - Positive
-    - Confirmed
-    - Agreed
+    - yes
+    - yep
+    - sure
+    - of course
+    - absolutely
+    - definitely
+    - indeed
+    - okay
+    - ok
+    - alright
+    - right
+    - correct
+    - affirmative
+    - yup
+    - yea
+    - yeah
+    - agreed
+    - uh-huh
+    - roger
+    - you bet
+    - all right
+    - without a doubt
+    - sure thing
+    - no problem
+    - by all means
+    - certainly
+    - count me in
+    - sounds good
     - I agree
-    - That's correct
-    - That's right
-    - You're right
-    - You're correct
-    - Correct
-    - Right
-    - Please do
-    - Please proceed
-    - Go ahead
-    - Sounds good
-    - That sounds good
-    - I accept
-    - I confirm
-    - I'd like that
-    - I would like that
-    - I'd love to
-    - I would love to
+    - I concur
+    - go ahead
+    - very well
+    - true
+    - that's right
+    - that's correct
+    - confirm
+    - exactly
+    - precisely
+    - gladly
+    - for sure
+    - no doubt
+    - totally
+    - positively
+    - most certainly
+    - unquestionably
+    - undeniably
+    - irrefutably
+    - assuredly
+    - unreservedly
+    - without question
+    - beyond a doubt
     - I'm in
-    - Count me in
+    - I'll go for that
+    - that works for me
+    - I'm on board
+    - I'm all in
     - I'm up for it
-    - Let's do it
-    - Let's go
-    - I'm interested
-    - I want to continue
-    - I'd like to continue
-    - Please continue
-    - Keep going
-    - Carry on
+    - it's a deal
+    - I accept
+    - I'm with you
+    - I'm for it
+    - let's do it
+    - let's go for it
+    - I'm okay with that
+    - I'm fine with that
+    - that's fine by me
+    - that's okay by me
+    - that suits me
+    - that's agreeable
+    - that's acceptable
+    - you got it
+    - you have my approval
+    - I'm sold
+    - I'm convinced
+    - I see no problem with that
+    - I have no issue with that
+    - I have no objection
+    - sounds like a plan
+    - sounds reasonable
+    - that's a go
+    - that's a green light
+    - I give my consent
+    - I give my authorization
+    - absolutely right
+    - without a doubt
+    - I couldn't agree more
+    - count me in
+    - that's what I'm talking about
+    - I'm behind that
+    - I support that
+    - I'm all for it
+    - I'm in agreement
+    - it's a yes from me
+    - I concur
+    - that's perfect
+    - that's exactly right
+    - that's spot on
+    - I'm in favor
+    - I give my blessing
+    - sounds great
+    - sounds good to me
+    - I approve
+    - I'm down for it
+    - I'm in accord
+    - it's a thumbs up
+    - let's proceed
+    - let's move forward
+    - that's the ticket
+    - I'm in harmony with that
+    - I stand by it
+    - I back it
+    - you have my backing
+    - I'm in concurrence
+    - I see eye to eye
+    - I'm on the same page
+    - I'm in sync
+    - I go along with it
+    - I'm in tune with that
+    - I'm aligned with it
+    - I'm on the same wavelength
+    - I'm in step with it
+    - I'm in line with that
+    - I'm in accordance
+    - I'm in unity
+    - I'm of the same mind
+    - I'm in solidarity
+    - I'm in consensus
+    - you have my support
+    - I'm in cahoots with that
+    - I'm in league with it
+    - I'm in concert with it
+    - I'm in unison
+    - I'm in rapport
+    - I'm in compliance
+    - I'm in cohesion
+    - I'm in sympathy with that
+    - I'm in concord
+    - I'm in keeping with it
+    - I'm in alignment
+    - I'm on board with it
+    - I'm in agreement with that
+    - I'm in accord with it
+    - I'm in unity with that
+    - I'm in harmony with it
+    - I'm in tune with it
+    - I'm in line with it
+    - I'm in step with that
+    - I'm on the same frequency
+    - I'm on the same beam
+    - I'm in the right direction
+    - I'm in congruence
+    - I'm in correspondence
+    - I'm in consonance
+    - I'm in conformance
+    - I'm in conformity
+    - I'm in congruity
+    - I'm in accordance with it
+    - I'm in concordance
+    - I'm in synchronization
+    - I'm in accord with that
+    - I'm in agreement with it
+    - I'm in unity with it
+    - I'm in harmony with that
+    - I'm in tune with that
+    - I'm in line with that
+    - I'm in step with it
+    - I'm on the same page with it
+    - I'm in sync with it
 
 - intent: deny_intent
   examples: |
-    - No, thanks.
-    - No, I don't want to.
-    - I don't need that.
-    - I'd rather not.
-    - Nope.
-    - Not for me.
-    - No, thank you.
-    - I don't want that.
-    - I don't think so.
-    - No way.
-    - Absolutely not.
-    - I'm not interested.
-    - Please don't.
-    - Not this time.
-    - I'm good, thanks.
-    - Not interested.
-    - Not right now.
-    - I'll pass.
-    - Nah.
-    - No, not today.
-    - I don't want to proceed.
-    - I refuse.
-    - Cancel that.
-    - Stop it.
-    - Please cancel.
-    - Discontinue.
-    - No, let's not do that.
-    - That's not for me.
-    - I won't.
-    - No, stop it.
-    - I don't need it.
-    - Do not proceed.
-    - No, don't do it.
-    - Decline.
-    - Negative.
-    - Not gonna happen.
-    - I'd like to stop.
-    - No, I changed my mind.
-    - Don't go on.
-    - I won't continue.
-    - Halt.
-    - No, let's stop.
-    - I'm not going through with it.
-    - I don't want to go on.
-    - Not going to do it.
-    - No, I'm not interested.
-    - No, I don't feel like it.
+    - no
+    - nope
+    - negative
+    - not at all
+    - I don't think so
+    - no way
+    - not really
+    - not a chance
+    - definitely not
+    - not in favor
+    - not a fan
+    - not supportive
+    - I disagree
+    - I refuse
+    - I decline
+    - I object
+    - I won't
+    - I can't
+    - I'm not up for it
+    - I don't want to
+    - I don't approve
+    - I don't consent
+    - I don't accept
+    - I'm against it
+    - I'm opposed
+    - I'm not in agreement
+    - I'm not in accord
+    - I'm not in harmony
+    - I'm not in tune
+    - I'm not in line
+    - I'm not in step
+    - I'm not in sync
+    - I can't go along with it
+    - I can't concur
+    - I can't endorse
+    - I can't assent
+    - I can't support
+    - I can't back it
+    - I can't sanction
+    - I can't subscribe
+    - I can't be in favor
+    - nay
+    - not okay
+    - not happening
+    - not for me
+    - not keen on it
+    - not enthused
+    - I'm not feeling it
+    - I won't do it
+    - I can't commit
+    - I can't go for it
+    - I'm not receptive
+    - I'm not inclined
+    - I'm not disposed
+    - I'm not prone
+    - I'm not predisposed
+    - I'm not willing
+    - I'm not eager
+    - I'm not enthusiastic
+    - I'm not passionate
+    - I'm not animated
+    - I'm not excited
+    - I'm not thrilled
+    - I'm not ecstatic
+    - I'm not elated
+    - I'm not exuberant
+    - I'm not overjoyed
+    - I'm not rapturous
+    - I'm not delighted
+    - I'm not jubilant
+    - I'm not euphoric
+    - I'm not intoxicated
+    - I'm not exhilarated
+    - I'm not electrified
+    - I'm not stimulated
+    - I'm not invigorated
+    - I'm not motivated
+    - I'm not inspired
+    - I'm not encouraged
+    - I'm not heartened
+    - I'm not cheered
+    - I'm not uplifted
+    - no thanks
+    - no way
+    - not a chance
+    - not my thing
+    - I'll pass
+    - I'd rather not
+    - not feeling it
+    - not today
+    - not right now
+    - not in the cards
+    - not my cup of tea
+    - not my style
+    - not my preference
+    - not my choice
+    - not my desire
+    - not my wish
+    - not my inclination
+    - not my intention
+    - not my plan
+    - not my idea
+    - not my aim
+    - not my objective
+    - not my goal
+    - not my target
+    - not my aspiration
+    - not my ambition
+    - not my dream
+    - not my hope
+    - not my vision
+    - not my calling
+    - not my vocation
+    - not my forte
+    - not my specialty
+    - not my expertise
+    - not my skill
+    - not my talent
+    - not my gift
+    - not my aptitude
+    - not my capability
+    - not my capacity
+    - not my competence
+    - not my proficiency
+    - not my ability
+    - no sir
+    - no ma'am
+    - not at all
+    - not for me
+    - not for now
+    - not happening
+    - not in the mood
+    - not into it
+    - not keen on it
+    - not up for it
+    - I don't think so
+    - I don't want to
+    - I'd rather skip
+    - I'm not sure
+    - not really feeling it
+    - not today, thank you
+    - not what I want
+    - nope, not this time
+    - not up for that
+    - not in a million years
+    - not on your life
+    - not by any means
+    - not under any circumstances
+    - not in any way
+    - not in any respect
+    - not in any sense
+    - not in any regard
+    - not in any aspect
+    - not in any element
+    - not in any facet
+    - not in any detail
+    - not in any particular
+    - not in any feature
+    - not in any attribute
+    - not in any quality
+    - not in any characteristic
+    - not in any property
+    - not in any trait
+    - not in any point
+    - not in any factor
+    - not in any component
+    - not in any constituent
+    - not in any part
+    - not in any piece
 
 ### Payments/Transfers Intents ###
 - intent: transfer_funds_intent
@@ -2887,7 +3886,6 @@ nlu:
     - I want to get out.
     - I need to stop this.
     - We can pick this up later.
-    - I'm not interested anymore.
     - I'd like to withdraw.
     - Enough already.
     - I want to bail out.
@@ -2960,11 +3958,10 @@ nlu:
     - Let's discontinue the chat.
     - Close this.
     - Stop the interaction.
-    - Let's end the session.
     - Let's break it up.
     - Let's abort.
     - That's enough for today.
     - I want to put a pause on this.
     - Let's break off the conversation.
     - Let's conclude this.
-    - I'm not interested in continuing.
+    - I do not want to continue.

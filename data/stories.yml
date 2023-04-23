@@ -37,19 +37,119 @@ stories:
   - active_loop: null
   - active_loop: submit_new_user_form
 
-- story: Transfer funds story
+- story: Transfer funds - affirm the transfer
   steps:
   - intent: transfer_funds_intent
   - action: transfer_funds_form
   - active_loop: transfer_funds_form
+  - action: transfer_funds_form
+  - active_loop: null
   - slot_was_set:
-    - requested_slot: recipient_account_number_slot
+    - requested_slot: null
+  - action: submit_transfer_funds_form
+  - intent: affirm_intent
   - slot_was_set:
-    - requested_slot: transfer_amount_slot
+    - confirm_transfer_slot: True
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+  - action: transfer_funds_form
+  - active_loop: null
   - slot_was_set:
-    - requested_slot: confirm_transfer_slot
+    - requested_slot: null
+  - action: submit_transfer_funds_form
+
+- story: Transfer funds - deny the transfer
+  steps:
+  - intent: transfer_funds_intent
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+  - action: transfer_funds_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_transfer_funds_form
+  - intent: deny_intent
+  - slot_was_set:
+    - confirm_transfer_slot: False
+  - action: transfer_funds_form
+  - active_loop: transfer_funds_form
+  - action: transfer_funds_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_transfer_funds_form
+
+- story: Pay my bills story
+  steps:
+  - intent: pay_my_bills_intent
+  - action: action_show_my_bills
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_bills_form
+  - active_loop: pay_my_bills_form
+  - slot_was_set:
+    - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  - action: submit_transfer_funds_form
+  - action: submit_pay_my_bills_form
+  - action: action_listen
+
+- story: Pay my gas bill story
+  steps:
+  - intent: pay_my_gas_bill_intent
+  - action: action_show_my_gas_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_gas_bill_form
+  - active_loop: pay_my_gas_bill_form
+  - slot_was_set:
+    - requested_slot: confirm_pay_bills_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: submit_pay_my_gas_bill_form
+  - action: action_listen
+
+- story: Pay my electricity bill story
+  steps:
+  - intent: pay_my_electricity_bill_intent
+  - action: action_show_my_electricity_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_electricity_bill_form
+  - active_loop: pay_my_electricity_bill_form
+  - slot_was_set:
+    - requested_slot: confirm_pay_bills_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: submit_pay_my_electricity_bill_form
+  - action: action_listen
+
+- story: Pay my water bill story
+  steps:
+  - intent: pay_my_water_bill_intent
+  - action: action_show_my_water_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_water_bill_form
+  - active_loop: pay_my_water_bill_form
+  - slot_was_set:
+    - requested_slot: confirm_pay_bills_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: submit_pay_my_water_bill_form
+  - action: action_listen
+
+- story: Pay my rent bill story
+  steps:
+  - intent: pay_my_rent_bill_intent
+  - action: action_show_my_rent_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_rent_bill_form
+  - active_loop: pay_my_rent_bill_form
+  - slot_was_set:
+    - requested_slot: confirm_pay_bills_slot
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: submit_pay_my_rent_bill_form
   - action: action_listen

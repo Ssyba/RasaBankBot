@@ -6,8 +6,7 @@ rules:
   steps:
   - intent: init_intent
   - action: utter_greet
-  - action: login_form
-  - active_loop: login_form
+  - action: action_log_me_in
 
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges
@@ -32,6 +31,11 @@ rules:
   steps:
   - intent: ask_interest_rate_intent
   - action: utter_show_interest_rate
+
+- rule: Fallback rule
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
 
 ### Login and Logout rules ###
 - rule: Trigger action_logout on logout_intent
@@ -89,7 +93,7 @@ rules:
 - rule: Show the user's bills
   steps:
     - intent: show_my_bills_intent
-    - action: action_show_my_bills_intent
+    - action: action_show_my_bills
 
 - rule: Show the user's gas bill
   steps:
@@ -191,3 +195,98 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: submit_transfer_funds_form
+
+# Pay my bills form
+- rule: Activate pay my bills form
+  steps:
+  - intent: pay_my_bills_intent
+  - action: action_show_my_bills
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_bills_form
+  - active_loop: pay_my_bills_form
+
+- rule: Submit pay my bills form
+  condition:
+  - active_loop: pay_my_bills_form
+  steps:
+  - action: pay_my_bills_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_pay_my_bills_form
+
+# Pay my gas bill form
+- rule: Activate pay my gas bill form
+  steps:
+  - intent: pay_my_gas_bill_intent
+  - action: action_show_my_gas_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_gas_bill_form
+  - active_loop: pay_my_gas_bill_form
+
+- rule: Submit pay my gas bill form
+  condition:
+  - active_loop: pay_my_gas_bill_form
+  steps:
+  - action: pay_my_gas_bill_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_pay_my_gas_bill_form
+
+# Pay my electricity bill form
+- rule: Activate pay my electricity bill form
+  steps:
+  - intent: pay_my_electricity_bill_intent
+  - action: action_show_my_electricity_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_electricity_bill_form
+  - active_loop: pay_my_electricity_bill_form
+
+- rule: Submit pay my electricity bill form
+  condition:
+  - active_loop: pay_my_electricity_bill_form
+  steps:
+  - action: pay_my_electricity_bill_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_pay_my_electricity_bill_form
+
+# Pay my water bill form
+- rule: Activate pay my water bill form
+  steps:
+  - intent: pay_my_water_bill_intent
+  - action: action_show_my_water_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_water_bill_form
+  - active_loop: pay_my_water_bill_form
+
+- rule: Submit pay my water bill form
+  condition:
+  - active_loop: pay_my_water_bill_form
+  steps:
+  - action: pay_my_water_bill_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_pay_my_water_bill_form
+
+# Pay my rent bill form
+- rule: Activate pay my rent bill form
+  steps:
+  - intent: pay_my_rent_bill_intent
+  - action: action_show_my_rent_bill
+  - action: action_set_confirm_pay_bills_slot
+  - action: pay_my_rent_bill_form
+  - active_loop: pay_my_rent_bill_form
+
+- rule: Submit pay my rent bill form
+  condition:
+  - active_loop: pay_my_rent_bill_form
+  steps:
+  - action: pay_my_rent_bill_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_pay_my_rent_bill_form

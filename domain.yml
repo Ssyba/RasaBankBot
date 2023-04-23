@@ -32,6 +32,13 @@ intents:
   - show_my_water_bill_intent
   - show_my_rent_bill_intent
 
+  ### Pay Bills Intents ###
+  - pay_my_bills_intent
+  - pay_my_gas_bill_intent
+  - pay_my_electricity_bill_intent
+  - pay_my_water_bill_intent
+  - pay_my_rent_bill_intent
+
   ### Policy Information Intents ###
   - policies_info_intent
 
@@ -133,7 +140,7 @@ slots:
             requested_slot: transfer_amount_slot
 
   confirm_transfer_slot:
-    type: bool
+    type: any
     mappings:
       - type: from_intent
         intent: affirm_intent
@@ -147,6 +154,23 @@ slots:
         conditions:
           - active_loop: transfer_funds_form
             requested_slot: confirm_transfer_slot
+
+  # Pay my bills form
+  confirm_pay_bills_slot:
+    type: any
+    mappings:
+      - type: from_intent
+        intent: affirm_intent
+        value: true
+        conditions:
+          - active_loop: pay_my_bills_form
+            requested_slot: confirm_pay_bills_slot
+      - type: from_intent
+        intent: deny_intent
+        value: false
+        conditions:
+          - active_loop: pay_my_bills_form
+            requested_slot: confirm_pay_bills_slot
 
 forms:
   login_form:
@@ -170,14 +194,36 @@ forms:
       - transfer_amount_slot
       - confirm_transfer_slot
 
+  pay_my_bills_form:
+    required_slots:
+      - confirm_pay_bills_slot
+
+  pay_my_gas_bill_form:
+    required_slots:
+      - confirm_pay_bills_slot
+
+  pay_my_electricity_bill_form:
+    required_slots:
+      - confirm_pay_bills_slot
+
+  pay_my_water_bill_form:
+    required_slots:
+      - confirm_pay_bills_slot
+
+  pay_my_rent_bill_form:
+    required_slots:
+      - confirm_pay_bills_slot
+
 responses:
-  # Misc
+  # General
   utter_greet:
     - text: "Welcome, I am BankBot, and I will be your virtual assistant for today."
   utter_iamabot:
     - text: "I am a bot, powered by Rasa, but programmed by MariusBank."
   utter_show_interest_rate:
     - text: "The current interest rate is 6.8% per year."
+  utter_default:
+    - text: "I'm sorry, I didn't understand that. Can you please try again?"
 
   # Login and logout responses
   utter_ask_cnp_slot:
@@ -207,6 +253,10 @@ responses:
   utter_ask_confirm_transfer_slot:
     - text: "Please affirm or deny to confirm:"
 
+  # Pay my bills form responses
+  utter_ask_confirm_pay_bills_slot:
+    - text: "Please affirm or deny to pay the displayed bill(s):"
+
 actions:
 # General actions
   - action_restart
@@ -234,7 +284,7 @@ actions:
   - action_show_all_slots
 
 # Information display actions bills table
-  - action_show_my_bills_intent
+  - action_show_my_bills
   - action_show_my_gas_bill
   - action_show_my_electricity_bill
   - action_show_my_water_bill
@@ -243,6 +293,33 @@ actions:
 # Transfer funds actions
   - validate_transfer_funds_form
   - submit_transfer_funds_form
+
+### Bills actions ###
+# Pay my bills actions
+  - validate_pay_my_bills_form
+  - submit_pay_my_bills_form
+
+# Pay my gas bill actions
+  - validate_pay_my_gas_bill_form
+  - submit_pay_my_gas_bill_form
+
+# Pay my electricity bill actions
+  - validate_pay_my_electricity_bill_form
+  - submit_pay_my_electricity_bill_form
+
+# Pay my water bill actions
+  - validate_pay_my_water_bill_form
+  - submit_pay_my_water_bill_form
+
+# Pay my rent bill actions
+  - validate_pay_my_rent_bill_form
+  - submit_pay_my_rent_bill_form
+
+# Action helpers
+  - action_set_confirm_pay_bills_slot
+
+# Temp actions
+  - action_log_me_in
 
 session_config:
   session_expiration_time: 60

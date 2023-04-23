@@ -25,7 +25,7 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
     ) -> Dict[Text, Any]:
         if is_valid_account_number(slot_value):
             user_cnp = tracker.get_slot("cnp_slot")
-            user_account_number = queries_location.get_account_number_by_cnp(
+            user_account_number = queries_location.get_account_number_by_cnp_query(
                 user_cnp)  # Replace this with your method to get the user's account number by CNP
 
             if slot_value == user_account_number:
@@ -93,9 +93,6 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
             return {"confirm_transfer_slot": True}
         elif intent == 'deny_intent':
             return {"confirm_transfer_slot": False}
-        else:
-            dispatcher.utter_message(text="I am sorry, I did not get that.")
-            return {"confirm_transfer_slot": None}
 
 
 class ActionSubmitTransferFundsForm(BaseSubmitAction):
@@ -109,12 +106,6 @@ class ActionSubmitTransferFundsForm(BaseSubmitAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        logged_in_status = tracker.get_slot('logged_in_status_slot')
-        if not logged_in_status:
-            dispatcher.utter_message(
-                text="You are not logged in. Funds transfer is only available for logged in users.")
-            return []
-
         cnp = tracker.get_slot("cnp_slot")
         recipient_account_number = tracker.get_slot("recipient_account_number_slot")
         transfer_amount = tracker.get_slot("transfer_amount_slot")

@@ -1,6 +1,5 @@
 from datetime import datetime
-from general_methods import db_executor, generate_random_user_data, mock_api_get_balance
-import random
+from general_methods import db_executor, generate_random_user_data, mock_api_get_balance, generate_random_taxes
 
 
 # Create tables
@@ -57,10 +56,7 @@ def fill_bills_table_query():
 
     for cnp in users_table_cnps:
         if cnp not in bills_table_cnps:
-            gas = random.randint(50, 500)
-            electricity = random.randint(50, 500)
-            water = random.randint(50, 500)
-            rent = random.choice([200, 300, 500, 800])
+            gas, electricity, water, rent = generate_random_taxes()
 
             query = (
                 f"INSERT INTO bills (cnp, gas, electricity, water, rent) "
@@ -69,6 +65,17 @@ def fill_bills_table_query():
             db_executor(query)
         else:
             print(f"CNP '{cnp}' already exists in bills table, skipping...")
+
+
+def update_bills_table_with_random_taxes_query() -> None:
+    update_bills_query = """
+        UPDATE bills
+        SET gas = gas + %s, electricity = electricity + %s, water = water + %s, rent = rent + %s;
+    """
+
+    gas_tax, electricity_tax, water_tax, rent_tax = generate_random_taxes()
+
+    db_executor(update_bills_query % (gas_tax, electricity_tax, water_tax, rent_tax))
 
 
 def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: str):
@@ -129,7 +136,27 @@ def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfe
     db_executor(transfer_query)
 
 
-# Find inside tables
+def pay_bills_query(cnp: str, total_sum_of_bills: int) -> None:
+    pay_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {total_sum_of_bills} WHERE CNP='{cnp}';
+            UPDATE bills SET gas = 0, electricity = 0, water = 0, rent = 0 WHERE cnp='{cnp}';
+        COMMIT;
+    """
+    db_executor(pay_query)
+
+
+def pay_gas_bill_query(cnp: str, gas_bill_amount: int) -> None:
+    pay_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {gas_bill_amount} WHERE CNP='{cnp}';
+            UPDATE bills SET gas = 0 WHERE cnp='{cnp}';
+        COMMIT;
+    """
+    db_executor(pay_query)
+
+
+# Find inside tables #
 def find_user_by_cnp_query(cnp: str) -> dict:
     # Get the row data and column names
     row_data, column_names = db_executor("SELECT * FROM users WHERE CNP = '%s'" % cnp)
@@ -170,7 +197,7 @@ def find_user_by_account_number_query(account_number: str) -> dict:
         return {}
 
 
-def get_account_number_by_cnp(cnp: str) -> str:
+def get_account_number_by_cnp_query(cnp: str) -> str:
     account_number_query = f"SELECT account_number FROM users WHERE CNP='{cnp}'"
     result = db_executor(account_number_query)
 
@@ -180,5 +207,39 @@ def get_account_number_by_cnp(cnp: str) -> str:
 def get_balance_by_cnp_query(cnp: str) -> int:
     balance_query = f"SELECT balance FROM users WHERE CNP='{cnp}'"
     result = db_executor(balance_query)
+    return result[0][0][0]
+
+
+def get_total_sum_of_bills_query(cnp: str) -> int:
+    sum_of_bills_query = f"SELECT gas + electricity + water + rent FROM bills WHERE cnp='{cnp}'"
+    result = db_executor(sum_of_bills_query)
+
+    return result[0][0][0]
+
+
+def get_gas_bill_query(cnp: str) -> int:
+    gas_bill_query = f"SELECT gas FROM bills WHERE cnp='{cnp}'"
+    result = db_executor(gas_bill_query)
+
+    return result[0][0][0]
+
+
+def get_electricity_bill_query(cnp: str) -> int:
+    electricity_bill_query = f"SELECT electricity FROM bills WHERE cnp='{cnp}'"
+    result = db_executor(electricity_bill_query)
+
+    return result[0][0][0]
+
+
+def get_water_bill_query(cnp: str) -> int:
+    water_bill_query = f"SELECT water FROM bills WHERE cnp='{cnp}'"
+    result = db_executor(water_bill_query)
+
+    return result[0][0][0]
+
+
+def get_rent_bill_query(cnp: str) -> int:
+    rent_bill_query = f"SELECT rent FROM bills WHERE cnp='{cnp}'"
+    result = db_executor(rent_bill_query)
 
     return result[0][0][0]

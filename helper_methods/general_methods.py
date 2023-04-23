@@ -1,12 +1,15 @@
 import asyncio
 import re
 from functools import wraps
-from typing import Text, Dict, Any
+from typing import Text, Dict, Any, List, Optional
 import mysql.connector
 from faker import Faker
 import random
 from rasa_sdk import Tracker
+from rasa_sdk.events import AllSlotsReset, SlotSet
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.types import DomainDict
+
 import queries_location
 
 _fake = Faker()
@@ -87,7 +90,7 @@ def is_valid_password(password: str) -> bool:
 
 # This verifies the password is a minimal of 8 characters
 def is_valid_account_number(account_number: str) -> bool:
-    return bool(len(account_number) == 6)
+    return bool(re.match(r"^\d{6}$", account_number))
 
 
 def is_valid_transfer_amount(amount: float, cnp: str) -> bool:
@@ -95,17 +98,32 @@ def is_valid_transfer_amount(amount: float, cnp: str) -> bool:
     return 0 <= (balance - int(amount))
 
 
-def mock_api_get_balance() -> int:
-    # Simulate a random balance value from the mock API
-    balance = 10000
-    return balance
+# async def validate_confirmation_slot(
+#         slot_name: Text,
+#         dispatcher: CollectingDispatcher,
+#         tracker: Tracker,
+#         domain: DomainDict,
+# ) -> Dict[Text, Any]:
+#     intent = tracker.latest_message["intent"].get("name")
+#     if intent == "affirm":
+#         return {slot_name: True}
+#     elif intent == "deny":
+#         return {slot_name: False}
 
 
 # Wrappers #
+# skip_validate_if_logged_ is meant for the first slot in a form that is only for when the user is logged out(works
+# together with only_works_if_logged wrapper that is added to submit of the form)
 def skip_validate_if_logged_in(func):
     @wraps(func)
     async def wrapper(*args, **kwargs):
-        action, slot_value, dispatcher, tracker, domain = args
+        dispatcher, tracker = None, None
+        for arg in args:
+            if isinstance(arg, CollectingDispatcher):
+                dispatcher = arg
+            elif isinstance(arg, Tracker):
+                tracker = arg
+
         logged_in_status = tracker.get_slot('logged_in_status_slot')
         if logged_in_status:
             return {"requested_slot": None}
@@ -121,7 +139,13 @@ def skip_validate_if_logged_in(func):
 def skip_validate_if_logged_out(func):
     @wraps(func)
     async def wrapper(*args, **kwargs):
-        action, slot_value, dispatcher, tracker, domain = args
+        dispatcher, tracker = None, None
+        for arg in args:
+            if isinstance(arg, CollectingDispatcher):
+                dispatcher = arg
+            elif isinstance(arg, Tracker):
+                tracker = arg
+
         logged_in_status = tracker.get_slot('logged_in_status_slot')
         if not logged_in_status:
             return {"requested_slot": None}
@@ -136,36 +160,52 @@ def skip_validate_if_logged_out(func):
 
 def only_works_if_logged_out(func):
     @wraps(func)
-    async def wrapper(action, dispatcher, tracker, domain):
+    async def wrapper(self, *args, **kwargs):
+        dispatcher, tracker = None, None
+        for arg in args:
+            if isinstance(arg, CollectingDispatcher):
+                dispatcher = arg
+            elif isinstance(arg, Tracker):
+                tracker = arg
+
         logged_in_status = tracker.get_slot('logged_in_status_slot')
         if logged_in_status:
-            dispatcher.utter_message(text="Invalid operation because you are logged in.")
+            dispatcher.utter_message(text="Invalid operation because you are already logged in.")
             return []
 
         if asyncio.iscoroutinefunction(func):
-            return await func(action, dispatcher, tracker, domain)
+            return await func(self, *args, **kwargs)
         else:
-            return func(action, dispatcher, tracker, domain)
+            return func(self, *args, **kwargs)
 
     return wrapper
 
 
 def only_works_if_logged_in(func):
     @wraps(func)
-    async def wrapper(action, dispatcher, tracker, domain):
+    async def wrapper(self, *args, **kwargs):
+        dispatcher, tracker = None, None
+        for arg in args:
+            if isinstance(arg, CollectingDispatcher):
+                dispatcher = arg
+            elif isinstance(arg, Tracker):
+                tracker = arg
+
         logged_in_status = tracker.get_slot('logged_in_status_slot')
         if not logged_in_status:
             dispatcher.utter_message(text="Invalid operation because you are not logged in.")
             return []
 
         if asyncio.iscoroutinefunction(func):
-            return await func(action, dispatcher, tracker, domain)
+            return await func(self, *args, **kwargs)
         else:
-            return func(action, dispatcher, tracker, domain)
+            return func(self, *args, **kwargs)
 
     return wrapper
 
 
+# Made to handle the logout or break intents if it's for the first validation in a form, this is to handle a rasa
+# special limitation
 def handle_break_and_logout_special_intents(validation_func):
     @wraps(validation_func)
     async def wrapper(
@@ -186,3 +226,20 @@ def handle_break_and_logout_special_intents(validation_func):
         return await validation_func(self, slot_value, dispatcher, tracker, domain)
 
     return wrapper
+
+
+# Mock APIs #
+def mock_api_get_balance() -> int:
+    # Simulate a random balance value from the mock API
+    balance = 10000
+    return balance
+
+
+# General methods #
+def generate_random_taxes():
+    gas_tax = random.randint(50, 500)
+    electricity_tax = random.randint(50, 500)
+    water_tax = random.randint(50, 500)
+    rent_tax = random.choice([200, 300, 500, 800])
+
+    return gas_tax, electricity_tax, water_tax, rent_tax

@@ -4,6 +4,9 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.events import EventType, AllSlotsReset, ActiveLoop, SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
+from rasa_sdk.types import DomainDict
+
+from general_methods import skip_validate_if_logged_out, handle_break_and_logout_special_intents
 
 
 class BaseFormValidationAction(FormValidationAction, ABC):
@@ -20,6 +23,21 @@ class BaseFormValidationAction(FormValidationAction, ABC):
         if tracker.latest_message['intent'].get('name') in ['logout_intent', 'break_intent']:
             return [SlotSet("requested_slot", None)]
         return await super().run(dispatcher, tracker, domain)
+
+    @skip_validate_if_logged_out
+    @handle_break_and_logout_special_intents
+    async def validate_confirm_pay_bills_slot_common(
+            self,
+            slot_value: Any,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        intent = tracker.latest_message["intent"].get("name")
+        if intent == "affirm":
+            return {'confirm_pay_bills_slot': True}
+        elif intent == "deny":
+            return {'confirm_pay_bills_slot': False}
 
 
 class BaseSubmitAction(Action, ABC):

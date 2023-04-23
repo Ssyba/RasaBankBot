@@ -1,9 +1,6 @@
 import queries_location
 
-# This is done so that I can run each query from pycharm with a click of a button
-
 # Change the value of run_scenario depending on the query you want to run
-
 # Users table #
 # 1 - create the users table
 # 2 - delete the users table
@@ -15,8 +12,9 @@ import queries_location
 # 7 - delete bills table
 # 8 - clear data from bills table
 # 9 - populate the bills table with mock data for each user in the users table
+# 10 - add random taxes to each field in the bills table
 
-run_scenarios = [9]
+run_scenarios = [10]
 
 # The CNP of the user you want to delete
 cnp = "0012"
@@ -45,6 +43,8 @@ class ScenarioRunner:
             queries_location.clear_data_bills_table_query()
         elif scenario == 9:
             queries_location.fill_bills_table_query()
+        elif scenario == 10:
+            queries_location.update_bills_table_with_random_taxes_query()
         else:
             raise ValueError(f"Invalid value for scenario: {scenario}, look at the valid options above.")
 
