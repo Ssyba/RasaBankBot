@@ -87,8 +87,8 @@ def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: st
 
     # Get the last user's ID and increment it
     last_user_id_result = db_executor("SELECT id FROM users ORDER BY id DESC LIMIT 1")
-    last_user_id = last_user_id_result[0][0]  # Extract the last_user_id value
-    new_user_id = int(last_user_id) + 1
+    last_user_id = last_user_id_result[0][0][0]  # Extract the last_user_id value
+    new_user_id = last_user_id + 1
 
     # Generate the account number using the new user ID
     account_number = str(new_user_id).zfill(6)

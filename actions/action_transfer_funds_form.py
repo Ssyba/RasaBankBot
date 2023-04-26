@@ -26,7 +26,7 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
         if is_valid_account_number(slot_value):
             user_cnp = tracker.get_slot("cnp_slot")
             user_account_number = queries_location.get_account_number_by_cnp_query(
-                user_cnp)  # Replace this with your method to get the user's account number by CNP
+                user_cnp)
 
             if slot_value == user_account_number:
                 dispatcher.utter_message(
@@ -54,8 +54,7 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
 
         if match:
             # Remove any non-digit characters, e.g., $ sign and spaces
-            amount = re.sub(r'[^\d.]', '', slot_value)
-            return {"transfer_amount_slot": amount}
+            transfer_amount = int(re.sub(r'[^\d.]', '', slot_value))
         else:
             dispatcher.utter_message(
                 text="Invalid input. Please try again to enter the amount in dollars with up to maximum two decimal "
@@ -63,7 +62,6 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
             return {"transfer_amount_slot": None}
 
         cnp = tracker.get_slot("cnp_slot")
-        transfer_amount = re.sub(r'[^\d.]', '', slot_value)
         if is_valid_transfer_amount(transfer_amount, cnp):
             cnp = tracker.get_slot("cnp_slot")
             current_balance = queries_location.get_balance_by_cnp_query(cnp)

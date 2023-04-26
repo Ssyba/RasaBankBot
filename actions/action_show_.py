@@ -76,8 +76,8 @@ class ActionShowMyName(Action):
         return "action_show_my_name"
 
     @only_works_if_logged_in
-    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[
-        Dict[Text, Any]]:
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
         user = queries_location.find_user_by_cnp_query(cnp)
         name = user['name']
@@ -97,7 +97,7 @@ class ActionShowMySurname(Action):
         user = queries_location.find_user_by_cnp_query(cnp)
         surname = user['surname']
 
-        dispatcher.utter_message(text=f"Your name is {surname}.")
+        dispatcher.utter_message(text=f"Your surname is {surname}.")
         return []
 
 

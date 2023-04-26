@@ -46,7 +46,7 @@ class ActionSubmitPayMyGasBill(BaseSubmitAction):
                 queries_location.pay_gas_bill_query(cnp, gas_bill_amount)
                 dispatcher.utter_message(text='Payment successful.')
                 dispatcher.utter_message(text=f"Amount paid: {gas_bill_amount}$")
-                return None
+                return []
             else:
                 dispatcher.utter_message(text="Insufficient funds. Payment not successful.")
                 return [AllSlotsReset(), SlotSet('cnp_slot', cnp), SlotSet('logged_in_status_slot', True)]

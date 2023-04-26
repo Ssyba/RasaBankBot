@@ -59,5 +59,37 @@ Right click on database_schema_structure_update.py and click on Run.
 Or in the cmd(inside the project folder): python database_schema_structure_update.py
 
 # Available functionalities at this time:
-1. Respond to any type of greet(ex. hello, hi, how are you, howdy, etc.)
-2. Able to find user and greet the user by CNP, will show message notifying the user if he's not in the db.
+1. Fully built home welcome page for Marius Bank.
+2. Greet the user
+3. Refresh session(logout) on page refresh.
+4. Log the user in automatically - for debugging purposes.
+5. Answer to: What are you?/Are you a bot?
+6. Show company policies, redirects to a webpage with website policies.
+7. Create new user.
+8. Ask for check cnp again, if you think you mistyped it.
+9. Login when app start, or using "log me in" or similar
+10. Logout using keywords "log me out" or similar.
+11. Break outside any loop using keyword "break" or similar.
+12. Show user information for:
+    - Show all the user's information(show me my info)
+    - Show the user's CNP(show me my cnp)
+    - Show the user's name(show me my name)
+    - Show the user's surname(show me my surname)
+    - Show the user's age(show me my age)
+    - Show the user's account number(show me my account number)
+    - Show the user's registration date(show me my registration date)
+    - Show the user's current balance(show me my balance)
+    - Show the user's current slots(show my slots) - this is for debugging purposes
+13. Can't use break outside a loop, use is informed there is nothing to break.
+14. When the bot does not know what to do there is a standard message is shows to the user.
+15. Transfer funds to another account by account number.
+16. Show user bills:
+    - Show the user's bills and total(show me my bills)
+    - Show the user's gas bill(show my gas bill)
+    - Show the user's electricity bill(show my electricity bill)
+    - Show the user's water bill(show my water bill)
+    - Show the user's rent bill(show my rent bill)
+17. Is users tries to login but is already login, message will be displayed.
+18. Pay bills:
+    - Pay my bills(I want to pay my bills)
+    - Pay my gas bill(I want to pay my gas)

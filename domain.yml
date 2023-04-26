@@ -279,7 +279,7 @@ actions:
   - action_show_my_surname
   - action_show_my_age
   - action_show_my_account_number
-  - action_show_registration_date
+  - action_show_my_registration_date
   - action_show_my_balance
   - action_show_all_slots
 

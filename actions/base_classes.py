@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Dict, Text, Any, List
+from typing import Dict, Text, Any, List, Optional
 from rasa_sdk import Action, Tracker
 from rasa_sdk.events import EventType, AllSlotsReset, ActiveLoop, SlotSet
 from rasa_sdk.executor import CollectingDispatcher

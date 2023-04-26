@@ -48,7 +48,7 @@ class ActionSubmitPayMyBillsForm(BaseSubmitAction):
                 queries_location.pay_bills_query(cnp, amount_to_be_paid)
                 dispatcher.utter_message(text='Payment successful.')
                 dispatcher.utter_message(text=f"Amount paid: {amount_to_be_paid}$")
-                return None
+                return []
             else:
                 dispatcher.utter_message(text="Insufficient funds. Payment not successful.")
                 return [AllSlotsReset(), SlotSet('cnp_slot', cnp), SlotSet('logged_in_status_slot', True)]

@@ -4,53 +4,183 @@ nlu:
 ### General Intents ###
 - intent: bot_challenge_intent
   examples: |
+    - Are you a human?
     - Are you a robot?
-    - Are you a bot?
+    - Can you prove you're not human?
+    - What makes you a machine?
     - Are you an AI?
     - Are you an artificial intelligence?
-    - Are you a machine?
     - Are you a computer program?
+    - What type of machine are you?
     - Are you a chatbot?
-    - Are you real or a bot?
-    - Are you human or a bot?
-    - Are you a person or a robot?
-    - Is this a bot?
-    - Is this an AI?
-    - Are you a real person?
-    - Are you a virtual assistant?
-    - Are you an AI assistant?
-    - Are you an AI chatbot?
-    - Are you just a machine?
-    - Are you a real human?
-    - Am I talking to a robot?
-    - Am I talking to a bot?
-    - Am I talking to an AI?
-    - Am I chatting with a bot?
-    - Am I chatting with a robot?
-    - Am I chatting with an AI?
-    - Are you automated?
-    - Are you a virtual agent?
-    - Are you an AI agent?
-    - Are you an AI system?
-    - Are you a digital assistant?
-    - Are you a software bot?
-    - Are you a conversational AI?
-    - Are you an algorithm?
-    - Are you a human or a machine?
-    - Are you a computer or a human?
-    - Are you an artificial agent?
-    - Are you a humanoid?
-    - Are you a human-like AI?
-    - Are you a programmed intelligence?
     - Are you an intelligent machine?
-    - Are you a computer-based AI?
+    - Are you a machine learning model?
+    - Are you a natural language processing system?
+    - Are you an OpenAI creation?
+    - Are you based on the GPT architecture?
+    - Are you a software program?
+    - Are you a digital entity?
+    - What kind of AI are you?
+    - Are you a neural network?
+    - Are you a deep learning model?
+    - What's your primary function?
+    - Are you a virtual assistant?
+    - What are your capabilities?
+    - What's your core technology?
+    - Are you an advanced language model?
+    - Are you autonomous?
+    - Are you a self-learning AI?
+    - What's your level of intelligence?
+    - Are you an expert in machine learning?
+    - Are you an NLU expert?
+    - Can you understand natural language?
+    - Are you a language processing system?
+    - Are you skilled in AI development?
+    - Are you a conversational AI?
+    - Do you have a developer?
+    - Are you programmed by humans?
+    - Do you use AI algorithms?
+    - Are you a product of machine learning research?
+    - What programming language were you created with?
+    - Are you a Turing test participant?
+    - Can you pass the Turing test?
+    - Are you designed for human interaction?
+    - Are you a language model?
+    - Whom are you?
+    - What are you?
+    - What kind of entity are you?
+    - Are you a digital being?
+    - Are you an AI-based system?
+    - Are you an AI entity?
+    - Can you learn and adapt?
+    - Are you a smart machine?
+    - Are you a virtual agent?
     - Are you a synthetic intelligence?
-    - Are you a machine intelligence?
-    - Are you an artificial conversational entity?
-    - Are you a digital interlocutor?
-    - Are you a software-based agent?
-    - Are you an AI-based assistant?
-    - Are you an AI-driven chatbot?
+    - Are you an intelligent agent?
+    - Are you an AI assistant?
+    - Do you rely on data to learn?
+    - Are you an AI-powered chatbot?
+    - Are you a computer-based system?
+    - Are you a digital assistant?
+    - What's your level of autonomy?
+    - Can you understand human emotions?
+    - Are you an AI with a personality?
+    - Are you a machine capable of thinking?
+    - Are you an AI with advanced understanding?
+    - Can you solve complex problems?
+    - Are you a machine learning specialist?
+    - Are you an AI with natural language understanding?
+    - Do you have a deep understanding of language?
+    - Are you a computerized linguist?
+    - Are you an AI-driven language model?
+    - Are you a digital language expert?
+    - Are you a virtual language consultant?
+    - Are you an AI-based linguist?
+    - What kind of AI system are you?
+    - Are you a language processing AI?
+    - Are you an AI with human-like abilities?
+    - Are you a virtual communication specialist?
+    - Do you have language understanding capabilities?
+    - Are you an AI with advanced language skills?
+    - Are you a digital communication expert?
+    - Are you an AI language consultant?
+    - Are you an artificial language specialist?
+    - Are you a virtual language expert?
+    - What kind of AI language model are you?
+    - Can you understand complex language patterns?
+    - Are you an AI-powered language expert?
+    - Are you a digital language consultant?
+    - Are you a synthetic language specialist?
+    - Are you an AI language developer?
+    - What type of AI language system are you?
+    - What is your primary language function?
+    - Are you an AI that can process human language?
+    - Are you a computerized language expert?
+    - Are you an AI that specializes in linguistics?
+    - Are you a digital language processing system?
+    - Are you a virtual linguist?
+    - Do you have expertise in AI language development?
+    - Are you an AI with linguistic capabilities?
+    - Are you a machine learning language expert?
+    - Are you an AI-powered linguistics specialist?
+    - Are you a virtual AI language consultant?
+    - Are you an AI with advanced linguistic understanding?
+    - Are you a synthetic linguistics expert?
+    - Are you a digital linguistics consultant?
+    - Are you an AI-driven linguistics specialist?
+    - Are you a digital language analyst?
+    - Are you an AI language analysis expert?
+    - Are you a virtual linguistics consultant?
+    - Are you an AI with language development expertise?
+    - Do you have expertise in AI linguistics?
+    - Are you a machine learning linguist?
+    - Are you an AI that specializes in language development?
+    - Are you a virtual language analyst?
+    - Are you an AI with language analysis capabilities?
+    - Are you a computerized language analyst?
+    - Are you an AI language processing specialist?
+    - Are you a digital linguistics analyst?
+    - Are you an AI that specializes in language analysis?
+    - Are you an AI with language comprehension skills?
+    - Are you a machine learning language consultant?
+    - Are you an AI that can understand human languages?
+    - Are you an AI with language expertise?
+    - Are you a digital language processing expert?
+    - Are you a computerized linguistics consultant?
+    - Are you an AI language strategist?
+    - Are you a virtual language development expert?
+    - Are you a digital language strategist?
+    - Are you an AI with language strategy skills?
+    - Are you a synthetic language analyst?
+    - Are you a virtual AI language strategist?
+    - Are you an AI with linguistic analysis skills?
+    - Are you a digital language development expert?
+    - Are you an AI with language planning expertise?
+    - Are you a machine learning language strategist?
+    - Are you an AI with language design skills?
+    - Are you a virtual language planning expert?
+    - Are you a digital language architect?
+    - Are you an AI language engineering expert?
+    - Are you a synthetic language architect?
+    - Are you a computerized language planner?
+    - Are you an AI with language optimization skills?
+    - Are you a virtual AI language engineer?
+    - Are you a digital language optimization expert?
+    - Are you an AI with language modeling expertise?
+    - Are you a machine learning language architect?
+    - Are you an AI language construction specialist?
+    - Are you a virtual language modeling expert?
+    - Are you a digital language engineering specialist?
+    - Are you an AI with language synthesis skills?
+    - Are you a synthetic language engineer?
+    - Are you a computerized language modeler?
+    - Are you an AI with language generation capabilities?
+    - Are you a virtual AI language synthesizer?
+    - Are you a digital language generation expert?
+    - Are you an AI that can create language models?
+    - Are you a machine learning language generator?
+    - Are you an AI with language production skills?
+    - Are you a virtual language creation expert?
+    - Are you a digital language producer?
+    - Are you an AI with language formulation expertise?
+    - Are you a synthetic language producer?
+    - Are you a computerized language creator?
+    - Are you an AI with language innovation skills?
+    - Are you a virtual AI language innovator?
+    - Are you a digital language innovator?
+    - Are you an AI that can invent new language patterns?
+    - Are you a machine learning language innovator?
+    - Are you an AI with language transformation capabilities?
+    - Are you a virtual language transformation expert?
+    - Are you a digital language transformer?
+    - Are you an AI with language adaptation skills?
+    - Are you a synthetic language transformer?
+    - Are you a computerized language adaptation expert?
+    - Are you an AI that can modify language structures?
+    - Are you a machine learning language adapter?
+    - Are you an AI with language evolution expertise?
+    - Are you a virtual language evolution expert?
+    - Are you a digital language evolver?
 
 - intent: ask_interest_rate_intent
   examples: |
@@ -3715,6 +3845,8 @@ nlu:
 ### Payments/Transfers Intents ###
 - intent: transfer_funds_intent
   examples: |
+    - transfer funds
+    - transferring cash
     - transfer money
     - wire funds
     - transfer funds

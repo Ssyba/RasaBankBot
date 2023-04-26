@@ -44,7 +44,7 @@ rules:
   - action: action_logout
 
 ### User information rules ###
-- rule: Show the user's CNP
+- rule: Show all the user's information
   steps:
   - intent: show_my_user_info_intent
   - action: action_show_my_user_info
@@ -77,20 +77,21 @@ rules:
 - rule: Show the user's registration date
   steps:
   - intent: show_my_registration_date_intent
-  - action: action_show_registration_date
+  - action: action_show_my_registration_date
 
 - rule: Show the user's current balance
   steps:
   - intent: show_my_balance_intent
   - action: action_show_my_balance
 
+# This is put here for debugging purposes
 - rule: Show the user's current slots
   steps:
   - intent: show_slots_intent
   - action: action_show_all_slots
 
 ### Bills information rules ###
-- rule: Show the user's bills
+- rule: Show the user's bills and total
   steps:
     - intent: show_my_bills_intent
     - action: action_show_my_bills

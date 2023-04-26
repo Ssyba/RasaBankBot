@@ -52,7 +52,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
                 "Name should be at least 4 characters long, have a maximum of 35 characters, and only contain letters.")
             return {"name_slot": None}
         else:
-            return {"name_slot": slot_value}
+            return {"name_slot": slot_value.capitalize()}
 
     async def validate_surname_slot(
             self,
@@ -67,7 +67,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
                 "Surname should be at least 4 characters long, have a maximum of 35 characters, and only contain "
                 "letters.")
             return {"surname_slot": None}
-        return {"surname_slot": slot_value}
+        return {"surname_slot": slot_value.capitalize()}
 
     async def validate_age_slot(
             self,
@@ -84,7 +84,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
             elif age < 18:
                 dispatcher.utter_message("You must be at least 18 years old to register.")
                 return {"age_slot": None}
-            elif age < 99:
+            elif age > 99:
                 dispatcher.utter_message("Invalid age.")
                 return {"age_slot": None}
             else:
@@ -100,7 +100,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        if is_valid_password(slot_value):
+        if not is_valid_password(slot_value):
             dispatcher.utter_message("Password should be at least 8 characters long.")
             return {"password_slot": None}
         return {"password_slot": slot_value}
@@ -116,7 +116,7 @@ class ValidateNewUserForm(BaseFormValidationAction):
         if password != slot_value:
             dispatcher.utter_message("Passwords don't match.")
             return {"password_validation_slot": None}
-        return {}
+        return {"requested_slot": None}
 
 
 class SubmitNewUserForm(BaseSubmitAction):
@@ -153,7 +153,11 @@ class SubmitNewUserForm(BaseSubmitAction):
         user = queries_location.find_user_by_cnp_query(cnp)
 
         dispatcher.utter_message("Congratulations! user created successfully.")
-        dispatcher.utter_message(f"Your new account number is: {user['account_number']}.")
-        dispatcher.utter_message(f"Your current balance is: {user['balance']}.")
+        dispatcher.utter_message(f"Your new account cnp is: {cnp}")
+        dispatcher.utter_message(f"Your new name is: {name}")
+        dispatcher.utter_message(f"Your new surname is: {surname}")
+        dispatcher.utter_message(f"Your age is: {age}")
+        dispatcher.utter_message(f"Your new account number is: {user['account_number']}")
+        dispatcher.utter_message(f"Your current balance is: {user['balance']}")
 
-        return [SlotSet("cnp_slot", cnp)]
+        return [SlotSet("cnp_slot", cnp), SlotSet("logged_in_status_slot", True)]
