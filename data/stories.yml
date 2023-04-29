@@ -1,155 +1,296 @@
-version: "3.1"
-
 stories:
-- story: Login form
+### Init intent triggers greet and login form ###
+- story: Init intent triggers greet and login form
   steps:
-  - intent: login_intent
+  - intent: init_intent
   - action: login_form
   - active_loop: login_form
-  - slot_was_set:
-    - requested_slot: cnp_slot
-  - slot_was_set:
-    - requested_slot: password_slot
+
+### General rules ###
+- story: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge_intent
+  - action: action_restart
+  - action: utter_iamabot
+
+- story: Open policies page
+  steps:
+  - intent: policies_info_intent
+  - action: action_open_policies_page
+
+- story: Break out of forms when break_intent is detected
+  steps:
+  - intent: break_intent
+  - action: utter_break
+  - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - active_loop: null
-  - action: submit_login_form
 
-- story: New user form
+- story: Show interest rate
   steps:
+  - intent: ask_interest_rate_intent
+  - action: utter_show_interest_rate
+
+- story: Fallback rule
+  steps:
+  - intent: nlu_fallback
+  - action: utter_default
+- story: Show the user's age - not logged in
+  steps:
+  - intent: show_my_age_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+
+- story: Show the user's account number
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_account_number_intent
+  - action: action_show_my_account_number
+
+- story: Show the user's account number - not logged in
+  steps:
+  - intent: show_my_account_number_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+
+- story: Show the user's registration date
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_registration_date_intent
+  - action: action_show_my_registration_date
+
+- story: Show the user's registration date - not logged in
+  steps:
+  - intent: show_my_registration_date_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+- story: Show the user's current balance
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_balance_intent
+  - action: action_show_my_balance
+
+- story: Show the user's current balance - not logged in
+  steps:
+  - intent: show_my_balance_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+
+- story: Show all the slots
+  steps:
+  - intent: show_slots_intent
+  - action: action_show_all_slots
+
+- story: Show the user's bills and total
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_bills_intent
+  - action: action_show_my_bills
+
+- story: Show the user's gas bill
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_gas_bill_intent
+  - action: action_show_my_gas_bill
+- story: Show the user's gas bill - not logged in
+  steps:
+  - intent: show_my_gas_bill_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+
+- story: Show the user's electricity bill
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_electricity_bill_intent
+  - action: action_show_my_electricity_bill
+
+- story: Show the user's electricity bill - not logged in
+  steps:
+  - intent: show_my_electricity_bill_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+- story: Show the user's water bill
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_water_bill_intent
+  - action: action_show_my_water_bill
+
+- story: Show the user's water bill - not logged in
+  steps:
+  - intent: show_my_water_bill_intent
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - action: utter_not_logged_in
+
+- story: Logout when logged in
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: logout_intent
+  - action: action_logout
+
+- story: Logout when not logged in
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  - intent: logout_intent
+  - action: utter_not_logged_in
+
+- story: New user - logged in
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: new_user_intent
+  - action: utter_not_logged_out
+
+- story: New user - logged out
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: false
   - intent: new_user_intent
   - action: new_user_form
   - active_loop: new_user_form
-  - slot_was_set:
-    - requested_slot: cnp_slot
-  - slot_was_set:
-    - requested_slot: name_slot
-  - slot_was_set:
-    - requested_slot: surname_slot
-  - slot_was_set:
-    - requested_slot: age_slot
-  - slot_was_set:
-    - requested_slot: password_slot
-  - slot_was_set:
-    - requested_slot: password_validation_slot
-  - slot_was_set:
-    - requested_slot: null
-  - active_loop: null
-  - active_loop: submit_new_user_form
 
-- story: Transfer funds - affirm the transfer
+- story: Submit new user form
   steps:
-  - intent: transfer_funds_intent
-  - action: transfer_funds_form
-  - active_loop: transfer_funds_form
-  - action: transfer_funds_form
+  - active_loop: new_user_form
+  - action: new_user_form
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_transfer_funds_form
-  - intent: affirm_intent
-  - slot_was_set:
-    - confirm_transfer_slot: True
-  - action: transfer_funds_form
-  - active_loop: transfer_funds_form
-  - action: transfer_funds_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: submit_transfer_funds_form
+  - action: submit_new_user_form
 
-- story: Transfer funds - deny the transfer
+# Pay bills section
+# Pay my bills story
+- story: Pay my bills story - positive case
   steps:
-  - intent: transfer_funds_intent
-  - action: transfer_funds_form
-  - active_loop: transfer_funds_form
-  - action: transfer_funds_form
-  - active_loop: null
   - slot_was_set:
-    - requested_slot: null
-  - action: submit_transfer_funds_form
-  - intent: deny_intent
-  - slot_was_set:
-    - confirm_transfer_slot: False
-  - action: transfer_funds_form
-  - active_loop: transfer_funds_form
-  - action: transfer_funds_form
-  - active_loop: null
-  - slot_was_set:
-    - requested_slot: null
-  - action: submit_transfer_funds_form
-
-- story: Pay my bills story
-  steps:
+      - logged_in_status_slot: true
   - intent: pay_my_bills_intent
   - action: action_show_my_bills
   - action: action_set_confirm_pay_bills_slot
   - action: pay_my_bills_form
   - active_loop: pay_my_bills_form
   - slot_was_set:
-    - requested_slot: confirm_pay_bills_slot
+      - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
-    - requested_slot: null
+      - requested_slot: null
   - active_loop: null
   - action: submit_pay_my_bills_form
-  - action: action_listen
 
-- story: Pay my gas bill story
+- story: Pay my bills story - negative case
   steps:
+  - slot_was_set:
+      - logged_in_status_slot: false
+  - intent: pay_my_bills_intent
+  - action: utter_not_logged_in
+
+# Pay my gas bill story
+- story: Pay my gas bill story - positive case
+  steps:
+  - slot_was_set:
+      - logged_in_status_slot: true
   - intent: pay_my_gas_bill_intent
   - action: action_show_my_gas_bill
   - action: action_set_confirm_pay_bills_slot
   - action: pay_my_gas_bill_form
   - active_loop: pay_my_gas_bill_form
   - slot_was_set:
-    - requested_slot: confirm_pay_bills_slot
+      - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
-    - requested_slot: null
+      - requested_slot: null
   - active_loop: null
-  - action: submit_pay_my_gas_bill_form
-  - action: action_listen
+  - action: submit_pay_my_bills_form
 
-- story: Pay my electricity bill story
+- story: Pay my gas bill story - negative case
   steps:
+  - slot_was_set:
+      - logged_in_status_slot: false
+  - intent: pay_my_gas_bill_intent
+  - action: utter_not_logged_in
+
+# Pay my electricity bill story
+- story: Pay my electricity bill story - positive case
+  steps:
+  - slot_was_set:
+      - logged_in_status_slot: true
   - intent: pay_my_electricity_bill_intent
   - action: action_show_my_electricity_bill
   - action: action_set_confirm_pay_bills_slot
   - action: pay_my_electricity_bill_form
   - active_loop: pay_my_electricity_bill_form
   - slot_was_set:
-    - requested_slot: confirm_pay_bills_slot
+      - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
-    - requested_slot: null
+      - requested_slot: null
   - active_loop: null
-  - action: submit_pay_my_electricity_bill_form
-  - action: action_listen
+  - action: submit_pay_my_bills_form
 
-- story: Pay my water bill story
+- story: Pay my electricity bill story - negative case
   steps:
+  - slot_was_set:
+      - logged_in_status_slot: false
+  - intent: pay_my_electricity_bill_intent
+  - action: utter_not_logged_in
+
+# Pay my water bill story
+- story: Pay my water bill story - positive case
+  steps:
+  - slot_was_set:
+      - logged_in_status_slot: true
   - intent: pay_my_water_bill_intent
   - action: action_show_my_water_bill
   - action: action_set_confirm_pay_bills_slot
   - action: pay_my_water_bill_form
   - active_loop: pay_my_water_bill_form
   - slot_was_set:
-    - requested_slot: confirm_pay_bills_slot
+      - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
-    - requested_slot: null
+      - requested_slot: null
   - active_loop: null
-  - action: submit_pay_my_water_bill_form
-  - action: action_listen
+  - action: submit_pay_my_bills_form
 
-- story: Pay my rent bill story
+- story: Pay my water bill story - negative case
   steps:
+  - slot_was_set:
+      - logged_in_status_slot: false
+  - intent: pay_my_water_bill_intent
+  - action: utter_not_logged_in
+
+# Pay my rent bill story
+- story: Pay my rent bill story - positive case
+  steps:
+  - slot_was_set:
+      - logged_in_status_slot: true
   - intent: pay_my_rent_bill_intent
   - action: action_show_my_rent_bill
   - action: action_set_confirm_pay_bills_slot
   - action: pay_my_rent_bill_form
   - active_loop: pay_my_rent_bill_form
   - slot_was_set:
-    - requested_slot: confirm_pay_bills_slot
+      - requested_slot: confirm_pay_bills_slot
   - slot_was_set:
-    - requested_slot: null
+      - requested_slot: null
   - active_loop: null
-  - action: submit_pay_my_rent_bill_form
-  - action: action_listen
+  - action: submit_pay_my_bills_form
+
+- story: Pay my rent bill story - negative case
+  steps:
+  - slot_was_set:
+      - logged_in_status_slot: false
+  - intent: pay_my_rent_bill_intent
+  - action: utter_not_logged_in
+

@@ -2,7 +2,6 @@ from typing import Any, Dict, List, Text
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import queries_location
-from general_methods import only_works_if_logged_in
 
 
 # General show #
@@ -24,7 +23,7 @@ class ActionShowMyUserInfo(Action):
     def name(self) -> Text:
         return "action_show_my_user_info"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -58,7 +57,7 @@ class ActionShowMyCNP(Action):
     def name(self) -> Text:
         return "action_show_my_cnp"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -75,7 +74,7 @@ class ActionShowMyName(Action):
     def name(self) -> Text:
         return "action_show_my_name"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -90,7 +89,7 @@ class ActionShowMySurname(Action):
     def name(self) -> Text:
         return "action_show_my_surname"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -105,7 +104,7 @@ class ActionShowMyAge(Action):
     def name(self) -> Text:
         return "action_show_my_age"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -120,7 +119,7 @@ class ActionShowMyAccountNumber(Action):
     def name(self) -> Text:
         return "action_show_my_account_number"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -135,7 +134,7 @@ class ActionShowMyRegistrationDate(Action):
     def name(self) -> Text:
         return "action_show_my_registration_date"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -150,7 +149,7 @@ class ActionShowMyBalance(Action):
     def name(self) -> Text:
         return "action_show_my_balance"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -166,7 +165,7 @@ class ActionShowMyBills(Action):
     def name(self) -> Text:
         return "action_show_my_bills"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -190,7 +189,7 @@ class ActionShowMyGasBill(Action):
     def name(self) -> Text:
         return "action_show_my_gas_bill"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -205,7 +204,7 @@ class ActionShowMyElectricityBill(Action):
     def name(self) -> Text:
         return "action_show_my_electricity_bill"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -220,7 +219,7 @@ class ActionShowMyWaterBill(Action):
     def name(self) -> Text:
         return "action_show_my_water_bill"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -235,7 +234,7 @@ class ActionShowMyRentBill(Action):
     def name(self) -> Text:
         return "action_show_my_rent_bill"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')

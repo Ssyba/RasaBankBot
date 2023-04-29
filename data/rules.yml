@@ -1,12 +1,12 @@
 version: "3.1"
 
 rules:
-### Default intent that starts the app ###
+#### Default intent that starts the app ###
 - rule: Init intent triggers greet and login form
   steps:
   - intent: init_intent
-  - action: utter_greet
-  - action: action_log_me_in
+  - action: login_form
+  - active_loop: login_form
 
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges
@@ -20,12 +20,13 @@ rules:
   - intent: policies_info_intent
   - action: action_open_policies_page
 
-- rule: Ignore break_intent outside forms
-  condition:
-  - active_loop: null
+- rule: Break out of forms when break_intent is detected
   steps:
   - intent: break_intent
-  - action: utter_nothing_to_break
+  - action: utter_break
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
 
 - rule: Show interest rate
   steps:
@@ -39,86 +40,200 @@ rules:
 
 ### Login and Logout rules ###
 - rule: Trigger action_logout on logout_intent
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: logout_intent
   - action: action_logout
 
+- rule: Trigger utter_not_logged_in on logout_intent
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: logout_intent
+  - action: utter_not_logged_in
+
 ### User information rules ###
 - rule: Show all the user's information
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_user_info_intent
   - action: action_show_my_user_info
 
+- rule: Show all the user's information - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_user_info_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's CNP
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_cnp_intent
   - action: action_show_my_cnp
 
+- rule: Show the user's CNP - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_cnp_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's name
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_name_intent
   - action: action_show_my_name
 
+- rule: Show the user's name - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_name_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's surname
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_surname_intent
   - action: action_show_my_surname
 
+- rule: Show the user's surname - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_surname_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's age
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_age_intent
   - action: action_show_my_age
 
+- rule: Show the user's age - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_age_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's account number
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_account_number_intent
   - action: action_show_my_account_number
 
+- rule: Show the user's account number - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_account_number_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's registration date
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_registration_date_intent
   - action: action_show_my_registration_date
 
+- rule: Show the user's registration date - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_registration_date_intent
+  - action: utter_not_logged_in
+
 - rule: Show the user's current balance
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: show_my_balance_intent
   - action: action_show_my_balance
 
+- rule: Show the user's current balance - not logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: show_my_balance_intent
+  - action: utter_not_logged_in
+
 # This is put here for debugging purposes
-- rule: Show the user's current slots
+- rule: Show all the slots
   steps:
   - intent: show_slots_intent
   - action: action_show_all_slots
 
 ### Bills information rules ###
 - rule: Show the user's bills and total
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
     - intent: show_my_bills_intent
     - action: action_show_my_bills
 
 - rule: Show the user's gas bill
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
     - intent: show_my_gas_bill_intent
     - action: action_show_my_gas_bill
 
 - rule: Show the user's electricity bill
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
     - intent: show_my_electricity_bill_intent
     - action: action_show_my_electricity_bill
 
 - rule: Show the user's water bill
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
     - intent: show_my_water_bill_intent
     - action: action_show_my_water_bill
 
 - rule: Show the user's rent bill
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
     - intent: show_my_rent_bill_intent
     - action: action_show_my_rent_bill
 
-### Forms ###
-# Login form
-- rule: Check login status
+### Forms and some check cases ###
+# Login - negative case
+- rule:  Activate login form - logged in
   condition:
   - slot_was_set:
     - logged_in_status_slot: true
@@ -126,6 +241,7 @@ rules:
   - intent: login_intent
   - action: utter_already_logged_in
 
+# Login form
 - rule: Activate login form
   condition:
   - slot_was_set:
@@ -145,7 +261,16 @@ rules:
     - requested_slot: null
   - action: submit_login_form
 
-# Rule for asking CNP again
+# Asking CNP again - negative case
+- rule: Ask for CNP again if logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: check_cnp_again_intent
+  - action: utter_already_logged_in
+
+# Asking CNP again
 - rule: Ask for CNP again if not logged in
   condition:
   - slot_was_set:
@@ -155,16 +280,20 @@ rules:
   - action: login_form
   - active_loop: login_form
 
-- rule: Ask for CNP again if logged in
+# New user - negative case
+- rule: Activate new user form while logged in
   condition:
   - slot_was_set:
     - logged_in_status_slot: true
   steps:
-  - intent: check_cnp_again_intent
-  - action: utter_already_logged_in
+  - intent: new_user_intent
+  - action: utter_not_logged_out
 
 # New user form
 - rule: Activate new user form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
   steps:
   - intent: new_user_intent
   - action: new_user_form
@@ -180,8 +309,20 @@ rules:
     - requested_slot: null
   - action: submit_new_user_form
 
+# Transfer funds - negative case
+- rule: Activate transfer funds form while logged out
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: transfer_funds_intent
+  - action: utter_not_logged_in
+
 # Transfer funds form
 - rule: Activate transfer funds form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: transfer_funds_intent
   - action: transfer_funds_form
@@ -197,8 +338,20 @@ rules:
     - requested_slot: null
   - action: submit_transfer_funds_form
 
+# Pay my bills - negative case
+- rule: Activate pay my bills form while logged out
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: pay_my_bills_intent
+  - action: utter_not_logged_in
+
 # Pay my bills form
 - rule: Activate pay my bills form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: pay_my_bills_intent
   - action: action_show_my_bills
@@ -216,8 +369,20 @@ rules:
     - requested_slot: null
   - action: submit_pay_my_bills_form
 
+# Pay my gas bill - negative case
+- rule: Activate pay my gas bill form while logged out
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: pay_my_gas_bill_intent
+  - action: utter_not_logged_in
+
 # Pay my gas bill form
 - rule: Activate pay my gas bill form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: pay_my_gas_bill_intent
   - action: action_show_my_gas_bill
@@ -233,10 +398,22 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_pay_my_gas_bill_form
+  - action: submit_pay_my_bills_form
+
+# Pay my electricity bill - negative case
+- rule: Activate pay my electricity bill form while logged out
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: pay_my_electricity_bill_intent
+  - action: utter_not_logged_in
 
 # Pay my electricity bill form
 - rule: Activate pay my electricity bill form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: pay_my_electricity_bill_intent
   - action: action_show_my_electricity_bill
@@ -252,10 +429,22 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_pay_my_electricity_bill_form
+  - action: submit_pay_my_bills_form
+
+# Pay my water bill - negative case
+- rule: Activate pay my water bill form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: pay_my_water_bill_intent
+  - action: utter_not_logged_in
 
 # Pay my water bill form
 - rule: Activate pay my water bill form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: pay_my_water_bill_intent
   - action: action_show_my_water_bill
@@ -271,10 +460,22 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_pay_my_water_bill_form
+  - action: submit_pay_my_bills_form
+
+# Pay my rent bill - negative case
+- rule: Activate pay my rent bill form while logged out
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: false
+  steps:
+  - intent: pay_my_rent_bill_intent
+  - action: utter_not_logged_in
 
 # Pay my rent bill form
 - rule: Activate pay my rent bill form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
   steps:
   - intent: pay_my_rent_bill_intent
   - action: action_show_my_rent_bill
@@ -290,4 +491,4 @@ rules:
   - active_loop: null
   - slot_was_set:
     - requested_slot: null
-  - action: submit_pay_my_rent_bill_form
+  - action: submit_pay_my_bills_form

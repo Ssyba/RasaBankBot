@@ -165,11 +165,27 @@ slots:
         conditions:
           - active_loop: pay_my_bills_form
             requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_gas_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_electricity_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_water_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_rent_bill_form
+            requested_slot: confirm_pay_bills_slot
       - type: from_intent
         intent: deny_intent
         value: false
         conditions:
           - active_loop: pay_my_bills_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_gas_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_electricity_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_water_bill_form
+            requested_slot: confirm_pay_bills_slot
+          - active_loop: pay_my_rent_bill_form
             requested_slot: confirm_pay_bills_slot
 
 forms:
@@ -224,14 +240,19 @@ responses:
     - text: "The current interest rate is 6.8% per year."
   utter_default:
     - text: "I'm sorry, I didn't understand that. Can you please try again?"
+  utter_not_logged_in:
+    - text: "Invalid operation, you are not logged in."
+  utter_not_logged_out:
+    - text: "Invalid operation, you need to log out first."
+  utter_break:
+    - text: "Action interrupted."
 
   # Login and logout responses
   utter_ask_cnp_slot:
     - text: "Please provide your CNP:"
   utter_already_logged_in:
     - text: "You are already logged in."
-  utter_nothing_to_break:
-    - text: "There is no action to interrupt."
+
 
   # New user form responses
   utter_ask_name_slot:
@@ -297,23 +318,21 @@ actions:
 ### Bills actions ###
 # Pay my bills actions
   - validate_pay_my_bills_form
-  - submit_pay_my_bills_form
 
 # Pay my gas bill actions
   - validate_pay_my_gas_bill_form
-  - submit_pay_my_gas_bill_form
 
 # Pay my electricity bill actions
   - validate_pay_my_electricity_bill_form
-  - submit_pay_my_electricity_bill_form
 
 # Pay my water bill actions
   - validate_pay_my_water_bill_form
-  - submit_pay_my_water_bill_form
 
 # Pay my rent bill actions
   - validate_pay_my_rent_bill_form
-  - submit_pay_my_rent_bill_form
+
+# Submit action for paying any bill
+  - submit_pay_my_bills_form
 
 # Action helpers
   - action_set_confirm_pay_bills_slot

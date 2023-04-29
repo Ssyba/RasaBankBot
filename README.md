@@ -61,7 +61,7 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
 # Available functionalities at this time:
 1. Fully built home welcome page for Marius Bank.
 2. Greet the user
-3. Refresh session(logout) on page refresh.
+3. Refresh session, logout on page refresh.
 4. Log the user in automatically - for debugging purposes.
 5. Answer to: What are you?/Are you a bot?
 6. Show company policies, redirects to a webpage with website policies.
@@ -92,4 +92,7 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
 17. Is users tries to login but is already login, message will be displayed.
 18. Pay bills:
     - Pay my bills(I want to pay my bills)
-    - Pay my gas bill(I want to pay my gas)
+    - Pay my gas bill(I want to pay my gas bill)
+    - Pay my electricity bill(I want to pay my electricity bill)
+    - Pay my water bill(I want to pay my water bill)
+    - Pay my rent bill(I want to pay my rent bill)

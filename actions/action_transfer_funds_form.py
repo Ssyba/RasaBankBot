@@ -5,8 +5,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 import queries_location
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
-from general_methods import is_valid_account_number, is_valid_transfer_amount, skip_validate_if_logged_out, \
-    only_works_if_logged_in, handle_break_and_logout_special_intents
+from general_methods import is_valid_account_number, is_valid_transfer_amount
 import re
 
 
@@ -14,8 +13,6 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
     def name(self) -> Text:
         return "validate_transfer_funds_form"
 
-    @skip_validate_if_logged_out
-    @handle_break_and_logout_special_intents
     async def validate_recipient_account_number_slot(
             self,
             slot_value: Any,
@@ -62,9 +59,8 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
             return {"transfer_amount_slot": None}
 
         cnp = tracker.get_slot("cnp_slot")
+        current_balance = queries_location.get_balance_by_cnp_query(cnp)
         if is_valid_transfer_amount(transfer_amount, cnp):
-            cnp = tracker.get_slot("cnp_slot")
-            current_balance = queries_location.get_balance_by_cnp_query(cnp)
             recipient_account_number = tracker.get_slot("recipient_account_number_slot")
             transfer_amount = tracker.get_slot("transfer_amount_slot")
 
@@ -77,6 +73,8 @@ class ValidateTransferFundsForm(BaseFormValidationAction):
         else:
             dispatcher.utter_message(
                 text="Invalid amount. Please make sure you entered only digits and that you have enough funds.")
+            dispatcher.utter_message(
+                text=f"You current balance is {current_balance}$.")
             return {"transfer_amount": None}
 
     async def validate_confirm_transfer_slot(
@@ -97,7 +95,6 @@ class ActionSubmitTransferFundsForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_transfer_funds_form"
 
-    @only_works_if_logged_in
     async def submit(
             self,
             dispatcher: CollectingDispatcher,

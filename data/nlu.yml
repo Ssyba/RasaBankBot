@@ -4004,6 +4004,9 @@ nlu:
 ### Miscellaneous Intents ###
 - intent: break_intent
   examples: |
+    - break
+    - break the loop
+    - break out of this form
     - That's enough for now.
     - Let's stop.
     - I'm ready to be done.

@@ -5,8 +5,7 @@ from rasa_sdk.forms import SlotSet
 import queries_location
 import logging
 from actions.base_classes import BaseFormValidationAction, BaseSubmitAction
-from general_methods import is_valid_cnp, is_valid_password, only_works_if_logged_out, skip_validate_if_logged_in, \
-    handle_break_and_logout_special_intents
+from general_methods import is_valid_cnp, is_valid_password
 
 logger = logging.getLogger(__name__)
 
@@ -15,8 +14,6 @@ class ValidateLoginForm(BaseFormValidationAction):
     def name(self) -> Text:
         return "validate_login_form"
 
-    @skip_validate_if_logged_in
-    @handle_break_and_logout_special_intents
     async def validate_cnp_slot(
             self,
             slot_value: Any,
@@ -57,7 +54,7 @@ class SubmitLoginForm(BaseSubmitAction):
     def name(self) -> Text:
         return "submit_login_form"
 
-    @only_works_if_logged_out
+    # @only_works_if_logged_out
     async def submit(
             self,
             dispatcher: CollectingDispatcher,

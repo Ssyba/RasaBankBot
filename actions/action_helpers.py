@@ -1,16 +1,15 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SlotSet
+from rasa_sdk.events import SlotSet, ActiveLoop
 import queries_location
-from general_methods import only_works_if_logged_in
 
 
 class ActionSetConfirmPayBillsSlot(Action):
     def name(self) -> Text:
         return "action_set_confirm_pay_bills_slot"
 
-    @only_works_if_logged_in
+    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -37,9 +36,9 @@ class ActionSetConfirmPayBillsSlot(Action):
             bill_amount = queries_location.get_total_sum_of_bills_query(cnp)
         else:
             dispatcher.utter_message(text="Invalid last action.")
-            return [SlotSet("confirm_pay_bills_slot", None)]
+            return [SlotSet("confirm_pay_bills_slot", None), ActiveLoop(None)]
 
         if bill_amount == 0:
-            return [SlotSet("confirm_pay_bills_slot", "nothing_to_pay")]
+            return [SlotSet("confirm_pay_bills_slot", "nothing_to_pay"), ActiveLoop(None)]
         else:
-            return [SlotSet("confirm_pay_bills_slot", None)]
+            return [SlotSet("confirm_pay_bills_slot", None), ActiveLoop(None)]

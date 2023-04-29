@@ -156,6 +156,36 @@ def pay_gas_bill_query(cnp: str, gas_bill_amount: int) -> None:
     db_executor(pay_query)
 
 
+def pay_electricity_bill_query(cnp: str, electricity_bill_amount: int) -> None:
+    pay_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {electricity_bill_amount} WHERE CNP='{cnp}';
+            UPDATE bills SET electricity = 0 WHERE cnp='{cnp}';
+        COMMIT;
+    """
+    db_executor(pay_query)
+
+
+def pay_water_bill_query(cnp: str, water_bill_amount: int) -> None:
+    pay_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {water_bill_amount} WHERE CNP='{cnp}';
+            UPDATE bills SET water = 0 WHERE cnp='{cnp}';
+        COMMIT;
+    """
+    db_executor(pay_query)
+
+
+def pay_rent_bill_query(cnp: str, rent_bill_amount: int) -> None:
+    pay_query = f"""
+        BEGIN;
+            UPDATE users SET balance = balance - {rent_bill_amount} WHERE CNP='{cnp}';
+            UPDATE bills SET rent = 0 WHERE cnp='{cnp}';
+        COMMIT;
+    """
+    db_executor(pay_query)
+
+
 # Find inside tables #
 def find_user_by_cnp_query(cnp: str) -> dict:
     # Get the row data and column names

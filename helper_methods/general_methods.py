@@ -1,4 +1,3 @@
-import asyncio
 import re
 from functools import wraps
 from typing import Text, Dict, Any
@@ -96,110 +95,6 @@ def is_valid_transfer_amount(amount: float, cnp: str) -> bool:
     return 0 <= (balance - int(amount))
 
 
-# async def validate_confirmation_slot(
-#         slot_name: Text,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: DomainDict,
-# ) -> Dict[Text, Any]:
-#     intent = tracker.latest_message["intent"].get("name")
-#     if intent == "affirm":
-#         return {slot_name: True}
-#     elif intent == "deny":
-#         return {slot_name: False}
-
-
-# Wrappers #
-# skip_validate_if_logged_ is meant for the first slot in a form that is only for when the user is logged out(works
-# together with only_works_if_logged_ wrapper that is added to submit of the form)
-def skip_validate_if_logged_in(func):
-    @wraps(func)
-    async def wrapper(*args, **kwargs):
-        tracker = None
-        for arg in args:
-            if isinstance(arg, Tracker):
-                tracker = arg
-
-        logged_in_status = tracker.get_slot('logged_in_status_slot')
-
-        if logged_in_status:
-            return {"requested_slot": None}
-
-        if asyncio.iscoroutinefunction(func):
-            return await func(*args, **kwargs)
-        else:
-            return func(*args, **kwargs)
-
-    return wrapper
-
-
-def skip_validate_if_logged_out(func):
-    @wraps(func)
-    async def wrapper(*args, **kwargs):
-        tracker = None
-        for arg in args:
-            if isinstance(arg, Tracker):
-                tracker = arg
-
-        logged_in_status = tracker.get_slot('logged_in_status_slot')
-
-        if not logged_in_status:
-            return {"requested_slot": None}
-
-        if asyncio.iscoroutinefunction(func):
-            return await func(*args, **kwargs)
-        else:
-            return func(*args, **kwargs)
-
-    return wrapper
-
-
-def only_works_if_logged_out(func):
-    @wraps(func)
-    async def wrapper(self, *args, **kwargs):
-        dispatcher, tracker = None, None
-        for arg in args:
-            if isinstance(arg, CollectingDispatcher):
-                dispatcher = arg
-            elif isinstance(arg, Tracker):
-                tracker = arg
-
-        logged_in_status = tracker.get_slot('logged_in_status_slot')
-        if logged_in_status:
-            dispatcher.utter_message(text="Invalid operation because you are already logged in.")
-            return []
-
-        if asyncio.iscoroutinefunction(func):
-            return await func(self, *args, **kwargs)
-        else:
-            return func(self, *args, **kwargs)
-
-    return wrapper
-
-
-def only_works_if_logged_in(func):
-    @wraps(func)
-    async def wrapper(self, *args, **kwargs):
-        dispatcher, tracker = None, None
-        for arg in args:
-            if isinstance(arg, CollectingDispatcher):
-                dispatcher = arg
-            elif isinstance(arg, Tracker):
-                tracker = arg
-
-        logged_in_status = tracker.get_slot('logged_in_status_slot')
-        if not logged_in_status:
-            dispatcher.utter_message(text="Invalid operation because you are not logged in.")
-            return []
-
-        if asyncio.iscoroutinefunction(func):
-            return await func(self, *args, **kwargs)
-        else:
-            return func(self, *args, **kwargs)
-
-    return wrapper
-
-
 # Made to handle the logout or break intents if it's for the first validation in a form, this is to handle a rasa
 # special limitation
 def handle_break_and_logout_special_intents(validation_func):
@@ -211,12 +106,9 @@ def handle_break_and_logout_special_intents(validation_func):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> Dict[Text, Any]:
-        # Extract the first slot name from the validation function name
-        first_slot_name = validation_func.__name__.replace("validate_", "")
-
         # If the previous intent was break_intent or login_intent, skip validation
         if tracker.latest_message['intent'].get('name') in ['break_intent', 'login_intent']:
-            return {"requested_slot": first_slot_name}
+            return {"requested_slot": None}
 
         # Proceed with the actual validation
         return await validation_func(self, slot_value, dispatcher, tracker, domain)
