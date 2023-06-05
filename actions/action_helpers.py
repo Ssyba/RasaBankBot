@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SlotSet, ActiveLoop
+from dateutil.parser import parse
 import queries_location
 
 
@@ -9,7 +10,6 @@ class ActionSetConfirmPayBillsSlot(Action):
     def name(self) -> Text:
         return "action_set_confirm_pay_bills_slot"
 
-    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -42,3 +42,18 @@ class ActionSetConfirmPayBillsSlot(Action):
             return [SlotSet("confirm_pay_bills_slot", "nothing_to_pay"), ActiveLoop(None)]
         else:
             return [SlotSet("confirm_pay_bills_slot", None), ActiveLoop(None)]
+
+
+class ActionExtractTransactionDate(Action):
+    def name(self) -> Text:
+        return "action_extract_transaction_date"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        date_entity = next(tracker.get_latest_entity_values("transaction_date"), None)
+
+        return [SlotSet("transaction_date", date_entity)]

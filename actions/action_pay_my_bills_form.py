@@ -87,16 +87,11 @@ class ActionSubmitPayMyBillsForm(BaseSubmitAction):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
+        cnp = tracker.get_slot("cnp_slot")
         confirm_pay_bills = tracker.get_slot("confirm_pay_bills_slot")
 
         if confirm_pay_bills == 'nothing_to_pay':
             dispatcher.utter_message(text="You have no bills to pay.")
-            return [SlotSet('confirm_pay_bills_slot', None)]
-
-        if not confirm_pay_bills:
-            dispatcher.utter_message(text='Transaction canceled.')
-            return [SlotSet('confirm_pay_bills_slot', None)]
         elif confirm_pay_bills:
             last_action = ''
             for event in reversed(tracker.events):
@@ -104,37 +99,33 @@ class ActionSubmitPayMyBillsForm(BaseSubmitAction):
                     last_action = event["name"]
                     break
 
-            cnp = tracker.get_slot("cnp_slot")
             user_balance = queries_location.get_balance_by_cnp_query(cnp)
-            amount_to_be_paid = 0
+            bill_action_query_map = {
+                "pay_my_bills_form": (
+                    "All Bills", queries_location.get_total_sum_of_bills_query, queries_location.pay_bills_query),
+                "pay_my_gas_bill_form": (
+                    "Gas", queries_location.get_gas_bill_query, queries_location.pay_gas_bill_query),
+                "pay_my_electricity_bill_form": ("Electricity", queries_location.get_electricity_bill_query,
+                                                 queries_location.pay_electricity_bill_query),
+                "pay_my_water_bill_form": (
+                    "Water", queries_location.get_water_bill_query, queries_location.pay_water_bill_query),
+                "pay_my_rent_bill_form": (
+                    "Rent", queries_location.get_rent_bill_query, queries_location.pay_rent_bill_query)
+            }
 
-            if last_action == "pay_my_bills_form":
-                amount_to_be_paid = queries_location.get_total_sum_of_bills_query(cnp)
-                query = queries_location.pay_bills_query
-            elif last_action == "pay_my_gas_bill_form":
-                amount_to_be_paid = queries_location.get_gas_bill_query(cnp)
-                query = queries_location.pay_gas_bill_query
-            elif last_action == "pay_my_electricity_bill_form":
-                amount_to_be_paid = queries_location.get_electricity_bill_query(cnp)
-                query = queries_location.pay_electricity_bill_query
-            elif last_action == "pay_my_water_bill_form":
-                amount_to_be_paid = queries_location.get_water_bill_query(cnp)
-                query = queries_location.pay_water_bill_query
-            elif last_action == "pay_my_rent_bill_form":
-                amount_to_be_paid = queries_location.get_rent_bill_query(cnp)
-                query = queries_location.pay_rent_bill_query
+            if last_action in bill_action_query_map:
+                bill_type, get_bill_query, pay_bill_query = bill_action_query_map[last_action]
+                amount_to_be_paid = get_bill_query(cnp)
+
+                if user_balance >= amount_to_be_paid:
+                    pay_bill_query(cnp, amount_to_be_paid)
+                    queries_location.log_payment_query(cnp, bill_type, amount_to_be_paid)  # Log the transaction
+                    dispatcher.utter_message(text='Payment successful.')
+                    dispatcher.utter_message(text=f"Amount paid: {amount_to_be_paid}$")
+                else:
+                    dispatcher.utter_message(text="Insufficient funds. Payment not successful.")
             else:
                 dispatcher.utter_message(text='Something went wrong.')
-                return [SlotSet('confirm_pay_bills_slot', None)]
-
-            if user_balance >= amount_to_be_paid:
-                query(cnp, amount_to_be_paid)
-                dispatcher.utter_message(text='Payment successful.')
-                dispatcher.utter_message(text=f"Amount paid: {amount_to_be_paid}$")
-                return [SlotSet('confirm_pay_bills_slot', None)]
-            else:
-                dispatcher.utter_message(text="Insufficient funds. Payment not successful.")
-                return [SlotSet('confirm_pay_bills_slot', None)]
         else:
-            dispatcher.utter_message(text='Something went wrong.')
-            return [SlotSet('confirm_pay_bills_slot', None)]
+            dispatcher.utter_message(text='Transaction canceled.')
+        return [SlotSet('confirm_pay_bills_slot', None)]

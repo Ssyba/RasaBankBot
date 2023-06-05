@@ -108,6 +108,7 @@ class ActionSubmitTransferFundsForm(BaseSubmitAction):
 
         if confirm_transfer:
             queries_location.transfer_funds_query(cnp, recipient_account_number, transfer_amount)
+            queries_location.log_transfer_query(cnp, recipient_account_number, transfer_amount)
             updated_balance = queries_location.get_balance_by_cnp_query(cnp)
 
             dispatcher.utter_message(text="Transfer successful!")

@@ -4100,3 +4100,577 @@ nlu:
     - Let's break off the conversation.
     - Let's conclude this.
     - I do not want to continue.
+
+### Transactions Intents ###
+- intent: show_my_transactions_intent
+  examples: |
+    - show me all my transactions
+    - display my transactions
+    - let me see my transactions
+    - can I see my transactions
+    - I want to view my transactions
+    - Can you show my transactions?
+    - What are my recent transactions?
+    - List my transactions
+    - Tell me about my transactions
+    - Show the transactions on my account
+    - Can I get the details of my transactions?
+    - I'd like to see all my transactions
+    - Could you list my transactions?
+    - I want to check my transactions
+    - Show me the details of my transactions
+    - Show my transaction history
+    - What's my transaction history?
+    - I'd like to review my transactions
+    - Can I have a look at my transactions?
+    - Could you please show me my transactions?
+    - Could I view my transactions?
+    - Reveal my transactions, please
+    - Please show my transaction details
+    - Can you list all my transactions?
+    - Show me all transactions to date
+    - I want to see all my transactions
+    - Give me a rundown of my transactions
+    - Can I get a list of all my transactions?
+    - I'd like to inspect my transactions
+    - Can I examine my transactions?
+    - I want to view all transactions
+    - Present me my transactions, please
+    - Can I access my transactions?
+    - Is it possible to see all my transactions?
+    - Can you display my transactions?
+    - Give me a summary of my transactions
+    - Show me all the transactions I've made
+    - I would like to see my transactions
+    - Can you list my transactions, please?
+    - Let me review my transactions
+    - I'd like to look at my transactions
+    - I want to see all the transactions
+    - I need to see my transactions
+    - I wish to see my transactions
+    - Show the list of all my transactions
+    - Unveil my transactions
+    - Can you reveal my transactions?
+    - I'd love to see all my transactions
+    - Please show my transactions
+    - Display all of my transactions
+    - Can you show all my transactions?
+    - Show me the list of my transactions
+    - Can I get a recap of my transactions?
+    - Can you illustrate my transactions?
+    - I want to examine all my transactions
+    - I want to see my complete transaction history
+    - I wish to view my transactions
+    - Give me the list of my transactions
+    - Display my complete transaction history
+    - Please list my transactions
+    - Show me a summary of my transactions
+    - Can I get an overview of my transactions?
+    - Can you summarize my transactions?
+    - Show me my complete transaction record
+    - I would like to check my transactions
+    - Can I review all my transactions?
+    - I'd like to browse my transactions
+    - I want to glance at my transactions
+    - I'm looking to see my transactions
+    - I am interested in seeing my transactions
+    - Please show me all my transactions
+    - Can I see all transactions?
+    - Can you let me view my transactions?
+    - I need to look at my transactions
+    - I would love to view my transactions
+    - I'm interested in my transactions
+    - Display my entire transaction history
+    - Can you give me an account of my transactions?
+    - I want to scrutinize my transactions
+    - Can you show my entire transaction history?
+    - Show my transactions, please
+    - Can you pull up my transactions?
+    - I'd like to see my complete transaction list
+    - I'd love to review my transactions
+    - Can you show me a list of all transactions?
+    - Let me check my transactions
+    - Display my transaction history, please
+    - Can you provide my transaction details?
+    - I wish to check my transactions
+    - Let me inspect my transactions
+    - Can you show all transactions on my account?
+    - I'd like to go through my transactions
+    - Can I have a look at all my transactions?
+    - I need a summary of my transactions
+    - Can I see my complete list of transactions?
+    - Can I peek at my transactions?
+    - I'd like a rundown of my transactions
+    - I want to survey my transactions
+    - Can I get a look at my transactions?
+    - Please, can you show my transactions?
+    - I'd like an overview of my transactions
+    - Can I have my transaction details?
+    - Show me my transactions, please
+    - Could you present my transactions?
+    - Please let me see my transactions
+    - I'm eager to see my transactions
+    - Display my transactions, please
+    - Can you pull my transactions?
+    - Show me all my past transactions
+    - Can I get my transaction details?
+    - Please provide my transactions
+    - Could you show all my transactions?
+    - I'd like to peruse my transactions
+    - Can I look at my transactions?
+    - I'm curious about my transactions
+    - Can I check out my transactions?
+    - I'd like to know my transactions
+    - I'm interested in reviewing my transactions
+    - I want to keep track of my transactions
+    - Could you give me my transactions?
+    - Show me my transaction list
+    - I'd like to see my transactions, please
+    - May I view my transactions?
+    - Please reveal my transactions
+    - Can I get a display of my transactions?
+    - I wish to review all my transactions
+    - Can you pull out my transactions?
+    - Could you display my transactions?
+    - Can you provide all my transactions?
+    - May I see my transactions?
+    - Show all my transactions, please
+    - Let me view my transactions
+
+- intent: show_my_transfers_intent
+  examples: |
+    - show me all my transfers
+    - display my transfers
+    - let me see my transfers
+    - can I see my transfers
+    - I want to view my transfers
+    - Can you show my transfers?
+    - What are my recent transfers?
+    - List my transfers
+    - Tell me about my transfers
+    - Show the transfers on my account
+    - Can I get the details of my transfers?
+    - I'd like to see all my transfers
+    - Could you list my transfers?
+    - I want to check my transfers
+    - Show me the details of my transfers
+    - Show my transfer history
+    - What's my transfer history?
+    - I'd like to review my transfers
+    - Can I have a look at my transfers?
+    - Could you please show me my transfers?
+    - Could you provide a summary of my transfers?
+    - Show me the record of my transfers
+    - Can you retrieve my transfers?
+    - Can I see a history of my transfers?
+    - Show me all my transfer details
+    - I want to see all of my transfers
+    - What's in my transfer history?
+    - List all my previous transfers
+    - I'd like to view my transfer details
+    - Show me all the transfers from my account
+    - I want to review all my transfers
+    - Display a list of my transfers
+    - Can you get me a list of my transfers?
+    - Show me all the transfers I've made
+    - Can I see a list of my transfers?
+    - I'd like to check my transfer history
+    - Display my transfer details
+    - Can you show me all of my transfers?
+    - Show me my full transfer history
+    - I want to see a record of my transfers
+    - Can you display my transfer history?
+    - Please provide a summary of my transfers
+    - I'd like to see all of my transfer transactions
+    - Show me the details of all my transfers
+    - Can I review my transfers?
+    - I want to check my full transfer history
+    - Can you retrieve all my transfers?
+    - Can I see my transfer records?
+    - Show me a summary of my transfers
+    - I want to view a history of my transfers
+    - What are all the transfers I've made?
+    - List all my transfer transactions
+    - I'd like to view my full transfer history
+    - Display all my transfers
+    - Can you show me a record of my transfers?
+    - Show me all of my transfer details
+    - I want to review all of my transfer transactions
+    - Display a list of all my transfers
+    - Can you get me a list of all my transfer transactions?
+    - Show me all the transfers I've done
+    - Can I see a list of all my transfers?
+    - I'd like to check my entire transfer history
+    - Display all of my transfer details
+    - Can you show me all the transfers I've conducted?
+    - Show me my complete transfer history
+    - I want to see a detailed record of my transfers
+    - Can you display my complete transfer history?
+    - Please provide a complete summary of my transfers
+    - I'd like to see every single one of my transfer transactions
+    - Show me the detailed information of all my transfers
+    - Can I review every transfer I've made?
+    - I want to check my whole transfer history
+    - Can you retrieve every single one of my transfers?
+    - Can I see my full transfer records?
+    - Show me a comprehensive summary of my transfers
+    - I want to view an entire history of my transfers
+    - What are all the transfers I've conducted?
+    - List every single one of my transfer transactions
+    - I'd like to view my whole transfer history
+    - Display every one of my transfers
+    - Can you show me a detailed record of my transfers?
+    - Show me each and every one of my transfer details
+    - I want to review each of my transfer transactions
+    - Display a comprehensive list of my transfers
+    - Can you get me a complete list of my transfer transactions?
+    - Show me all the transfers I've been involved in
+
+- intent: show_my_bill_payments_intent
+  examples: |
+    - Show me all my bill payments
+    - Can you show my bill payments?
+    - I would like to view all my bill payments
+    - Display my bill payments
+    - Can I see my bill payments?
+    - What are my bill payments?
+    - Please show my bill payments
+    - I need to see my bill payments
+    - Could you please show me my bill payments?
+    - Can I get a list of my bill payments?
+    - Please list my bill payments
+    - Show my bill payment history
+    - I want to check my bill payment records
+    - I want to see all my bill payments
+    - I'm looking to see my bill payments
+    - How can I see my bill payments?
+    - Can you display my bill payment history?
+    - Can I review my bill payments?
+    - Can I have a look at my bill payments?
+    - Let me see all my bill payments
+    - I need information about my bill payments
+    - Can you give me information about my bill payments?
+    - Show me the bill payments I've made
+    - Could you list my bill payments?
+    - I need a list of my bill payments
+    - Can you provide a list of my bill payments?
+    - Can you show a list of my bill payments?
+    - Is it possible to see my bill payments?
+    - Can I check out my bill payments?
+    - I'd like to have a look at my bill payments
+    - Give me a list of all my bill payments
+    - Can you tell me about my bill payments?
+    - I'd like to see my bill payments
+    - Can you show the bill payments?
+    - Show me my bill payments, please
+    - Could I see my bill payments?
+    - I wish to see my bill payments
+    - Let me know about my bill payments
+    - Can I have a record of my bill payments?
+    - Is it possible to show me my bill payments?
+    - I am looking for my bill payments
+    - I want to know about my bill payments
+    - Please, can you show my bill payments?
+    - Please, can I see my bill payments?
+    - May I see my bill payments?
+    - Could I have a look at my bill payments?
+    - Let me check my bill payments
+    - Can you provide information on my bill payments?
+    - Please give details of my bill payments
+    - Can I know about my bill payments?
+    - Show me the list of my bill payments
+    - I want a detailed list of my bill payments
+    - Show me the details of my bill payments
+    - I'd like to check my bill payments
+    - Please show me the record of my bill payments
+    - Can you bring up my bill payments?
+    - Could you pull up my bill payments?
+    - I'm interested in seeing my bill payments
+    - Show me my previous bill payments
+    - Can I look at my bill payments?
+    - How do I view my bill payments?
+    - I want to view the list of my bill payments
+    - I need to review my bill payments
+    - Can I get information on my bill payments?
+    - Could I get details of my bill payments?
+    - I would like to know about my bill payments
+    - Show me my bill payment history, please
+    - May I view my bill payments?
+    - Please give me a list of my bill payments
+    - I want a record of my bill payments
+    - I would like to check my bill payments
+    - Can I see the record of my bill payments?
+    - I want to know the details of my bill payments
+    - Show me all of my bill payments
+    - How can I check my bill payments?
+    - Show my bill payment records, please
+    - I'd like to see a list of my bill payments
+    - Could you display my bill payments?
+    - Can you help me see my bill payments?
+    - How do I check my bill payments?
+    - Could you show me my bill payment records?
+    - I would like to see my bill payment records
+    - Can you show me all my bill payments?
+    - I need to check my bill payments
+    - Let me review my bill payments
+    - I need a detailed list of my bill payments
+    - I need to view my bill payments
+    - Please show me all my bill payments
+    - Can you show me my bill payment history?
+    - Let me see the list of my bill payments
+    - I want to look at my bill payments
+    - Can you pull up the record of my bill payments?
+    - May I know about my bill payments?
+    - Can I get the list of my bill payments?
+    - I wish to check my bill payments
+    - Can I review my bill payment history?
+    - Could you give me a list of my bill payments?
+    - Could I check my bill payments?
+    - Please, show me the history of my bill payments
+    - May I check my bill payments?
+    - Could I view my bill payments?
+    - Please display my bill payments
+    - Let me view my bill payments
+    - Please provide a list of my bill payments
+    - Could I have information about my bill payments?
+    - I wish to know about my bill payments
+    - Could you show me the list of my bill payments?
+    - Show me the records of my bill payments
+    - Can you give me the record of my bill payments?
+    - I would like to review my bill payments
+    - I want to see my bill payment records
+    - Can you show me the details of my bill payments?
+    - I would like to know the details of my bill payments
+    - Please, can I have a look at my bill payments?
+    - I am interested in my bill payments
+    - Could you give me information about my bill payments?
+    - I would like to look at my bill payments
+    - I'm looking for my bill payment records
+    - Could you give me the list of my bill payments?
+    - I want to review my bill payment records
+    - Can I have details of my bill payments?
+    - I am interested in seeing my bill payment history
+    - Could you provide the details of my bill payments?
+    - May I review my bill payments?
+    - I would like to view my bill payment records
+    - Show me a list of my bill payments, please
+    - Could you please list my bill payments?
+    - I'd like to review my bill payment history
+
+- intent: show_my_transactions_by_date_intent
+  examples: |
+    - Could you let me view my transactions from [2023-01-21](transaction_date)?
+    - How about my transactions on [2023-02-21](transaction_date)?
+    - Can I look at my transactions from [2023-01-22](transaction_date)?
+    - May I review my transactions on [2023-02-22](transaction_date)?
+    - Show me my transactions for the date [2023-01-23](transaction_date)
+    - Could you find my transactions on [2023-02-23](transaction_date)?
+    - Let's check my transactions from [2023-01-24](transaction_date)
+    - Please provide my transactions on [2023-02-24](transaction_date)
+    - Can you give me my transactions for [2023-01-25](transaction_date)?
+    - I'd like to view my transactions from [2023-02-25](transaction_date)
+    - Can you list my transactions on [2023-01-26](transaction_date)?
+    - Show me my transaction history from [2023-02-26](transaction_date)
+    - I would like to see my transactions on [2023-01-27](transaction_date)
+    - Can you show my transactions from [2023-02-27](transaction_date)?
+    - Display my transaction history from [2023-01-28](transaction_date)
+    - What were my transactions on [2023-02-28](transaction_date)?
+    - Can you give a rundown of my transactions from [2023-01-29](transaction_date)?
+    - I'd like a summary of my transactions on [2023-02-29](transaction_date)
+    - Can I get a report of my transactions from [2023-01-30](transaction_date)?
+    - May I see a list of my transactions from [2023-02-30](transaction_date)?
+    - Could you let me view my transactions from [2023-01-31](transaction_date)?
+    - How about my transactions on [2023-02-31](transaction_date)?
+    - Can I look at my transactions from [2023-03-01](transaction_date)?
+    - May I review my transactions on [2023-04-01](transaction_date)?
+    - Show me my transactions for the date [2023-05-01](transaction_date)
+    - Could you find my transactions on [2023-06-01](transaction_date)?
+    - Let's check my transactions from [2023-07-01](transaction_date)
+    - Please provide my transactions on [2023-08-01](transaction_date)
+    - Can you give me my transactions for [2023-09-01](transaction_date)?
+    - I'd like to view my transactions from [2023-10-01](transaction_date)
+    - Can you list my transactions on [2023-11-01](transaction_date)?
+    - Show me my transaction history from [2023-12-01](transaction_date)
+    - I would like to see my transactions on [2024-01-01](transaction_date)
+    - Can you show my transactions from [2024-02-01](transaction_date)?
+    - Display my transaction history from [2024-03-01](transaction_date)
+    - What were my transactions on [2024-04-01](transaction_date)?
+    - Can you give a rundown of my transactions from [2024-05-01](transaction_date)?
+    - I'd like a summary of my transactions on [2024-06-01](transaction_date)
+    - Can I get a report of my transactions from [2024-07-01](transaction_date)?
+    - May I see a list of my transactions from [2024-08-01](transaction_date)?
+    - Could you let me view my transactions from [2024-09-01](transaction_date)?
+    - How about my transactions on [2024-10-01](transaction_date)?
+    - Can I look at my transactions from [2024-11-01](transaction_date)?
+    - May I review my transactions on [2024-12-01](transaction_date)?
+    - Show me my transactions for the date [2025-01-01](transaction_date)
+    - Could you find my transactions on [2025-02-01](transaction_date)?
+    - Let's check my transactions from [2025-03-01](transaction_date)
+    - Please provide my transactions on [2025-04-01](transaction_date)
+    - Can you give me my transactions for [2025-05-01](transaction_date)?
+    - I'd like to view my transactions from [2025-06-01](transaction_date)
+    - Can you list my transactions on [2025-07-01](transaction_date)?
+    - Show me my transaction history from [2025-08-01](transaction_date)
+    - I would like to see my transactions on [2025-09-01](transaction_date)
+    - Can you show my transactions from [2025-10-01](transaction_date)?
+    - Display my transaction history from [2025-11-01](transaction_date)
+    - What were my transactions on [2025-12-01](transaction_date)?
+    - Can you give a rundown of my transactions from [2026-01-01](transaction_date)?
+    - I'd like a summary of my transactions on [2026-02-01](transaction_date)
+    - Can I get a report of my transactions from [2026-03-01](transaction_date)?
+    - May I see a list of my transactions from [2026-04-01](transaction_date)?
+    - Could you let me view my transactions from [2026-05-01](transaction_date)?
+    - How about my transactions on [2026-06-01](transaction_date)?
+    - Can I look at my transactions from [2026-07-01](transaction_date)?
+    - May I review my transactions on [2026-08-01](transaction_date)?
+    - Show me my transactions for the date [2026-09-01](transaction_date)
+    - Could you find my transactions on [2026-10-01](transaction_date)?
+    - Let's check my transactions from [2026-11-01](transaction_date)
+    - Please provide my transactions on [2026-12-01](transaction_date)
+    - Can you give me my transactions for [2027-01-01](transaction_date)?
+    - I'd like to view my transactions from [2027-02-01](transaction_date)
+    - Can you list my transactions on [2027-03-01](transaction_date)?
+    - Show me my transaction history from [2027-04-01](transaction_date)
+    - I would like to see my transactions on [2027-05-01](transaction_date)
+    - Can you show my transactions from [2027-06-01](transaction_date)?
+    - Display my transaction history from [2027-07-01](transaction_date)
+    - What were my transactions on [2027-08-01](transaction_date)?
+    - Can you give a rundown of my transactions from [2027-09-01](transaction_date)?
+    - I'd like a summary of my transactions on [2027-10-01](transaction_date)
+    - Can I get a report of my transactions from [2027-11-01](transaction_date)?
+    - May I see a list of my transactions from [2027-12-01](transaction_date)?
+    - Could you let me view my transactions from [2028-01-01](transaction_date)?
+    - How about my transactions on [2028-02-01](transaction_date)?
+    - Can I look at my transactions from [2028-03-01](transaction_date)?
+    - May I review my transactions on [2028-04-01](transaction_date)?
+    - Show me my transactions for the date [2028-05-01](transaction_date)
+    - Could you find my transactions on [2028-06-01](transaction_date)?
+    - Let's check my transactions from [2028-07-01](transaction_date)
+    - Please provide my transactions on [2028-08-01](transaction_date)
+    - Can you give me my transactions for [2028-09-01](transaction_date)?
+    - I'd like to view my transactions from [2028-10-01](transaction_date)
+    - Can you list my transactions on [2028-11-01](transaction_date)?
+    - Show me my transaction history from [2028-12-01](transaction_date)
+    - I would like to see my transactions on [2029-01-01](transaction_date)
+    - Can you show my transactions from [2029-02-01](transaction_date)?
+    - Display my transaction history from [2029-03-01](transaction_date)
+    - What were my transactions on [2029-04-01](transaction_date)?
+    - Can you give a rundown of my transactions from [2029-05-01](transaction_date)?
+    - I'd like a summary of my transactions on [2029-06-01](transaction_date)
+    - Can I get a report of my transactions from [2029-07-01](transaction_date)?
+    - May I see a list of my transactions from [2029-08-01](transaction_date)?
+    - Could you let me view my transactions from [2029-09-01](transaction_date)?
+    - How about my transactions on [2029-10-01](transaction_date)?
+    - Can I look at my transactions from [2029-11-01](transaction_date)?
+    - May I review my transactions on [2029-12-01](transaction_date)?
+    - Show me my transactions for the date [2030-01-01](transaction_date)
+    - Could you find my transactions on [2030-02-01](transaction_date)?
+    - Let's check my transactions from [2030-03-01](transaction_date)
+    - Please provide my transactions on [2030-04-01](transaction_date)
+    - Can you give me my transactions for [2030-05-01](transaction_date)?
+    - I'd like to view my transactions from [2030-06-01](transaction_date)
+
+- intent: show_my_transfers_by_account_intent
+  examples: |
+    - Show me my transfers for account 123456.
+    - Can I see my transfers related to account 654321?
+    - I want to see my transfers for account number 987654.
+    - Give me my transfers for account 456789.
+    - Display my transfers for account 789123.
+    - Present my transfers related to account number 321654.
+    - Reveal my transfers for account 159753.
+    - Unveil my transfers for account number 357159.
+    - Exhibit my transfers related to account 951357.
+    - Manifest my transfers for account 753951.
+    - Illustrate my transfers for account 741852.
+    - Depict my transfers for account 963258.
+    - Portray my transfers for account 852741.
+    - Outline my transfers for account 258963.
+    - Summarize my transfers for account 147852.
+    - Report my transfers for account 369852.
+    - Detail my transfers for account 852147.
+    - Enumerate my transfers for account 258369.
+    - Specify my transfers for account 147258.
+    - Describe my transfers for account 369258.
+    - Show me transfers from account 123456.
+    - I'd like to see transfers from account 654321.
+    - Can you show me transfers from account 987654?
+    - Can I check transfers from account 456789?
+    - I'm looking for transfers from account 789123.
+    - Could you find transfers from account 321654?
+    - I want to review transfers from account 159753.
+    - I need to see transfers from account 357159.
+    - Can you find transfers from account 951357?
+    - Show transfers from account 753951.
+    - Display transfers from account 741852.
+    - Present transfers from account 963258.
+    - Reveal transfers from account 852741.
+    - Unveil transfers from account 258963.
+    - Exhibit transfers from account 147852.
+    - Manifest transfers from account 369852.
+    - Illustrate transfers from account 852147.
+    - Depict transfers from account 258369.
+    - Portray transfers from account 147258.
+    - Outline transfers from account 369258.
+    - Summarize transfers from account 123456.
+    - Report transfers from account 654321.
+    - Detail transfers from account 987654.
+    - Enumerate transfers from account 456789.
+    - Specify transfers from account 789123.
+    - Describe transfers from account 321654.
+    - Show transfers to account 123456.
+    - I'd like to see transfers to account 654321.
+    - Can you show me transfers to account 987654?
+    - Can I check transfers to account 456789?
+    - I'm looking for transfers to account 789123.
+    - Could you find transfers to account 321654?
+    - I want to review transfers to account 159753.
+    - I need to see transfers to account 357159.
+    - Can you find transfers to account 951357?
+    - Show transfers to account 753951.
+    - Display transfers to account 741852.
+    - Present transfers to account 963258.
+    - Reveal transfers to account 852741.
+    - Unveil transfers to account 258963.
+    - Exhibit transfers to account 147852.
+    - Manifest transfers to account 369852.
+    - Illustrate transfers to account 852147.
+    - Depict transfers to account 258369.
+    - Portray transfers to account 147258.
+    - Outline transfers to account 369258.
+    - Summarize transfers to account 123456.
+    - Report transfers to account 654321.
+    - Detail transfers to account 987654.
+    - Enumerate transfers to account 456789.
+    - Specify transfers to account 789123.
+    - Describe transfers to account 321654.
+    - How many transfers have been made with account 123456?
+    - List all the transfers with account 654321.
+    - What transfers have been made with account 987654?
+    - Show me the transfers with account 456789.
+    - Can you list the transfers with account 789123?
+    - I want to know about the transfers with account 321654.
+    - Tell me about the transfers with account 159753.
+    - Can I see the list of transfers with account 357159?
+    - What are the transfers with account 951357?
+    - Display the transfers with account 753951.
+    - Please list the transfers with account 741852.
+    - Are there any transfers with account 963258?
+    - Can you find any transfers with account 852741?
+    - Give me details of transfers with account 258963.
+    - What is the history of transfers with account 147852?
+    - Give me the history of transfers with account 369852.
+    - Are there any transfers to or from account 852147?
+    - Can you find any transfers to or from account 258369?
+    - Give me details of transfers to or from account 147258.
+    - What is the history of transfers to or from account 369258?
+    - Show me the transfer history for account 123456.
+    - Can I see the transfer history for account 654321?
+    - Display the transfer history for account 987654.
+    - Present the transfer history for account 456789.
+    - Reveal the transfer history for account 789123.
+    - Unveil the transfer history for account 321654.
+    - Exhibit the transfer history for account 159753.
+    - Manifest the transfer history for account 357159.
+    - Illustrate the transfer history for account 951357.
+    - Depict the transfer history for account 753951.

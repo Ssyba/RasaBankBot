@@ -23,7 +23,6 @@ class ActionShowMyUserInfo(Action):
     def name(self) -> Text:
         return "action_show_my_user_info"
 
-    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -57,7 +56,6 @@ class ActionShowMyCNP(Action):
     def name(self) -> Text:
         return "action_show_my_cnp"
 
-    # @only_works_if_logged_in
     async def run(
             self,
             dispatcher: CollectingDispatcher,
@@ -74,7 +72,6 @@ class ActionShowMyName(Action):
     def name(self) -> Text:
         return "action_show_my_name"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -89,7 +86,6 @@ class ActionShowMySurname(Action):
     def name(self) -> Text:
         return "action_show_my_surname"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -104,7 +100,6 @@ class ActionShowMyAge(Action):
     def name(self) -> Text:
         return "action_show_my_age"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -119,7 +114,6 @@ class ActionShowMyAccountNumber(Action):
     def name(self) -> Text:
         return "action_show_my_account_number"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -134,7 +128,6 @@ class ActionShowMyRegistrationDate(Action):
     def name(self) -> Text:
         return "action_show_my_registration_date"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -149,7 +142,6 @@ class ActionShowMyBalance(Action):
     def name(self) -> Text:
         return "action_show_my_balance"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -165,7 +157,6 @@ class ActionShowMyBills(Action):
     def name(self) -> Text:
         return "action_show_my_bills"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -189,7 +180,6 @@ class ActionShowMyGasBill(Action):
     def name(self) -> Text:
         return "action_show_my_gas_bill"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -204,7 +194,6 @@ class ActionShowMyElectricityBill(Action):
     def name(self) -> Text:
         return "action_show_my_electricity_bill"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -219,7 +208,6 @@ class ActionShowMyWaterBill(Action):
     def name(self) -> Text:
         return "action_show_my_water_bill"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -234,7 +222,6 @@ class ActionShowMyRentBill(Action):
     def name(self) -> Text:
         return "action_show_my_rent_bill"
 
-    # @only_works_if_logged_in
     async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
             List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
@@ -242,4 +229,107 @@ class ActionShowMyRentBill(Action):
         rent = user_bills['rent']
 
         dispatcher.utter_message(text=f"Your rent bill is {rent}$.")
+        return []
+
+
+# Bills table show #
+class ActionShowMyTransactions(Action):
+    def name(self) -> Text:
+        return "action_show_my_transactions"
+
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_transactions = queries_location.find_transactions_by_cnp_query(cnp)
+
+        dispatcher.utter_message(text="Here is a list of all your transactions:")
+        for trans in user_transactions:
+            dispatcher.utter_message(
+                text=f"Transaction ID: {trans['id']}, Type: {trans['transaction_type']}, Amount: {trans['amount']}, Date: {trans['transaction_date']}.")
+        return []
+
+
+class ActionShowMyTransfers(Action):
+    def name(self) -> Text:
+        return "action_show_my_transfers"
+
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_transfers = queries_location.find_transfers_by_cnp_query(cnp)
+
+        if not user_transfers:
+            dispatcher.utter_message(text="No transfers found.")
+            return []
+
+        dispatcher.utter_message(text="Here is a list of all your transfers:")
+        for transfer in user_transfers:
+            dispatcher.utter_message(
+                text=f"Transfer ID: {transfer['id']}, Type: {transfer['transaction_type']}, Amount: {transfer['amount']}, Date: {transfer['transaction_date']}.")
+        return []
+
+
+class ActionShowMyBillPayments(Action):
+    def name(self) -> Text:
+        return "action_show_my_bill_payments"
+
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> \
+            List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        user_bill_payments = queries_location.find_bill_payments_by_cnp_query(cnp)
+
+        if not user_bill_payments:
+            dispatcher.utter_message(text="No bill payments found.")
+            return []
+
+        dispatcher.utter_message(text="Here is a list of all your bill payments:")
+        for payment in user_bill_payments:
+            dispatcher.utter_message(
+                text=f"Payment ID: {payment['id']}, Type: {payment['transaction_type']}, Amount: {payment['amount']}, Date: {payment['transaction_date']}.")
+        return []
+
+
+class ActionShowMyTransactionsByDate(Action):
+    def name(self) -> Text:
+        return "action_show_my_transactions_by_date"
+
+    async def run(self, dispatcher: CollectingDispatcher,
+                  tracker: Tracker,
+                  domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        date = tracker.get_slot('transaction_date')
+        user_transactions = queries_location.find_transactions_by_cnp_and_date_query(cnp, date)
+
+        if not user_transactions:
+            dispatcher.utter_message(text="No transactions found for this date.")
+            return []
+
+        dispatcher.utter_message(text="Here are your transactions:")
+        for trans in user_transactions:
+            dispatcher.utter_message(
+                text=f"Transaction ID: {trans['id']}, Type: {trans['transaction_type']}, Amount: {trans['amount']}, Date: {trans['transaction_date']}.")
+
+        return []
+
+
+class ActionShowMyTransfersByAccount(Action):
+    def name(self) -> Text:
+        return "action_show_my_transfers_by_account"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        account_number = tracker.get_slot('extract_account_number_slot')
+
+        # This function needs to be implemented in your database access code
+        user_transfers = queries_location.find_transfers_by_cnp_and_account_number_query(cnp, account_number)
+
+        dispatcher.utter_message(text="Here are the transfers for the specified account:")
+        for transfer in user_transfers:
+            dispatcher.utter_message(
+                text=f"Transfer ID: {transfer['id']}, Type: {transfer['transaction_type']}, Amount: {transfer['amount']}, Date: {transfer['transaction_date']}.")
         return []

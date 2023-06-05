@@ -231,6 +231,50 @@ rules:
     - intent: show_my_rent_bill_intent
     - action: action_show_my_rent_bill
 
+### Transactions information rules ###
+- rule: Show the user's transactions
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_transactions_intent
+  - action: action_show_my_transactions
+
+- rule: Show the user's transfers
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_transfers_intent
+  - action: action_show_my_transfers
+
+
+- rule: Show the user's bill payments
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_bill_payments_intent
+  - action: action_show_my_bill_payments
+
+
+- rule: Show transactions on specific date
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_transactions_by_date_intent
+  - action: action_extract_transaction_date
+  - action: action_show_my_transactions_by_date
+
+- rule: Show transfers by account number
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_transfers_by_account_intent
+  - action: action_show_my_transfers_by_account
+
 ### Forms and some check cases ###
 # Login - negative case
 - rule:  Activate login form - logged in

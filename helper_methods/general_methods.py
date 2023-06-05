@@ -1,4 +1,5 @@
 import re
+import string
 from functools import wraps
 from typing import Text, Dict, Any
 import mysql.connector
@@ -131,3 +132,21 @@ def generate_random_taxes():
     rent_tax = random.choice([200, 300, 500, 800])
 
     return gas_tax, electricity_tax, water_tax, rent_tax
+
+
+def generate_random_credit_card_data(cnp):
+    cnp = cnp
+    card_number = ''.join(random.choices(string.digits, k=16))
+    card_type = random.choice(['Mastercard', 'Visa', 'Discover', 'Amex'])
+    credit_limit = random.randint(1000, 10000)
+    outstanding_amount = random.randint(0, credit_limit)
+    due_date = _fake.date_between(start_date='+1m', end_date='+2y')
+
+    return {
+        'cnp': cnp,
+        'card_number': card_number,
+        'card_type': card_type,
+        'credit_limit': credit_limit,
+        'outstanding_amount': outstanding_amount,
+        'due_date': due_date
+    }

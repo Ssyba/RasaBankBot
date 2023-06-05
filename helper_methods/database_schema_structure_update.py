@@ -14,7 +14,7 @@ import queries_location
 # 9 - populate the bills table with mock data for each user in the users table
 # 10 - add random taxes to each field in the bills table
 
-run_scenarios = [10]
+run_scenarios = [17]
 
 # The CNP of the user you want to delete
 cnp = "0012"
@@ -25,6 +25,7 @@ class ScenarioRunner:
         self.cnp = cnp
 
     def run_scenario(self, scenario):
+        # Users table
         if scenario == 1:
             queries_location.create_users_table_query()
         elif scenario == 2:
@@ -35,6 +36,7 @@ class ScenarioRunner:
             queries_location.delete_user_by_cnp_query(self.cnp)
         elif scenario == 5:
             queries_location.insert_random_user_query(self.cnp)
+        # Bills table
         elif scenario == 6:
             queries_location.create_bills_table_query()
         elif scenario == 7:
@@ -45,6 +47,22 @@ class ScenarioRunner:
             queries_location.fill_bills_table_query()
         elif scenario == 10:
             queries_location.update_bills_table_with_random_taxes_query()
+        # Transactions table
+        elif scenario == 11:
+            queries_location.create_transactions_table_query()
+        elif scenario == 12:
+            queries_location.delete_transactions_table_query()
+        elif scenario == 13:
+            queries_location.clear_data_transactions_table_query()
+        # Credit cards table
+        elif scenario == 14:
+            queries_location.create_credit_cards_table_query()
+        elif scenario == 15:
+            queries_location.delete_credit_cards_table_query()
+        elif scenario == 16:
+            queries_location.clear_credit_cards_table_query()
+        elif scenario == 17:
+            queries_location.generate_random_credit_cards_for_users()
         else:
             raise ValueError(f"Invalid value for scenario: {scenario}, look at the valid options above.")
 
@@ -61,4 +79,4 @@ if __name__ == "__main__":
         except Exception as e:
             print(f"An unexpected error occurred while executing scenario {run_scenario}: {e}")
 
-    print("All scenarios have been executed.")
+    print("Script has been executed.")

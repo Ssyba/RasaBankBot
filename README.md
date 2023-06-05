@@ -11,8 +11,8 @@ This will be a bot in the RASA framework that will take the place of an online b
       - this is to create a python virtual environment
    2. .\venv\Scripts\activate
       - this is to activate the previously created virtual environment
-   3. pip3 install pip && pip3 install rasa==3.1.1
-      - this is to update pip and install rasa locally
+   3. pip3 install pip
+      - this is to update pip
    4. pip install -r requirements.txt
       - this will install all the required packages the project needs
 
@@ -25,7 +25,11 @@ This will be a bot in the RASA framework that will take the place of an online b
      - to only train Core models
 2. rasa shell
    - to start the bot
-3. rasa -h
+3. rasa data validate
+   - to check if there are any rasa framework issues
+4. rasa test nlu
+   - to get a more details report of nlu, intent incompatibility and clashes
+5. rasa -h
    - to see all available commands
 
 # Tutorial for using the web interface snippet:
@@ -80,8 +84,8 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
     - Show the user's registration date(show me my registration date)
     - Show the user's current balance(show me my balance)
     - Show the user's current slots(show my slots) - this is for debugging purposes
-13. Can't use break outside a loop, use is informed there is nothing to break.
-14. When the bot does not know what to do there is a standard message is shows to the user.
+13. Can't use break outside a loop, user is informed there is nothing to break.
+14. When the bot does not know what to do, there is a standard message shown to the user.
 15. Transfer funds to another account by account number.
 16. Show user bills:
     - Show the user's bills and total(show me my bills)

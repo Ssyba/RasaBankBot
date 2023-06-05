@@ -49,6 +49,13 @@ intents:
   ### Payments/Transfers Intents ###
   - transfer_funds_intent
 
+  ### Transactions Intents ###
+  - show_my_transactions_intent
+  - show_my_transfers_intent
+  - show_my_bill_payments_intent
+  - show_my_transactions_by_date_intent
+  - show_my_transfers_by_account_intent
+
   ### Miscellaneous Intents ###
   - break_intent
 
@@ -188,6 +195,18 @@ slots:
           - active_loop: pay_my_rent_bill_form
             requested_slot: confirm_pay_bills_slot
 
+  transaction_date:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: transaction_date
+
+  extract_account_number_slot:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: extract_account_number_slot
+
 forms:
   login_form:
     required_slots:
@@ -315,6 +334,12 @@ actions:
   - validate_transfer_funds_form
   - submit_transfer_funds_form
 
+# Display transactions table
+  - action_show_my_transactions
+  - action_show_my_transfers
+  - action_show_my_bill_payments
+  - action_show_my_transactions_by_date
+
 ### Bills actions ###
 # Pay my bills actions
   - validate_pay_my_bills_form
@@ -336,6 +361,8 @@ actions:
 
 # Action helpers
   - action_set_confirm_pay_bills_slot
+  - action_extract_transaction_date
+  - action_show_my_transfers_by_account
 
 # Temp actions
   - action_log_me_in

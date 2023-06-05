@@ -1,5 +1,7 @@
 from datetime import datetime
-from general_methods import db_executor, generate_random_user_data, mock_api_get_balance, generate_random_taxes
+from general_methods import db_executor, generate_random_user_data, mock_api_get_balance, generate_random_taxes, \
+    generate_random_credit_card_data
+import random
 
 
 # Create tables
@@ -30,7 +32,33 @@ def create_bills_table_query():
     )
 
 
+def create_transactions_table_query():
+    return db_executor(
+        "CREATE TABLE transactions ("
+        "id INT AUTO_INCREMENT PRIMARY KEY, "
+        "CNP VARCHAR(4), "
+        "transaction_type VARCHAR(255), "
+        "target VARCHAR(255), "
+        "amount INT, "
+        "transaction_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+    )
+
+
+def create_credit_cards_table_query():
+    return db_executor(
+        "CREATE TABLE credit_cards ("
+        "id INT AUTO_INCREMENT PRIMARY KEY, "
+        "CNP VARCHAR(4), "
+        "card_number VARCHAR(16), "
+        "card_type VARCHAR(255), "
+        "credit_limit INT, "  # Changed column name from limit to credit_limit
+        "outstanding_amount INT, "
+        "due_date DATE)"
+    )
+
+
 # Update tables
+# Delete tables
 def delete_users_table_query():
     return db_executor("DROP TABLE users")
 
@@ -39,14 +67,32 @@ def delete_bills_table_query():
     return db_executor("DROP TABLE bills")
 
 
+def delete_transactions_table_query():
+    return db_executor("DROP TABLE transactions")
+
+
+def delete_credit_cards_table_query():
+    return db_executor("DROP TABLE IF EXISTS credit_cards")
+
+
 def clear_data_users_table_query():
     query = "TRUNCATE TABLE users"
     db_executor(query)
 
 
+# Clear data from tables
 def clear_data_bills_table_query():
     query = "TRUNCATE TABLE bills"
     db_executor(query)
+
+
+def clear_data_transactions_table_query():
+    query = "TRUNCATE TABLE transactions"
+    db_executor(query)
+
+
+def clear_credit_cards_table_query():
+    return db_executor("DELETE FROM credit_cards")
 
 
 def fill_bills_table_query():
@@ -108,6 +154,7 @@ def delete_user_by_cnp_query(cnp: str) -> None:
     db_executor(delete_query)
 
 
+# Insert data in tables
 def insert_random_user_query(cnp):
     user = generate_random_user_data(cnp)
     insert_query = f"""
@@ -124,6 +171,30 @@ def insert_random_user_query(cnp):
         )
     """
     db_executor(insert_query)
+
+
+def insert_random_credit_card_query(cnp):
+    for _ in range(random.randint(0, 3)):  # Generating 0 to 3 credit cards for each user
+        credit_card = generate_random_credit_card_data(cnp)
+        insert_query = f"""
+            INSERT INTO credit_cards (CNP, card_number, card_type, credit_limit, outstanding_amount, due_date)
+            VALUES (
+                '{credit_card['cnp']}',
+                '{credit_card['card_number']}',
+                '{credit_card['card_type']}',
+                '{credit_card['credit_limit']}',
+                '{credit_card['outstanding_amount']}',
+                '{credit_card['due_date']}'
+            )
+        """
+        db_executor(insert_query)
+
+
+def generate_random_credit_cards_for_users():
+    user_cnp_list = get_all_user_cnp()  # You need to implement this function
+    for cnp in user_cnp_list:
+        for _ in range(random.randint(0, 3)):
+            insert_random_credit_card_query(cnp)
 
 
 def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
@@ -184,6 +255,22 @@ def pay_rent_bill_query(cnp: str, rent_bill_amount: int) -> None:
         COMMIT;
     """
     db_executor(pay_query)
+
+
+def log_transfer_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
+    log_query = f"""
+        INSERT INTO transactions (CNP, transaction_type, target, amount)
+        VALUES ('{sender_cnp}', 'Transfer', '{recipient_account_number}', {transfer_amount});
+    """
+    db_executor(log_query)
+
+
+def log_payment_query(cnp: str, bill_type: str, amount: int) -> None:
+    log_query = f"""
+        INSERT INTO transactions (CNP, transaction_type, target, amount)
+        VALUES ('{cnp}', 'Bill Payment', '{bill_type}', {amount});
+    """
+    db_executor(log_query)
 
 
 # Find inside tables #
@@ -273,3 +360,78 @@ def get_rent_bill_query(cnp: str) -> int:
     result = db_executor(rent_bill_query)
 
     return result[0][0][0]
+
+
+def find_transactions_by_cnp_query(cnp: str) -> list:
+    query = "SELECT * FROM transactions WHERE CNP = '%s'" % cnp
+    row_data, column_names = db_executor(query)
+
+    transactions = []
+    if row_data:
+        for row in row_data:
+            transaction = dict(zip(column_names, row))
+            transactions.append(transaction)
+    return transactions
+
+
+def find_transfers_by_cnp_query(cnp: str) -> list:
+    query = "SELECT * FROM transactions WHERE CNP = '%s' AND transaction_type = 'Transfer'" % cnp
+    row_data, column_names = db_executor(query)
+
+    transfers = []
+    if row_data:
+        for row in row_data:
+            transfer = dict(zip(column_names, row))
+            transfers.append(transfer)
+    return transfers
+
+
+def find_bill_payments_by_cnp_query(cnp: str) -> list:
+    query = "SELECT * FROM transactions WHERE CNP = '%s' AND transaction_type = 'Bill Payment'" % cnp
+    row_data, column_names = db_executor(query)
+
+    bill_payments = []
+    if row_data:
+        for row in row_data:
+            payment = dict(zip(column_names, row))
+            bill_payments.append(payment)
+    return bill_payments
+
+
+def find_transactions_by_cnp_and_date_query(cnp: str, date: str) -> list:
+    # Make sure to format the date correctly
+    formatted_date = datetime.strptime(date, "%Y-%m-%d").date()
+    # Creating the query to select all records that match the CNP and have the same date (ignoring time)
+    query = f"SELECT * FROM transactions WHERE CNP = '{cnp}' AND DATE(transaction_date) = '{formatted_date}'"
+
+    row_data, column_names = db_executor(query)
+    transactions = []
+    if row_data:
+        for row in row_data:
+            transaction = dict(zip(column_names, row))
+            transactions.append(transaction)
+    return transactions
+
+
+def find_transfers_by_cnp_and_account_number_query(cnp: str, account_number: str) -> list:
+    query = f"SELECT * FROM transactions WHERE CNP = '{cnp}' AND target = '{account_number}' AND transaction_type = " \
+            f"'Transfer'"
+    row_data, column_names = db_executor(query)
+
+    transfers = []
+    if row_data:
+        for row in row_data:
+            transfer = dict(zip(column_names, row))
+            transfers.append(transfer)
+    return transfers
+
+
+def get_all_user_cnp():
+    query = "SELECT CNP FROM users"
+    row_data, column_names = db_executor(query)
+
+    cnp_values = []
+    if row_data:
+        for row in row_data:
+            cnp_values.append(row[0])  # 0 because CNP is the first column in the result
+    return cnp_values

@@ -294,3 +294,37 @@ stories:
   - intent: pay_my_rent_bill_intent
   - action: utter_not_logged_in
 
+# Transaction stories
+- story: Show the user's transactions
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_transactions_intent
+  - action: action_show_my_transactions
+
+- story: Show the user's transfers
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_transfers_intent
+  - action: action_show_my_transfers
+
+- story: Show the user's bill payments
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_bill_payments_intent
+  - action: action_show_my_bill_payments
+
+- story: Show transactions on specific date story
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_transactions_by_date_intent
+  - action: action_extract_transaction_date
+  - action: action_show_my_transactions_by_date
+
+- story: Show transfers by account number
+  steps:
+  - intent: show_my_transfers_by_account_intent
+  - action: action_show_my_transfers_by_account
