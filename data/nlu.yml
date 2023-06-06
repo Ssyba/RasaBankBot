@@ -4459,218 +4459,249 @@ nlu:
 
 - intent: show_my_transactions_by_date_intent
   examples: |
-    - Could you let me view my transactions from [2023-01-21](transaction_date)?
-    - How about my transactions on [2023-02-21](transaction_date)?
-    - Can I look at my transactions from [2023-01-22](transaction_date)?
-    - May I review my transactions on [2023-02-22](transaction_date)?
-    - Show me my transactions for the date [2023-01-23](transaction_date)
-    - Could you find my transactions on [2023-02-23](transaction_date)?
-    - Let's check my transactions from [2023-01-24](transaction_date)
-    - Please provide my transactions on [2023-02-24](transaction_date)
-    - Can you give me my transactions for [2023-01-25](transaction_date)?
-    - I'd like to view my transactions from [2023-02-25](transaction_date)
-    - Can you list my transactions on [2023-01-26](transaction_date)?
-    - Show me my transaction history from [2023-02-26](transaction_date)
-    - I would like to see my transactions on [2023-01-27](transaction_date)
-    - Can you show my transactions from [2023-02-27](transaction_date)?
-    - Display my transaction history from [2023-01-28](transaction_date)
-    - What were my transactions on [2023-02-28](transaction_date)?
-    - Can you give a rundown of my transactions from [2023-01-29](transaction_date)?
-    - I'd like a summary of my transactions on [2023-02-29](transaction_date)
-    - Can I get a report of my transactions from [2023-01-30](transaction_date)?
-    - May I see a list of my transactions from [2023-02-30](transaction_date)?
-    - Could you let me view my transactions from [2023-01-31](transaction_date)?
-    - How about my transactions on [2023-02-31](transaction_date)?
-    - Can I look at my transactions from [2023-03-01](transaction_date)?
-    - May I review my transactions on [2023-04-01](transaction_date)?
-    - Show me my transactions for the date [2023-05-01](transaction_date)
-    - Could you find my transactions on [2023-06-01](transaction_date)?
-    - Let's check my transactions from [2023-07-01](transaction_date)
-    - Please provide my transactions on [2023-08-01](transaction_date)
-    - Can you give me my transactions for [2023-09-01](transaction_date)?
-    - I'd like to view my transactions from [2023-10-01](transaction_date)
-    - Can you list my transactions on [2023-11-01](transaction_date)?
-    - Show me my transaction history from [2023-12-01](transaction_date)
-    - I would like to see my transactions on [2024-01-01](transaction_date)
-    - Can you show my transactions from [2024-02-01](transaction_date)?
-    - Display my transaction history from [2024-03-01](transaction_date)
-    - What were my transactions on [2024-04-01](transaction_date)?
-    - Can you give a rundown of my transactions from [2024-05-01](transaction_date)?
-    - I'd like a summary of my transactions on [2024-06-01](transaction_date)
-    - Can I get a report of my transactions from [2024-07-01](transaction_date)?
-    - May I see a list of my transactions from [2024-08-01](transaction_date)?
-    - Could you let me view my transactions from [2024-09-01](transaction_date)?
-    - How about my transactions on [2024-10-01](transaction_date)?
-    - Can I look at my transactions from [2024-11-01](transaction_date)?
-    - May I review my transactions on [2024-12-01](transaction_date)?
-    - Show me my transactions for the date [2025-01-01](transaction_date)
-    - Could you find my transactions on [2025-02-01](transaction_date)?
-    - Let's check my transactions from [2025-03-01](transaction_date)
-    - Please provide my transactions on [2025-04-01](transaction_date)
-    - Can you give me my transactions for [2025-05-01](transaction_date)?
-    - I'd like to view my transactions from [2025-06-01](transaction_date)
-    - Can you list my transactions on [2025-07-01](transaction_date)?
-    - Show me my transaction history from [2025-08-01](transaction_date)
-    - I would like to see my transactions on [2025-09-01](transaction_date)
-    - Can you show my transactions from [2025-10-01](transaction_date)?
-    - Display my transaction history from [2025-11-01](transaction_date)
-    - What were my transactions on [2025-12-01](transaction_date)?
-    - Can you give a rundown of my transactions from [2026-01-01](transaction_date)?
-    - I'd like a summary of my transactions on [2026-02-01](transaction_date)
-    - Can I get a report of my transactions from [2026-03-01](transaction_date)?
-    - May I see a list of my transactions from [2026-04-01](transaction_date)?
-    - Could you let me view my transactions from [2026-05-01](transaction_date)?
-    - How about my transactions on [2026-06-01](transaction_date)?
-    - Can I look at my transactions from [2026-07-01](transaction_date)?
-    - May I review my transactions on [2026-08-01](transaction_date)?
-    - Show me my transactions for the date [2026-09-01](transaction_date)
-    - Could you find my transactions on [2026-10-01](transaction_date)?
-    - Let's check my transactions from [2026-11-01](transaction_date)
-    - Please provide my transactions on [2026-12-01](transaction_date)
-    - Can you give me my transactions for [2027-01-01](transaction_date)?
-    - I'd like to view my transactions from [2027-02-01](transaction_date)
-    - Can you list my transactions on [2027-03-01](transaction_date)?
-    - Show me my transaction history from [2027-04-01](transaction_date)
-    - I would like to see my transactions on [2027-05-01](transaction_date)
-    - Can you show my transactions from [2027-06-01](transaction_date)?
-    - Display my transaction history from [2027-07-01](transaction_date)
-    - What were my transactions on [2027-08-01](transaction_date)?
-    - Can you give a rundown of my transactions from [2027-09-01](transaction_date)?
-    - I'd like a summary of my transactions on [2027-10-01](transaction_date)
-    - Can I get a report of my transactions from [2027-11-01](transaction_date)?
-    - May I see a list of my transactions from [2027-12-01](transaction_date)?
-    - Could you let me view my transactions from [2028-01-01](transaction_date)?
-    - How about my transactions on [2028-02-01](transaction_date)?
-    - Can I look at my transactions from [2028-03-01](transaction_date)?
-    - May I review my transactions on [2028-04-01](transaction_date)?
-    - Show me my transactions for the date [2028-05-01](transaction_date)
-    - Could you find my transactions on [2028-06-01](transaction_date)?
-    - Let's check my transactions from [2028-07-01](transaction_date)
-    - Please provide my transactions on [2028-08-01](transaction_date)
-    - Can you give me my transactions for [2028-09-01](transaction_date)?
-    - I'd like to view my transactions from [2028-10-01](transaction_date)
-    - Can you list my transactions on [2028-11-01](transaction_date)?
-    - Show me my transaction history from [2028-12-01](transaction_date)
-    - I would like to see my transactions on [2029-01-01](transaction_date)
-    - Can you show my transactions from [2029-02-01](transaction_date)?
-    - Display my transaction history from [2029-03-01](transaction_date)
-    - What were my transactions on [2029-04-01](transaction_date)?
-    - Can you give a rundown of my transactions from [2029-05-01](transaction_date)?
-    - I'd like a summary of my transactions on [2029-06-01](transaction_date)
-    - Can I get a report of my transactions from [2029-07-01](transaction_date)?
-    - May I see a list of my transactions from [2029-08-01](transaction_date)?
-    - Could you let me view my transactions from [2029-09-01](transaction_date)?
-    - How about my transactions on [2029-10-01](transaction_date)?
-    - Can I look at my transactions from [2029-11-01](transaction_date)?
-    - May I review my transactions on [2029-12-01](transaction_date)?
-    - Show me my transactions for the date [2030-01-01](transaction_date)
-    - Could you find my transactions on [2030-02-01](transaction_date)?
-    - Let's check my transactions from [2030-03-01](transaction_date)
-    - Please provide my transactions on [2030-04-01](transaction_date)
-    - Can you give me my transactions for [2030-05-01](transaction_date)?
-    - I'd like to view my transactions from [2030-06-01](transaction_date)
+    - Could you let me view my transactions from [2023-01-21](transaction_date_slot)?
+    - How about my transactions on [2023-02-21](transaction_date_slot)?
+    - Can I look at my transactions from [2023-01-22](transaction_date_slot)?
+    - May I review my transactions on [2023-02-22](transaction_date_slot)?
+    - Show me my transactions for the date [2023-01-23](transaction_date_slot)
+    - Could you find my transactions on [2023-02-23](transaction_date_slot)?
+    - Let's check my transactions from [2023-01-24](transaction_date_slot)
+    - Please provide my transactions on [2023-02-24](transaction_date_slot)
+    - Can you give me my transactions for [2023-01-25](transaction_date_slot)?
+    - I'd like to view my transactions from [2023-02-25](transaction_date_slot)
+    - Can you list my transactions on [2023-01-26](transaction_date_slot)?
+    - Show me my transaction history from [2023-02-26](transaction_date_slot)
+    - I would like to see my transactions on [2023-01-27](transaction_date_slot)
+    - Can you show my transactions from [2023-02-27](transaction_date_slot)?
+    - Display my transaction history from [2023-01-28](transaction_date_slot)
+    - What were my transactions on [2023-02-28](transaction_date_slot)?
+    - Can you give a rundown of my transactions from [2023-01-29](transaction_date_slot)?
+    - I'd like a summary of my transactions on [2023-02-29](transaction_date_slot)
+    - Can I get a report of my transactions from [2023-01-30](transaction_date_slot)?
+    - May I see a list of my transactions from [2023-02-30](transaction_date_slot)?
+    - Could you let me view my transactions from [2023-01-31](transaction_date_slot)?
+    - How about my transactions on [2023-02-31](transaction_date_slot)?
+    - Can I look at my transactions from [2023-03-01](transaction_date_slot)?
+    - May I review my transactions on [2023-04-01](transaction_date_slot)?
+    - Show me my transactions for the date [2023-05-01](transaction_date_slot)
+    - Could you find my transactions on [2023-06-01](transaction_date_slot)?
+    - Let's check my transactions from [2023-07-01](transaction_date_slot)
+    - Please provide my transactions on [2023-08-01](transaction_date_slot)
+    - Can you give me my transactions for [2023-09-01](transaction_date_slot)?
+    - I'd like to view my transactions from [2023-10-01](transaction_date_slot)
+    - Can you list my transactions on [2023-11-01](transaction_date_slot)?
+    - Show me my transaction history from [2023-12-01](transaction_date_slot)
+    - I would like to see my transactions on [2024-01-01](transaction_date_slot)
+    - Can you show my transactions from [2024-02-01](transaction_date_slot)?
+    - Display my transaction history from [2024-03-01](transaction_date_slot)
+    - What were my transactions on [2024-04-01](transaction_date_slot)?
+    - Can you give a rundown of my transactions from [2024-05-01](transaction_date_slot)?
+    - I'd like a summary of my transactions on [2024-06-01](transaction_date_slot)
+    - Can I get a report of my transactions from [2024-07-01](transaction_date_slot)?
+    - May I see a list of my transactions from [2024-08-01](transaction_date_slot)?
+    - Could you let me view my transactions from [2024-09-01](transaction_date_slot)?
+    - How about my transactions on [2024-10-01](transaction_date_slot)?
+    - Can I look at my transactions from [2024-11-01](transaction_date_slot)?
+    - May I review my transactions on [2024-12-01](transaction_date_slot)?
+    - Show me my transactions for the date [2025-01-01](transaction_date_slot)
+    - Could you find my transactions on [2025-02-01](transaction_date_slot)?
+    - Let's check my transactions from [2025-03-01](transaction_date_slot)
+    - Please provide my transactions on [2025-04-01](transaction_date_slot)
+    - Can you give me my transactions for [2025-05-01](transaction_date_slot)?
+    - I'd like to view my transactions from [2025-06-01](transaction_date_slot)
+    - Can you list my transactions on [2025-07-01](transaction_date_slot)?
+    - Show me my transaction history from [2025-08-01](transaction_date_slot)
+    - I would like to see my transactions on [2025-09-01](transaction_date_slot)
+    - Can you show my transactions from [2025-10-01](transaction_date_slot)?
+    - Display my transaction history from [2025-11-01](transaction_date_slot)
+    - What were my transactions on [2025-12-01](transaction_date_slot)?
+    - Can you give a rundown of my transactions from [2026-01-01](transaction_date_slot)?
+    - I'd like a summary of my transactions on [2026-02-01](transaction_date_slot)
+    - Can I get a report of my transactions from [2026-03-01](transaction_date_slot)?
+    - May I see a list of my transactions from [2026-04-01](transaction_date_slot)?
+    - Could you let me view my transactions from [2026-05-01](transaction_date_slot)?
+    - How about my transactions on [2026-06-01](transaction_date_slot)?
+    - Can I look at my transactions from [2026-07-01](transaction_date_slot)?
+    - May I review my transactions on [2026-08-01](transaction_date_slot)?
+    - Show me my transactions for the date [2026-09-01](transaction_date_slot)
+    - Could you find my transactions on [2026-10-01](transaction_date_slot)?
+    - Let's check my transactions from [2026-11-01](transaction_date_slot)
+    - Please provide my transactions on [2026-12-01](transaction_date_slot)
+    - Can you give me my transactions for [2027-01-01](transaction_date_slot)?
+    - I'd like to view my transactions from [2027-02-01](transaction_date_slot)
+    - Can you list my transactions on [2027-03-01](transaction_date_slot)?
+    - Show me my transaction history from [2027-04-01](transaction_date_slot)
+    - I would like to see my transactions on [2027-05-01](transaction_date_slot)
+    - Can you show my transactions from [2027-06-01](transaction_date_slot)?
+    - Display my transaction history from [2027-07-01](transaction_date_slot)
+    - What were my transactions on [2027-08-01](transaction_date_slot)?
+    - Can you give a rundown of my transactions from [2027-09-01](transaction_date_slot)?
+    - I'd like a summary of my transactions on [2027-10-01](transaction_date_slot)
+    - Can I get a report of my transactions from [2027-11-01](transaction_date_slot)?
+    - May I see a list of my transactions from [2027-12-01](transaction_date_slot)?
+    - Could you let me view my transactions from [2028-01-01](transaction_date_slot)?
+    - How about my transactions on [2028-02-01](transaction_date_slot)?
+    - Can I look at my transactions from [2028-03-01](transaction_date_slot)?
+    - May I review my transactions on [2028-04-01](transaction_date_slot)?
+    - Show me my transactions for the date [2028-05-01](transaction_date_slot)
+    - Could you find my transactions on [2028-06-01](transaction_date_slot)?
+    - Let's check my transactions from [2028-07-01](transaction_date_slot)
+    - Please provide my transactions on [2028-08-01](transaction_date_slot)
+    - Can you give me my transactions for [2028-09-01](transaction_date_slot)?
+    - I'd like to view my transactions from [2028-10-01](transaction_date_slot)
+    - Can you list my transactions on [2028-11-01](transaction_date_slot)?
+    - Show me my transaction history from [2028-12-01](transaction_date_slot)
+    - I would like to see my transactions on [2029-01-01](transaction_date_slot)
+    - Can you show my transactions from [2029-02-01](transaction_date_slot)?
+    - Display my transaction history from [2029-03-01](transaction_date_slot)
+    - What were my transactions on [2029-04-01](transaction_date_slot)?
+    - Can you give a rundown of my transactions from [2029-05-01](transaction_date_slot)?
+    - I'd like a summary of my transactions on [2029-06-01](transaction_date_slot)
+    - Can I get a report of my transactions from [2029-07-01](transaction_date_slot)?
+    - May I see a list of my transactions from [2029-08-01](transaction_date_slot)?
+    - Could you let me view my transactions from [2029-09-01](transaction_date_slot)?
+    - How about my transactions on [2029-10-01](transaction_date_slot)?
+    - Can I look at my transactions from [2029-11-01](transaction_date_slot)?
+    - May I review my transactions on [2029-12-01](transaction_date_slot)?
+    - Show me my transactions for the date [2030-01-01](transaction_date_slot)
+    - Could you find my transactions on [2030-02-01](transaction_date_slot)?
+    - Let's check my transactions from [2030-03-01](transaction_date_slot)
+    - Please provide my transactions on [2030-04-01](transaction_date_slot)
+    - Can you give me my transactions for [2030-05-01](transaction_date_slot)?
+    - I'd like to view my transactions from [2030-06-01](transaction_date_slot)
 
 - intent: show_my_transfers_by_account_intent
   examples: |
-    - Show me my transfers for account 123456.
-    - Can I see my transfers related to account 654321?
-    - I want to see my transfers for account number 987654.
-    - Give me my transfers for account 456789.
-    - Display my transfers for account 789123.
-    - Present my transfers related to account number 321654.
-    - Reveal my transfers for account 159753.
-    - Unveil my transfers for account number 357159.
-    - Exhibit my transfers related to account 951357.
-    - Manifest my transfers for account 753951.
-    - Illustrate my transfers for account 741852.
-    - Depict my transfers for account 963258.
-    - Portray my transfers for account 852741.
-    - Outline my transfers for account 258963.
-    - Summarize my transfers for account 147852.
-    - Report my transfers for account 369852.
-    - Detail my transfers for account 852147.
-    - Enumerate my transfers for account 258369.
-    - Specify my transfers for account 147258.
-    - Describe my transfers for account 369258.
-    - Show me transfers from account 123456.
-    - I'd like to see transfers from account 654321.
-    - Can you show me transfers from account 987654?
-    - Can I check transfers from account 456789?
-    - I'm looking for transfers from account 789123.
-    - Could you find transfers from account 321654?
-    - I want to review transfers from account 159753.
-    - I need to see transfers from account 357159.
-    - Can you find transfers from account 951357?
-    - Show transfers from account 753951.
-    - Display transfers from account 741852.
-    - Present transfers from account 963258.
-    - Reveal transfers from account 852741.
-    - Unveil transfers from account 258963.
-    - Exhibit transfers from account 147852.
-    - Manifest transfers from account 369852.
-    - Illustrate transfers from account 852147.
-    - Depict transfers from account 258369.
-    - Portray transfers from account 147258.
-    - Outline transfers from account 369258.
-    - Summarize transfers from account 123456.
-    - Report transfers from account 654321.
-    - Detail transfers from account 987654.
-    - Enumerate transfers from account 456789.
-    - Specify transfers from account 789123.
-    - Describe transfers from account 321654.
-    - Show transfers to account 123456.
-    - I'd like to see transfers to account 654321.
-    - Can you show me transfers to account 987654?
-    - Can I check transfers to account 456789?
-    - I'm looking for transfers to account 789123.
-    - Could you find transfers to account 321654?
-    - I want to review transfers to account 159753.
-    - I need to see transfers to account 357159.
-    - Can you find transfers to account 951357?
-    - Show transfers to account 753951.
-    - Display transfers to account 741852.
-    - Present transfers to account 963258.
-    - Reveal transfers to account 852741.
-    - Unveil transfers to account 258963.
-    - Exhibit transfers to account 147852.
-    - Manifest transfers to account 369852.
-    - Illustrate transfers to account 852147.
-    - Depict transfers to account 258369.
-    - Portray transfers to account 147258.
-    - Outline transfers to account 369258.
-    - Summarize transfers to account 123456.
-    - Report transfers to account 654321.
-    - Detail transfers to account 987654.
-    - Enumerate transfers to account 456789.
-    - Specify transfers to account 789123.
-    - Describe transfers to account 321654.
-    - How many transfers have been made with account 123456?
-    - List all the transfers with account 654321.
-    - What transfers have been made with account 987654?
-    - Show me the transfers with account 456789.
-    - Can you list the transfers with account 789123?
-    - I want to know about the transfers with account 321654.
-    - Tell me about the transfers with account 159753.
-    - Can I see the list of transfers with account 357159?
-    - What are the transfers with account 951357?
-    - Display the transfers with account 753951.
-    - Please list the transfers with account 741852.
-    - Are there any transfers with account 963258?
-    - Can you find any transfers with account 852741?
-    - Give me details of transfers with account 258963.
-    - What is the history of transfers with account 147852?
-    - Give me the history of transfers with account 369852.
-    - Are there any transfers to or from account 852147?
-    - Can you find any transfers to or from account 258369?
-    - Give me details of transfers to or from account 147258.
-    - What is the history of transfers to or from account 369258?
-    - Show me the transfer history for account 123456.
-    - Can I see the transfer history for account 654321?
-    - Display the transfer history for account 987654.
-    - Present the transfer history for account 456789.
-    - Reveal the transfer history for account 789123.
-    - Unveil the transfer history for account 321654.
-    - Exhibit the transfer history for account 159753.
-    - Manifest the transfer history for account 357159.
-    - Illustrate the transfer history for account 951357.
-    - Depict the transfer history for account 753951.
+    - Show me my transfers for [123456](extracted_account_number_slot).
+    - Can I see my transfers related to account [654321](extracted_account_number_slot)?
+    - I would like to see the transfers of account [345678](extracted_account_number_slot).
+    - Can you provide the transfers for [456789](extracted_account_number_slot)?
+    - How about showing me the transfers of [567890](extracted_account_number_slot)?
+    - Give me the details of the transfers for [678901](extracted_account_number_slot).
+    - I want to check the transfers of [789012](extracted_account_number_slot).
+    - Let's see the transfers for account [890123](extracted_account_number_slot).
+    - Display the transfers of [901234](extracted_account_number_slot).
+    - Can I have the transfers details for [012345](extracted_account_number_slot)?
+    - Pull up the transfers for [135792](extracted_account_number_slot).
+    - Fetch me the transfers of [246813](extracted_account_number_slot).
+    - Reveal the transfers for account [357924](extracted_account_number_slot).
+    - Unfold the transfers for account [468135](extracted_account_number_slot).
+    - Provide the transfers for account [579246](extracted_account_number_slot).
+    - Please show the transfers for [680357](extracted_account_number_slot).
+    - Could you display the transfers for [791468](extracted_account_number_slot)?
+    - I am interested in seeing the transfers for [802579](extracted_account_number_slot).
+    - Can you fetch the transfers for [913680](extracted_account_number_slot)?
+    - Retrieve the transfers for [024791](extracted_account_number_slot).
+    - Can you display transfers for account [147025](extracted_account_number_slot)?
+    - Can I get the transfers for account [258136](extracted_account_number_slot)?
+    - What about the transfers for [369247](extracted_account_number_slot)?
+    - Do show the transfers for [470358](extracted_account_number_slot)?
+    - May I see the transfers for account [581469](extracted_account_number_slot)?
+    - Would you pull up transfers for [692580](extracted_account_number_slot)?
+    - Could you fetch transfers for [803691](extracted_account_number_slot)?
+    - I'm interested in the transfers for account [914802](extracted_account_number_slot).
+    - Can you display the transfers of account [025913](extracted_account_number_slot)?
+    - Can I see the transfers for account [137024](extracted_account_number_slot)?
+    - Please fetch the transfers of [248135](extracted_account_number_slot).
+    - Can you reveal the transfers for account [359246](extracted_account_number_slot)?
+    - Would you show the transfers for [460357](extracted_account_number_slot)?
+    - Could you provide transfers for account [571468](extracted_account_number_slot)?
+    - Can I have the transfers of [682579](extracted_account_number_slot)?
+    - Do show the transfers of [793680](extracted_account_number_slot)?
+    - Unveil the transfers for account [804791](extracted_account_number_slot).
+    - Display transfers for [915902](extracted_account_number_slot)?
+    - Show the transfers for account [026813](extracted_account_number_slot)?
+    - May I see the transfers for [147924](extracted_account_number_slot)?
+    - Fetch the transfers of [258035](extracted_account_number_slot).
+    - Please show me the transfers for account [369146](extracted_account_number_slot).
+    - Would you reveal the transfers for [470257](extracted_account_number_slot)?
+    - Can you display the transfers for [581368](extracted_account_number_slot)?
+    - Could you provide transfers for [692479](extracted_account_number_slot)?
+    - I'd like to see transfers for account [803580](extracted_account_number_slot).
+    - Can you pull up transfers for [914691](extracted_account_number_slot)?
+    - Could I see the transfers for account [025802](extracted_account_number_slot)?
+    - Show me the transfers for [136913](extracted_account_number_slot).
+    - Would you fetch the transfers for [247024](extracted_account_number_slot)?
+    - Reveal the transfers for account [358135](extracted_account_number_slot)?
+    - Could you pull up the transfers for [469246](extracted_account_number_slot)?
+    - I want to see the transfers for [570357](extracted_account_number_slot).
+    - Could you reveal the transfers for [681468](extracted_account_number_slot)?
+    - Please show the transfers for [792579](extracted_account_number_slot)?
+    - Could you fetch the transfers for [803680](extracted_account_number_slot)?
+    - Would you show the transfers for [914791](extracted_account_number_slot)?
+    - Display the transfers for [025902](extracted_account_number_slot)?
+    - Show me the transfers for account [136813](extracted_account_number_slot)?
+    - Fetch the transfers of account [247924](extracted_account_number_slot)?
+    - Can you reveal the transfers for [358035](extracted_account_number_slot)?
+    - Would you show me the transfers for [469146](extracted_account_number_slot)?
+    - Could you pull up transfers for [570257](extracted_account_number_slot)?
+    - I'd like to see the transfers for [681368](extracted_account_number_slot)?
+    - Can you fetch the transfers for [792479](extracted_account_number_slot)?
+    - Reveal the transfers for [803580](extracted_account_number_slot)?
+    - Could you show the transfers for [914691](extracted_account_number_slot)?
+    - Please fetch the transfers for [025802](extracted_account_number_slot)?
+    - Would you pull up the transfers for [136913](extracted_account_number_slot)?
+    - Show the transfers for account [247024](extracted_account_number_slot)?
+    - I want to see the transfers for [358135](extracted_account_number_slot)?
+    - Can you display the transfers for [469246](extracted_account_number_slot)?
+    - Could you fetch the transfers for [570357](extracted_account_number_slot)?
+    - Would you show the transfers for [681468](extracted_account_number_slot)?
+    - Pull up the transfers for [792579](extracted_account_number_slot)?
+    - Can you reveal the transfers for [803680](extracted_account_number_slot)?
+    - Show me the transfers for [914791](extracted_account_number_slot)?
+    - Could you pull up transfers for [025902](extracted_account_number_slot)?
+    - Would you show the transfers for [136813](extracted_account_number_slot)?
+    - Can you fetch the transfers for [247924](extracted_account_number_slot)?
+    - Show the transfers for account [358035](extracted_account_number_slot)?
+    - Can I see the transfers for [469146](extracted_account_number_slot)?
+    - Would you fetch the transfers for [570257](extracted_account_number_slot)?
+    - Pull up the transfers for [681368](extracted_account_number_slot)?
+    - Can you show me the transfers for [792479](extracted_account_number_slot)?
+    - Would you pull up the transfers for [803580](extracted_account_number_slot)?
+    - Could you reveal the transfers for [914691](extracted_account_number_slot)?
+    - Please show the transfers for [025802](extracted_account_number_slot)?
+    - Can you fetch the transfers for [136913](extracted_account_number_slot)?
+    - Would you display the transfers for [247024](extracted_account_number_slot)?
+    - Could you show the transfers for [358135](extracted_account_number_slot)?
+    - Please pull up the transfers for [469246](extracted_account_number_slot)?
+    - Can you reveal the transfers for [570357](extracted_account_number_slot)?
+    - Show me the transfers for [681468](extracted_account_number_slot)?
+    - Could you display the transfers for [792579](extracted_account_number_slot)?
+    - Would you reveal the transfers for [803680](extracted_account_number_slot)?
+    - Please fetch the transfers for [914791](extracted_account_number_slot)?
+    - Can you show the transfers for [025902](extracted_account_number_slot)?
+    - Could you pull up the transfers for [136813](extracted_account_number_slot)?
+    - Would you fetch the transfers for [247924](extracted_account_number_slot)?
+    - Please show the transfers for [358035](extracted_account_number_slot)?
+    - Can you reveal the transfers for [469146](extracted_account_number_slot)?
+    - Could you display the transfers for [570257](extracted_account_number_slot)?
+    - Would you show the transfers for [681368](extracted_account_number_slot)?
+    - Please pull up the transfers for [792479](extracted_account_number_slot)?
+    - Can you show me the transfers for [803580](extracted_account_number_slot)?
+    - Could you fetch the transfers for [914691](extracted_account_number_slot)?
+    - Show the transfers for [025802](extracted_account_number_slot)?
+    - Would you reveal the transfers for [136913](extracted_account_number_slot)?
+    - Can you display the transfers for [247024](extracted_account_number_slot)?
+    - Could you show the transfers for [358135](extracted_account_number_slot)?
+    - Please fetch the transfers for [469246](extracted_account_number_slot)?
+    - Would you pull up the transfers for [570357](extracted_account_number_slot)?
+    - Can you reveal the transfers for [681468](extracted_account_number_slot)?
+    - Show me the transfers for [792579](extracted_account_number_slot)?
+    - Could you display the transfers for [803680](extracted_account_number_slot)?
+    - Would you fetch the transfers for [914791](extracted_account_number_slot)?
+    - Please pull up the transfers for [025902](extracted_account_number_slot)?
+    - Can you show the transfers for [136813](extracted_account_number_slot)?
+    - Could you fetch the transfers for [247924](extracted_account_number_slot)?
+    - Show the transfers for [358035](extracted_account_number_slot)?
+    - Please reveal the transfers for [469146](extracted_account_number_slot)?
+    - Would you display the transfers for [570257](extracted_account_number_slot)?
+    - Can you show me the transfers for [681368](extracted_account_number_slot)?
+    - Could you pull up the transfers for [792479](extracted_account_number_slot)?
+    - Show the transfers for [803580](extracted_account_number_slot)?
+    - Please fetch the transfers for [914691](extracted_account_number_slot)?
+    - Would you reveal the transfers for [025802](extracted_account_number_slot)?
+    - Can you display the transfers for [136913](extracted_account_number_slot)?
+    - Show me the transfers for [247024](extracted_account_number_slot)?
+    - Could you fetch the transfers for [358135](extracted_account_number_slot)?
+    - Please show the transfers for [469246](extracted_account_number_slot)?
+    - Would you pull up the transfers for [570357](extracted_account_number_slot)?

@@ -1,10 +1,12 @@
+version: "3.1"
+
 stories:
 ### Init intent triggers greet and login form ###
-- story: Init intent triggers greet and login form
-  steps:
-  - intent: init_intent
-  - action: login_form
-  - active_loop: login_form
+#- story: Init intent triggers greet and login form
+#  steps:
+#  - intent: init_intent
+#  - action: login_form
+#  - active_loop: login_form
 
 ### General rules ###
 - story: Say 'I am a bot' anytime the user challenges
@@ -324,7 +326,10 @@ stories:
   - action: action_extract_transaction_date
   - action: action_show_my_transactions_by_date
 
-- story: Show transfers by account number
+- story: Show transfers to specific account
   steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
   - intent: show_my_transfers_by_account_intent
+  - action: action_extract_account_number
   - action: action_show_my_transfers_by_account

@@ -414,8 +414,7 @@ def find_transactions_by_cnp_and_date_query(cnp: str, date: str) -> list:
 
 
 def find_transfers_by_cnp_and_account_number_query(cnp: str, account_number: str) -> list:
-    query = f"SELECT * FROM transactions WHERE CNP = '{cnp}' AND target = '{account_number}' AND transaction_type = " \
-            f"'Transfer'"
+    query = f"SELECT * FROM transactions WHERE CNP = '{cnp}' AND target = '{account_number}'"
     row_data, column_names = db_executor(query)
 
     transfers = []

@@ -1,5 +1,7 @@
+from datetime import datetime
 from typing import Any, Dict, List, Text
 from rasa_sdk import Action, Tracker
+from rasa_sdk.events import SlotSet
 from rasa_sdk.executor import CollectingDispatcher
 import queries_location
 
@@ -297,7 +299,15 @@ class ActionShowMyTransactionsByDate(Action):
                   tracker: Tracker,
                   domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
-        date = tracker.get_slot('transaction_date')
+        date = tracker.get_slot('transaction_date_slot')
+
+        # Validate date format
+        try:
+            datetime.strptime(date, "%Y-%m-%d")
+        except ValueError:
+            dispatcher.utter_message(text="Invalid date format. Please enter a valid date (YYYY-MM-DD).")
+            return [SlotSet("transaction_date_slot", None)]
+
         user_transactions = queries_location.find_transactions_by_cnp_and_date_query(cnp, date)
 
         if not user_transactions:
@@ -323,13 +333,22 @@ class ActionShowMyTransfersByAccount(Action):
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
         cnp = tracker.get_slot('cnp_slot')
-        account_number = tracker.get_slot('extract_account_number_slot')
+        account_number = tracker.get_slot('extracted_account_number_slot')
 
-        # This function needs to be implemented in your database access code
+        # Validate account number
+        if not account_number.isdigit() or len(account_number) != 6:
+            dispatcher.utter_message(text="Invalid account number. It should be exactly 6 digits.")
+            return [SlotSet("extracted_account_number_slot", None)]
+
         user_transfers = queries_location.find_transfers_by_cnp_and_account_number_query(cnp, account_number)
+
+        if not user_transfers:
+            dispatcher.utter_message(text="No transactions found for the specified account.")
+            return []
 
         dispatcher.utter_message(text="Here are the transfers for the specified account:")
         for transfer in user_transfers:
             dispatcher.utter_message(
                 text=f"Transfer ID: {transfer['id']}, Type: {transfer['transaction_type']}, Amount: {transfer['amount']}, Date: {transfer['transaction_date']}.")
+
         return []

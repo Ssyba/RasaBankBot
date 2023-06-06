@@ -5,8 +5,7 @@ rules:
 - rule: Init intent triggers greet and login form
   steps:
   - intent: init_intent
-  - action: login_form
-  - active_loop: login_form
+  - action: action_log_me_in
 
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges
@@ -267,13 +266,15 @@ rules:
   - action: action_extract_transaction_date
   - action: action_show_my_transactions_by_date
 
-- rule: Show transfers by account number
+- rule: Show transfers to specific account
   condition:
   - slot_was_set:
     - logged_in_status_slot: true
   steps:
-  - intent: show_my_transfers_by_account_intent
+  - intent: show_my_transfers_to_account_intent
+  - action: action_extract_account_number
   - action: action_show_my_transfers_by_account
+
 
 ### Forms and some check cases ###
 # Login - negative case

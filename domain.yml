@@ -195,17 +195,17 @@ slots:
           - active_loop: pay_my_rent_bill_form
             requested_slot: confirm_pay_bills_slot
 
-  transaction_date:
+  transaction_date_slot:
     type: any
     mappings:
     - type: from_entity
-      entity: transaction_date
+      entity: transaction_date_slot
 
-  extract_account_number_slot:
-    type: text
+  extracted_account_number_slot:
+    type: any
     mappings:
     - type: from_entity
-      entity: extract_account_number_slot
+      entity: extracted_account_number_slot
 
 forms:
   login_form:
@@ -339,6 +339,7 @@ actions:
   - action_show_my_transfers
   - action_show_my_bill_payments
   - action_show_my_transactions_by_date
+  - action_show_my_transfers_by_account
 
 ### Bills actions ###
 # Pay my bills actions
@@ -362,7 +363,7 @@ actions:
 # Action helpers
   - action_set_confirm_pay_bills_slot
   - action_extract_transaction_date
-  - action_show_my_transfers_by_account
+  - action_extract_account_number
 
 # Temp actions
   - action_log_me_in

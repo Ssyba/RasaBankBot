@@ -54,6 +54,20 @@ class ActionExtractTransactionDate(Action):
             tracker: Tracker,
             domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-        date_entity = next(tracker.get_latest_entity_values("transaction_date"), None)
+        date_entity = next(tracker.get_latest_entity_values("transaction_date_slot"), None)
 
-        return [SlotSet("transaction_date", date_entity)]
+        return [SlotSet("transaction_date_slot", date_entity)]
+
+
+class ActionExtractAccountNumber(Action):
+    def name(self) -> Text:
+        return "action_extract_account_number"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        account_number_entity = next(tracker.get_latest_entity_values("extracted_account_number_slot"), None)
+        return [SlotSet("extracted_account_number_slot", account_number_entity)]
