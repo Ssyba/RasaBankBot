@@ -51,13 +51,28 @@ def create_credit_cards_table_query():
         "CNP VARCHAR(4), "
         "card_number VARCHAR(16), "
         "card_type VARCHAR(255), "
-        "credit_limit INT, "  # Changed column name from limit to credit_limit
+        "credit_limit INT, "
         "outstanding_amount INT, "
         "due_date DATE)"
     )
 
 
-# Update tables
+def create_feedback_table_query():
+    return db_executor(
+        "CREATE TABLE feedback ("
+        "id INT AUTO_INCREMENT PRIMARY KEY, "
+        "CNP VARCHAR(4), "
+        "feedback TEXT, "
+        "date TIMESTAMP DEFAULT CURRENT_TIMESTAMP)"
+    )
+
+
+def insert_feedback_query(cnp: str, feedback: str) -> None:
+    feedback = feedback.replace("'", "\\'")  # escape any single quotes in feedback
+    query = f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')"
+    db_executor(query)
+
+
 # Delete tables
 def delete_users_table_query():
     return db_executor("DROP TABLE users")
@@ -75,6 +90,13 @@ def delete_credit_cards_table_query():
     return db_executor("DROP TABLE IF EXISTS credit_cards")
 
 
+def delete_feedback_table_query():
+    return db_executor(
+        "DROP TABLE IF EXISTS feedback"
+    )
+
+
+# Clear data from tables
 def clear_data_users_table_query():
     query = "TRUNCATE TABLE users"
     db_executor(query)
@@ -93,6 +115,12 @@ def clear_data_transactions_table_query():
 
 def clear_credit_cards_table_query():
     return db_executor("DELETE FROM credit_cards")
+
+
+def clear_feedback_table_query():
+    return db_executor(
+        "TRUNCATE TABLE feedback"
+    )
 
 
 def fill_bills_table_query():
@@ -434,3 +462,74 @@ def get_all_user_cnp():
         for row in row_data:
             cnp_values.append(row[0])  # 0 because CNP is the first column in the result
     return cnp_values
+
+
+def find_credit_cards_by_cnp_query(cnp: str) -> list:
+    query = f"SELECT * FROM credit_cards WHERE CNP = '{cnp}'"
+    row_data, column_names = db_executor(query)
+
+    credit_cards = []
+    if row_data:
+        for row in row_data:
+            credit_card = dict(zip(column_names, row))
+            credit_cards.append(credit_card)
+    return credit_cards
+
+
+def find_credit_card_by_cnp_and_card_number_query(cnp: str, card_number: str) -> dict:
+    query = f"SELECT * FROM credit_cards WHERE CNP = '{cnp}' AND card_number = '{card_number}'"
+    row_data, column_names = db_executor(query)
+
+    if row_data:
+        return dict(zip(column_names, row_data[0]))
+    return {}
+
+
+def populate_feedback_table_query():
+    users = db_executor("SELECT CNP FROM users")
+    if users:
+        random.shuffle(users)
+        limit = len(users) // 2 + random.randint(1, len(users) // 2)
+        for i in range(limit):
+            cnp = users[i]
+            feedback = 'Random feedback'
+            db_executor(f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')")
+
+
+def insert_feedback_query(cnp: str, feedback: str) -> None:
+    feedback_escaped = feedback.replace("'", "''")  # escaping single quotes
+    query = f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback_escaped}')"
+    return db_executor(query)
+
+
+def insert_feedback_query(cnp, feedback):
+    return db_executor(f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')")
+
+
+def get_balance_query_by_card_number(card_number):
+    result = db_executor(
+        f"SELECT balance FROM users u JOIN credit_cards cc ON u.CNP = cc.CNP WHERE cc.card_number='{card_number}'")
+    return result[0][0][0] if result else None
+
+
+def get_outstanding_amount_query_by_card_number(card_number):
+    result = db_executor(f"SELECT outstanding_amount FROM credit_cards WHERE card_number='{card_number}'")
+    return result[0][0][0] if result else None
+
+
+def pay_outstanding_amount_query_by_card_number(card_number, payment_amount):
+    db_executor(
+        f"UPDATE credit_cards SET outstanding_amount = outstanding_amount - {payment_amount} WHERE card_number='{card_number}'")
+    db_executor(
+        f"UPDATE users u JOIN credit_cards cc ON u.CNP = cc.CNP SET u.balance = u.balance - {payment_amount} WHERE cc.card_number='{card_number}'")
+
+
+def populate_users_table(number_of_users):
+    # Clear the users table
+    clear_users_table_query = "DELETE FROM users"
+    db_executor(clear_users_table_query)
+
+    # Populate the table with random data
+    for _ in range(number_of_users):
+        cnp = ''.join([str(random.randint(0, 9)) for _ in range(4)])  # Create a 4 digit random CNP
+        insert_random_user_query(cnp)

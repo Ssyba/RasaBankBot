@@ -271,10 +271,27 @@ rules:
   - slot_was_set:
     - logged_in_status_slot: true
   steps:
-  - intent: show_my_transfers_to_account_intent
+  - intent: show_my_transfers_by_account_intent
   - action: action_extract_account_number
   - action: action_show_my_transfers_by_account
 
+### Credit cards information rules ###
+- rule: Show the user's credit cards when logged in
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_credit_cards_intent
+  - action: action_show_my_credit_cards
+
+- rule: Show credit card by card number
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: show_my_credit_card_by_card_number_intent
+  - action: action_extract_card_number
+  - action: action_show_my_credit_card_by_card_number
 
 ### Forms and some check cases ###
 # Login - negative case
@@ -537,3 +554,45 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: submit_pay_my_bills_form
+
+# Feedback form
+- rule: Activate feedback form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: give_feedback_intent
+  - action: feedback_form
+  - active_loop: feedback_form
+
+- rule: Submit feedback form
+  condition:
+  - active_loop: feedback_form
+  steps:
+  - action: feedback_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_feedback_form
+
+# Outstanding amount form
+- rule: Activate outstanding amount form
+  condition:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  steps:
+  - intent: pay_outstanding_amount_intent
+  - action: action_extract_card_number
+  - action: action_show_my_credit_card_by_card_number
+  - action: outstanding_amount_form
+  - active_loop: outstanding_amount_form
+
+- rule: Submit outstanding amount form
+  condition:
+  - active_loop: outstanding_amount_form
+  steps:
+  - action: outstanding_amount_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_outstanding_amount_form

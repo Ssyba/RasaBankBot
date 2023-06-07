@@ -234,7 +234,7 @@ class ActionShowMyRentBill(Action):
         return []
 
 
-# Bills table show #
+# Transactions table show #
 class ActionShowMyTransactions(Action):
     def name(self) -> Text:
         return "action_show_my_transactions"
@@ -350,5 +350,57 @@ class ActionShowMyTransfersByAccount(Action):
         for transfer in user_transfers:
             dispatcher.utter_message(
                 text=f"Transfer ID: {transfer['id']}, Type: {transfer['transaction_type']}, Amount: {transfer['amount']}, Date: {transfer['transaction_date']}.")
+
+        return []
+
+
+# Credit cards table show #
+class ActionShowMyCreditCards(Action):
+    def name(self) -> Text:
+        return "action_show_my_credit_cards"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+
+        user_credit_cards = queries_location.find_credit_cards_by_cnp_query(cnp)
+
+        if not user_credit_cards:
+            dispatcher.utter_message(text="You don't have any credit cards.")
+            return []
+
+        dispatcher.utter_message(text="Here are your credit cards:")
+        for card in user_credit_cards:
+            dispatcher.utter_message(
+                text=f"Card Number: {card['card_number']}, Card Type: {card['card_type']}, Credit Limit: {card['credit_limit']}, Outstanding Amount: {card['outstanding_amount']}, Due Date: {card['due_date']}.")
+
+        return []
+
+
+class ActionShowMyCreditCardByCardNumber(Action):
+    def name(self) -> Text:
+        return "action_show_my_credit_card_by_card_number"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        cnp = tracker.get_slot('cnp_slot')
+        card_number = tracker.get_slot('extracted_card_number_slot')
+
+        user_credit_card = queries_location.find_credit_card_by_cnp_and_card_number_query(cnp, card_number)
+
+        if not user_credit_card:
+            dispatcher.utter_message(text="No credit card found for the specified number.")
+            return []
+
+        dispatcher.utter_message(
+            text=f"Card Number: {user_credit_card['card_number']}, Card Type: {user_credit_card['card_type']}, Credit Limit: {user_credit_card['credit_limit']}, Outstanding Amount: {user_credit_card['outstanding_amount']}, Due Date: {user_credit_card['due_date']}.")
 
         return []

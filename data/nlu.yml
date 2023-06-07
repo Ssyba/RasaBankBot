@@ -4705,3 +4705,451 @@ nlu:
     - Could you fetch the transfers for [358135](extracted_account_number_slot)?
     - Please show the transfers for [469246](extracted_account_number_slot)?
     - Would you pull up the transfers for [570357](extracted_account_number_slot)?
+
+### Credit cards Intents ###
+- intent: show_my_credit_cards_intent
+  examples: |
+    - Show me my credit cards.
+    - Can I see my credit cards?
+    - I'd like to view my credit cards.
+    - What are my credit cards?
+    - Display my credit cards.
+    - Can you list my credit cards?
+    - Let me see my credit cards.
+    - I want to check my credit cards.
+    - Can you show my credit cards?
+    - How many credit cards do I have?
+    - What is the status of my credit cards?
+    - Can you display my credit cards?
+    - I want to see my credit cards.
+    - Can you list all my credit cards?
+    - Show my credit cards, please.
+    - Could you show me my credit cards?
+    - I would like to see my credit cards.
+    - Please show me my credit cards.
+    - Display all my credit cards.
+    - I need to see my credit cards.
+    - Can I take a look at my credit cards?
+    - Could you please list my credit cards?
+    - Show all of my credit cards.
+    - May I see my credit cards?
+    - I'd like to check my credit cards.
+    - How many credit cards do I own?
+    - What's the status of my credit cards?
+    - Can you show me all my credit cards?
+    - Can I view my credit cards?
+    - I need to check my credit cards.
+    - Can I check out my credit cards?
+    - Could I see my credit cards?
+    - I'd like to see all my credit cards.
+    - Please display my credit cards.
+    - Can you check my credit cards?
+    - May I check my credit cards?
+    - Show my credit cards details.
+    - I'd like to know my credit cards status.
+    - Could you check my credit cards?
+    - Can I know my credit cards details?
+    - May I view my credit cards?
+    - Can I get the details of my credit cards?
+    - Can you give me the details of my credit cards?
+    - I would like to check my credit cards.
+    - Could I view my credit cards?
+    - I'd like to know the status of my credit cards.
+    - Could you give me the details of my credit cards?
+    - Can I see the details of my credit cards?
+    - I'd like to see the details of my credit cards.
+    - Could I check my credit cards?
+    - May I know my credit cards status?
+    - Can you check the status of my credit cards?
+    - Can I know the status of my credit cards?
+    - Could you check the status of my credit cards?
+    - Can I check the status of my credit cards?
+    - Could I know my credit cards status?
+    - May I check the status of my credit cards?
+    - Can I see all my credit cards?
+    - Could you display all my credit cards?
+    - Can I view all my credit cards?
+    - Could I see all my credit cards?
+    - May I see all my credit cards?
+    - I'd like to check all my credit cards.
+    - Can you show all my credit cards?
+    - Could I view all my credit cards?
+    - May I view all my credit cards?
+    - Can I check out all my credit cards?
+    - Could I check all my credit cards?
+    - May I check all my credit cards?
+    - I'd like to see all of my credit cards.
+    - Can you give me the status of my credit cards?
+    - Could you give me the status of my credit cards?
+    - May I know the details of my credit cards?
+    - Can you tell me about my credit cards?
+    - Could you tell me about my credit cards?
+    - May I get the details of my credit cards?
+    - Can you display all of my credit cards?
+    - Could you display all of my credit cards?
+    - Can you tell me the status of my credit cards?
+    - Could you tell me the status of my credit cards?
+    - May I get the status of my credit cards?
+    - Can I get the status of all my credit cards?
+    - Could you show all of my credit cards?
+    - May I get the status of all my credit cards?
+    - Can you list all of my credit cards?
+    - Could you list all of my credit cards?
+    - May I have the status of all my credit cards?
+    - Can you give me the status of all my credit cards?
+    - Could you give me the status of all my credit cards?
+    - May I see the details of all my credit cards?
+    - Can you show me the details of all my credit cards?
+    - Could you show me the details of all my credit cards?
+    - Can you check the status of all my credit cards?
+    - Could you check the status of all my credit cards?
+    - May I check the status of all my credit cards?
+    - Can I know the status of all my credit cards?
+    - Could you check all of my credit cards?
+    - May I know the status of all my credit cards?
+    - Can I check the status of all of my credit cards?
+    - Could I check the status of all my credit cards?
+    - Can I see the details of all of my credit cards?
+    - Could I see the details of all my credit cards?
+    - May I see the details of all of my credit cards?
+    - Can I view the details of all my credit cards?
+    - Could I view the details of all my credit cards?
+    - May I view the details of all of my credit cards?
+    - Can I get the details of all of my credit cards?
+    - Could I get the details of all my credit cards?
+    - May I get the details of all of my credit cards?
+    - Can you give me the details of all of my credit cards?
+    - Could you give me the details of all my credit cards?
+    - Can you tell me about all my credit cards?
+    - Could you tell me about all my credit cards?
+    - May you tell me about all my credit cards?
+
+- intent: show_my_credit_card_by_card_number_intent
+  examples: |
+    - Can you show me details for card number [1234567890123456](extracted_card_number_slot)?
+    - I need to see the details for my card [9876543210987654](extracted_card_number_slot).
+    - Please show me the information for card [5555555555554444](extracted_card_number_slot).
+    - Show me my card with number [5105105105105100](extracted_card_number_slot).
+    - I need information on card [4111111111111111](extracted_card_number_slot).
+    - Can you pull up the card with number [4012888888881881](extracted_card_number_slot)?
+    - I would like to see the details for card number [4222222222222](extracted_card_number_slot).
+    - Can you display the card details for [6011111111111117](extracted_card_number_slot)?
+    - I want to see my card with number [3530111333300000](extracted_card_number_slot).
+    - Please show me the card with number [5555555555554444](extracted_card_number_slot).
+    - I need to see the card with number [4111111111111111](extracted_card_number_slot).
+    - Show me the card that ends in [4012888888881881](extracted_card_number_slot).
+    - Can you show me the details for card [4222222222222](extracted_card_number_slot)?
+    - Please pull up the card [6011111111111117](extracted_card_number_slot).
+    - I want to see the card with the number [5105105105105100](extracted_card_number_slot).
+    - Can you display the card details for [5555555555554444](extracted_card_number_slot)?
+    - Show me my card with the number [4111111111111111](extracted_card_number_slot).
+    - I would like to see the details for card [4012888888881881](extracted_card_number_slot).
+    - Can you pull up the card with number [4222222222222](extracted_card_number_slot)?
+    - Please show me my card with number [6011111111111117](extracted_card_number_slot).
+    - I need to see my card with number [3530111333300000](extracted_card_number_slot).
+    - Can you display the details for card [5555555555554444](extracted_card_number_slot)?
+    - Show me the card with number [5105105105105100](extracted_card_number_slot).
+    - I would like to see the card [4111111111111111](extracted_card_number_slot).
+    - Can you pull up the details for card [4012888888881881](extracted_card_number_slot)?
+    - I need information on my card with number [4222222222222](extracted_card_number_slot).
+    - Please show me the card details for [6011111111111117](extracted_card_number_slot).
+    - Can you display my card with number [3530111333300000](extracted_card_number_slot)?
+    - Show me the card that has the number [5555555555554444](extracted_card_number_slot).
+    - I need to see my card [5105105105105100](extracted_card_number_slot).
+    - Can you show me my card with the number [4111111111111111](extracted_card_number_slot)?
+    - I would like to see my card [4012888888881881](extracted_card_number_slot).
+    - Can you pull up the card with number [4222222222222](extracted_card_number_slot)?
+    - Please display the details for card [6011111111111117](extracted_card_number_slot).
+    - I want to see my card number [3530111333300000](extracted_card_number_slot).
+    - Show me the details for card number [5555555555554444](extracted_card_number_slot).
+    - I need to see my card with number [5105105105105100](extracted_card_number_slot).
+    - Can you display the card [4111111111111111](extracted_card_number_slot)?
+    - Please show me the card with number [4012888888881881](extracted_card_number_slot).
+    - I want to see my card [4222222222222](extracted_card_number_slot).
+    - Show me the card that ends in [6011111111111117](extracted_card_number_slot).
+    - Can you show me the details for my card [3530111333300000](extracted_card_number_slot)?
+    - I need information on my card with number [5555555555554444](extracted_card_number_slot).
+    - Please pull up the card [5105105105105100](extracted_card_number_slot).
+    - I want to see the card with the number [4111111111111111](extracted_card_number_slot).
+    - Can you display the details for card [4012888888881881](extracted_card_number_slot)?
+    - Show me the card [4222222222222](extracted_card_number_slot).
+    - I would like to see my card with number [6011111111111117](extracted_card_number_slot).
+    - Can you pull up the card with number [3530111333300000](extracted_card_number_slot)?
+    - Please show me the details for card [5555555555554444](extracted_card_number_slot).
+    - I need to see the card with number [5105105105105100](extracted_card_number_slot).
+    - Show me the details for card [4111111111111111](extracted_card_number_slot).
+    - I would like to see the details for card number [4012888888881881](extracted_card_number_slot).
+    - Can you display the card [4222222222222](extracted_card_number_slot)?
+    - Please pull up the card with number [6011111111111117](extracted_card_number_slot).
+    - I want to see my card with the number [3530111333300000](extracted_card_number_slot).
+    - Show me the card details for [5555555555554444](extracted_card_number_slot).
+    - I need to see the card [5105105105105100](extracted_card_number_slot).
+    - Can you show me the card with number [4111111111111111](extracted_card_number_slot)?
+    - I would like to see my card [4012888888881881](extracted_card_number_slot).
+    - Can you pull up the details for card [4222222222222](extracted_card_number_slot)?
+    - Please show me my card with number [6011111111111117](extracted_card_number_slot).
+    - I need to see my card with number [3530111333300000](extracted_card_number_slot).
+    - Can you display the card [5555555555554444](extracted_card_number_slot)?
+    - Show me my card [5105105105105100](extracted_card_number_slot).
+    - I would like to see the details for card [4111111111111111](extracted_card_number_slot).
+    - Can you pull up my card with number [4012888888881881](extracted_card_number_slot)?
+    - Please show me the card [4222222222222](extracted_card_number_slot).
+    - I need information on my card with number [6011111111111117](extracted_card_number_slot).
+    - Can you display the card details for [3530111333300000](extracted_card_number_slot)?
+    - Show me my card with the number [5555555555554444](extracted_card_number_slot).
+    - I need to see the details for my card [5105105105105100](extracted_card_number_slot).
+    - Can you show me the card with number [4111111111111111](extracted_card_number_slot)?
+    - I would like to see the card [4012888888881881](extracted_card_number_slot).
+    - Can you pull up the card details for [4222222222222](extracted_card_number_slot)?
+    - Please show me my card [6011111111111117](extracted_card_number_slot).
+    - I need to see my card number [3530111333300000](extracted_card_number_slot).
+    - Can you display the details for card [5555555555554444](extracted_card_number_slot)?
+    - Show me my card with number [5105105105105100](extracted_card_number_slot).
+    - I would like to see my card [4111111111111111](extracted_card_number_slot).
+    - Can you pull up the details for card [4012888888881881](extracted_card_number_slot)?
+    - Please show me my card with number [4222222222222](extracted_card_number_slot).
+    - I need to see the card with number [6011111111111117](extracted_card_number_slot).
+    - Can you display my card with number [3530111333300000](extracted_card_number_slot)?
+    - Show me the card with number [5555555555554444](extracted_card_number_slot).
+    - I need to see the card [5105105105105100](extracted_card_number_slot).
+    - Can you show me my card with the number [4111111111111111](extracted_card_number_slot)?
+    - I would like to see the card [4012888888881881](extracted_card_number_slot).
+    - Can you pull up the card with number [4222222222222](extracted_card_number_slot)?
+    - Please display the details for card [6011111111111117](extracted_card_number_slot).
+    - I want to see my card number [3530111333300000](extracted_card_number_slot).
+    - Show me the card with number [5555555555554444](extracted_card_number_slot).
+    - I need to see the details for my card [5105105105105100](extracted_card_number_slot).
+    - Can you display the card [4111111111111111](extracted_card_number_slot)?
+    - Please show me my card with number [4012888888881881](extracted_card_number_slot).
+    - I want to see my card [4222222222222](extracted_card_number_slot).
+    - Show me the card with the number [6011111111111117](extracted_card_number_slot).
+    - Can you show me my card with the number [3530111333300000](extracted_card_number_slot)?
+
+# Feedback table
+- intent: give_feedback_intent
+  examples: |
+    - I'd like to give some feedback
+    - I have some feedback for you
+    - Can I provide some feedback?
+    - I want to give feedback
+    - Let me tell you my thoughts
+    - I want to share my feedback
+    - Here's what I think
+    - I'd love to give you my feedback
+    - May I leave feedback?
+    - Can I share some feedback?
+    - I'd like to give my opinion
+    - Let me provide feedback
+    - How can I give feedback?
+    - I want to provide feedback
+    - Can I tell you my thoughts?
+    - I want to express my feedback
+    - Can I give my opinion?
+    - I have a few things to say
+    - I have some thoughts to share
+    - Here's my feedback
+    - Let me share my thoughts
+    - I have some comments
+    - I have a suggestion
+    - I have an idea
+    - I have some feedback to give
+    - I want to share my thoughts
+    - I would like to provide feedback
+    - I have an opinion
+    - Can I leave feedback?
+    - I want to tell you something
+    - I have feedback for you
+    - I'd like to share my feedback
+    - I want to share my opinion
+    - I'd like to express my thoughts
+    - I would like to leave feedback
+    - I want to give my feedback
+    - Can I give feedback?
+    - I'd like to tell you what I think
+    - Let me give you my thoughts
+    - I have something to say
+    - Can I share my feedback?
+    - I'd like to provide feedback
+    - I have a comment
+    - Here's what I have to say
+    - I have feedback to provide
+    - Can I give you my feedback?
+    - Can I share my thoughts?
+    - I would like to give feedback
+    - Let me share my feedback
+    - I'd like to leave some feedback
+    - I want to offer feedback
+    - I would like to offer my feedback
+    - I have a few comments
+    - Let me offer my feedback
+    - Can I express my thoughts?
+    - I'd like to offer feedback
+    - Can I give some feedback?
+    - I would like to give my feedback
+    - Let me give feedback
+    - I have some feedback to provide
+    - I want to leave feedback
+    - Let me share my opinion
+    - Here's my opinion
+    - I'd like to share my opinion
+    - I'd like to tell you my thoughts
+    - I want to express my thoughts
+    - Can I offer some feedback?
+    - I have something to share
+    - I'd like to share my thoughts
+    - Here's my thoughts
+    - I have a few thoughts
+    - I want to offer my feedback
+    - I want to give my opinion
+    - I have a feedback
+    - I would like to share feedback
+    - I would like to share my feedback
+    - Can I offer feedback?
+    - I have a few ideas
+    - I want to give my thoughts
+    - Let me express my feedback
+    - Can I tell you my opinion?
+    - Here's my comment
+    - I have some ideas
+    - I have a thought
+    - I would like to express my feedback
+    - I would like to share my thoughts
+    - Can I express my feedback?
+    - Let me express my thoughts
+    - I have a suggestion to make
+    - I'd like to express my feedback
+    - I'd like to offer my feedback
+    - I have a few suggestions
+    - I want to provide my feedback
+    - Here's my suggestion
+    - Can I express my opinion?
+    - I want to tell you my thoughts
+    - I would like to share my opinion
+    - I want to share a few thoughts
+    - I have a couple of comments
+    - Let me tell you my feedback
+    - I would like to tell you my feedback
+    - Here's my idea
+    - Can I tell you what I think?
+    - Let me give my feedback
+    - Can I provide my feedback?
+    - I have some suggestions
+    - I'd like to tell you my feedback
+    - I want to tell you my feedback
+    - Here's a suggestion
+    - Can I tell you my feedback?
+    - I would like to tell you what I think
+    - I want to leave my feedback
+    - I have a couple of thoughts
+    - Let me share a thought
+    - Here's a comment
+    - I want to express my opinion
+    - I want to share a suggestion
+    - I want to tell you what I think
+    - Can I share my opinion?
+    - I'd like to share a comment
+    - I would like to express my thoughts
+    - I have a few thoughts to share
+
+- intent: pay_outstanding_amount_intent
+  examples: |
+    - I want to pay my outstanding amount for card [4532279151061031](extracted_card_number_slot)
+    - Please help me pay my outstanding amount for [6011514433546202](extracted_card_number_slot)
+    - Could you help me make a payment for my outstanding amount on card [3530111333300000](extracted_card_number_slot)?
+    - I would like to pay the outstanding amount for card [6011988416506204](extracted_card_number_slot)
+    - Pay my outstanding amount for card [4532279151061035](extracted_card_number_slot)
+    - Settle the outstanding amount for card [6011514433546206](extracted_card_number_slot)
+    - How can I pay my outstanding amount for card [3530111333300007](extracted_card_number_slot)?
+    - I need to pay my outstanding amount for card [6011988416506208](extracted_card_number_slot)
+    - I would like to clear my outstanding amount for card [4532279151061039](extracted_card_number_slot)
+    - Make a payment for my outstanding amount on card [6011514433546210](extracted_card_number_slot)
+    - Help me pay my outstanding amount for card [3530111333300011](extracted_card_number_slot)
+    - Process payment for my outstanding amount on card [6011988416506212](extracted_card_number_slot)
+    - I wish to pay my outstanding amount for card [4532279151061013](extracted_card_number_slot)
+    - Assist me in paying my outstanding amount for card [6011514433546214](extracted_card_number_slot)
+    - I need to clear my outstanding amount for card [3530111333300015](extracted_card_number_slot)
+    - Help me clear my outstanding amount for card [6011988416506216](extracted_card_number_slot)
+    - I want to clear my outstanding amount for card [4532279151061017](extracted_card_number_slot)
+    - Can I pay my outstanding amount for card [6011514433546218](extracted_card_number_slot)?
+    - I would like to pay my outstanding amount for card [3530111333300019](extracted_card_number_slot)
+    - Can you assist me to pay my outstanding amount for card [6011988416506220](extracted_card_number_slot)?
+    - Can you help me pay my outstanding amount for card [4532279151061021](extracted_card_number_slot)?
+    - I need help paying my outstanding amount for card [6011514433546222](extracted_card_number_slot)
+    - I want to pay off my card [3530111333300023](extracted_card_number_slot)
+    - Could you process a payment for my card [6011988416506224](extracted_card_number_slot)?
+    - I'm looking to pay off my card [4532279151061025](extracted_card_number_slot)
+    - I need to make a payment for my card [6011514433546226](extracted_card_number_slot)
+    - Can you help me pay my outstanding amount for card [3530111333300027](extracted_card_number_slot)?
+    - I would like to make a payment for my card [6011988416506228](extracted_card_number_slot)
+    - Could you assist me in paying my outstanding amount for card [4532279151061029](extracted_card_number_slot)?
+    - I want to settle my outstanding amount for card [6011514433546230](extracted_card_number_slot)
+    - Can you help me settle my outstanding amount for card [3530111333300031](extracted_card_number_slot)?
+    - Could you help me pay off my card [6011988416506232](extracted_card_number_slot)?
+    - I need to pay my card [4532279151061033](extracted_card_number_slot)
+    - I need your help to pay my outstanding amount for card [6011514433546234](extracted_card_number_slot)
+    - I want to settle my bill for card [3530111333300035](extracted_card_number_slot)
+    - Could you assist me in making a payment for my card [6011988416506236](extracted_card_number_slot)?
+    - I wish to pay my outstanding amount for card [4532279151061037](extracted_card_number_slot)
+    - I want to clear my outstanding balance for card [6011514433546238](extracted_card_number_slot)
+    - Could you help me settle my bill for card [3530111333300039](extracted_card_number_slot)?
+    - I want to make a payment for my card [6011988416506240](extracted_card_number_slot)
+    - Help me settle my outstanding amount for card [4532279151061041](extracted_card_number_slot)
+    - Can you process a payment for my card [6011514433546242](extracted_card_number_slot)?
+    - I need assistance paying my outstanding amount for card [3530111333300043](extracted_card_number_slot)
+    - Could you help me clear my outstanding balance for card [6011988416506244](extracted_card_number_slot)?
+    - I wish to pay off my card [4532279151061045](extracted_card_number_slot)
+    - Can you help me pay my card [6011514433546246](extracted_card_number_slot)?
+    - I want to clear my outstanding amount for card [3530111333300047](extracted_card_number_slot)
+    - Could you assist me in paying off my card [6011988416506248](extracted_card_number_slot)?
+    - I need to pay my outstanding balance for card [4532279151061049](extracted_card_number_slot)
+    - I need help making a payment for my card [6011514433546250](extracted_card_number_slot)
+    - Can you assist me in paying my card [3530111333300051](extracted_card_number_slot)?
+    - I would like to settle my bill for card [6011988416506252](extracted_card_number_slot)
+    - I want to pay off my outstanding balance for card [4532279151061053](extracted_card_number_slot)
+    - I need help paying my outstanding amount for card [6011514433546254](extracted_card_number_slot)
+    - Can you assist me in paying my outstanding amount for card [3530111333300055](extracted_card_number_slot)?
+    - I would like to pay my outstanding balance for card [6011988416506256](extracted_card_number_slot)
+    - I need help clearing my outstanding balance for card [4532279151061057](extracted_card_number_slot)
+    - Can you help me make a payment for my card [6011514433546258](extracted_card_number_slot)?
+    - I want to clear my outstanding amount for card [3530111333300059](extracted_card_number_slot)
+    - Could you assist me in paying my outstanding balance for card [6011988416506260](extracted_card_number_slot)?
+    - I need to pay off my card [4532279151061061](extracted_card_number_slot)
+    - I need help to pay my card [6011514433546262](extracted_card_number_slot)
+    - Can you assist me in paying my outstanding amount for card [3530111333300063](extracted_card_number_slot)?
+    - I would like to pay off my outstanding amount for card [6011988416506264](extracted_card_number_slot)
+    - I need help to pay my outstanding amount for card [4532279151061065](extracted_card_number_slot)
+    - Can you help me clear my outstanding amount for card [6011514433546266](extracted_card_number_slot)?
+    - I want to settle my outstanding balance for card [3530111333300067](extracted_card_number_slot)
+    - Could you assist me in clearing my outstanding amount for card [6011988416506268](extracted_card_number_slot)?
+    - I need to settle my bill for card [4532279151061069](extracted_card_number_slot)
+    - I need help to pay my outstanding balance for card [6011514433546270](extracted_card_number_slot)
+    - Can you assist me in paying off my card [3530111333300071](extracted_card_number_slot)?
+    - I would like to settle my outstanding balance for card [6011988416506272](extracted_card_number_slot)
+    - I need help to clear my outstanding balance for card [4532279151061073](extracted_card_number_slot)
+    - Can you help me pay off my card [6011514433546274](extracted_card_number_slot)?
+    - I want to make a payment for my outstanding amount on card [3530111333300075](extracted_card_number_slot)
+    - Could you assist me in clearing my outstanding balance for card [6011988416506276](extracted_card_number_slot)?
+    - I need to pay my bill for card [4532279151061077](extracted_card_number_slot)
+    - I need help to pay off my outstanding balance for card [6011514433546278](extracted_card_number_slot)
+    - Can you assist me in clearing my outstanding amount for card [3530111333300079](extracted_card_number_slot)?
+    - I would like to pay my bill for card [6011988416506280](extracted_card_number_slot)
+    - I need help to settle my outstanding amount for card [4532279151061081](extracted_card_number_slot)
+    - Can you help me pay my bill for card [6011514433546282](extracted_card_number_slot)?
+    - I want to clear my bill for card [3530111333300083](extracted_card_number_slot)
+    - Could you assist me in paying my bill for card [6011988416506284](extracted_card_number_slot)?
+    - I need to pay my outstanding amount for card [4532279151061085](extracted_card_number_slot)
+    - I need help to clear my bill for card [6011514433546286](extracted_card_number_slot)
+    - Can you assist me in paying off my outstanding balance for card [3530111333300087](extracted_card_number_slot)?
+    - I would like to clear my outstanding balance for card [6011988416506288](extracted_card_number_slot)
+    - I need help to pay my outstanding amount for card [4532279151061089](extracted_card_number_slot)
+    - Can you help me clear my bill for card [6011514433546290](extracted_card_number_slot)?
+    - I want to pay my bill for card [3530111333300091](extracted_card_number_slot)
+    - Could you assist me in paying my outstanding balance for card [6011988416506292](extracted_card_number_slot)?
+    - I need to pay off my outstanding balance for card [4532279151061093](extracted_card_number_slot)
+    - I need help to settle my bill for card [6011514433546294](extracted_card_number_slot)
+    - Can you assist me in paying my bill for card [3530111333300095](extracted_card_number_slot)?
+    - I would like to pay off my bill for card [6011988416506296](extracted_card_number_slot)
+    - I need help to clear my outstanding amount for card [4532279151061097](extracted_card_number_slot)
+    - Can you help me pay off my outstanding amount for card [6011514433546298](extracted_card_number_slot)?
+    - I want to settle my outstanding amount for card [3530111333300099](extracted_card_number_slot)
+    - Could you assist me in paying my outstanding amount for card [6011988416506300](extracted_card_number_slot)?

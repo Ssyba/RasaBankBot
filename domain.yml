@@ -56,6 +56,14 @@ intents:
   - show_my_transactions_by_date_intent
   - show_my_transfers_by_account_intent
 
+  ### Credit cards intents ###
+  - show_my_credit_cards_intent
+  - show_my_credit_card_by_card_number_intent
+  - pay_outstanding_amount_intent
+
+  ### Feedback intents ###
+  - give_feedback_intent
+
   ### Miscellaneous Intents ###
   - break_intent
 
@@ -195,11 +203,35 @@ slots:
           - active_loop: pay_my_rent_bill_form
             requested_slot: confirm_pay_bills_slot
 
+  # Feedback form
+  feedback_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: feedback_form
+            requested_slot: feedback_slot
+
+  # Outstanding amount form
+  outstanding_amount_payment_slot:
+    type: text
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: outstanding_amount_form
+            requested_slot: outstanding_amount_payment_slot
+
   transaction_date_slot:
     type: any
     mappings:
     - type: from_entity
       entity: transaction_date_slot
+
+  extracted_card_number_slot:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: extracted_card_number_slot
 
   extracted_account_number_slot:
     type: any
@@ -249,6 +281,14 @@ forms:
     required_slots:
       - confirm_pay_bills_slot
 
+  feedback_form:
+    required_slots:
+      - feedback_slot
+
+  outstanding_amount_form:
+    required_slots:
+      - outstanding_amount_payment_slot
+
 responses:
   # General
   utter_greet:
@@ -297,6 +337,14 @@ responses:
   utter_ask_confirm_pay_bills_slot:
     - text: "Please affirm or deny to pay the displayed bill(s):"
 
+  # Feedback responses
+  utter_ask_feedback_slot:
+    - text: "Sure, please type in your feedback here:"
+
+  # Feedback responses
+  utter_ask_outstanding_amount_payment_slot:
+    - text: "Sure, please input the amount you wish to pay here:"
+
 actions:
 # General actions
   - action_restart
@@ -341,6 +389,10 @@ actions:
   - action_show_my_transactions_by_date
   - action_show_my_transfers_by_account
 
+# Display credit cards table
+  - action_show_my_credit_cards
+  - action_show_my_credit_card_by_card_number
+
 ### Bills actions ###
 # Pay my bills actions
   - validate_pay_my_bills_form
@@ -360,10 +412,19 @@ actions:
 # Submit action for paying any bill
   - submit_pay_my_bills_form
 
+# Feedback table actions
+  - validate_feedback_form
+  - submit_feedback_form
+  -
+# Outstanding amount form
+  - validate_outstanding_amount_form
+  - submit_outstanding_amount_form
+
 # Action helpers
   - action_set_confirm_pay_bills_slot
   - action_extract_transaction_date
   - action_extract_account_number
+  - action_extract_card_number
 
 # Temp actions
   - action_log_me_in

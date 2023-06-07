@@ -20,7 +20,7 @@ def generate_random_user_data(cnp):
     name = _fake.first_name()
     surname = _fake.last_name()
     age = random.randint(18, 100)
-    password = "12345678"
+    password = generate_random_password()
     account_number = f"{random.randint(100000, 999999)}"
     registration_date = _fake.date_between(start_date='-5y', end_date='today')
     balance = random.randint(0, 1000000)
@@ -35,6 +35,13 @@ def generate_random_user_data(cnp):
         'registration_date': registration_date,
         'balance': balance
     }
+
+
+def generate_random_password(length=8):
+    # Generate a random password with the specified length
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for _ in range(length))
+    return password
 
 
 def db_executor(query: str) -> list:

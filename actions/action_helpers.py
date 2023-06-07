@@ -71,3 +71,17 @@ class ActionExtractAccountNumber(Action):
     ) -> List[Dict[Text, Any]]:
         account_number_entity = next(tracker.get_latest_entity_values("extracted_account_number_slot"), None)
         return [SlotSet("extracted_account_number_slot", account_number_entity)]
+
+
+class ActionExtractCardNumber(Action):
+    def name(self) -> Text:
+        return "action_extract_card_number"
+
+    async def run(
+            self,
+            dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        extracted_card_number = next(tracker.get_latest_entity_values("extracted_card_number_slot"), None)
+        return [SlotSet("extracted_card_number_slot", extracted_card_number)]

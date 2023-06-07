@@ -296,7 +296,7 @@ stories:
   - intent: pay_my_rent_bill_intent
   - action: utter_not_logged_in
 
-# Transaction stories
+# Transactions stories
 - story: Show the user's transactions
   steps:
   - slot_was_set:
@@ -333,3 +333,57 @@ stories:
   - intent: show_my_transfers_by_account_intent
   - action: action_extract_account_number
   - action: action_show_my_transfers_by_account
+
+# Credit card stories
+- story: Show the user's credit cards
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_credit_cards_intent
+  - action: action_show_my_credit_cards
+
+- story: Show credit card by card number
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: show_my_credit_card_by_card_number_intent
+  - action: action_extract_card_number
+  - action: action_show_my_credit_card_by_card_number
+
+# Feedback stories
+- story: Activate feedback form
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: give_feedback_intent
+  - action: feedback_form
+  - active_loop: feedback_form
+
+- story: Submit feedback form
+  steps:
+  - active_loop: feedback_form
+  - action: feedback_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_feedback_form
+
+# Outstanding amount stories
+- story: Activate outstanding amount form
+  steps:
+  - slot_was_set:
+    - logged_in_status_slot: true
+  - intent: pay_outstanding_amount_intent
+  - action: action_extract_card_number
+  - action: action_show_my_credit_card_by_card_number
+  - action: outstanding_amount_form
+  - active_loop: outstanding_amount_form
+
+- story: Submit outstanding amount form
+  steps:
+  - active_loop: outstanding_amount_form
+  - action: outstanding_amount_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: submit_outstanding_amount_form
