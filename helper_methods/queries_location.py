@@ -1,7 +1,10 @@
-from datetime import datetime
-from general_methods import db_executor, generate_random_user_data, mock_api_get_balance, generate_random_taxes, \
-    generate_random_credit_card_data
 import random
+from datetime import datetime, date, timedelta
+
+import lorem
+
+from general_methods import db_executor, mock_api_get_balance, generate_random_taxes, \
+    generate_random_credit_card_data, generate_random_transaction, generate_random_user_data, generate_random_date
 
 
 # Create tables
@@ -67,12 +70,6 @@ def create_feedback_table_query():
     )
 
 
-def insert_feedback_query(cnp: str, feedback: str) -> None:
-    feedback = feedback.replace("'", "\\'")  # escape any single quotes in feedback
-    query = f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')"
-    db_executor(query)
-
-
 # Delete tables
 def delete_users_table_query():
     return db_executor("DROP TABLE users")
@@ -102,7 +99,6 @@ def clear_data_users_table_query():
     db_executor(query)
 
 
-# Clear data from tables
 def clear_data_bills_table_query():
     query = "TRUNCATE TABLE bills"
     db_executor(query)
@@ -114,7 +110,8 @@ def clear_data_transactions_table_query():
 
 
 def clear_credit_cards_table_query():
-    return db_executor("DELETE FROM credit_cards")
+    query = "TRUNCATE TABLE credit_cards"
+    db_executor(query)
 
 
 def clear_feedback_table_query():
@@ -123,33 +120,20 @@ def clear_feedback_table_query():
     )
 
 
-def fill_bills_table_query():
+def populate_bills_table_query():
+    # Clear the bills table first
+    clear_data_bills_table_query()
+
     # Select CNPs from the users table
     users_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM users")[0]]
     bills_table_cnps = [cnp[0] for cnp in db_executor("SELECT CNP FROM bills")[0]]
 
     for cnp in users_table_cnps:
         if cnp not in bills_table_cnps:
-            gas, electricity, water, rent = generate_random_taxes()
-
-            query = (
-                f"INSERT INTO bills (cnp, gas, electricity, water, rent) "
-                f"VALUES ('{cnp}', {gas}, {electricity}, {water}, {rent})"
-            )
-            db_executor(query)
+            # Use insert_bills_for_cnp_query(cnp) to insert random bills for each user
+            insert_bills_by_cnp_query(cnp)
         else:
             print(f"CNP '{cnp}' already exists in bills table, skipping...")
-
-
-def update_bills_table_with_random_taxes_query() -> None:
-    update_bills_query = """
-        UPDATE bills
-        SET gas = gas + %s, electricity = electricity + %s, water = water + %s, rent = rent + %s;
-    """
-
-    gas_tax, electricity_tax, water_tax, rent_tax = generate_random_taxes()
-
-    db_executor(update_bills_query % (gas_tax, electricity_tax, water_tax, rent_tax))
 
 
 def add_new_user_query(cnp: str, name: str, surname: str, age: str, password: str):
@@ -183,25 +167,36 @@ def delete_user_by_cnp_query(cnp: str) -> None:
 
 
 # Insert data in tables
-def insert_random_user_query(cnp):
+def insert_user_by_cnp_query(cnp):
     user = generate_random_user_data(cnp)
+
     insert_query = f"""
         INSERT INTO users (CNP, name, surname, age, password, account_number, registration_date, balance)
         VALUES (
             '{user['cnp']}',
             '{user['name']}',
             '{user['surname']}',
-            '{user['age']}',
+            {user['age']},
             '{user['password']}',
             '{user['account_number']}',
             '{user['registration_date']}',
-            '{user['balance']}'
+            {user['balance']}
         )
     """
     db_executor(insert_query)
 
 
-def insert_random_credit_card_query(cnp):
+def insert_credit_card_by_cnp_query(cnp):
+    # First check if the CNP exists in the users table
+    check_query = f"SELECT CNP FROM users WHERE CNP='{cnp}'"
+    result = db_executor(check_query)
+
+    # Check if the result is empty or not
+    if not result[0]:  # If the result is empty
+        print(f"CNP '{cnp}' does not exist in users table. No credit card has been added.")
+        return
+
+    # If the CNP does exist, then generate the credit card data and insert them into the credit_cards table
     for _ in range(random.randint(0, 3)):  # Generating 0 to 3 credit cards for each user
         credit_card = generate_random_credit_card_data(cnp)
         insert_query = f"""
@@ -218,11 +213,11 @@ def insert_random_credit_card_query(cnp):
         db_executor(insert_query)
 
 
-def generate_random_credit_cards_for_users():
+def populate_credit_cards_table_query():
     user_cnp_list = get_all_user_cnp()  # You need to implement this function
     for cnp in user_cnp_list:
         for _ in range(random.randint(0, 3)):
-            insert_random_credit_card_query(cnp)
+            insert_credit_card_by_cnp_query(cnp)
 
 
 def transfer_funds_query(sender_cnp: str, recipient_account_number: str, transfer_amount: float) -> None:
@@ -485,23 +480,6 @@ def find_credit_card_by_cnp_and_card_number_query(cnp: str, card_number: str) ->
     return {}
 
 
-def populate_feedback_table_query():
-    users = db_executor("SELECT CNP FROM users")
-    if users:
-        random.shuffle(users)
-        limit = len(users) // 2 + random.randint(1, len(users) // 2)
-        for i in range(limit):
-            cnp = users[i]
-            feedback = 'Random feedback'
-            db_executor(f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')")
-
-
-def insert_feedback_query(cnp: str, feedback: str) -> None:
-    feedback_escaped = feedback.replace("'", "''")  # escaping single quotes
-    query = f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback_escaped}')"
-    return db_executor(query)
-
-
 def insert_feedback_query(cnp, feedback):
     return db_executor(f"INSERT INTO feedback (CNP, feedback) VALUES ('{cnp}', '{feedback}')")
 
@@ -524,12 +502,69 @@ def pay_outstanding_amount_query_by_card_number(card_number, payment_amount):
         f"UPDATE users u JOIN credit_cards cc ON u.CNP = cc.CNP SET u.balance = u.balance - {payment_amount} WHERE cc.card_number='{card_number}'")
 
 
-def populate_users_table(number_of_users):
-    # Clear the users table
-    clear_users_table_query = "DELETE FROM users"
-    db_executor(clear_users_table_query)
+def populate_transactions_table_query():
+    # First clear the table
+    clear_data_transactions_table_query()
 
-    # Populate the table with random data
-    for _ in range(number_of_users):
-        cnp = ''.join([str(random.randint(0, 9)) for _ in range(4)])  # Create a 4 digit random CNP
-        insert_random_user_query(cnp)
+    users_query = "SELECT CNP FROM users"
+    users_cnp = db_executor(users_query)[0]  # Get a list of all CNP values from the users table
+
+    for cnp in users_cnp:
+        num_transactions = random.randint(0, 4)  # Random number of transactions for this user
+        for _ in range(num_transactions):
+            transaction = generate_random_transaction(cnp[0])  # Generate a random transaction for this user
+
+            insert_transaction_query = f"""
+                INSERT INTO transactions (CNP, transaction_type, target, amount)
+                VALUES ('{transaction['cnp']}', '{transaction['transaction_type']}', '{transaction['target']}', {transaction['amount']});
+            """
+            db_executor(insert_transaction_query)  # Insert the transaction into the transactions table
+
+
+def insert_bills_by_cnp_query(cnp: str):
+    # First check if the CNP exists in the users table
+    check_query = f"SELECT CNP FROM users WHERE CNP='{cnp}'"
+    result = db_executor(check_query)
+
+    # Check if the result is empty or not
+    if not result[0]:  # If the result is empty
+        print(f"CNP '{cnp}' does not exist in users table. No taxes have been added.")
+        return
+
+    # If the CNP does exist, then generate the taxes and insert them into the bills table
+    gas_tax, electricity_tax, water_tax, rent_tax = generate_random_taxes()
+
+    insert_query = (
+        f"INSERT INTO bills (cnp, gas, electricity, water, rent) "
+        f"VALUES ('{cnp}','{gas_tax}','{electricity_tax}','{water_tax}','{rent_tax}')"
+    )
+
+    db_executor(insert_query)
+
+
+def populate_users_table_query(number_of_users):
+    clear_data_users_table_query()
+
+    for i in range(1, number_of_users + 1):
+        cnp = str(i).zfill(4)  # Ensure CNP is always 4 digits
+        insert_user_by_cnp_query(cnp)
+
+
+def populate_feedback_table_query():
+    # First clear other feedback
+    clear_feedback_table_query()
+
+    cnps = get_all_user_cnp()
+    if cnps:
+        for cnp in cnps:
+            feedback_count = random.randint(0, 3)  # Randomly decide how many feedbacks this user will get
+
+            for _ in range(feedback_count):
+                feedback = lorem.sentence()
+                feedback_date = generate_random_date()
+                query = (
+                    f"INSERT INTO feedback (CNP, feedback, date) VALUES ('{cnp}', '{feedback}', '{feedback_date}')"
+                )
+                db_executor(query)
+    else:
+        print("No users exist in the users table. Nothing was done.")

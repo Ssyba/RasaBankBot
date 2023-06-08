@@ -696,9 +696,9 @@ nlu:
     - I want to open a new account.
     - How do I sign up as a new user?
     - Can you guide me through creating a new account?
-    - What's the process for registrationing a new account?
+    - What's the process for registering a new account?
     - I'd like to set up a new user profile.
-    - I need help registrationing as a new user.
+    - I need help registering as a new user.
     - Can I open a new account with you?
     - How do I become a new user?
     - I'm looking to create a new account.
@@ -725,7 +725,7 @@ nlu:
     - I want to registration as a new user.
     - How can I sign up as a new user?
     - Can you guide me through opening a new account?
-    - What's the procedure for registrationing a new user account?
+    - What's the procedure for registering a new user account?
     - I'd like to set up a new account.
     - I need help signing up as a new user.
     - Can I join as a new user?
@@ -1119,19 +1119,19 @@ nlu:
     - Can you repeat my name for me?
     - What name did I registration with?
     - What name did I use to create my account?
-    - Can you tell me my registrationed name?
-    - Please give me my registrationed name
-    - What name is registrationed under my account?
-    - Can you please tell me my registrationed name?
+    - Can you tell me my registered name?
+    - Please give me my registered name
+    - What name is registered under my account?
+    - Can you please tell me my registered name?
     - What is the name linked to my account?
     - Can you tell me what name I used to sign up?
     - Please show me the name on file
     - What's the name associated with my account?
-    - Can you inform me of my registrationed name?
+    - Can you inform me of my registered name?
     - What name did I provide when I signed up?
     - Can you remind me what name I used to registration?
     - What name did I give when I created my account?
-    - Can you tell me what name is registrationed under this account?
+    - Can you tell me what name is registered under this account?
     - Please tell me the name I used to registration
     - What name did I use to create my profile?
     - Can you remind me what name I used to sign up?
@@ -1140,7 +1140,7 @@ nlu:
     - Can you verify the name on my account?
     - Please tell me the name associated with my profile
     - What name did I use to create this account?
-    - Can you tell me what name I registrationed with?
+    - Can you tell me what name I registered with?
     - What name is linked to this account?
     - Can you help me find the name on file?
     - What name did I provide during registration?
@@ -1148,9 +1148,9 @@ nlu:
     - Can you remind me of the name I used to sign up?
     - What name did I specify when I created my account?
     - Can you tell me the name associated with my account again?
-    - Please let me know what name I registrationed with
+    - Please let me know what name I registered with
     - What name did I use to create my user profile?
-    - Can you tell me what name I used when I registrationed?
+    - Can you tell me what name I used when I registered?
     - Please show me the name I provided when I created this account
     - What name is associated with my login details?
     - Can you remind me of the name on file?
@@ -1161,7 +1161,7 @@ nlu:
     - What name did I provide when I signed up for this account?
     - Can you verify the name on file?
     - Please tell me the name associated with my user account
-    - What name did I give when I registrationed for this account?
+    - What name did I give when I registered for this account?
     - Can you tell me the name associated with this
     - What's my name?
     - Can you tell me my name?
@@ -1188,7 +1188,7 @@ nlu:
     - Show me my name
     - What name is associated with my account?
     - What is the name I provided to you?
-    - Can you display my registrationed name?
+    - Can you display my registered name?
     - What is the name you have in your system for me?
     - Can you show me the name you have on file for me?
     - I want to check the name you have for me
@@ -1201,13 +1201,13 @@ nlu:
     - Please show me the name you have on file
     - What is the name you have associated with my account?
     - Can you display the name I provided to you?
-    - What name do you have registrationed for me?
+    - What name do you have registered for me?
     - Can you confirm my name?
-    - What name did I give you when I registrationed?
+    - What name did I give you when I registered?
     - I want to know the name you have on record for me
     - What name do you have on file for me?
     - Can you display my name in your system?
-    - Please show me the name I registrationed with
+    - Please show me the name I registered with
     - What is the name you have stored for me?
     - Can you remind me of the name I provided to you?
     - What name do you have?
@@ -1312,27 +1312,27 @@ nlu:
     - Can you show my surname one more time?
     - Can you tell me my last name one more time please?
     - Please display my surname
-    - What surname is registrationed to me?
+    - What surname is registered to me?
     - Can you show me my surname one more time please?
     - I need to see my last name again
     - What's my family name exactly?
     - What was the surname I used when I signed up?
     - Can you tell me my last name again?
     - What's my last name exactly?
-    - What was my last name when I registrationed?
+    - What was my last name when I registered?
     - What's my surname at the moment?
     - What's my family name currently?
     - What surname did I provide during registration?
     - Can you display my family name?
     - I need to know my family name
-    - What's my last name registrationed as?
+    - What's my last name registered as?
     - What surname do you have for me?
     - Can you show me my surname currently?
     - What is the surname on my account?
     - Can you tell me what my last name is?
     - What's the surname I used when I signed up?
     - Can you show my family name currently?
-    - What's my last name registrationed under?
+    - What's my last name registered under?
     - Can you display my surname right now?
     - I want to check what surname I used to registration
     - My surname please
@@ -1432,7 +1432,7 @@ nlu:
     - What is the surname associated with my account, again?
     - Can you provide my surname again?
     - I'd like to verify my surname, please.
-    - What surname is registrationed under my name?
+    - What surname is registered under my name?
     - Can you tell me my last name, again?
     - What surname is listed for my account, again?
     - Could you remind me of my last name?
@@ -1444,7 +1444,7 @@ nlu:
     - What surname do you have on record for me?
     - Could you please display my surname one more time?
     - Can you remind me of my surname on file?
-    - What surname is registrationed to my name?
+    - What surname is registered to my name?
     - Can you please show me my surname again?
     - What's the surname associated with my account?
     - Could you remind me of the surname associated with my name?
@@ -1453,7 +1453,7 @@ nlu:
     - I'd like to confirm my surname again.
     - What's my last name?
     - Can you show me my last name again?
-    - What surname is registrationed to my account, once more?
+    - What surname is registered to my account, once more?
     - Could you please remind me of my last name?
     - Can you display my surname, one more time?
     - What surname is on my account?
@@ -1489,24 +1489,24 @@ nlu:
     - Can you show me how old I am right now?
     - Display my age on file
     - Can you show my current age?
-    - What age is registrationed to my name?
+    - What age is registered to my name?
     - What age do you have on file?
     - What's the age that you have?
-    - Can you show me my registrationed age?
-    - Display the age registrationed to my name
-    - Show my registrationed age
-    - Can you display my registrationed age?
+    - Can you show me my registered age?
+    - Display the age registered to my name
+    - Show my registered age
+    - Can you display my registered age?
     - What's the age you have for me?
     - I need to see the age on file
-    - Can you tell me the age registrationed to my name?
+    - Can you tell me the age registered to my name?
     - What age do you have on record?
-    - Can you display the age registrationed under my name?
-    - Can you show me the age that's registrationed under my name?
-    - Show me the age registrationed under my name
-    - What is the age registrationed to my name?
-    - What's the age registrationed under my name?
+    - Can you display the age registered under my name?
+    - Can you show me the age that's registered under my name?
+    - Show me the age registered under my name
+    - What is the age registered to my name?
+    - What's the age registered under my name?
     - Can you tell me the age that's on record?
-    - Please display the age registrationed to my name
+    - Please display the age registered to my name
     - Show my age
     - What is my age
     - Can you display my age
@@ -3916,8 +3916,8 @@ nlu:
     - I want to send $5300 to my grandchild
     - Transfer $5400 to my godparent's account
     - Can I send $5500 to my in-law's account?
-    - I'd like to transfer $5600 to my fiancé's account
-    - Transfer $5700 to my fiancée's account
+    - I'd like to transfer $5600 to my fiance's account
+    - Transfer $5700 to my fiance's account
     - Please send $5800 to my grandchild's account
     - Move $5900 to my relative's account
     - I need to transfer $6000 to my friend's account

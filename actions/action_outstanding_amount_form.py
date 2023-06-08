@@ -50,7 +50,7 @@ class ActionSubmitOutstandingAmountForm(BaseSubmitAction):
         payment_amount = tracker.get_slot('outstanding_amount_payment_slot')
 
         queries_location.pay_outstanding_amount_query_by_card_number(card_number,
-                                                                     payment_amount)  # Update this function to process by card number
+                                                                     payment_amount)
 
         dispatcher.utter_message("Payment successful!")
 

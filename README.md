@@ -93,7 +93,7 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
     - Show the user's electricity bill(show my electricity bill)
     - Show the user's water bill(show my water bill)
     - Show the user's rent bill(show my rent bill)
-17. Is users tries to login but is already login, message will be displayed.
+17. If users tries to login but is already login, message will be displayed.
 18. Pay bills:
     - Pay my bills(I want to pay my bills)
     - Pay my gas bill(I want to pay my gas bill)
