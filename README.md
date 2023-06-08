@@ -64,17 +64,18 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
 
 # Available functionalities at this time:
 1. Fully built home welcome page for Marius Bank.
-2. Greet the user
-3. Refresh session, logout on page refresh.
+2. Greet the user on application start.
+3. Refresh session(5 minutes), logout and refresh session on page refresh.
 4. Log the user in automatically - for debugging purposes.
 5. Answer to: What are you?/Are you a bot?
-6. Show company policies, redirects to a webpage with website policies.
-7. Create new user.
-8. Ask for check cnp again, if you think you mistyped it.
-9. Login when app start, or using "log me in" or similar
-10. Logout using keywords "log me out" or similar.
-11. Break outside any loop using keyword "break" or similar.
-12. Show user information for:
+6. If the users asks he is redirected to company policies, redirects to a webpage with website policies.
+7. User can create a new user from scratch.
+8. User can ask for check cnp again, if you think you mistyped it.
+9. Login when app starts, or using "log me in" or similar wording.
+10. If users tries to login but is already login, message will be displayed.
+11. Logout using keywords "log me out" or similar wording.
+12. Break outside any loop using keyword "break" or similar wording.
+13. Show user information for:
     - Show all the user's information(show me my info)
     - Show the user's CNP(show me my cnp)
     - Show the user's name(show me my name)
@@ -84,19 +85,25 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
     - Show the user's registration date(show me my registration date)
     - Show the user's current balance(show me my balance)
     - Show the user's current slots(show my slots) - this is for debugging purposes
-13. Can't use break outside a loop, user is informed there is nothing to break.
-14. When the bot does not know what to do, there is a standard message shown to the user.
-15. Transfer funds to another account by account number.
-16. Show user bills:
+14. Can't use break outside a loop, user is informed there is nothing to break.
+15. When the bot does not know what to do or does not understand, there is a standard fallback message shown to the 
+    user.
+16. Transfer funds to another account by account number.
+17. Show user bills:
     - Show the user's bills and total(show me my bills)
     - Show the user's gas bill(show my gas bill)
     - Show the user's electricity bill(show my electricity bill)
     - Show the user's water bill(show my water bill)
     - Show the user's rent bill(show my rent bill)
-17. If users tries to login but is already login, message will be displayed.
 18. Pay bills:
     - Pay my bills(I want to pay my bills)
     - Pay my gas bill(I want to pay my gas bill)
     - Pay my electricity bill(I want to pay my electricity bill)
     - Pay my water bill(I want to pay my water bill)
     - Pay my rent bill(I want to pay my rent bill)
+19. All the users transactions are logged to the transactions table.
+20. User can query transactions by date, type or account number(only for transfers).
+21. Credit cards table is created with prepopulated data that attributes random credit cards to each user.
+22. User can query to see all credit cards or individual ones by credit card number.
+23. The user can also leave feedback that is stored in a feedback table.
+24. A script to create, delete, update, clear and populate with realistic looking data is also available.
