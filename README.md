@@ -3,6 +3,9 @@ This will be a bot in the RASA framework that will take the place of an online b
 
 # Requirements:
 - Python 3.8.10 or higher
+- Rasa 3.4.4
+- rasa-webchat 1.0.1
+- mysqlclient 2.1.1
 
 # Hot to install:
 1. Pull code to your local machine.
@@ -107,3 +110,62 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
 22. User can query to see all credit cards or individual ones by credit card number.
 23. The user can also leave feedback that is stored in a feedback table.
 24. A script to create, delete, update, clear and populate with realistic looking data is also available.
+
+# Tables used:
+Users Table:
+
+1. Columns: id, CNP, name, surname, age, password, account_number, registration_date, balance
+Purpose: Stores information about bank users, including their personal details and account information.
+Bills Table:
+
+2. Columns: id, cnp, gas, electricity, water, rent
+Purpose: Stores bill information for each user, including gas, electricity, water, and rent bills.
+Transactions Table:
+
+3. Columns: id, CNP, transaction_type, target, amount, transaction_date
+Purpose: Stores transaction details, such as the type of transaction, target account, amount, and transaction date.
+Credit Cards Table:
+
+4. Columns: id, CNP, card_number, card_type, credit_limit, outstanding_amount, due_date
+Purpose: Stores information about credit cards linked to user accounts, including card details, credit limits, and outstanding amounts.
+Feedback Table:
+
+5. Columns: id, CNP, feedback, date
+Purpose: Stores user feedback and associated dates for future reference.
+
+# Database management script functionalities:
+# Users table:
+1 - create the users table <br />
+2 - delete the users table <br />
+3 - clear data from users table <br />
+4 - add random users to the user table by cnp (uses the CNP global variable) <br />
+5 - delete a user by cnp (uses the CNP global variable) <br />
+
+# Bills table:
+6 - create bills table <br />
+7 - delete bills table <br />
+8 - clear data from bills table <br />
+9 - add random taxes for user by cnp (uses the CNP global variable) <br />
+
+# Transactions table:
+10 - create transactions table <br />
+11 - delete transactions table <br />
+12 - clear data from the transactions table <br />
+
+# Credit cards table
+13 - create credit cards table <br />
+14 - delete credit cards table <br />
+15 - clear credit cards table <br />
+16 - add random credit card by user cnp (uses the CNP global variable) <br />
+
+# Feedback table
+17 - create feedback table <br />
+18 - delete feedback table <br />
+19 - clear feedback table <br />
+
+# Populate tables
+20 - populate users table (uses the NUMBER_OF_USERS global variable) <br />
+21 - populate bills table <br />
+22 - populate transactions table <br />
+23 - populate credit cards table <br />
+24 - populate feedback table <br />
