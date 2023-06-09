@@ -1,5 +1,7 @@
 # RasaBankBot
-This will be a bot in the RASA framework that will take the place of an online bank teller to help customers.
+This is a bot in the RASA framework that will take the place of an online bank teller to help customers.
+The interface is a small widget at the bottom of the bank page where the user can chat with the bot and even perform 
+bank transactions of various kinds or get information about the bank or his own finances or other relevant information.
 
 # Requirements:
 - Python 3.8.10 or higher
