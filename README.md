@@ -51,21 +51,9 @@ bank transactions of various kinds or get information about the bank or his own 
 To start the action server, this will work for breakpoints in intellij or pycharm, use the script provided in the picture below and tart it like this:
 ![rasa action server](https://user-images.githubusercontent.com/20334644/219470306-a998c38d-5b2a-4598-8d2e-5a39ae35f4d3.PNG)
 
-# How to create DB:
-**This will clear the database, create a table users with:**
--id(int)
--CNP(string 4 chars numbers only), last 2 digits show person age
--identify password(min 6 chars, 1 letter, 1 number, and confirmation)
--account number(string 4 chars number only), 
--name(string, letters only, capitalize before logging in the database), 
--surname(string, letters only, capitalize before logging in the database), 
--age(string 2 number chars), 
--registration date(date format), 
--balance(int), 
-
 - **Steps**:
 Right click on database_schema_structure_update.py and click on Run.
-Or in the cmd(inside the project folder): python database_schema_structure_update.py
+Or in the cmd(inside the project folder): python database_scripts.py
 
 # Available functionalities at this time:
 1. Fully built home welcome page for Marius Bank.
@@ -114,25 +102,28 @@ Or in the cmd(inside the project folder): python database_schema_structure_updat
 24. A script to create, delete, update, clear and populate with realistic looking data is also available.
 
 # Tables used:
-Users Table:
-
-1. Columns: id, CNP, name, surname, age, password, account_number, registration_date, balance
+1. Users table:
+Columns: id, CNP, name, surname, age, password, account_number, registration_date, balance
 Purpose: Stores information about bank users, including their personal details and account information.
 Bills Table:
 
-2. Columns: id, cnp, gas, electricity, water, rent
+2. Bills table:
+Columns: id, cnp, gas, electricity, water, rent
 Purpose: Stores bill information for each user, including gas, electricity, water, and rent bills.
 Transactions Table:
 
-3. Columns: id, CNP, transaction_type, target, amount, transaction_date
+3. Transactions table:
+Columns: id, CNP, transaction_type, target, amount, transaction_date
 Purpose: Stores transaction details, such as the type of transaction, target account, amount, and transaction date.
 Credit Cards Table:
 
-4. Columns: id, CNP, card_number, card_type, credit_limit, outstanding_amount, due_date
+4. Credit cards table: 
+Columns: id, CNP, card_number, card_type, credit_limit, outstanding_amount, due_date
 Purpose: Stores information about credit cards linked to user accounts, including card details, credit limits, and outstanding amounts.
 Feedback Table:
 
-5. Columns: id, CNP, feedback, date
+5. Feedback table: 
+Columns: id, CNP, feedback, date
 Purpose: Stores user feedback and associated dates for future reference.
 
 # Database management script functionalities:
