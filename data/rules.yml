@@ -5,7 +5,8 @@ rules:
 - rule: Init intent triggers greet and login form
   steps:
   - intent: init_intent
-  - action: action_log_me_in
+  - action: login_form
+  - active_loop: login_form
 
 ### General rules ###
 - rule: Say 'I am a bot' anytime the user challenges

@@ -14,16 +14,16 @@ pipeline:
   min_ngram: 1
   max_ngram: 4
 - name: DIETClassifier
-  epochs: 20
+  epochs: 200
   use_text_for_featurization: true
   constrain_similarities: true
-  tf_gpu_memory_fraction: 0.8
-  batch_size: 64
+  tf_gpu_memory_fraction: 0.9
+  batch_size: 256
 - name: EntitySynonymMapper
 - name: ResponseSelector
-  epochs: 20
+  epochs: 200
   constrain_similarities: true
-  batch_size: 64
+  batch_size: 256
 - name: FallbackClassifier
   threshold: 0.7
   ambiguity_threshold: 0.1
@@ -34,14 +34,14 @@ policies:
 - name: RulePolicy
 - name: UnexpecTEDIntentPolicy
   max_history: 10
-  epochs: 20
+  epochs: 200
   similarity_type: 'auto'
-  batch_size: 64
+  batch_size: 256
 - name: TEDPolicy
   max_history: 10
-  epochs: 20
+  epochs: 200
   constrain_similarities: true
-  batch_size: 64
+  batch_size: 256
 
 action_server:
   url: "http://localhost:5055/webhook"

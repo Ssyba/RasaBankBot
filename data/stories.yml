@@ -2,11 +2,11 @@ version: "3.1"
 
 stories:
 ### Init intent triggers greet and login form ###
-#- story: Init intent triggers greet and login form
-#  steps:
-#  - intent: init_intent
-#  - action: login_form
-#  - active_loop: login_form
+- story: Init intent triggers greet and login form
+  steps:
+  - intent: init_intent
+  - action: login_form
+  - active_loop: login_form
 
 ### General rules ###
 - story: Say 'I am a bot' anytime the user challenges
